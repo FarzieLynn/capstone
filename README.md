@@ -60,3 +60,11 @@ Our app provides these critical functionalities.
 * Type `npm install` to gain all the dependencies required for this application (bcrypt, cookie-parser, cors, dotenv, express, knex, morgan, nodemon, pg)
 
 * run `npm start` to start your server 
+
+## Contributions
+* Tanner Anderson - https://github.com/tanderson539
+* Evan Colon - https://github.com/EvanColon
+* Ryan Binkley - https://github.com/ryan-binkley
+* Farzanna Dube - https://github.com/FarzieLynn
+* Anthony Laurio -https://github.com/AnthonyLaurio
+* John "Corey" Milan - https://github.com/Dasubel
