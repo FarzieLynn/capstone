@@ -1,7 +1,7 @@
 # SDI Capstone
 ## Group C
 
-***Military Anonymous: Seeking Expert Advice from within***
+***Military Anonymous: A safe space to address your personal needs***
 
 ### Problem Statement
 As a digital military branch, we'd like to integrate the pillars of resiliency  into a usable application at the servicemember's disposal.  All authenticated users would have the opportunity to seek out mental health (first shirt/chaplain), financial wellness, physical fitness, and mentoring/networking capabilities.
@@ -60,3 +60,11 @@ Our app provides these critical functionalities.
 * Type `npm install` to gain all the dependencies required for this application (bcrypt, cookie-parser, cors, dotenv, express, knex, morgan, nodemon, pg)
 
 * run `npm start` to start your server 
+
+## Contributions
+* Tanner Anderson - https://github.com/tanderson539
+* Evan Colon - https://github.com/EvanColon
+* Ryan Binkley - https://github.com/ryan-binkley
+* Farzanna Dube - https://github.com/FarzieLynn
+* Anthony Laurio -https://github.com/AnthonyLaurio
+* John "Corey" Milan - https://github.com/Dasubel
