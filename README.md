@@ -1,7 +1,7 @@
 # SDI Capstone
 ## Group C
 
-***Military Anonymous: Seeking Expert Advice from within***
+***Military Anonymous: A safe space for your personal needs***
 
 ### Problem Statement
 As a digital military branch, we'd like to integrate the pillars of resiliency  into a usable application at the servicemember's disposal.  All authenticated users would have the opportunity to seek out mental health (first shirt/chaplain), financial wellness, physical fitness, and mentoring/networking capabilities.
