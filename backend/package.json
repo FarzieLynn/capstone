@@ -20,5 +20,8 @@
     "nodemon": "^2.0.22",
     "pg": "^8.10.0",
     "postgres": "^3.3.4"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0"
   }
 }
