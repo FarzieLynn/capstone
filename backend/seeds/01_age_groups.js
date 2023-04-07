@@ -17,5 +17,6 @@ exports.seed = async function(knex) {
     {id: 6, age_group:'42-46'},
     {id: 7, age_group:'47-51'},
     {id: 8, age_group:'52-56'},
+    {id: 9, age_group:'57+'}
   ]);
 };

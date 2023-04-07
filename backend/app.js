@@ -1,15 +1,59 @@
-const express = require('express');
-const morgan = require('morgan');
-const cors = require('cors');
+const express = require("express");
+const morgan = require("morgan");
+const cors = require("cors");
+const expressSession = require("express-session");
+const KnexSessionStore = require("connect-session-knex")(expressSession);
+const knex = require("./db/dbConnection");
+require("dotenv").config();
 
 const app = express();
 
-app.use(morgan('tiny'));
-app.use(cors());
-app.use(express.json());
+const store = new KnexSessionStore({
+  knex,
+  tablename: "sessions",
+});
 
-app.get('/', (req, res) => {
-  res.send('API server is up and running.');
-})
+app.use(morgan("tiny"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Sets up CORS policy
+app.use(
+  cors({
+    origin: "http://localhost:3001",
+    methods: ["GET", "POST", "PUT", "OPTIONS", "HEAD", "DELETE"],
+    credentials: true,
+  })
+);
+
+// Creates session cookies when user navigates to the app.
+app.use(
+  expressSession({
+    name: "connect.sid",
+    secret: process.env.SESSION_TOKEN_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    store: store,
+    cookie: {
+      secure: false,
+      httpOnly: true,
+      sameSite: "lax",
+      maxAge: 1000 * 60 * 60 * 12, // Expires after 12 hours
+    },
+  })
+);
+
+// Imports and uses all of our route files.
+const users = require("./routes/users");
+const session = require("./routes/session");
+const login = require("./routes/login");
+
+app.use("/users", users);
+app.use("/session", session);
+app.use('/login', login);
+
+app.get("/", async (req, res) => {
+  res.json("API is up and running.");
+});
 
 module.exports = app;
