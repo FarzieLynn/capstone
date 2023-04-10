@@ -3,6 +3,7 @@ const { checkIfUsernameExists, postUser } = require("../db/authControllers");
 const bcrypt = require("bcrypt");
 const router = express.Router();
 
+//Register endpoint
 router.post("/", async (req, res) => {
   const { username, password } = req.body;
 
