@@ -1,8 +1,14 @@
 import React, { useContext, useState } from "react";
 import LoginForm from "../components/forms/LoginForm";
+import {AppContext} from '../App';
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const [loginFailed, setLoginFailed] = useState(false);
+
+  const navigate = useNavigate();
+
+  const {user, setUser} = useContext(AppContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -27,7 +33,11 @@ function LoginPage() {
         },
       })
       .then((data) => data.json())
-      .then(data => console.log('login successful!', data));
+      .then(data => {
+        console.log('login successful. Setting user info.', data)
+        setUser(data);
+        navigate('/home');
+      });
     }
   };
 

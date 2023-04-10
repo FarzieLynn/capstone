@@ -1,6 +1,11 @@
-const express = require('express');
-const { checkIfUsernameExists, getUser, getUserRoles } = require("../db/authControllers");
-const {comparePasswords} = require('../utilities/authorization');
+const express = require("express");
+const {
+  checkIfUsernameExists,
+  getUser,
+  getUserRoles,
+  getUserPublicInformation,
+} = require("../db/authControllers");
+const { comparePasswords, authenticateToken } = require("../utilities/authorization");
 const jwt = require("jsonwebtoken");
 let router = express.Router();
 
@@ -13,20 +18,33 @@ router.post("/", async (req, res) => {
 
   const userExists = await checkIfUsernameExists(username);
 
-  if(userExists){
-
+  if (userExists) {
     const userData = await getUser(username);
-    const userRoles = await getUser(username);
+    const publicData = await getUserPublicInformation(username);
     const roles = await getUserRoles(userData[0].id);
 
-    return comparePasswords(password, userData[0].password)
-      .then(result => {
+    return comparePasswords(password, userData[0].password).then((result) => {
+      if (result) {
         //Generates a user JWT based on their roles after successful authentication.
-        const accessToken = jwt.sign({username:username, roles:roles}, process.env.ACCESS_TOKEN_SECRET);
-        res.cookie('access_token', accessToken).json('Login successful!');
-      })
+        const accessToken = jwt.sign(
+          { username: username, roles: roles },
+          process.env.ACCESS_TOKEN_SECRET, {expiresIn:'12h'}
+        );
+        return res.cookie("access_token", accessToken, {maxAge:1000 * 60 * 60 * 12}).json({publicData:publicData[0], roles:
+          roles});
+      }
+      return res.json("Incorrect username or password.");
+    });
   }
   res.status(500).send();
 });
+
+
+router.post('/logout', (req, res) => {
+  req.session.destroy();
+  res.clearCookie("connect.sid");
+  res.clearCookie("access_token");
+  return res.status(201).json('Logout successful.');
+})
 
 module.exports = router;

@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
   if (!userExists) {
     return bcrypt.hash(password, 12, (err, hash) => {
       const user = {
-        id: 30002,
+        id: 30003,
         username: username,
         password: hash,
       };

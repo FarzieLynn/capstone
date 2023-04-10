@@ -13,6 +13,7 @@ exports.up = function(knex) {
     table.integer('age_group');
     table.foreign('age_group').references('age_groups.id');
     table.string('gender');
+    table.boolean('isAnonymous');
   })
 };
 
