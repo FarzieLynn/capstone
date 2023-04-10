@@ -8,8 +8,6 @@ let router = express.Router();
 router.post("/", async (req, res) => {
   const { username, password } = req.body;
 
-  console.log(req.sessionID);
-
   if (username === undefined || password === undefined)
     res.send(400).json("Bad request");
 

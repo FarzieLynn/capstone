@@ -9,7 +9,6 @@ const getUser = (username) => {
 };
 
 const getUserRoles = async (userID) => {
-  console.log(userID)
   const roles = await knex
     .select("roles.role_name")
     .from("users")
