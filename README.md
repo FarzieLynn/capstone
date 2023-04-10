@@ -19,33 +19,32 @@ Our app provides these critical functionalities.
 	* Once cloned:
 			* open the repo with VSCode
 
-**2. Set up your Database**
+**2. Setup your .env files**
+
+* In the root folder, create a *.env* file.
+	* Copy the contents of *.env copy* into your *.env* file.
+
+* Repeat this process in the /backend folder.
+
+**3. Set up your Database**
 
 * Open Docker Desktop
 
-* Next, open your preferred terminal **NOTE: be sure the terminal you use to open your back-end is the same terminal you use for your front-end application**
+* Go to your VSCode and open your terminal
 
-* Run the following command to pull down a Dockerized Postgres image from the cloud `docker pull postgres`
+* From the root project directory, run the command *docker-compose up* **This should create your docker container, run it, and create a database named capstone_db.
 
-* Next, you will need to create the directories that will house your database data by running this command `mkdir -p $HOME/docker/volumes/postgres`
-
-* Run the following command to start up a Docker Postgres container instance of the image that was pulled `docker run --rm --name pg-docker -e POSTGRES_PASSWORD=docker -d -p 5432:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data postgres`
-
-* This should populate a PSQL Container ID. Then run the following command `docker exec -it <first 3 characters of the PSQL-Container-ID> bash`
+* To verify it is up and running, open Docker Desktop and open the terminal for your postgres instance
 
 * Run the following command `psql -U postgres`
 
-* When you type in `\l` it will populate a list of databases. You will need to add a database to that list of databases for this application. Run the following command `CREATE DATABASE capstone_db;` **NOTE: Don't forget your semicolon! If you do, immediately after you hit enter, add the semi-colon and hit enter again**
-
-* Go to your VSCode and open your terminal
+* When you type in `\l` it will populate a list of databases. You should see capstone_db in the list.
 
 **3. Back-end**
 
 **NOTE: be sure to change directory to the back-end**
 
 * Type `npm install`
-
-* You should see a `knexfile.js` and a `.env` file. If your `.env` file is not there, copy paste the following *CONNECTION_STRING='postgres://USER:PASSWORD@localhost/DATABASENAME'* into a new file named '.env' in the back-end directory. Be sure to replace the USER:PASSWORD with your postgres Username and Password, i.e.(*CONNECTION_STRING='postgres://postgres:docker@localhost/capstone_db'*)
 
 * Next, you will need to run the following command `npx knex migrate:latest`
 

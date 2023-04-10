@@ -34,10 +34,3 @@ function App() {
 }
 
 export default App;
-
-// fetch(`http://localhost:8080/fetch-user`, {
-//   method: "POST",
-//   credentials: "include",
-// })
-//   .then((response) => response.json())
-//   .then((userData) => setUser(userData));

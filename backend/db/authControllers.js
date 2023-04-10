@@ -8,6 +8,10 @@ const getUser = (username) => {
   return knex.select("*").from("users").where({ username: username });
 };
 
+const getUserPublicInformation = (username) => {
+  return knex.select("id", "username", "email", "branch", "full_name", "age_group", "gender").from("users").where({ username: username });
+}
+
 const getUserRoles = async (userID) => {
   const roles = await knex
     .select("roles.role_name")
@@ -47,4 +51,5 @@ module.exports = {
   checkIfUsernameExists,
   getUser,
   getUserRoles,
+  getUserPublicInformation,
 };
