@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import LoginForm from "../components/forms/LoginForm";
-import AppContext from '../App';
+import {AppContext} from '../App';
 
 function LoginPage() {
   const [loginFailed, setLoginFailed] = useState(false);
@@ -30,7 +30,7 @@ function LoginPage() {
         },
       })
       .then((data) => data.json())
-      .then(data => console.log('login successful!', data));
+      .then(data => setUser(data));
     }
   };
 

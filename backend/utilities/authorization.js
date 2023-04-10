@@ -26,10 +26,12 @@ const comparePasswords = (plainText, hashed) => {
   .catch(err => console.error(err));
 }
 
-// const authenticateRole = (role) => {
-//   return (req, res, next) => {
-//     if(req.)
-//   }
-// }
+const authenticateRole = (role) => {
+  return (req, res, next) => {
+    if(1==1){
+
+    }
+  }
+}
 
 module.exports = {authenticateToken, comparePasswords};
