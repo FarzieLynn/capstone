@@ -6,6 +6,7 @@ import { createContext, useState, useEffect } from "react";
 import RegisterPage from "./pages/RegisterPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import NavBar from "./components/NavBar";
+import cookie from "cookie";
 
 export const AppContext = createContext({});
 
@@ -14,13 +15,29 @@ function App() {
   const [url, setUrl] = useState("http://localhost:8080");
 
   useEffect(() => {
-    fetch(`http://localhost:8080/`, {
-      method: "GET",
-      "Access-Control-Allow-Origin": "*",
-      credentials: "include",
-    })
+    const token = cookie.parse(document.cookie).access_token;
+    let obj = {};
+
+    if (token) {
+      obj = {
+        method: "POST",
+        "Access-Control-Allow-Origin": "*",
+        credentials: "include",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+    } else {
+      obj = {
+        method: "POST",
+        "Access-Control-Allow-Origin": "*",
+        credentials: "include",
+      };
+    }
+
+    fetch(`http://localhost:8080/fetch-login`, obj)
       .then((response) => response.json())
-      .then((userData) => console.log(userData));
+      .then((userData) => setUser(userData[0]));
   }, []);
 
   return (
@@ -29,10 +46,11 @@ function App() {
         <div className="App">
           <NavBar />
         </div>
+        <div>Logged in as {user ? user.username : 'Guest'}</div>
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="*" element={<NotFoundPage />}/>
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </AppContext.Provider>
     </>
