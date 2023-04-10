@@ -1,6 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
+const cookieParser = require('cookie-parser');
 const expressSession = require("express-session");
 const KnexSessionStore = require("connect-session-knex")(expressSession);
 const knex = require("./db/dbConnection");
@@ -15,6 +16,7 @@ const store = new KnexSessionStore({
 
 app.use(morgan("tiny"));
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
 // Sets up CORS policy
@@ -53,6 +55,7 @@ app.use("/session", session);
 app.use('/login', login);
 
 app.get("/", async (req, res) => {
+  console.log(req.cookies.access_token)
   res.json("API is up and running.");
 });
 
