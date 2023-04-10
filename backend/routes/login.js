@@ -16,14 +16,13 @@ router.post("/", async (req, res) => {
   if(userExists){
 
     const userData = await getUser(username);
-    const userRoles = await getUser(username);
     const roles = await getUserRoles(userData[0].id);
 
     return comparePasswords(password, userData[0].password)
       .then(result => {
         //Generates a user JWT based on their roles after successful authentication.
         const accessToken = jwt.sign({username:username, roles:roles}, process.env.ACCESS_TOKEN_SECRET);
-        res.cookie('access_token', accessToken).json('Login successful!');
+        res.cookie('access_token', accessToken).json(userData);
       })
   }
   res.status(500).send();
