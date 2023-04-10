@@ -5,7 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import { createContext, useState, useEffect } from "react";
 import RegisterPage from "./pages/RegisterPage";
 import NotFoundPage from "./pages/NotFoundPage";
-
+import MentalHealth from "./components/MentalHealth";
 export const AppContext = createContext({});
 
 function App() {
@@ -29,6 +29,7 @@ function App() {
           <Route path="/" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="*" element={<NotFoundPage />}/>
+          <Route path="/mentalhealth" element={<MentalHealth />}/>
         </Routes>
       </AppContext.Provider>
     </>

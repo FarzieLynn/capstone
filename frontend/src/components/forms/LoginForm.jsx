@@ -26,7 +26,7 @@ function LoginForm({ loginFailed, handleSubmit }) {
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Check me out" />
       </Form.Group>
-      <Button variant="primary" className="m-2" onClick={(e)=>handleSubmit(e)}>
+      <Button variant="primary" className="m-2" onClick={(e)=> {handleSubmit(e)}} >
         Submit
       </Button>
       <Button variant="primary" onClick={(e) => navigate('/register')}>
