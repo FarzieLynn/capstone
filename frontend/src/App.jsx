@@ -11,7 +11,7 @@ export const AppContext = createContext({});
 
 function App() {
   const [user, setUser] = useState({});
-  const [url, setUrl] = useState("http://localhost:8080/");
+  const [url, setUrl] = useState("http://localhost:8080");
 
   useEffect(() => {
     fetch(`http://localhost:8080/`, {
@@ -30,7 +30,7 @@ function App() {
           <NavBar />
         </div>
         <Routes>
-          <Route path="/" element={<LoginPage />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="*" element={<NotFoundPage />}/>
         </Routes>
