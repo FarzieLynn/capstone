@@ -1,0 +1,9 @@
+.navbar-main {
+  background-color: #08605f;
+  color: white;
+}
+
+.navbar-links:hover {
+  text-decoration: underline;
+  
+}
