@@ -17,6 +17,7 @@ function LoginPage() {
     if (username.value !== "" && password !== "") {
       fetch("http://localhost:8080/login", {
         method: "POST",
+        credentials: "include",
         body: JSON.stringify({
           username: username.value,
           password: password.value,
