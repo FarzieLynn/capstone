@@ -1,6 +1,7 @@
 import { Form, Button } from "react-bootstrap";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import PrivacyAct from "../PrivacyAct";
 
 function LoginForm({ loginFailed, handleSubmit }) {
   const navigate = useNavigate();
@@ -32,6 +33,11 @@ function LoginForm({ loginFailed, handleSubmit }) {
         Register
       </Button>
 
+      <Button variant="primary" className="m-2" onClick={(e) => navigate('/registerpro')}>
+        Register as Specialist
+      </Button>
+
+      <PrivacyAct className="privacy-act"/>
     </Form>
   );
 }

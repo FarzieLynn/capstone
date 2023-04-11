@@ -11,14 +11,14 @@ exports.up = function(knex) {
     table.string('branch').notNullable();
     table.string('current_status');
     table.string('full_name').notNullable();
-    table.integer('age_group');
-    table.foreign('age_group').references('age_groups.id');
+    table.string('age_group');
     table.string('gender');
     table.string('education_level');
     table.string('phone_number');
     table.text('about_you');
     table.jsonb('personal_goals');
     table.boolean('is_professional');
+    table.boolean('is_verified');
     table.boolean('is_anonymous');
   })
 };
