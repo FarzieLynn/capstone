@@ -10,6 +10,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import MentalHealth from "./components/MentalHealth";
 import NavBar from "./components/NavBar";
 import cookie from "cookie";
+
 export const AppContext = createContext({});
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
           <Route path="/mentalhealth" element={<MentalHealth />}/>
           <Route path="/fitness" element={<FitnessPage />} />
           <Route path="*" element={<NotFoundPage />} />
+
         </Routes>
       </AppContext.Provider>
     </>
