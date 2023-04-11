@@ -3,7 +3,6 @@ import LoginForm from "../components/forms/LoginForm";
 import { AppContext } from '../App';
 import { useNavigate } from "react-router-dom";
 import { Spinner } from "../components/Spinner";
-import PrivacyAct from "../components/PrivacyAct";
 
 function LoginPage() {
   const [loginFailed, setLoginFailed] = useState(false);
@@ -56,7 +55,6 @@ function LoginPage() {
           ) : (
             <>
               <LoginForm handleSubmit={handleSubmit} loginFailed={loginFailed} />
-              <PrivacyAct className="privacy-act"/>
             </>
           )}
         </div>
