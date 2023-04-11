@@ -5,7 +5,7 @@ const {
   getUserRoles,
   getUserPublicInformation,
 } = require("../db/authControllers");
-const { comparePasswords } = require("../utilities/authorization");
+const { comparePasswords, authenticateToken } = require("../utilities/authorization");
 const jwt = require("jsonwebtoken");
 let router = express.Router();
 
@@ -28,9 +28,9 @@ router.post("/", async (req, res) => {
         //Generates a user JWT based on their roles after successful authentication.
         const accessToken = jwt.sign(
           { username: username, roles: roles },
-          process.env.ACCESS_TOKEN_SECRET
+          process.env.ACCESS_TOKEN_SECRET, {expiresIn:'12h'}
         );
-        return res.cookie("access_token", accessToken, {maxAge:1000 * 60 * 60 * 12}).json({publicData:publicData, roles:
+        return res.cookie("access_token", accessToken, {maxAge:1000 * 60 * 60 * 12}).json({publicData:publicData[0], roles:
           roles});
       }
       return res.json("Incorrect username or password.");
@@ -39,9 +39,6 @@ router.post("/", async (req, res) => {
   res.status(500).send();
 });
 
-router.post('/fetch-login', (req, res) => {
-  
-})
 
 router.post('/logout', (req, res) => {
   req.session.destroy();

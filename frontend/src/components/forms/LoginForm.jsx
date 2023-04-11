@@ -1,6 +1,6 @@
 import { Form, Button } from "react-bootstrap";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function LoginForm({ loginFailed, handleSubmit }) {
   const navigate = useNavigate();
@@ -14,24 +14,24 @@ function LoginForm({ loginFailed, handleSubmit }) {
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Username</Form.Label>
         <Form.Control type="text" name='username' placeholder="Enter username" />
-        <Form.Text className="text-muted">
-          We'll never share your username with anyone else.
-        </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control type="password" name='password' placeholder="Password" />
       </Form.Group>
+      
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
+        <Link to="/forgotpassword">Forgot Password?</Link>
       </Form.Group>
       <Button variant="primary" className="m-2" onClick={(e)=> {handleSubmit(e)}} >
         Submit
       </Button>
+
       <Button variant="primary" onClick={(e) => navigate('/register')}>
         Register
       </Button>
+
     </Form>
   );
 }
