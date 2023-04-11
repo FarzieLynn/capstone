@@ -5,7 +5,6 @@ import LoginPage from "./pages/LoginPage";
 import { createContext, useState, useEffect } from "react";
 import RegisterPage from "./pages/RegisterPage";
 import FitnessPage from "./pages/FitnessPage";
-import HomePage from './pages/MainPage';
 import NotFoundPage from "./pages/NotFoundPage";
 import MentalHealth from "./components/MentalHealth";
 import HomePage from "./pages/HomePage";
