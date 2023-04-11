@@ -1,28 +1,37 @@
-.fitness {
-    background: #073b4c;
+.mental {
+    background: #fcdfa6;
 }
 
-.fitnessTitles{
+.questions{
+    text-align: center;
+    margin-top: 3%;
+    color: #8a7066;
+}
+
+.link-click:hover{
+    cursor: pointer;
+}
+.mentalTitles{
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #ffd116;
+    color: #8a7066;
 }
 
-.fitnessTitleLg{
+.mentalTitleLg{
     position: absolute;
     top: 20%;
     font-size: 100px;
 }
 
-.fitnessImg{
+.mentalImg{
     position: center;
-    margin-top: 30%;
+    margin-top: 20%;
 }
 
-.fitnessBlurb{
-    color: #ffd116;
+.mentalBlurb{
+    color: #8a7066;
     margin-top: 3%;
     margin-left: 20%;
     margin-right: 20%;
@@ -30,16 +39,4 @@
     font-style: italic;
     font-size: 20px;
     height: 100vh;
-}
-
-.fitnessAlert{
-    margin-top: 20%;
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    color: #ef476f;
-}
-
-.link:hover{
-    cursor: pointer;
 }

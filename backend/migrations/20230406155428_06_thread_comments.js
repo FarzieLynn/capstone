@@ -6,9 +6,11 @@ exports.up = function(knex) {
   return knex.schema.createTable('thread_comments', table => {
     table.increments('id');
     table.integer('thread_id');
-    table.foreign('thread_id').references('threads.id');
+    table.foreign('thread_id').references('threads.id')
+      .onDelete('CASCADE');
     table.integer('comment_author');
-    table.foreign('comment_author').references('users.id');
+    table.foreign('comment_author').references('users.id')
+      .onDelete('CASCADE');
     table.text('comment_content');
     table.timestamp('comment_timestamp');
   });

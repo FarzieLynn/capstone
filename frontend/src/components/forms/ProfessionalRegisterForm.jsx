@@ -2,7 +2,7 @@ import { Form, Button } from "react-bootstrap";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function RegisterForm({ loginFailed, handleSubmit }) {
+function ProfessionalRegisterForm({ loginFailed, handleSubmit }) {
   const navigate = useNavigate();
 
   return (
@@ -23,9 +23,6 @@ function RegisterForm({ loginFailed, handleSubmit }) {
           name="full_name"
           placeholder="Enter first and last name"
         />
-        <Form.Text className="text-muted">
-          All information is kept anonymous if specified.
-        </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -43,6 +40,16 @@ function RegisterForm({ loginFailed, handleSubmit }) {
       </Form.Group>
 
       <Form.Group className="mb-3">
+        <Form.Label>.mil Email</Form.Label>
+        <Form.Control type="text" name="email" placeholder="Enter email" />
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Label>Phone/DSN</Form.Label>
+        <Form.Control type="text" name="phone" placeholder="Enter phone #" />
+      </Form.Group>
+
+      <Form.Group className="mb-3">
         <Form.Label>Military Branch</Form.Label>
         <Form.Select type="text" name="branch" placeholder="Military Branch">
           <option>Space Force</option>
@@ -50,31 +57,6 @@ function RegisterForm({ loginFailed, handleSubmit }) {
           <option>Army</option>
           <option>Navy</option>
           <option>Marines</option>
-        </Form.Select>
-      </Form.Group>
-
-      <Form.Group className="mb-3">
-        <Form.Label>Military Status</Form.Label>
-        <Form.Select type="text" name="status" placeholder="Military Status">
-          <option>Active Duty</option>
-          <option>Reserves</option>
-          <option>Veteren</option>
-          <option>Civilian</option>
-        </Form.Select>
-      </Form.Group>
-
-      <Form.Group className="mb-3">
-        <Form.Label>Age Group</Form.Label>
-        <Form.Select type="text" name="age_group" placeholder="Age Group">
-          <option>17-21</option>
-          <option>22-26</option>
-          <option>27-31</option>
-          <option>32-36</option>
-          <option>37-41</option>
-          <option>42-46</option>
-          <option>47-51</option>
-          <option>52-56</option>
-          <option>57+</option>
         </Form.Select>
       </Form.Group>
 
@@ -90,24 +72,16 @@ function RegisterForm({ loginFailed, handleSubmit }) {
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Check type="checkbox" name="isAnon" label="Anonymous Account?"/>
+        <Form.Label>About You</Form.Label>
+        <Form.Control as="textarea" name="about_you" rows={3} />
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label>Personal Goals:</Form.Label>
-        <Form.Check type="checkbox" label="Create and practice positive affirmations."/>
-        <Form.Check type="checkbox" label="Create a personal development plan."/>
-        <Form.Check type="checkbox" label="Get rid of toxic habits." />
-        <Form.Check type="checkbox" label="Take more action." />
-        <Form.Check type="checkbox" label="Develop resilience." />
-        <Form.Check type="checkbox" label="Become the master of my financial situation."/>
-        <Form.Check type="checkbox" label="Stop negative thoughts." />
-        <Form.Check type="checkbox" label="Develop self awareness." />
-        <Form.Check type="checkbox" label="Change my attitude and outlook on life."/>
-        <Form.Check type="checkbox" label="Find a personal and professional mentor."/>
-        <Form.Check type="checkbox" label="Become more dedicated to a healthy lifestyle."/>
-        <Form.Check type="checkbox" label="Find a workout routine that works for me."/>
-        <Form.Check type="checkbox" label="Embrace being a unique individual."/>
+        <Form.Label>Specialties:</Form.Label>
+        <Form.Check type="checkbox" name="chk_mental" label="Mental Health" />
+        <Form.Check type="checkbox" name="chk_finance" label="Finance" />
+        <Form.Check type="checkbox" name="chk_fitness" label="Fitness" />
+        <Form.Check type="checkbox" name="chk_mentor" label="Mentorship" />
       </Form.Group>
 
       <Button
@@ -124,4 +98,4 @@ function RegisterForm({ loginFailed, handleSubmit }) {
   );
 }
 
-export default RegisterForm;
+export default ProfessionalRegisterForm;
