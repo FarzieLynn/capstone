@@ -5,7 +5,7 @@ const router = express.Router();
 
 //Register endpoint
 router.post("/", async (req, res) => {
-  const { username, password, email, full_name, branch, current_status, age_group, gender, education_level, phone_number, about_you, personal_goals, is_professional, is_anonymous, roles } = req.body;
+  var { username, password, email, full_name, branch, current_status, age_group, gender, education_level, phone_number, about_you, personal_goals, is_professional, is_anonymous, roles } = req.body;
 
   if(roles === undefined) roles = [6];
 

@@ -40,7 +40,7 @@ function LoginPage() {
           console.log('login successful. Setting user info.', data)
           setLoading(false);
           setUser(data);
-          navigate('/home');
+          navigate('/');
         });
     }
   };

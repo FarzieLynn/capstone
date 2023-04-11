@@ -13,13 +13,14 @@ import HomePage from "./pages/HomePage";
 import NavBar from "./components/NavBar";
 import cookie from "cookie";
 import MentalHealthInfo from "./pages/MentalHealthInfo";
+import ProfilePage from "./pages/ProfilePage";
 
 
 export const AppContext = createContext({});
 
 function App() {
   const [user, setUser] = useState({});
-  const [url, setUrl] = useState("http://localhost:8080");
+  const [url] = useState("http://localhost:8080");
 
 
   const navigate = useNavigate(); 
@@ -70,8 +71,9 @@ function App() {
           <Route path="/registerpro" element={<ProfessionalRegisterPage />} />
           <Route path="/mentalhealth" element={<MentalHealth />}/>
           <Route path="/mentorship" element={<Mentorship />}/>
+          <Route path="/profile/:username" element={<ProfilePage />}/>
+      
           <Route path="*" element={<NotFoundPage />} />
-
         </Routes>
       </AppContext.Provider>
     </>
