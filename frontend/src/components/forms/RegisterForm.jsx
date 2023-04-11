@@ -66,15 +66,15 @@ function RegisterForm({ loginFailed, handleSubmit }) {
       <Form.Group className="mb-3">
         <Form.Label>Age Group</Form.Label>
         <Form.Select type="text" name="age_group" placeholder="Age Group">
-          <option>17-21</option>
-          <option>22-26</option>
-          <option>27-31</option>
-          <option>32-36</option>
-          <option>37-41</option>
-          <option>42-46</option>
-          <option>47-51</option>
-          <option>52-56</option>
-          <option>57+</option>
+          <option id="1">17-21</option>
+          <option id="2">22-26</option>
+          <option id="3">27-31</option>
+          <option id="4">32-36</option>
+          <option id="5">37-41</option>
+          <option id="6">42-46</option>
+          <option id="7">47-51</option>
+          <option id="8">52-56</option>
+          <option id="9">57+</option>
         </Form.Select>
       </Form.Group>
 

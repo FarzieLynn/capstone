@@ -5,7 +5,7 @@ const router = express.Router();
 
 //Register endpoint
 router.post("/", async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, full_name, branch, current_status, age_group, gender, is_anonymous } = req.body;
 
   if (username === undefined || password === undefined)
     res.send(400).json("Bad request");
@@ -15,9 +15,14 @@ router.post("/", async (req, res) => {
   if (!userExists) {
     return bcrypt.hash(password, 12, (err, hash) => {
       const user = {
-        id: 30003,
         username: username,
         password: hash,
+        full_name:full_name,
+        branch:branch,
+        current_status:current_status,
+        age_group:age_group,
+        gender:gender,
+        is_anonymous:is_anonymous
       };
       postUser(user)
         .then((data) => {

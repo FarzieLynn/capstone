@@ -16,7 +16,7 @@ for (let i = 0; i < usersToCreate; i++) {
     email: faker.internet.email(),
     branch: "USSF",
     full_name: faker.name.fullName(),
-    age_group: 2,
+    age_group: '17-21',
     gender: faker.name.sex(),
   };
   fakeUserArray.push(user);

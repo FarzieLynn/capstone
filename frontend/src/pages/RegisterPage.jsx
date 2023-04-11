@@ -13,30 +13,39 @@ function RegisterPage() {
     const { username, password, password_confirm, full_name, branch, status, age_group, gender, isAnon} =
       document.forms[0];
 
-      console.log(full_name.value, password_confirm.value, branch.value, status.value, age_group.value, gender.value, isAnon.checked)
+      //console.log(full_name.value, password_confirm.value, branch.value, status.value, age_group.value, gender.value, isAnon.checked)
 
-    if (password.value === "" || username === "") {
+    if (password.value === "" || username.value === "" || password_confirm.value === "" || full_name.value === "") {
       alert("Please fill out all form elements.");
+      return;
+    }else if(password.value !== password_confirm.value){
+      alert("passwords must match!");
       return;
     }
 
-    // fetch("http://localhost:8080/users", {
-    //   method: "POST",
-    //   body: JSON.stringify({
-    //     username: username.value.toLowerCase(),
-    //     password: password.value,
-    //   }),
-    //   headers: {
-    //     "Content-type": "application/json; charset=UTF-8",
-    //   },
-    // }).then((data) => {
-    //   if (data.ok) {
-    //     alert("Account created!");
-    //     navigate('/')
-    //   } else if (data.status === 400) {
-    //     alert("Username already exists. Please pick a new username.");
-    //   }
-    // });
+    fetch("http://localhost:8080/users", {
+      method: "POST",
+      body: JSON.stringify({
+        username: username.value.toLowerCase(),
+        password: password.value,
+        full_name:full_name.value,
+        branch:branch.value,
+        current_status:status.value,
+        age_group:age_group.value,
+        gender:gender.value,
+        is_anonymous:isAnon.checked
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    }).then((data) => {
+      if (data.ok) {
+        alert("Account created!");
+        navigate('/')
+      } else if (data.status === 400) {
+        alert("Username already exists. Please pick a new username.");
+      }
+    });
   };
 
   return (

@@ -1,7 +1,8 @@
 const knex = require("./dbConnection");
 
-const postUser = (user) => {
-  return knex("users").insert(user);
+const postUser = async (user) => {
+  const id = await knex("users").insert(user, ['id']);
+  return knex("role_users").insert({user_id:id[0].id, role_id:6})
 };
 
 const getUser = (username) => {
