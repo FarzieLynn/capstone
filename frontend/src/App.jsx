@@ -8,11 +8,9 @@ import FitnessPage from "./pages/FitnessPage";
 import HomePage from './pages/MainPage';
 import NotFoundPage from "./pages/NotFoundPage";
 import MentalHealth from "./components/MentalHealth";
-<<<<<<< HEAD
-=======
 import NavBar from "./components/NavBar";
 import cookie from "cookie";
->>>>>>> 587246708e82c85265a243ee27530f0b05301fdc
+
 export const AppContext = createContext({});
 
 function App() {
@@ -56,14 +54,10 @@ function App() {
           <Route path='/home' element={<HomePage />}/>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
-<<<<<<< HEAD
-          <Route path="*" element={<NotFoundPage />}/>
-          <Route path="/mentalhealth" element={<MentalHealth />}/>
-=======
           <Route path="/mentalhealth" element={<MentalHealth />}/>
           <Route path="/fitness" element={<FitnessPage />} />
           <Route path="*" element={<NotFoundPage />} />
->>>>>>> 587246708e82c85265a243ee27530f0b05301fdc
+
         </Routes>
       </AppContext.Provider>
     </>

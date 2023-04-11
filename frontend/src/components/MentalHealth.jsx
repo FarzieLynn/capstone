@@ -18,6 +18,7 @@ function MentalHealth() {
   console.log(surveyQuestionsList)
 
    useEffect(() => {
+
     surveyQuestionsList.map(question => { surveyTable.push(
       <>
       <li className="list-group-item">
@@ -61,9 +62,10 @@ function MentalHealth() {
        </Form>
      </li>
      </>
-     )
-     }));
-   }
+     );
+     })
+    }, []);
+  
       
        return(
         <div>
@@ -75,7 +77,6 @@ function MentalHealth() {
           <span>Your score is {surveyResults}</span>
           </div>
        )
-
       }
 
 export default MentalHealth;
