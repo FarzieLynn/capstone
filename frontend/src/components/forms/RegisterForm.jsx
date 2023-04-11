@@ -117,7 +117,7 @@ function RegisterForm({ loginFailed, handleSubmit }) {
       >
         Create Account
       </Button>
-      <Button variant="primary" onClick={(e) => navigate("/")}>
+      <Button variant="primary" onClick={(e) => navigate("/login")}>
         Cancel
       </Button>
     </Form>
