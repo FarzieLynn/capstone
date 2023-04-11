@@ -49,7 +49,6 @@ function App() {
         <div className="App">
           <NavBar />
         </div>
-        <div>Logged in as {user.publicData ? user?.publicData.username : 'guest'}</div>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
