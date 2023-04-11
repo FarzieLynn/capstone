@@ -31,18 +31,17 @@ const NavBar = () => {
             Military Anonymous
           </h4>
           <Nav className="w-50 justify-content-end">
-            {user.publicData !== undefined ? <span className="me-2 navbar-links">Welcome, {user.publicData.username}</span> : null}
+            {user.publicData !== undefined ? <><span className="me-2 navbar-links">Welcome, {user.publicData.username}</span>
             <span
               className="me-2 navbar-links"
-              onClick={() => navigate(`/${user?.publicData.username}`)}
+              onClick={() => navigate(`/profile/${user?.publicData.username}`)}
             >
               Profile
             </span>
-            {user.publicData !== undefined ? (
               <span className="navbar-links" onClick={() => handleLogout()}>
                 Logout
               </span>
-            ) : (
+              </> : (
               <span className="navbar-links" onClick={() => navigate("/login")}>
                 Login
               </span>
