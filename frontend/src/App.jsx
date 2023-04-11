@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import { createContext, useState, useEffect } from "react";
 import RegisterPage from "./pages/RegisterPage";
 import FitnessPage from "./pages/FitnessPage";
+import FinancePage from "./pages/FinancePage";
 import Mentorship from "./pages/Mentorship";
 import NotFoundPage from "./pages/NotFoundPage";
 import ProfessionalRegisterPage from "./pages/ProfessionalRegisterPage";
@@ -12,6 +13,9 @@ import MentalHealth from "./components/MentalHealth";
 import HomePage from "./pages/HomePage";
 import NavBar from "./components/NavBar";
 import cookie from "cookie";
+import FinanceAdvanced from "./pages/FinanceAdvanced";
+import FinanceBeginner from "./pages/FinanceBeginner";
+import FinanceIntermediate from "./pages/FinanceIntermediate";
 import MentalHealthInfo from "./pages/MentalHealthInfo";
 import ProfilePage from "./pages/ProfilePage";
 
@@ -66,6 +70,10 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/fitness" element={<FitnessPage />} />
+          <Route path="/finance/advanced" element={<FinanceAdvanced />} />
+          <Route path="/finance/beginner" element={<FinanceBeginner />} />
+          <Route path="/finance/intermediate" element={<FinanceIntermediate />} />
+          <Route path="/finance" element={<FinancePage />} />
           <Route path="/mentalhealthinfo" element={<MentalHealthInfo />}/>
           <Route path="/registerpro" element={<ProfessionalRegisterPage />} />
           <Route path="/mentalhealth" element={<MentalHealth />}/>
