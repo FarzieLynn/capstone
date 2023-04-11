@@ -7,9 +7,9 @@ import RegisterPage from "./pages/RegisterPage";
 import FitnessPage from "./pages/FitnessPage";
 import HomePage from './pages/MainPage';
 import NotFoundPage from "./pages/NotFoundPage";
+import MentalHealth from "./components/MentalHealth";
 import NavBar from "./components/NavBar";
 import cookie from "cookie";
-
 export const AppContext = createContext({});
 
 function App() {
@@ -53,6 +53,7 @@ function App() {
           <Route path='/home' element={<HomePage />}/>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/mentalhealth" element={<MentalHealth />}/>
           <Route path="/fitness" element={<FitnessPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

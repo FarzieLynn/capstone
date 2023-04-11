@@ -24,8 +24,7 @@ function LoginForm({ loginFailed, handleSubmit }) {
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Link to="/forgotpassword">Forgot Password?</Link>
       </Form.Group>
-
-      <Button variant="primary" className="m-2" onClick={(e)=>handleSubmit(e)}>
+      <Button variant="primary" className="m-2" onClick={(e)=> {handleSubmit(e)}} >
         Submit
       </Button>
 
