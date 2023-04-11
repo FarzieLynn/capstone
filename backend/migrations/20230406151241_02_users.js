@@ -5,15 +5,21 @@
 exports.up = function(knex) {
   return knex.schema.createTable('users', table => {
     table.increments('id').primary();
-    table.string('username', 25);
-    table.string('password');
+    table.string('username', 25).notNullable();
+    table.string('password').notNullable();
     table.string('email');
-    table.string('branch');
-    table.string('full_name');
+    table.string('branch').notNullable();
+    table.string('current_status');
+    table.string('full_name').notNullable();
     table.integer('age_group');
     table.foreign('age_group').references('age_groups.id');
     table.string('gender');
-    table.boolean('isAnonymous');
+    table.string('education_level');
+    table.string('phone_number');
+    table.text('about_you');
+    table.jsonb('personal_goals');
+    table.boolean('is_professional');
+    table.boolean('is_anonymous');
   })
 };
 
