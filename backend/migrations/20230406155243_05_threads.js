@@ -8,7 +8,8 @@ exports.up = function(knex) {
     table.text('thread_type');
     table.text('thread_content');
     table.integer('thread_author');
-    table.foreign('thread_author').references('users.id');
+    table.foreign('thread_author').references('users.id')
+      .onDelete('CASCADE');
     table.timestamp('thread_timestamp');
   })
 };

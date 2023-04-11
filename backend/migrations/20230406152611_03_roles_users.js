@@ -5,9 +5,11 @@
 exports.up = function(knex) {
   return knex.schema.createTable('role_users', table => {
     table.integer('user_id');
-    table.foreign('user_id').references('users.id');
+    table.foreign('user_id').references('users.id')
+      .onDelete('CASCADE');
     table.integer('role_id');
-    table.foreign('role_id').references('roles.id');
+    table.foreign('role_id').references('roles.id')
+      .onDelete('CASCADE');
   })
 };
 
