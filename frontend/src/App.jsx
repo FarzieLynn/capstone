@@ -5,9 +5,9 @@ import LoginPage from "./pages/LoginPage";
 import { createContext, useState, useEffect } from "react";
 import RegisterPage from "./pages/RegisterPage";
 import FitnessPage from "./pages/FitnessPage";
-import HomePage from './pages/MainPage';
 import NotFoundPage from "./pages/NotFoundPage";
 import MentalHealth from "./components/MentalHealth";
+import HomePage from "./pages/HomePage";
 import NavBar from "./components/NavBar";
 import cookie from "cookie";
 
@@ -55,9 +55,8 @@ function App() {
         <div className="App">
           <NavBar />
         </div>
-        <div>Logged in as {user.publicData ? user?.publicData.username : 'guest'}</div>
         <Routes>
-          <Route path='/home' element={<HomePage />}/>
+          <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/mentalhealth" element={<MentalHealth />}/>
