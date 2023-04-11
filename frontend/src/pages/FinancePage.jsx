@@ -1,9 +1,10 @@
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import './Finance.css'
+import './stylesheets/Finance.css'
 
-export const Finance = () => {
+const FinancePage = () => {
     const navigate = useNavigate();
+    var finalAnswer = 0;
     const questions = [
         {
             question: 'What level of experience do you have with financial planning?',
@@ -226,34 +227,52 @@ export const Finance = () => {
         }
     ]
 
-    const [answers, setAnswers] = useState()
+    const [answers, setAnswers] = useState([]);
     const allQuestionsAnswered = () => {
-        return answers.length === questions.length  && answers.every((selection) => selection !== null)
+        return answers.length === questions.length && answers.every((selection) => selection !== null)
+    }
+
+    const submit = () => {
+        alert('Your answers have been submitted.  Thank you!')
+        decide();
+    }
+
+    const decide = () => {
+        finalAnswer = answers.reduce((a,b) => a+b, 0)
+        if(finalAnswer < 26){
+            navigate('/finance/beginner')
+        } else if(finalAnswer >= 26 && finalAnswer < 39) {
+            navigate('/finance/intermediate')
+        } else {
+            navigate('/finance/advanced')
+        }
     }
 
     return (
         <div className='quiz'>
             <div className='text-center questions position-absolute top-0 start-50 translate-middle-x'>
                 <h2 className='heading'>Please answer the following regarding your financial well-being:</h2>
-                {questions.map((q,i) => {
-                    <div className='questions'>
+                {questions.map((q, i) => (
+                    <div key={i} className='questions'>
                         <h5>{q.question}</h5>
-                        <div key={i} className='btn-group-verticle m-3' role="group">
-                            {q.answer.map((a, j) => {
-                                <div>
-                                    <input className='btn-check' name={i} id={`${i}-${j}`} type='radio' value={a.value} checked={answers[i] === a.value} onChange={(e) => setAnswers([...answers.slice(0, i), e.target.checked ? a.value : null,...answers.slice(i + 1)])}/>
+                        <div className='btn-group-verticle m-3' role="group">
+                            {q.answer.map((a, j) => (
+                                <div key={j}>
+                                    <input className='btn-check' id={`${i}-${j}`} name={i} type='radio' value={a.value} onChange={(e) => setAnswers([...answers.slice(0, i), e.target.checked ? a.value : null, ...answers.slice(i+1)])} />
                                     <label className='inputBtn btn btn-outline-dark m-1' htmlFor={`${i}-${j}`} key={j}>
                                         {a.label}
                                     </label>
                                 </div>
-                            })}
+                            ))}
                         </div>
                     </div>
-                })}
+                ))}
                 <div className='test-center position-relative quiz'>
-                    <button className='btn btn-dark pageBtn m-2' disabled={!allQuestionsAnswered()}>Submit</button>
+                    <button className='btn btn-dark pageBtn m-2' onClick={() => submit()} disabled={!allQuestionsAnswered()}>Submit</button>
                 </div>
             </div>
         </div>
     )
 }
+
+export default FinancePage;
