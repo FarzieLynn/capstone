@@ -5,12 +5,14 @@ import LoginPage from "./pages/LoginPage";
 import { createContext, useState, useEffect } from "react";
 import RegisterPage from "./pages/RegisterPage";
 import FitnessPage from "./pages/FitnessPage";
+import Mentorship from "./pages/Mentorship";
 import NotFoundPage from "./pages/NotFoundPage";
 import ProfessionalRegisterPage from "./pages/ProfessionalRegisterPage";
 import MentalHealth from "./components/MentalHealth";
 import HomePage from "./pages/HomePage";
 import NavBar from "./components/NavBar";
 import cookie from "cookie";
+import MentalHealthInfo from "./pages/MentalHealthInfo";
 
 export const AppContext = createContext({});
 
@@ -46,7 +48,6 @@ function App() {
       .then((response) => response.json())
       .then((userData) => {
         setUser(userData);
-        console.log(userData);
       })
       .catch(err => {
         navigate('/login');
@@ -63,9 +64,11 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/fitness" element={<FitnessPage />} />
+          <Route path="/mentalhealthinfo" element={<MentalHealthInfo />}/>
           <Route path="/registerpro" element={<ProfessionalRegisterPage />} />
           <Route path="/mentalhealth" element={<MentalHealth />}/>
-          <Route path="/fitness" element={<FitnessPage />} />
+          <Route path="/mentorship" element={<Mentorship />}/>
           <Route path="*" element={<NotFoundPage />} />
 
         </Routes>
