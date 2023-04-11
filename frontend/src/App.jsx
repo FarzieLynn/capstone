@@ -7,6 +7,7 @@ import RegisterPage from "./pages/RegisterPage";
 import FitnessPage from "./pages/FitnessPage";
 import Mentorship from "./pages/Mentorship";
 import NotFoundPage from "./pages/NotFoundPage";
+import ProfessionalRegisterPage from "./pages/ProfessionalRegisterPage";
 import MentalHealth from "./components/MentalHealth";
 import HomePage from "./pages/HomePage";
 import NavBar from "./components/NavBar";
@@ -46,7 +47,9 @@ function App() {
 
     fetch(`http://localhost:8080/fetch-login`, obj)
       .then((response) => response.json())
-      .then((userData) => setUser(userData))
+      .then((userData) => {
+        setUser(userData);
+      })
       .catch(err => {
         navigate('/login');
       });
@@ -64,9 +67,9 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/fitness" element={<FitnessPage />} />
           <Route path="/mentalhealthinfo" element={<MentalHealthInfo />}/>
+          <Route path="/registerpro" element={<ProfessionalRegisterPage />} />
           <Route path="/mentalhealth" element={<MentalHealth />}/>
           <Route path="/mentorship" element={<Mentorship />}/>
-      
           <Route path="*" element={<NotFoundPage />} />
 
         </Routes>
