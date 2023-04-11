@@ -69,7 +69,7 @@ function FitnessPage() {
           resources available to help you get started.
         </p>
         <p className="fitnessAlert">
-      <strong>Click <span onClick={(e) => navigate('/register')}>here</span> to choose from our list of certified Fitness & Nutrition Coaches</strong>
+      <strong>Click <span className="link" onClick={() => navigate('/register')}>here</span> to choose from our list of certified Fitness & Nutrition Coaches</strong>
       </p>
       </div>
     </div>

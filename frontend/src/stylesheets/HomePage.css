@@ -1,0 +1,19 @@
+.homepage {
+  background-color: #607b7d;
+  height: 92.8vh;
+  color: white;
+}
+.homepage-img{
+  width: 50%;
+  height: 50%;
+}
+.homepage-intro{
+  width: 50%;
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
+}
+.homepage-p{
+  width: 50%;
+  text-align: center;
+}

@@ -1,14 +1,17 @@
 import React, { useContext, useState } from "react";
 import LoginForm from "../components/forms/LoginForm";
-import {AppContext} from '../App';
+import { AppContext } from '../App';
 import { useNavigate } from "react-router-dom";
+import { Spinner } from "../components/Spinner";
+import PrivacyAct from "../components/PrivacyAct";
 
 function LoginPage() {
   const [loginFailed, setLoginFailed] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
-  const {user, setUser} = useContext(AppContext);
+  const { user, setUser } = useContext(AppContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -21,6 +24,7 @@ function LoginPage() {
     }
 
     if (username.value !== "" && password !== "") {
+      setLoading(true);
       fetch("http://localhost:8080/login", {
         method: "POST",
         credentials: "include",
@@ -32,12 +36,13 @@ function LoginPage() {
           "Content-type": "application/json; charset=UTF-8",
         },
       })
-      .then((data) => data.json())
-      .then(data => {
-        console.log('login successful. Setting user info.', data)
-        setUser(data);
-        navigate('/home');
-      });
+        .then((data) => data.json())
+        .then(data => {
+          console.log('login successful. Setting user info.', data)
+          setLoading(false);
+          setUser(data);
+          navigate('/home');
+        });
     }
   };
 
@@ -49,9 +54,13 @@ function LoginPage() {
           {loginFailed ? (
             <div> is successfully logged in</div>
           ) : (
-            <LoginForm handleSubmit={handleSubmit} loginFailed={loginFailed} />
+            <>
+              <LoginForm handleSubmit={handleSubmit} loginFailed={loginFailed} />
+              <PrivacyAct className="privacy-act"/>
+            </>
           )}
         </div>
+        {loading ? <Spinner /> : <></>}
       </div>
     </div>
   );
