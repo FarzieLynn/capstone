@@ -37,7 +37,7 @@ function LoginPage() {
         console.log('login successful. Setting user info.', data)
         setUser(data);
         navigate('/home');
-      });
+      })
     }
   };
 

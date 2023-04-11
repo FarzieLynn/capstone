@@ -1,6 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import { createContext, useState, useEffect } from "react";
 import RegisterPage from "./pages/RegisterPage";
@@ -16,6 +16,9 @@ export const AppContext = createContext({});
 function App() {
   const [user, setUser] = useState({});
   const [url, setUrl] = useState("http://localhost:8080");
+
+
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const token = cookie.parse(document.cookie).access_token;
@@ -40,7 +43,10 @@ function App() {
 
     fetch(`http://localhost:8080/fetch-login`, obj)
       .then((response) => response.json())
-      .then((userData) => setUser(userData));
+      .then((userData) => setUser(userData))
+      .catch(err => {
+        navigate('/login');
+      });
   }, []);
 
   return (

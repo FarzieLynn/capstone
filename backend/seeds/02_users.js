@@ -6,7 +6,7 @@
 const { faker } = require("@faker-js/faker");
 
 let fakeUserArray = [];
-let usersToCreate = 10;
+let usersToCreate = 20;
 
 for (let i = 0; i < usersToCreate; i++) {
   let user = {
