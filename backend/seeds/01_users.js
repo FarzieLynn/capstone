@@ -6,11 +6,10 @@
 const { faker } = require("@faker-js/faker");
 
 let fakeUserArray = [];
-let usersToCreate = 20;
+let usersToCreate = 10;
 
 for (let i = 0; i < usersToCreate; i++) {
   let user = {
-    id:i+1,
     username: faker.internet.userName(),
     password: faker.internet.password(15),
     email: faker.internet.email(),

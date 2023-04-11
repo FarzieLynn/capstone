@@ -1,8 +1,10 @@
 const knex = require("./dbConnection");
 
-const postUser = async (user) => {
+const postUser = async (user, roles) => {
   const id = await knex("users").insert(user, ['id']);
-  return knex("role_users").insert({user_id:id[0].id, role_id:6})
+  for(let i = 0; i < roles.length; i++){
+    await knex("role_users").insert({user_id:id[0].id, role_id:roles[i]});
+  }
 };
 
 const getUser = (username) => {
@@ -10,7 +12,7 @@ const getUser = (username) => {
 };
 
 const getUserPublicInformation = (username) => {
-  return knex.select("id", "username", "email", "branch", "full_name", "age_group", "gender").from("users").where({ username: username });
+  return knex.select("id", "username", "email", "branch", "full_name", "age_group", "gender", "education_level", "phone_number", "about_you", "personal_goals", "is_professional", "is_anonymous").from("users").where({ username: username });
 }
 
 const getUserRoles = async (userID) => {

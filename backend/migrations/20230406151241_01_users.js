@@ -18,6 +18,7 @@ exports.up = function(knex) {
     table.text('about_you');
     table.jsonb('personal_goals');
     table.boolean('is_professional');
+    table.boolean('is_verified');
     table.boolean('is_anonymous');
   })
 };
