@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import '../stylesheets/NavBar.css'
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import { AppContext } from '../App';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
   const { user, setUser, url } = useContext(AppContext);

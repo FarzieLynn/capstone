@@ -15,7 +15,7 @@ export const AppContext = createContext({});
 
 function App() {
   const [user, setUser] = useState({});
-  const [url, setUrl] = useState("http://localhost:8080");
+  const [url] = useState("http://localhost:8080");
 
   useEffect(() => {
     const token = cookie.parse(document.cookie).access_token;
