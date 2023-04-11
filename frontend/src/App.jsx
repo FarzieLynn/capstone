@@ -70,7 +70,6 @@ function App() {
           <Route path="/mentalhealth" element={<MentalHealth />}/>
           <Route path="/mentorship" element={<Mentorship />}/>
           <Route path="*" element={<NotFoundPage />} />
-
         </Routes>
       </AppContext.Provider>
     </>
