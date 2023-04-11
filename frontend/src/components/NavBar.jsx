@@ -29,6 +29,7 @@ const NavBar = () => {
         <Nav className="w-100 align-items-center">
           <h4 className="w-50" onClick={() => navigate('/')}>Military Anonymous</h4>
           <Nav className="w-50 justify-content-end">
+            <span className="me-2 navbar-links" onClick={() => navigate('/register')}></span>
             <span className="me-2 navbar-links" onClick={() => navigate(`/${user.publicData.username}`)}>Profile</span>
             {user.publicData !== undefined ? <span className="navbar-links" onClick={() => handleLogout()}>Logout</span> : <span className="navbar-links" onClick={() => navigate('/login')}>Login</span>}
           </Nav>

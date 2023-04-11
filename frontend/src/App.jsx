@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import { createContext, useState, useEffect } from "react";
 import RegisterPage from "./pages/RegisterPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import HomePage from "./pages/HomePage";
 import NavBar from "./components/NavBar";
 import cookie from "cookie";
 
@@ -46,8 +47,8 @@ function App() {
         <div className="App">
           <NavBar />
         </div>
-        <div>Logged in as {user ? user.username : 'Guest'}</div>
         <Routes>
+          <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="*" element={<NotFoundPage />} />
