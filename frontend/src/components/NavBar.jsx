@@ -9,7 +9,7 @@ const NavBar = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    fetch(`${url}/login/logout`, {
+    fetch(`${url}/logout`, {
       method: "POST",
       credentials: "include",
     })
@@ -22,15 +22,16 @@ const NavBar = () => {
       .then(data => setUser({}))
       .catch((err) => console.log(err))
   }
-  console.log(user);
+
+  console.log(user)
+
   return (
     <Navbar className="navbar-main text-light">
       <Container className="flex-column justify-content-center">
         <Nav className="w-100 align-items-center">
           <h4 className="w-50" onClick={() => navigate('/')}>Military Anonymous</h4>
           <Nav className="w-50 justify-content-end">
-            <span className="me-2 navbar-links" onClick={() => navigate('/register')}></span>
-            <span className="me-2 navbar-links" onClick={() => navigate(`/${user.publicData.username}`)}>Profile</span>
+            <span className="me-2 navbar-links" onClick={() => navigate(`/${user?.publicData.username}`)}>Profile</span>
             {user.publicData !== undefined ? <span className="navbar-links" onClick={() => handleLogout()}>Logout</span> : <span className="navbar-links" onClick={() => navigate('/login')}>Login</span>}
           </Nav>
         </Nav>

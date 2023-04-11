@@ -1,6 +1,6 @@
 const express = require("express");
 const { authenticateToken } = require("../utilities/authorization");
-const {getUserPublicInformation} = require('../db/authControllers');
+const {getUserPublicInformation, getUserRoles, getUser} = require('../db/authControllers');
 const jwt = require("jsonwebtoken");
 let router = express.Router();
 
@@ -21,8 +21,10 @@ router.get("/session", async (req, res) => {
 });
 
 router.post('/fetch-login', authenticateToken, async (req, res) => {
-  const userData = await getUserPublicInformation(req.username);
-  res.json(userData);
+  const publicData = await getUserPublicInformation(req.username);
+  const roles = await getUserRoles(publicData[0].id);
+
+  res.json({publicData:publicData[0], roles:roles});
 })
 
 module.exports = router;
