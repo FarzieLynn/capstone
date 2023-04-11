@@ -31,6 +31,7 @@ const NavBar = () => {
             Military Anonymous
           </h4>
           <Nav className="w-50 justify-content-end">
+            {user.publicData !== undefined ? <span className="me-2 navbar-links">Welcome, {user.publicData.username}</span> : null}
             <span
               className="me-2 navbar-links"
               onClick={() => navigate(`/${user?.publicData.username}`)}
