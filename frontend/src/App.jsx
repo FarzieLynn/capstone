@@ -4,13 +4,14 @@ import { Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import { createContext, useState, useEffect } from "react";
 import RegisterPage from "./pages/RegisterPage";
-
 import FitnessPage from "./pages/FitnessPage";
+import Mentorship from "./pages/Mentorship";
 import HomePage from './pages/MainPage';
 import NotFoundPage from "./pages/NotFoundPage";
 import MentalHealth from "./components/MentalHealth";
 import NavBar from "./components/NavBar";
 import cookie from "cookie";
+import MentalHealthInfo from "./pages/MentalHealthInfo";
 export const AppContext = createContext({});
 
 function App() {
@@ -55,7 +56,9 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/fitness" element={<FitnessPage />} />
+          <Route path="/mentalhealthinfo" element={<MentalHealthInfo />}/>
           <Route path="/mentalhealth" element={<MentalHealth />}/>
+          <Route path="/mentorship" element={<Mentorship />}/>
       
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -38,7 +38,7 @@ const NavBar = () => {
         <Nav className="w-100 justify-content-evenly align-items-center">
           <span className="navbar-links fs-5" onClick={() => navigate('/finance')}>Finance</span>
           <span className="navbar-links fs-5" onClick={() => navigate('/fitness')}>Fitness</span>
-          <span className="navbar-links fs-5" onClick={() => navigate('/mentalhealth')}>Mental Health</span>
+          <span className="navbar-links fs-5" onClick={() => navigate('/mentalhealthinfo')}>Mental Health</span>
           <span className="navbar-links fs-5" onClick={() => navigate('/mentorship')}>Mentorship</span>
         </Nav>
       </Container>
