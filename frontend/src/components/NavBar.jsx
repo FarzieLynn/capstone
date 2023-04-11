@@ -63,7 +63,7 @@ const NavBar = () => {
           </span>
           <span
             className="navbar-links fs-5"
-            onClick={() => navigate("/mentalhealth")}
+            onClick={() => navigate("/mentalhealthinfo")}
           >
             Mental Health
           </span>
