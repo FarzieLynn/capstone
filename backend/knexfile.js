@@ -11,7 +11,7 @@ module.exports = {
   development: {
     client: 'pg',
     connection: {
-      user:process.env.DOCKER_USER,
+      user: process.env.DOCKER_USER,
       password: process.env.DOCKER_PASSWORD,
       port: process.env.DOCKER_PORT,
       database: process.env.PG_DATABASE
@@ -21,7 +21,7 @@ module.exports = {
   staging: {
     client: 'postgresql',
     connection: {
-      user:process.env.DOCKER_USER,
+      user: process.env.DOCKER_USER,
       password: process.env.DOCKER_PASSWORD,
       port: process.env.DOCKER_PORT,
       database: process.env.PG_DATABASE

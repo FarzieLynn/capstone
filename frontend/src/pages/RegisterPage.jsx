@@ -1,9 +1,11 @@
 import React, { useContext, useState } from "react";
 import RegisterForm from "../components/forms/RegisterForm";
+import { useNavigate } from 'react-router-dom'
 
 
 function RegisterPage() {
   const [loginFailed, setLoginFailed] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -28,6 +30,7 @@ function RegisterPage() {
     }).then((data) => {
       if (data.ok) {
         alert("Account created!");
+        navigate('/')
       } else if (data.status === 400) {
         alert("Username already exists. Please pick a new username.");
       }
