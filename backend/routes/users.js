@@ -1,7 +1,8 @@
 const express = require("express");
-const { checkIfUsernameExists, postUser } = require("../db/authControllers");
+const { checkIfUsernameExists, postUser, getUserPublicInformation, getUserRoles } = require("../db/authControllers");
 const bcrypt = require("bcrypt");
 const router = express.Router();
+const { authenticateToken } = require("../utilities/authorization");
 
 //Register endpoint
 router.post("/", async (req, res) => {
@@ -46,5 +47,11 @@ router.post("/", async (req, res) => {
 
   return res.status(500).send("something went wrong.");
 });
+
+router.get('/:username', authenticateToken, async (req, res) => {
+  const data = await getUserPublicInformation(req.params.username);
+  const roles = await getUserRoles(data[0].id);
+  return res.send({publicData:data[0], roles});
+})
 
 module.exports = router;

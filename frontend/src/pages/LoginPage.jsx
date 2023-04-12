@@ -28,7 +28,7 @@ function LoginPage() {
         method: "POST",
         credentials: "include",
         body: JSON.stringify({
-          username: username.value,
+          username: username.value.toLowerCase(),
           password: password.value,
         }),
         headers: {
