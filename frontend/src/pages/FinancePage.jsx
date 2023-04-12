@@ -250,8 +250,8 @@ const FinancePage = () => {
 
     return (
         <div className='quiz'>
-            <div className='text-center questions position-absolute top-0 start-50 translate-middle-x'>
-                <h2 className='heading'>Please answer the following regarding your financial well-being:</h2>
+            <div className='text-center questions position-relative top-0 start-50 translate-middle-x'>
+                <h2 className='heading'>Please answer the following regarding your financial well-being:</h2><br></br>
                 {questions.map((q, i) => (
                     <div key={i} className='questions'>
                         <h5>{q.question}</h5>
