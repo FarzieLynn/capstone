@@ -6,9 +6,10 @@ const {
   getCommentsByUser,
   deleteComment,
 } = require("../db/threadCommentControllers");
+const { authenticateToken } = require("../utilities/authorization");
 let router = express.Router();
 
-router.post('/new', async (req, res) => {
+router.post('/new', authenticateToken, async (req, res) => {
   await postComment(req.body);
   return res.send('Comment added!');
 })

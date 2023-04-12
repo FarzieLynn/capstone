@@ -12,7 +12,10 @@ const postThread = ({thread_content, thread_type, thread_author}) => {
 }
 
 const getThread = (id) => {
-  return knex.select('*').from('threads').where('id', '=', id);
+  return knex.select('threads.id', 'threads.thread_type', 'threads.thread_content', 'users.username', 'threads.thread_timestamp')
+    .from('threads')
+    .innerJoin('users', "users.id", "=", "threads.thread_author")
+    .where('threads.id', '=', id);
 }
 
 const getThreadsByUser = (userID) => {

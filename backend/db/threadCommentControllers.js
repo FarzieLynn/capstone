@@ -16,7 +16,12 @@ const getComment = (id) => {
 }
 
 const getCommentsOnPost = (threadID) => {
-  return knex.select('*').from('thread_comments').where('thread_id', '=', threadID);
+  const out = knex.select('thread_comments.id', 'thread_comments.thread_id', 'thread_comments.comment_content', 'users.username', 'thread_comments.comment_timestamp')
+    .from('thread_comments')
+    .innerJoin('users', "users.id", "=", "thread_comments.comment_author")
+    .where('thread_id', '=', threadID)
+
+  return out;
 }
 
 const getCommentsByUser = (userID) => {
