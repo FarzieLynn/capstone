@@ -6,7 +6,7 @@ function MentalHealthInfo() {
   const navigate = useNavigate();
 
   return (
-    <div className="mental">
+    <div className="mental vh-100%">
       <div className="mentalTitles">
         <span className="mentalTitleLg">Mental Health</span>
 

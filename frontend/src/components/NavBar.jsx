@@ -51,7 +51,7 @@ const NavBar = () => {
         <Nav className="w-100 justify-content-evenly align-items-center">
           <span
             className="navbar-links fs-5"
-            onClick={() => navigate("/finance")}
+            onClick={() => navigate("/financeinfo")}
           >
             Finance
           </span>
