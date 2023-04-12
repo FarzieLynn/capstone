@@ -1,31 +1,36 @@
 const knex = require("./dbConnection");
 
-const postThread = ({thread_content, thread_type, thread_author}) => {
+const postComment = ({thread_id, comment_content, comment_author}) => {
   //COLUMNS: id, thread_type, thread_author, thread_timestamp, thread_content
   const comment = {
-    thread_author:thread_author,
-    thread_content:thread_content,
-    thread_type:thread_type,
-    thread_timestamp:knex.fn.now(),
+    comment_author:comment_author,
+    comment_content:comment_content,
+    thread_id:thread_id,
+    comment_timestamp:knex.fn.now(),
   }
-  return knex('thread_comments').insert(thread);
+  return knex('thread_comments').insert(comment);
 }
 
-const getThread = (id) => {
-  return knex.select('*').from('threads').where('id', '=', id);
+const getComment = (id) => {
+  return knex.select('*').from('thread_comments').where('id', '=', id);
 }
 
-const getThreadsByUser = (userID) => {
-  return knex.select('*').from('threads').where('thread_author', '=', userID);
+const getCommentsOnPost = (threadID) => {
+  return knex.select('*').from('thread_comments').where('thread_id', '=', threadID);
 }
 
-const deleteThread = (id) => {
-  return knex('threads').where('id', '=', id).del();
+const getCommentsByUser = (userID) => {
+  return knex.select('*').from('thread_comments').where('comment_author', '=', userID);
+}
+
+const deleteComment = (id) => {
+  return knex('thread_comments').where('id', '=', id).del();
 }
 
 module.exports = {
-  postThread,
-  getThread,
-  getThreadsByUser,
-  deleteThread,
+  postComment,
+  getComment,
+  getCommentsOnPost,
+  getCommentsByUser,
+  deleteComment,
 };

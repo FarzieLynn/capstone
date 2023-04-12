@@ -1,8 +1,11 @@
 import React from 'react'
+import ThreadDisplay from '../components/ThreadDisplay'
 
 function MentorThreads() {
   return (
-    <div>MentorThreads</div>
+    <div>MentorThreads
+      <ThreadDisplay thread_id={1}/>
+    </div>
   )
 }
 

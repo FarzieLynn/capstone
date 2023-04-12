@@ -14,6 +14,7 @@ import MentalHealth from "./components/MentalHealth";
 import HomePage from "./pages/HomePage";
 import NavBar from "./components/NavBar";
 import cookie from "cookie";
+import MentorThreads from "./pages/MentorThreads";
 import FinanceAdvanced from "./pages/FinanceAdvanced";
 import FinanceBeginner from "./pages/FinanceBeginner";
 import FinanceIntermediate from "./pages/FinanceIntermediate";
@@ -27,7 +28,6 @@ function App() {
   const [user, setUser] = useState({});
   const [url] = useState("http://localhost:8080");
   const [token, setToken] = useState();
-
 
   const navigate = useNavigate(); 
 
@@ -85,6 +85,7 @@ function App() {
           <Route path="/mentorship" element={<Mentorship />}/>
           <Route path="/profile/:username" element={<ProfilePage />}/>
           <Route path="/threads" element={<ThreadCreatePage />}/>
+          <Route path="/mentorthreads" element={<MentorThreads />}/>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </AppContext.Provider>

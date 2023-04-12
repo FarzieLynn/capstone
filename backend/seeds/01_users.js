@@ -22,7 +22,7 @@ exports.seed = async function (knex) {
 
   for (let i = 1; i < usersToCreate; i++) {
     let user = {
-      username: faker.internet.userName(),
+      username: faker.internet.userName().toLowerCase(),
       password: bcrypt.hashSync("password", 12),
       email: faker.internet.email(),
       branch: "USSF",
