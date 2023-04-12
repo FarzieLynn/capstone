@@ -49,10 +49,14 @@ app.use(
 const users = require("./routes/users");
 const root = require("./routes/root");
 const login = require("./routes/login");
+const threads = require("./routes/threads");
+const comments = require("./routes/threadComments");
 
 app.use("/users", users);
 app.use("/", root);
 app.use("/login", login);
+app.use("/threads", threads);
+app.use('/comments', comments);
 
 app.get("/", async (req, res) => {
   //console.log(req.cookies.access_token);
