@@ -48,6 +48,7 @@ const NavBar = () => {
             )}
           </Nav>
         </Nav>
+            <span><button className="btn" onClick={() => navigate('/chat')}>Click to Chat!</button></span>
         <Nav className="w-100 justify-content-evenly align-items-center">
           <span
             className="navbar-links fs-5"
