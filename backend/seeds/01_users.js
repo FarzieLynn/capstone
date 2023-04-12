@@ -20,7 +20,17 @@ exports.seed = async function (knex) {
     gender: "Male",
   };
 
-  for (let i = 1; i < usersToCreate; i++) {
+  const adminUser2 = {
+    username: "admin2",
+    password: bcrypt.hashSync("admin", 12),
+    email: "admin2@milanon.com",
+    branch: "USSF",
+    full_name: "Admin McAdminson",
+    age_group: "17-21",
+    gender: "Male",
+  };
+
+  for (let i = 2; i < usersToCreate; i++) {
     let user = {
       username: faker.internet.userName(),
       password: bcrypt.hashSync("password", 12),
@@ -34,5 +44,6 @@ exports.seed = async function (knex) {
   }
 
   await knex("users").insert(adminUser);
+  await knex("users").insert(adminUser2);
   await knex("users").insert(fakeUserArray);
 };

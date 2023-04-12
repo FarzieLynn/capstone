@@ -19,6 +19,7 @@ import FinanceBeginner from "./pages/FinanceBeginner";
 import FinanceIntermediate from "./pages/FinanceIntermediate";
 import MentalHealthInfo from "./pages/MentalHealthInfo";
 import ProfilePage from "./pages/ProfilePage";
+import Chat from "./pages/ChatPage";
 
 export const AppContext = createContext({});
 
@@ -81,6 +82,7 @@ function App() {
           <Route path="/mentalhealth" element={<MentalHealth />}/>
           <Route path="/mentorship" element={<Mentorship />}/>
           <Route path="/profile/:username" element={<ProfilePage />}/>
+          <Route path="/chat" element={<Chat />}/>
       
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
