@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import { createContext, useState, useEffect } from "react";
 import RegisterPage from "./pages/RegisterPage";
 import FitnessPage from "./pages/FitnessPage";
+import FinanceInfo from "./pages/FinanceInfo";
 import FinancePage from "./pages/FinancePage";
 import Mentorship from "./pages/Mentorship";
 import NotFoundPage from "./pages/NotFoundPage";
@@ -69,6 +70,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/financeinfo" element={<FinanceInfo />} />
           <Route path="/fitness" element={<FitnessPage />} />
           <Route path="/finance/advanced" element={<FinanceAdvanced />} />
           <Route path="/finance/beginner" element={<FinanceBeginner />} />
