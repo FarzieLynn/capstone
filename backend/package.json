@@ -5,6 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "seed-db": "npx knex migrate:rollback --all && npx knex migrate:latest && npx knex seed:run",
+    "create-db": "docker exec -it capstone-db-1 psql -U postgres -c \"CREATE DATABASE capstone_db;\"",
+    "drop-db": "docker exec -it capstone-db-1 psql -U postgres -c \"DROP DATABASE capstone_db;\"",
+    "reset-db": "docker compose up -d && docker compose stop && docker compose start && npm run drop-db && npm run create-db && npm run seed-db",
+    "psql": "docker exec -it capstone-db-1 psql -U postgres",
     "start": "nodemon index.js"
   },
   "author": "",

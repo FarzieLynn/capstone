@@ -49,7 +49,7 @@ function ProfessionalRegisterPage() {
     }).then((data) => {
       if (data.ok) {
         alert("Account created!");
-        navigate('/')
+        navigate('/login')
       } else if (data.status === 400) {
         alert("Username already exists. Please pick a new username.");
       }

@@ -2,11 +2,13 @@ import React from "react";
 import "./stylesheets/Mentorship.css";
 import { useNavigate } from "react-router-dom";
 
+/* change the onClick to a list of Mentors line 64*/
+
 function Mentorship() {
   const navigate = useNavigate();
 
   return (
-    <div className="mentorship">
+    <div className="mentorship vh-100%">
       <div className="mentorTitles">
         <span className="mentorTitleLg">Mentorship</span>
 
@@ -69,3 +71,5 @@ function Mentorship() {
 }
 
 export default Mentorship;
+
+/* change the onClick to a list of Mentors line 64*/

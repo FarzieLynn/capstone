@@ -49,7 +49,7 @@
 #cbe896 - mint
 #aac0aa - ash gray
 #fcdfa6 - peach yellow
-#a18276 - beaver
+#8a7066 - beaver
 #f4b886 - pinkish-orange
 
 

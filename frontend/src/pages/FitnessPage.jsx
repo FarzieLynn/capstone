@@ -2,19 +2,20 @@ import React from "react";
 import "./stylesheets/Fitness.css";
 import { useNavigate } from "react-router-dom";
 
+/* change the onClick to a list of Fitness Coaches & Nutritiionists line 73*/
 
 function FitnessPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="fitness">
+    <div className="fitness vh-100%">
       <div className="fitnessTitles">
         <span className="fitnessTitleLg">Fitness & Nutrition</span>
 
         <img
           className="fitnessImg"
           src="https://www.armytimes.com/resizer/jKQ6OZT1Ib5auM8cKjYO8K-a77k=/1200x0/filters:quality(100)/arc-anglerfish-arc2-prod-mco.s3.amazonaws.com/public/5DDCQX46TNCMND33WLPUDMOZ4E.jpg"
-          width={700}
+          width={900}
           height={600}
           alt=""
         />
@@ -77,3 +78,5 @@ function FitnessPage() {
 }
 
 export default FitnessPage;
+
+/* change the onClick to a list of Fitness Coaches & Nutritiionists line 73*/
