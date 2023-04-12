@@ -21,6 +21,7 @@ import FinanceIntermediate from "./pages/FinanceIntermediate";
 import MentalHealthInfo from "./pages/MentalHealthInfo";
 import ProfilePage from "./pages/ProfilePage";
 import ThreadCreatePage from './pages/ThreadCreatePage';
+import Chat from "./pages/ChatPage";
 
 export const AppContext = createContext({});
 
@@ -84,6 +85,7 @@ function App() {
           <Route path="/mentalhealth" element={<MentalHealth />}/>
           <Route path="/mentorship" element={<Mentorship />}/>
           <Route path="/profile/:username" element={<ProfilePage />}/>
+          <Route path="/chat" element={<Chat />}/>
           <Route path="/threads" element={<ThreadCreatePage />}/>
           <Route path="/mentorthreads" element={<MentorThreads />}/>
           <Route path="*" element={<NotFoundPage />} />
