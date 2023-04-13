@@ -6,28 +6,24 @@ const ChatPage = () => {
   const { user } = useContext(AppContext);
   const [username, setUsername] = useState('');
 
-  useEffect(() => {
-    if(user.publicData !== undefined){
-      fetchUser();
-    }
+  // useEffect(() => {
+  //   if(user.publicData !== undefined){
+  //     fetchUser();
+  //   }
 
-  }, [user])
+  // }, [user])
 
-  const fetchUser = () => {
-    fetch('https://api.chatengine.io/users/', {
-      method: 'PUT',
-      headers: {
-        'PRIVATE-KEY': 'ecbf6db7-5e08-48d8-9174-9d4c76dbe5d4'
-      },
-      body: JSON.stringify({
-        username: user.publicData.username,
-        secret: user.publicData.email
-      }),
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log(data) })
-  }
+  // const fetchUser = () => {
+  //   fetch('https://api.chatengine.io/users/', {
+  //     method: 'GET',
+  //     headers: {
+  //       'PRIVATE-KEY': 'ecbf6db7-5e08-48d8-9174-9d4c76dbe5d4'
+  //     },
+  //   })
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     console.log(data) })
+  // }
 
   const createDirectChat = (creds) => {
     getOrCreateChat(
@@ -54,7 +50,7 @@ const ChatPage = () => {
     <ChatEngine
       height='92vh'
       userName={user.publicData.username}
-      userSecret={user.publicData.email}
+      userSecret={user.publicData.username}
       projectID='87c51be2-76f9-4924-96cf-845972cd42ce'
       renderNewChatForm={(creds) => renderChatForm(creds)}
       />
