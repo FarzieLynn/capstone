@@ -1,5 +1,6 @@
 .mental {
     background: #fcdfa6;
+    height: 300vh;
 }
 
 .questions{
@@ -35,7 +36,6 @@
     margin-top: 3%;
     margin-left: 20%;
     margin-right: 20%;
-    margin-bottom: 20%;
     text-align: start;
     font-style: italic;
     font-size: 20px;
