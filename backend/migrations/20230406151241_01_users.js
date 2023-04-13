@@ -20,6 +20,7 @@ exports.up = function(knex) {
     table.boolean('is_professional');
     table.boolean('is_verified');
     table.boolean('is_anonymous');
+    table.string('anon_username');
   })
 };
 

@@ -12,7 +12,7 @@ const getUser = (username) => {
 };
 
 const getUserPublicInformation = (username) => {
-  return knex.select("id", "username", "email", "branch", "full_name", "age_group", "gender", "education_level", "phone_number", "about_you", "personal_goals", "is_professional", "is_anonymous").from("users").where({ username: username });
+  return knex.select("id", "username", "email", "branch", "full_name", "age_group", "gender", "education_level", "phone_number", "about_you", "personal_goals", "is_professional", "is_anonymous", "anon_username").from("users").where({ username: username });
 }
 
 const getUserRoles = async (userID) => {
@@ -38,6 +38,13 @@ const checkIfUsernameExists = async (username) => {
     .where({ username: username });
   return user.length !== 0;
 };
+const checkIfAnonUsernameExists = async (username) => {
+  const user = await knex
+    .select("anon_username")
+    .from("users")
+    .where({ anon_username: username });
+  return user.length !== 0;
+};
 
 const verifySessionID = async (sessionId) => {
   const sessId = await knex
@@ -48,6 +55,11 @@ const verifySessionID = async (sessionId) => {
   return sessId.length !== 0;
 };
 
+const updateUser = async (username, data) => {
+  const user = await knex("users").where({ username: username }).update(data);
+  return user;
+};
+
 module.exports = {
   postUser,
   verifySessionID,
@@ -55,4 +67,6 @@ module.exports = {
   getUser,
   getUserRoles,
   getUserPublicInformation,
+  updateUser,
+  checkIfAnonUsernameExists
 };
