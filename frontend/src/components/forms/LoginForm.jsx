@@ -16,10 +16,6 @@ function LoginForm({ handleSubmit, alert }) {
     }
   }, [alert])
 
-  const renderErrorMessage = () => {
-    return <div className="error">{"invalid username or password"}</div>;
-  };
-
   return (
     <Form className="loginform-main">
       <Form.Group className="mb-3" controlId="formBasicEmail">

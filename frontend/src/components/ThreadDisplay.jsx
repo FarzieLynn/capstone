@@ -2,22 +2,26 @@ import React, { useContext, useEffect, useState } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { AppContext } from "../App";
 import MDEditor from "@uiw/react-md-editor";
+import { useParams } from "react-router-dom";
 
-function ThreadDisplay({ thread_id }) {
+function ThreadDisplay() {
   const [comments, setComments] = useState([]);
   const [thread, setThread] = useState();
   const [value, setValue] = useState("");
+
+  const {id} = useParams();
+
 
   const { user, url, token } = useContext(AppContext);
 
   useEffect(() => {
     //fetch thread details
-    fetch(`${url}/threads/id/1`)
+    fetch(`${url}/threads/id/${id}`)
       .then((res) => res.json())
       .then((data) => setThread(data));
 
     //fetch comments
-    fetch(`${url}/comments/post/1`)
+    fetch(`${url}/comments/post/${id}`)
       .then((res) => res.json())
       .then((data) => setComments(data));
   }, [url]);
