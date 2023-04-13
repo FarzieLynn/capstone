@@ -43,6 +43,8 @@ router.post("/", async (req, res) => {
           return res.send(err);
         });
     });
+  } else {
+    res.status(400).send('Username taken!')
   }
 
   return res.status(500).send("something went wrong.");

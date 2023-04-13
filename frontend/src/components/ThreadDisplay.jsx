@@ -42,7 +42,16 @@ function ThreadDisplay({ thread_id }) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setComments([...comments, {comment_content:data.comment_content, thread_id:data.thread_id, username:user.publicData.username, comment_timestamp:data.comment_timestamp}]);
+        setComments([
+          ...comments,
+          {
+            comment_content: data.comment_content,
+            thread_id: data.thread_id,
+            username: user?.publicData.is_anonymous ? "Anonymous" : user?.publicData.username,
+            comment_timestamp: data.comment_timestamp,
+          },
+        ]);
+        setValue("");
       });
   };
 
@@ -62,7 +71,7 @@ function ThreadDisplay({ thread_id }) {
       </Row>
       <br />
       <Row className="justify-content-center">
-        <Col md={8}>
+        <Col md={8} data-color-mode="light">
           <span>Post a comment:</span>
           <MDEditor value={value} onChange={setValue} />
           <Button
@@ -85,19 +94,22 @@ export default ThreadDisplay;
 
 const createThreadCard = (thread, user) => {
   return (
-    <Card className="m-1">
-      <Card.Title>This is thread #1!</Card.Title>
-      <Card.Body>
+    <Card className="m-1" key={thread?.thread_id}>
+      <Card.Header>
+        <Card.Title className="m-2">{thread?.thread_title}</Card.Title>
+      </Card.Header>
+      <Card.Subtitle className="m-2 text-muted">
+        {thread?.is_anonymous ? "Anonymous" : thread?.username}
+      </Card.Subtitle>
+      <Card.Body data-color-mode="light">
         <MDEditor.Markdown
           source={thread?.thread_content}
           style={{ whiteSpace: "pre-wrap" }}
+          preview="preview"
         />
       </Card.Body>
       <Card.Footer>
-        <Card.Text>
-          By: {user?.publicData?.is_anonymous ? "Anonymous" : thread?.username}
-        </Card.Text>
-        <Card.Text>Posted at: {thread?.thread_timestamp}</Card.Text>
+        <Card.Text className="text-muted">Posted on: {new Date(thread?.thread_timestamp).toDateString()}</Card.Text>
       </Card.Footer>
     </Card>
   );
@@ -105,18 +117,18 @@ const createThreadCard = (thread, user) => {
 
 const createCommentCard = (comment, user) => {
   return (
-    <Card className="m-1">
-      <Card.Body>
+    <Card className="m-1" key={comment?.comment_id}>
+      <Card.Subtitle className="m-2 text-muted">
+        {comment?.is_anonymous ? "Anonymous" : comment?.username}
+      </Card.Subtitle>
+      <Card.Body data-color-mode="light">
         <MDEditor.Markdown
           source={comment?.comment_content}
           style={{ whiteSpace: "pre-wrap" }}
         />
       </Card.Body>
       <Card.Footer>
-        <Card.Text>
-          By: {user?.publicData?.is_anonymous ? "Anonymous" : comment?.username}
-        </Card.Text>
-        <Card.Text>Posted at: {comment?.comment_timestamp}</Card.Text>
+        <Card.Text className="text-muted">Posted on: {new Date(comment?.comment_timestamp).toDateString()}</Card.Text>
       </Card.Footer>
     </Card>
   );
