@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
     origin: "http://localhost:3001",
-    methods: ["GET", "POST", "PUT", "OPTIONS", "HEAD", "DELETE"],
+    methods: ["GET", "POST", "PUT", "PATCH", "OPTIONS", "HEAD", "DELETE"],
     credentials: true,
   })
 );

@@ -38,15 +38,15 @@ function LoginPage() {
         },
       })
         .then((data) => {
-            return data.json();
+          return data.json();
         })
         .then(data => {
-          if(data.error === undefined) {
-          console.log('login successful. Setting user info.', data)
-          setLoading(true);
-          setUser(data);
-          navigate('/');
-          }else{
+          if (data.error === undefined) {
+            console.log('login successful. Setting user info.', data)
+            setLoading(true);
+            setUser(data);
+            navigate('/');
+          } else {
             setLoading(false);
             setAlert(data);
           }
