@@ -55,13 +55,12 @@ function App() {
       };
     }
 
-    fetch(`http://localhost:8080/fetch-login`, obj)
+    fetch(`${url}/fetch-login`, obj)
       .then((response) => response.json())
       .then((userData) => {
         setUser(userData);
       })
       .catch(err => {
-        navigate('/login');
       });
   }, []);
 
