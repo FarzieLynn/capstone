@@ -22,6 +22,7 @@ import MentalHealthInfo from "./pages/MentalHealthInfo";
 import ProfilePage from "./pages/ProfilePage";
 import ThreadCreatePage from './pages/ThreadCreatePage';
 import Chat from "./pages/ChatPage";
+import ProfessionalPrivacyAgreementPage from "./pages/ProfessionalPrivacyAgreementPage";
 
 export const AppContext = createContext({});
 
@@ -73,6 +74,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/registerprofessionalagreement" element={<ProfessionalPrivacyAgreementPage />} />
           <Route path="/financeinfo" element={<FinanceInfo />} />
           <Route path="/fitness" element={<FitnessPage />} />
           <Route path="/finance/advanced" element={<FinanceAdvanced />} />
