@@ -10,7 +10,7 @@ import FinancePage from "./pages/FinancePage";
 import Mentorship from "./pages/Mentorship";
 import NotFoundPage from "./pages/NotFoundPage";
 import ProfessionalRegisterPage from "./pages/ProfessionalRegisterPage";
-import MentalHealth from "./components/MentalHealth";
+import MentalHealth from "./pages/MentalHealth";
 import HomePage from "./pages/HomePage";
 import NavBar from "./components/NavBar";
 import cookie from "cookie";
@@ -23,6 +23,7 @@ import ProfilePage from "./pages/ProfilePage";
 import ThreadCreatePage from './pages/ThreadCreatePage';
 import Chat from "./pages/ChatPage";
 import ProfessionalPrivacyAgreementPage from "./pages/ProfessionalPrivacyAgreementPage";
+
 
 export const AppContext = createContext({});
 
