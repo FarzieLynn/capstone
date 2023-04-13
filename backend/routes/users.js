@@ -3,6 +3,7 @@ const { checkIfUsernameExists, postUser, getUserPublicInformation, getUserRoles 
 const bcrypt = require("bcrypt");
 const router = express.Router();
 const { authenticateToken } = require("../utilities/authorization");
+const chat = require("../utilities/chat");
 
 //Register endpoint
 router.post("/", async (req, res) => {
@@ -34,8 +35,10 @@ router.post("/", async (req, res) => {
         is_professional:is_professional ? is_professional : false,
         is_verified:false
       };
+      
       postUser(user, roles)
         .then((data) => {
+          chat.createChatUser(user);
           return res.status(201).send(data);
         })
         .catch((err) => {
