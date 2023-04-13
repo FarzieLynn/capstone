@@ -52,7 +52,7 @@ const ChatPage = () => {
   if(user.publicData === undefined) return <h3>Loading</h3>
   return (
     <ChatEngine
-      height='100vh'
+      height='92vh'
       userName={user.publicData.username}
       userSecret={user.publicData.email}
       projectID='87c51be2-76f9-4924-96cf-845972cd42ce'
