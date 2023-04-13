@@ -6,7 +6,7 @@ import MDEditor from "@uiw/react-md-editor";
 function ThreadDisplay({ thread_id }) {
   const [comments, setComments] = useState([]);
   const [thread, setThread] = useState();
-  const [value, setValue] = React.useState("");
+  const [value, setValue] = useState("");
 
   const { user, url, token } = useContext(AppContext);
 
@@ -20,38 +20,40 @@ function ThreadDisplay({ thread_id }) {
     fetch(`${url}/comments/post/1`)
       .then((res) => res.json())
       .then((data) => setComments(data));
-  }, []);
+  }, [url]);
 
   const handleSubmit = (e) => {
     const obj = {
-      comment_author:user.publicData.id,
-      thread_id:thread.id,
-      comment_content:value
+      comment_author: user.publicData.id,
+      thread_id: thread.id,
+      comment_content: value,
     };
-
 
     fetch(`${url}/comments/new`, {
       method: "POST",
       "Access-Control-Allow-Origin": "*",
       credentials: "include",
-      body:JSON.stringify(obj),
+      body: JSON.stringify(obj),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
         Authorization: `Bearer ${token}`,
       },
-  })
-      .then(res => res.json())
-      .then(data => console.log(data));
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setComments([...comments, {comment_content:data.comment_content, thread_id:data.thread_id, username:user.publicData.username, comment_timestamp:data.comment_timestamp}]);
+      });
   };
 
   return (
     <Container fluid>
       <Row className="justify-content-center">
         <Col md={8}>
-          {createThreadCard(thread)}
+          {createThreadCard(thread, user)}
           {thread ? (
             comments.map((comment) => {
-              return createCommentCard(comment);
+              return createCommentCard(comment, user);
             })
           ) : (
             <div>Loading...</div>
@@ -70,7 +72,9 @@ function ThreadDisplay({ thread_id }) {
           >
             Submit
           </Button>
-          <Button variant="primary" onClick={() => setValue('')}>Cancel</Button>
+          <Button variant="primary" onClick={() => setValue("")}>
+            Cancel
+          </Button>
         </Col>
       </Row>
     </Container>
@@ -79,7 +83,7 @@ function ThreadDisplay({ thread_id }) {
 
 export default ThreadDisplay;
 
-const createThreadCard = (thread) => {
+const createThreadCard = (thread, user) => {
   return (
     <Card className="m-1">
       <Card.Title>This is thread #1!</Card.Title>
@@ -90,14 +94,16 @@ const createThreadCard = (thread) => {
         />
       </Card.Body>
       <Card.Footer>
-        <Card.Text>By: {thread?.username}</Card.Text>
+        <Card.Text>
+          By: {user?.publicData?.is_anonymous ? "Anonymous" : thread?.username}
+        </Card.Text>
         <Card.Text>Posted at: {thread?.thread_timestamp}</Card.Text>
       </Card.Footer>
     </Card>
   );
 };
 
-const createCommentCard = (comment) => {
+const createCommentCard = (comment, user) => {
   return (
     <Card className="m-1">
       <Card.Body>
@@ -107,7 +113,9 @@ const createCommentCard = (comment) => {
         />
       </Card.Body>
       <Card.Footer>
-        <Card.Text>By: {comment?.username}</Card.Text>
+        <Card.Text>
+          By: {user?.publicData?.is_anonymous ? "Anonymous" : comment?.username}
+        </Card.Text>
         <Card.Text>Posted at: {comment?.comment_timestamp}</Card.Text>
       </Card.Footer>
     </Card>

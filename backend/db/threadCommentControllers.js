@@ -8,7 +8,7 @@ const postComment = ({thread_id, comment_content, comment_author}) => {
     thread_id:thread_id,
     comment_timestamp:knex.fn.now(),
   }
-  return knex('thread_comments').insert(comment);
+  return knex('thread_comments').insert(comment, '*');
 }
 
 const getComment = (id) => {
@@ -19,7 +19,7 @@ const getCommentsOnPost = (threadID) => {
   const out = knex.select('thread_comments.id', 'thread_comments.thread_id', 'thread_comments.comment_content', 'users.username', 'thread_comments.comment_timestamp')
     .from('thread_comments')
     .innerJoin('users', "users.id", "=", "thread_comments.comment_author")
-    .where('thread_id', '=', threadID)
+    .where('thread_id', '=', threadID);
 
   return out;
 }
