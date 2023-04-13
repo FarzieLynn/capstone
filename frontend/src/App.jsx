@@ -23,6 +23,8 @@ import ProfilePage from "./pages/ProfilePage";
 import ThreadCreatePage from './pages/ThreadCreatePage';
 import Chat from "./pages/ChatPage";
 import ProfessionalPrivacyAgreementPage from "./pages/ProfessionalPrivacyAgreementPage";
+import ForumSection from "./components/forums/ForumSection";
+import ThreadDisplay from "./components/ThreadDisplay";
 
 
 export const AppContext = createContext({});
@@ -88,8 +90,9 @@ function App() {
           <Route path="/mentorship" element={<Mentorship />}/>
           <Route path="/profile/:username" element={<ProfilePage />}/>
           <Route path="/chat" element={<Chat />}/>
-          <Route path="/threads" element={<ThreadCreatePage />}/>
-          <Route path="/mentorthreads" element={<MentorThreads />}/>
+          <Route path="/threads/new" element={<ThreadCreatePage />}/>
+          <Route path="/threads/:id" element={<ThreadDisplay />}/>
+          <Route path="/forums" element={<ForumSection />}/>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </AppContext.Provider>
