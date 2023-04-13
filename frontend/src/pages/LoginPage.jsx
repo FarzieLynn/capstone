@@ -3,10 +3,12 @@ import LoginForm from "../components/forms/LoginForm";
 import { AppContext } from '../App';
 import { useNavigate } from "react-router-dom";
 import { Spinner } from "../components/Spinner";
+import '../stylesheets/LoginPage.css'
 
 function LoginPage() {
   const [loginFailed, setLoginFailed] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [alert, setAlert] = useState({});
 
   const navigate = useNavigate();
 
@@ -28,19 +30,26 @@ function LoginPage() {
         method: "POST",
         credentials: "include",
         body: JSON.stringify({
-          username: username.value,
+          username: username.value.toLowerCase(),
           password: password.value,
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
       })
-        .then((data) => data.json())
+        .then((data) => {
+            return data.json();
+        })
         .then(data => {
+          if(data.error === undefined) {
           console.log('login successful. Setting user info.', data)
-          setLoading(false);
+          setLoading(true);
           setUser(data);
           navigate('/');
+          }else{
+            setLoading(false);
+            setAlert(data);
+          }
         });
     }
   };
@@ -54,11 +63,11 @@ function LoginPage() {
             <div> is successfully logged in</div>
           ) : (
             <>
-              <LoginForm handleSubmit={handleSubmit} loginFailed={loginFailed} />
+              <LoginForm handleSubmit={handleSubmit} alert={alert} />
             </>
           )}
         </div>
-        {loading ? <Spinner /> : <></>}
+        {loading === true ? <Spinner /> : <></>}
       </div>
     </div>
   );

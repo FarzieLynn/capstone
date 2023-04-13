@@ -1,3 +1,4 @@
 node_modules
 project_resources
 *.env
+package-lock.json

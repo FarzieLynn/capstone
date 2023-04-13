@@ -23,7 +23,7 @@ router.get("/session", async (req, res) => {
 router.post('/fetch-login', authenticateToken, async (req, res) => {
   const publicData = await getUserPublicInformation(req.username);
   const roles = await getUserRoles(publicData[0].id);
-
+  
   res.json({publicData:publicData[0], roles:roles});
 })
 
