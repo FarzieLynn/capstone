@@ -7,6 +7,7 @@ import RegisterPage from "./pages/RegisterPage";
 import FitnessPage from "./pages/FitnessPage";
 import FinanceInfo from "./pages/FinanceInfo";
 import FinancePage from "./pages/FinancePage";
+import FinanceCalculator from "./pages/FinanceCalculator";
 import Mentorship from "./pages/Mentorship";
 import NotFoundPage from "./pages/NotFoundPage";
 import ProfessionalRegisterPage from "./pages/ProfessionalRegisterPage";
@@ -79,6 +80,7 @@ function App() {
           <Route path="/finance/advanced" element={<FinanceAdvanced />} />
           <Route path="/finance/beginner" element={<FinanceBeginner />} />
           <Route path="/finance/intermediate" element={<FinanceIntermediate />} />
+          <Route path='/finance/calculator' element={<FinanceCalculator />} />
           <Route path="/finance" element={<FinancePage />} />
           <Route path="/mentalhealthinfo" element={<MentalHealthInfo />}/>
           <Route path="/registerpro" element={<ProfessionalRegisterPage />} />
