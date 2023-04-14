@@ -1,11 +1,13 @@
 import React from "react";
 import "./stylesheets/MentalHealthInfo.css";
 import { useNavigate } from "react-router-dom";
+import ProfessionalsTable from "../components/ProfessionalsTable";
 
 function MentalHealthInfo() {
   const navigate = useNavigate();
 
   return (
+    <>
     <div className="mental vh-100%">
       <div className="mentalTitles">
         <span className="mentalTitleLg">Mental Health</span>
@@ -27,7 +29,6 @@ function MentalHealthInfo() {
           </h2>
         </span>
       <div className="mentalBlurb">
-        
         <p>
           Welcome to our Mental Health page. We are here to provide support for
           individuals who may be struggling with mental health challenges,
@@ -87,7 +88,10 @@ function MentalHealthInfo() {
           you, and we hope you find the resources on our page helpful.
         </p>
       </div>
+      <ProfessionalsTable type={'Chaplain'}/>
     </div>
+ 
+    </>
   );
 }
 
