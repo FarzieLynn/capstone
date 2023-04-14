@@ -4,12 +4,11 @@ import {
   Row,
   Col,
   Container,
-  ListGroup,
   Accordion,
   Button,
 } from "react-bootstrap";
-import { AppContext } from "../../App";
-import MDEditor from "@uiw/react-md-editor";
+import './stylesheets/Forums.css'
+import { AppContext } from "../App";
 import { useNavigate } from "react-router-dom";
 
 
@@ -27,12 +26,12 @@ function ForumSection({ type }) {
   },[]);
 
   return (
-    <Container fluid>
+    <Container fluid className="forums-main">
       <Row className="justify-content-center">
         <Col md={8}>
           <Button onClick={() => navigate('/threads/new')} className="mt-3">New Thread</Button>
           <Accordion defaultActiveKey="0" className="mt-3">
-            <Accordion.Item eventKey="0">
+            <Accordion.Item eventKey="0" className="threads-main">
               <Accordion.Header>Mental Health Threads</Accordion.Header>
               <Accordion.Body>
                 {threads.length > 0 ? threads.filter((item) => item.thread_type === 'Mental Health').map((item) => {
@@ -42,7 +41,7 @@ function ForumSection({ type }) {
                         <Card.Title onClick={()=>navigate(`/threads/${item.id}`)}>{item.thread_title}</Card.Title>
                       </Card.Header>
                       <Card.Body data-color-mode="light">
-                        <MDEditor.Markdown className="text-muted" source={item.thread_content.substring(0, 200)} style={{ whiteSpace: "pre-wrap" }} preview="preview"/>
+                      By: {item.is_anonymous ? "Anonymous":item.username}
                       </Card.Body>
                     </Card>
                   )
@@ -59,7 +58,7 @@ function ForumSection({ type }) {
                         <Card.Title onClick={()=>navigate(`/threads/${item.id}`)}>{item.thread_title}</Card.Title>
                       </Card.Header>
                       <Card.Body data-color-mode="light">
-                        <MDEditor.Markdown className="text-muted" source={item.thread_content.substring(0, 200)} style={{ whiteSpace: "pre-wrap" }} preview="preview"/>
+                      By: {item.is_anonymous ? "Anonymous":item.username}
                       </Card.Body>
                     </Card>
                   )
@@ -76,7 +75,7 @@ function ForumSection({ type }) {
                         <Card.Title onClick={()=>navigate(`/threads/${item.id}`)}>{item.thread_title}</Card.Title>
                       </Card.Header>
                       <Card.Body data-color-mode="light">
-                        <MDEditor.Markdown className="text-muted" source={item.thread_content.substring(0, 200)} style={{ whiteSpace: "pre-wrap" }} preview="preview"/>
+                        By: {item.is_anonymous ? "Anonymous":item.username}
                       </Card.Body>
                     </Card>
                   )
@@ -93,7 +92,7 @@ function ForumSection({ type }) {
                         <Card.Title onClick={()=>navigate(`/threads/${item.id}`)}>{item.thread_title}</Card.Title>
                       </Card.Header>
                       <Card.Body data-color-mode="light">
-                        <MDEditor.Markdown className="text-muted" source={item.thread_content.substring(0, 200)} style={{ whiteSpace: "pre-wrap" }} preview="preview"/>
+                      By: {item.is_anonymous ? "Anonymous":item.username}
                       </Card.Body>
                     </Card>
                   )
