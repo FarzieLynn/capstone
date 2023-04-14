@@ -4,12 +4,25 @@ const {
   getThread,
   getThreadsByUser,
   deleteThread,
+  getThreadsByType,
+  getThreads,
 } = require("../db/threadControllers");
 let router = express.Router();
 
 router.post('/new', async (req, res) => {
-  await postThread(req.body);
-  return res.send('Thread added!');
+  const thread = await postThread(req.body);
+  return res.send(thread[0]);
+})
+
+router.get('/', async (req, res) => {
+  const threads = await getThreads();
+
+  return res.send(threads);
+})
+
+router.get('/type/:type', async (req, res) => {
+  const threads = await getThreadsByType(req.params.type);
+  return res.send(threads);
 })
 
 router.get("/id/:id", async (req, res) => {

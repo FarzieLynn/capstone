@@ -10,8 +10,8 @@ const { authenticateToken } = require("../utilities/authorization");
 let router = express.Router();
 
 router.post('/new', authenticateToken, async (req, res) => {
-  await postComment(req.body);
-  return res.send('Comment added!');
+  const comment = await postComment(req.body);
+  return res.send(comment[0]);
 })
 
 router.get("/id/:id", async (req, res) => {

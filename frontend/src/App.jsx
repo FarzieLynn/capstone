@@ -11,7 +11,7 @@ import FinanceCalculator from "./pages/FinanceCalculator";
 import Mentorship from "./pages/Mentorship";
 import NotFoundPage from "./pages/NotFoundPage";
 import ProfessionalRegisterPage from "./pages/ProfessionalRegisterPage";
-import MentalHealth from "./components/MentalHealth";
+import MentalHealth from "./pages/MentalHealth";
 import HomePage from "./pages/HomePage";
 import NavBar from "./components/NavBar";
 import cookie from "cookie";
@@ -23,6 +23,10 @@ import MentalHealthInfo from "./pages/MentalHealthInfo";
 import ProfilePage from "./pages/ProfilePage";
 import ThreadCreatePage from './pages/ThreadCreatePage';
 import Chat from "./pages/ChatPage";
+import ProfessionalPrivacyAgreementPage from "./pages/ProfessionalPrivacyAgreementPage";
+import ForumSection from "./components/forums/ForumSection";
+import ThreadDisplay from "./components/ThreadDisplay";
+
 
 export const AppContext = createContext({});
 
@@ -55,13 +59,12 @@ function App() {
       };
     }
 
-    fetch(`http://localhost:8080/fetch-login`, obj)
+    fetch(`${url}/fetch-login`, obj)
       .then((response) => response.json())
       .then((userData) => {
         setUser(userData);
       })
       .catch(err => {
-        navigate('/login');
       });
   }, []);
 
@@ -75,6 +78,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/registerprofessionalagreement" element={<ProfessionalPrivacyAgreementPage />} />
           <Route path="/financeinfo" element={<FinanceInfo />} />
           <Route path="/fitness" element={<FitnessPage />} />
           <Route path="/finance/advanced" element={<FinanceAdvanced />} />
@@ -88,8 +92,9 @@ function App() {
           <Route path="/mentorship" element={<Mentorship />}/>
           <Route path="/profile/:username" element={<ProfilePage />}/>
           <Route path="/chat" element={<Chat />}/>
-          <Route path="/threads" element={<ThreadCreatePage />}/>
-          <Route path="/mentorthreads" element={<MentorThreads />}/>
+          <Route path="/threads/new" element={<ThreadCreatePage />}/>
+          <Route path="/threads/:id" element={<ThreadDisplay />}/>
+          <Route path="/forums" element={<ForumSection />}/>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </AppContext.Provider>

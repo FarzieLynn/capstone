@@ -1,17 +1,23 @@
 import { Form, Button } from "react-bootstrap";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import PrivacyAct from "../PrivacyAct";
+import { DismissableAlert } from "../DismissableAlert";
 
-function LoginForm({ loginFailed, handleSubmit }) {
+function LoginForm({ handleSubmit, alert }) {
   const navigate = useNavigate();
+  const [showAlert, setShowAlert] = useState(false);
 
-  const renderErrorMessage = () => {
-    return <div className="error">{"invalid username or password"}</div>;
-  };
+  useEffect(() => {
+    if (alert.error === true) {
+      setShowAlert(true);
+    }else{
+      setShowAlert(false);
+    }
+  }, [alert])
 
   return (
-    <Form>
+    <Form className="loginform-main">
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Username</Form.Label>
         <Form.Control type="text" name='username' placeholder="Enter username" />
@@ -21,7 +27,7 @@ function LoginForm({ loginFailed, handleSubmit }) {
         <Form.Label>Password</Form.Label>
         <Form.Control type="password" name='password' placeholder="Password" />
       </Form.Group>
-      
+      {showAlert ? <DismissableAlert alert={alert} setShowAlert={setShowAlert} /> : null}
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Link to="/forgotpassword">Forgot Password?</Link>
       </Form.Group>

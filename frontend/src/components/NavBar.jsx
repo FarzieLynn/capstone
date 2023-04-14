@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "../stylesheets/NavBar.css";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { AppContext } from "../App";
@@ -19,65 +19,72 @@ const NavBar = () => {
         }
         return res.json();
       })
-      .then((data) => setUser({}))
+      .then((data) => {
+        setUser({})
+        navigate("/");
+      })
       .catch((err) => console.log(err));
   };
 
-  return (
-    <Navbar className="navbar-main text-light">
-      <Container className="flex-column justify-content-center">
-        <Nav className="w-100 align-items-center">
-          <h4 className="w-50" onClick={() => navigate("/")}>
-            Military Anonymous
-          </h4>
-          <Nav className="w-50 justify-content-end">
-            {user.publicData !== undefined ? <><span className="me-2 navbar-links">Welcome, {user.publicData.username}</span>
-            <span
-              className="me-2 navbar-links"
-              onClick={() => navigate(`/profile/${user?.publicData.username}`)}
-            >
-              Profile
-            </span>
-              <span className="navbar-links" onClick={() => handleLogout()}>
-                Logout
-              </span>
+  if (user === undefined) {
+    return <h1>Loading</h1>
+  } else {
+    return (
+      <Navbar className="navbar-main text-light">
+        <Container className="flex-column justify-content-center">
+          <Nav className="w-100 align-items-center">
+            <h4 className="w-50" onClick={() => navigate("/")}>
+              Military Anonymous
+            </h4>
+            <Nav className="w-50 justify-content-end">
+              {user.publicData !== undefined ? <><span className="me-2 navbar-links">Welcome, {user.publicData.is_anonymous ? user.publicData.anon_username : user.publicData.username}</span>
+                <span
+                  className="me-2 navbar-links"
+                  onClick={() => navigate(`/profile/${user?.publicData.username}`)}
+                >
+                  Profile
+                </span>
+                <span className="navbar-links" onClick={() => handleLogout()}>
+                  Logout
+                </span>
               </> : (
-              <span className="navbar-links" onClick={() => navigate("/login")}>
-                Login
-              </span>
-            )}
+                <span className="navbar-links" onClick={() => navigate("/login")}>
+                  Login
+                </span>
+              )}
+            </Nav>
           </Nav>
-        </Nav>
-            <span><button className="btn" onClick={() => navigate('/chat')}>Click to Chat!</button></span>
-        <Nav className="w-100 justify-content-evenly align-items-center">
-          <span
-            className="navbar-links fs-5"
-            onClick={() => navigate("/financeinfo")}
-          >
-            Finance
-          </span>
-          <span
-            className="navbar-links fs-5"
-            onClick={() => navigate("/fitness")}
-          >
-            Fitness
-          </span>
-          <span
-            className="navbar-links fs-5"
-            onClick={() => navigate("/mentalhealthinfo")}
-          >
-            Mental Health
-          </span>
-          <span
-            className="navbar-links fs-5"
-            onClick={() => navigate("/mentorship")}
-          >
-            Mentorship
-          </span>
-        </Nav>
-      </Container>
-    </Navbar>
-  );
+          <span><button className="btn-chat" onClick={() => navigate('/chat')}>Click to Chat!</button></span>
+          <Nav className="w-100 justify-content-evenly align-items-center">
+            <span
+              className="navbar-links fs-5"
+              onClick={() => navigate("/financeinfo")}
+            >
+              Finance
+            </span>
+            <span
+              className="navbar-links fs-5"
+              onClick={() => navigate("/fitness")}
+            >
+              Fitness
+            </span>
+            <span
+              className="navbar-links fs-5"
+              onClick={() => navigate("/mentalhealthinfo")}
+            >
+              Mental Health
+            </span>
+            <span
+              className="navbar-links fs-5"
+              onClick={() => navigate("/mentorship")}
+            >
+              Mentorship
+            </span>
+          </Nav>
+        </Container>
+      </Navbar>
+    )
+  };
 };
 
 export default NavBar;

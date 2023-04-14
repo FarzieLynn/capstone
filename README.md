@@ -1,14 +1,11 @@
 # SDI Capstone
-## Group C
+### Group C
 
-***Military Anonymous: A safe space to address your personal needs***
+## ***Military Anonymous: Connect anonymously. Thrive openly.***
 
 ### Problem Statement
-As a digital military branch, we'd like to integrate the pillars of resiliency  into a usable application at the servicemember's disposal.  All authenticated users would have the opportunity to seek out mental health (first shirt/chaplain), financial wellness, physical fitness, and mentoring/networking capabilities.
+Serving in the military can be a challenging and complex experience, and there are times when service members need help with various issues such as mental health, fitness, personal finance, and mentorship/networking. However, traditional methods of seeking help, such as visiting a Chaplain in person, may not be ideal for everyone. This is where ***Military Anonymous*** comes in - a modern, digital application that offers a safe and confidential space for military members from all branches to anonymously connect with qualified, experienced professionals in these areas.
 
-Military Anonymous: Currently besides visiting the Chaplain in person, there is no way to get anonymous help from various areas of the military such as Mental Health, Fitness, Finance, and Mentoring/Networking. We aim to fix this by leveraging the four pillars of resiliency into a modern, digital application that allows military members to anonymously connect with experienced and trained professionals in the areas mentioned in an informal setting. Should the user decide they want to remove anonymity they will have the option to share their information.
-
-Our app provides these critical functionalities.
 
 ### The Setup
 
