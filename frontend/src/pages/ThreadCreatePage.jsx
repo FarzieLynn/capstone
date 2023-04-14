@@ -5,15 +5,12 @@ import { useNavigate } from "react-router-dom";
 import { AppContext } from "../App";
 import { DismissableAlert } from "../components/DismissableAlert";
 
-function ThreadCreatePage({ thread_type }) {
+function ThreadCreatePage() {
   const [value, setValue] = React.useState("**Your Thread Here**");
   const [title, setTitle] = useState("");
   const [threadType, setThreadType] = useState("");
   const [showAlert, setShowAlert] = useState(false);
-  const [alert, setAlert] = useState({
-    message: "Please choose where to post your thread",
-    error: true,
-  });
+  const [alert, setAlert] = useState();
 
   const { user, url, token } = useContext(AppContext);
 
@@ -52,7 +49,7 @@ function ThreadCreatePage({ thread_type }) {
       "Access-Control-Allow-Origin": "*",
       credentials: "include",
       body: JSON.stringify({
-        thread_title:title,
+        thread_title: title,
         thread_type: threadType,
         thread_author: userID,
         thread_content: value,
@@ -130,7 +127,7 @@ function ThreadCreatePage({ thread_type }) {
       >
         Submit
       </Button>
-      <Button variant="primary" onClick={(e) => navigate("/login")}>
+      <Button variant="primary" onClick={(e) => navigate("/forums")}>
         Cancel
       </Button>
     </Container>
