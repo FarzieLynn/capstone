@@ -23,7 +23,7 @@ import ProfilePage from "./pages/ProfilePage";
 import ThreadCreatePage from './pages/ThreadCreatePage';
 import Chat from "./pages/ChatPage";
 import ProfessionalPrivacyAgreementPage from "./pages/ProfessionalPrivacyAgreementPage";
-import ForumSection from "./components/forums/ForumSection";
+import ForumSection from "./pages/ForumSection";
 import ThreadDisplay from "./components/ThreadDisplay";
 
 
