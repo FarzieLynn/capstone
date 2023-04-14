@@ -1,6 +1,7 @@
 import React from "react";
 import "./stylesheets/Fitness.css";
 import { useNavigate } from "react-router-dom";
+import ProfessionalsTable from "../components/ProfessionalsTable";
 
 /* change the onClick to a list of Fitness Coaches & Nutritiionists line 73*/
 
@@ -73,6 +74,7 @@ function FitnessPage() {
       <strong>Click <span className="link" onClick={() => navigate('/register')}>here</span> to choose from our list of certified Fitness & Nutrition Coaches</strong>
       </p>
       </div>
+      <ProfessionalsTable type={'Fitness Trainer'}/>
     </div>
   );
 }
