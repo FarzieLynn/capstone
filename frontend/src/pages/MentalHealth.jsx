@@ -1,9 +1,15 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import MentalScore from './MentalScore'
 import './stylesheets/MentalHealth.css'
+import jsPDF from 'jspdf';
+
 
 const MentalHealth = () => {
+    const doc = new jsPDF();
     const navigate = useNavigate();
+    let webPage = useRef({})
+
     var finalAnswer = 0;
     const questions = [
         {
@@ -174,18 +180,26 @@ const MentalHealth = () => {
     const decide = () => {
         finalAnswer = answers.reduce((a,b) => a+b, 0)
         if(finalAnswer <= 4){
-            console.log('none')
+            setTreatment('Good')
         } else if(finalAnswer >= 5 && finalAnswer <= 9) {
-            console.log('mild')
+            setTreatment('Mild')
         } else if(finalAnswer >= 10 && finalAnswer <= 14) {
-            console.log('Moderate')
+            setTreatment('Moderate')
         } else if(finalAnswer >= 15 && finalAnswer <= 19) {
-            console.log('Moderately Severe')
+            setTreatment('Moderately Severe')
         } else {
-            console.log('severe')
+            setTreatment('Severe')
         }
     }
-
+    const [isShown, setIsShown] = useState(false);
+    const [treatment, setTreatment] = useState('');
+    const showScore = () => {
+        
+    }
+    const clickHandler = () => {
+        submit();
+        setIsShown(true)
+    }
     return (
         <div className='quiz'>
             <div className='text-center questions position-relative top-0 start-50 translate-middle-x'>
@@ -206,7 +220,7 @@ const MentalHealth = () => {
                     </div>
                 ))}
                 <div className='test-center position-relative quiz'>
-                    <button className='btn btn-dark pageBtn m-2' onClick={() => submit()} disabled={!allQuestionsAnswered()}>Submit</button>
+                    <button className='btn btn-dark pageBtn m-2' onClick={() => clickHandler()} disabled={!allQuestionsAnswered()}>Submit</button> {isShown && <MentalScore score={`${treatment}`}/>}
                 </div>
             </div>
         </div>
