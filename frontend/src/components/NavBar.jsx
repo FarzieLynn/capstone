@@ -30,6 +30,9 @@ const NavBar = () => {
     return <h1>Loading</h1>
   } else {
     return (
+      <>
+      <div className='filler'>
+      </div>
       <Navbar className="navbar-main text-light" fixed="top">
         <Container className="flex-column justify-content-center">
           <Nav className="w-100 align-items-center">
@@ -84,6 +87,7 @@ const NavBar = () => {
           </Nav>
         </Container>
       </Navbar>
+      </>
     )
   };
 };

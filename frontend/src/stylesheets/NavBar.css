@@ -1,6 +1,7 @@
 .navbar-main {
   background-color: #08605f;
   color: white;
+  height: 14vh;
 }
 
 .btn-chat{
@@ -27,4 +28,7 @@
   text-decoration: underline;
   cursor: pointer;
   
+}
+.filler{
+  height: 14vh;
 }
