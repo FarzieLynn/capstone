@@ -66,7 +66,7 @@ function ThreadCreatePage() {
   return (
     <Container fluid className="forums-main">
       <Row className="justify-content-center">
-        <Col md={8}>
+        <Col md={6}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Title</Form.Label>
             <Form.Control
