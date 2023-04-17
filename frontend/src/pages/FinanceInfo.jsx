@@ -1,6 +1,7 @@
 import React from "react";
 import "./stylesheets/FinanceInfo.css";
 import { useNavigate } from "react-router-dom";
+import ProfessionalsTable from "../components/ProfessionalsTable";
 
 function FinanceInfo() {
   const navigate = useNavigate();
@@ -70,6 +71,7 @@ function FinanceInfo() {
           your financial journey.
         </p>
       </div>
+      <ProfessionalsTable type={'Financial Specialist'}/>
     </div>
   );
 }

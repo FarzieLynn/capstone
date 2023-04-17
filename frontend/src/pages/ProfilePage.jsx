@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
 import '../stylesheets/ProfilePage.css'
 import { AppContext } from '../App'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import cookie from 'cookie';
 import { Form } from 'react-bootstrap';
+import { getOrCreateChat } from 'react-chat-engine';
 
 const ProfilePage = () => {
+  const navigate = useNavigate();
   const { user, setUser, url } = useContext(AppContext);
   const { username } = useParams();
   const [userData, setUserData] = useState({});
@@ -28,11 +30,10 @@ const ProfilePage = () => {
   //If not accessing the already logged in user's profile, fetch the user's data from the database
   useEffect(() => {
     if (user !== undefined && Object.keys(user).length !== 0) {
-      console.log('Inside', user);
       if (user.publicData.username === username) {
         setUserData(user.publicData);
       } else {
-        setUserData(getUserData().publicData);
+        getUserData().then(userData => setUserData(userData.publicData));
       }
     }
   }, [user, username, url])
@@ -55,8 +56,23 @@ const ProfilePage = () => {
     })
     const data = await getUserData();
     setUser(data);
-
   }
+
+  const handleNewChat = () => {
+    const userChat = {
+      userName: user.publicData.username,
+      userSecret: user.publicData.username,
+      projectID: '87c51be2-76f9-4924-96cf-845972cd42ce'
+    }
+    getOrCreateChat(
+      userChat,
+      {
+        is_direct_chat: true,
+        usernames: [username],
+      }, () => navigate('/chat')
+    );
+  }
+
   if (userData === undefined || user.publicData === undefined) {
     return (
       <h3>Loading</h3>
@@ -85,6 +101,7 @@ const ProfilePage = () => {
                 <h3>Branch: {userData.branch}</h3>
                 <h3>Age Bracket: {userData.age_group}</h3>
                 <h3>Gender: {userData.gender}</h3>
+                {username !== user.publicData.username ? <button onClick={() => handleNewChat()}>Start a Chat!</button> : null}
               </>
               : null}
           </div>
@@ -113,6 +130,7 @@ const ProfilePage = () => {
                 <h3>Education: {userData.education_level}</h3>
                 <h3>Branch: {userData.branch}</h3>
                 <h3>Cell: {userData.phone_number}</h3>
+                {username !== user.publicData.username ? <button onClick={() => handleNewChat()}>Start a Chat!</button> : null}
                 <p>{userData.about_you}</p>
               </>
               : null}

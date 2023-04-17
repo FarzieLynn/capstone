@@ -30,7 +30,7 @@ const NavBar = () => {
     return <h1>Loading</h1>
   } else {
     return (
-      <Navbar className="navbar-main text-light">
+      <Navbar className="navbar-main text-light" fixed="top">
         <Container className="flex-column justify-content-center">
           <Nav className="w-100 align-items-center">
             <h4 className="w-50" onClick={() => navigate("/")}>
@@ -55,6 +55,7 @@ const NavBar = () => {
             </Nav>
           </Nav>
           <span><button className="btn-chat" onClick={() => navigate('/chat')}>Click to Chat!</button></span>
+          <span><button className="btn-chat" onClick={() => navigate('/forums')}>Click to visit the Forums!</button></span>
           <Nav className="w-100 justify-content-evenly align-items-center">
             <span
               className="navbar-links fs-5"

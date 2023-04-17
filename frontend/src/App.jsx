@@ -74,8 +74,7 @@ function App() {
       <AppContext.Provider value={{ user, setUser, url, token}}>
         <div className="App">
           <NavBar />
-        </div>
-        <Routes>
+          <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
@@ -99,6 +98,8 @@ function App() {
           <Route path="/forums" element={<ForumSection />}/>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
+        </div>
+        
       </AppContext.Provider>
     </>
   );
