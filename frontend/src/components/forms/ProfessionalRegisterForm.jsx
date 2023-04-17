@@ -1,4 +1,4 @@
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Row, Col } from "react-bootstrap";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -7,7 +7,8 @@ function ProfessionalRegisterForm({ loginFailed, handleSubmit }) {
 
   return (
     <Form>
-      <Form.Group className="mb-3">
+      <Row className="mb-3">
+      <Form.Group as={Col}>
         <Form.Label>Username</Form.Label>
         <Form.Control
           type="text"
@@ -16,7 +17,7 @@ function ProfessionalRegisterForm({ loginFailed, handleSubmit }) {
         />
       </Form.Group>
 
-      <Form.Group className="mb-3">
+      <Form.Group as={Col}>
         <Form.Label>Full Name</Form.Label>
         <Form.Control
           type="text"
@@ -24,13 +25,15 @@ function ProfessionalRegisterForm({ loginFailed, handleSubmit }) {
           placeholder="Enter first and last name"
         />
       </Form.Group>
+      </Row>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
+      <Row className="mb-3">
+      <Form.Group as={Col} controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control type="password" name="password" placeholder="Password" />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
+      <Form.Group as={Col} controlId="formBasicPassword">
         <Form.Label>Confirm Password</Form.Label>
         <Form.Control
           type="password"
@@ -38,18 +41,20 @@ function ProfessionalRegisterForm({ loginFailed, handleSubmit }) {
           placeholder="Confirm Password"
         />
       </Form.Group>
+      </Row>
 
       <Form.Group className="mb-3">
         <Form.Label>.mil Email</Form.Label>
         <Form.Control type="text" name="email" placeholder="Enter email" />
       </Form.Group>
 
-      <Form.Group className="mb-3">
+      <Row className="mb-3">
+      <Form.Group as={Col}>
         <Form.Label>Phone/DSN</Form.Label>
         <Form.Control type="text" name="phone" placeholder="Enter phone #" />
       </Form.Group>
 
-      <Form.Group className="mb-3">
+      <Form.Group as={Col}>
         <Form.Label>Military Branch</Form.Label>
         <Form.Select type="text" name="branch" placeholder="Military Branch">
           <option>Space Force</option>
@@ -59,7 +64,9 @@ function ProfessionalRegisterForm({ loginFailed, handleSubmit }) {
           <option>Marines</option>
         </Form.Select>
       </Form.Group>
+      </Row>
 
+      
       <Form.Group className="mb-3">
         <Form.Label>Gender</Form.Label>
         <Form.Select type="text" name="gender" placeholder="Gender">
