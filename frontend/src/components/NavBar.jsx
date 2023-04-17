@@ -30,7 +30,7 @@ const NavBar = () => {
     return <h1>Loading</h1>
   } else {
     return (
-      <Navbar className="navbar-main text-light" fixed="top">
+      <Navbar className="navbar-main text-light">
         <Container className="flex-column justify-content-center">
           <Nav className="w-100 align-items-center">
             <h4 className="w-50" onClick={() => navigate("/")}>

@@ -1,5 +1,5 @@
 const express = require("express");
-const { checkIfUsernameExists, postUser, getUserPublicInformation, getUserRoles, updateUser, checkIfAnonUsernameExists } = require("../db/authControllers");
+const { checkIfUsernameExists, postUser, getUserPublicInformation, getUserRoles, updateUser, checkIfAnonUsernameExists, getProfessionals } = require("../db/authControllers");
 const bcrypt = require("bcrypt");
 const router = express.Router();
 const { authenticateToken } = require("../utilities/authorization");
@@ -65,6 +65,12 @@ router.post("/", async (req, res) => {
 
   return res.status(500).send("something went wrong.");
 });
+router.get('/professionals', authenticateToken, async (req, res) => {
+  const data = await getProfessionals();
+  const promises = await data.map(user => getUserRoles(user.id).then(roles => ({publicData: user, roles})));
+  const users = await Promise.all(promises);
+  return res.json(users);
+})
 
 router.get('/:username', authenticateToken, async (req, res) => {
   const data = await getUserPublicInformation(req.params.username);
@@ -77,5 +83,7 @@ router.patch('/:username/anonymous', authenticateToken, async (req, res) => {
   console.log(data);
   return res.json(data);
 })
+
+
 
 module.exports = router;

@@ -43,3 +43,7 @@
 }
 
 /* End Loading Spinner */
+
+.clickable {
+  cursor: pointer;
+}

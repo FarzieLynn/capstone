@@ -15,7 +15,6 @@ import MentalHealth from "./pages/MentalHealth";
 import HomePage from "./pages/HomePage";
 import NavBar from "./components/NavBar";
 import cookie from "cookie";
-import MentorThreads from "./pages/MentorThreads";
 import FinanceAdvanced from "./pages/FinanceAdvanced";
 import FinanceBeginner from "./pages/FinanceBeginner";
 import FinanceIntermediate from "./pages/FinanceIntermediate";
@@ -26,6 +25,7 @@ import Chat from "./pages/ChatPage";
 import ProfessionalPrivacyAgreementPage from "./pages/ProfessionalPrivacyAgreementPage";
 import ForumSection from "./pages/ForumSection";
 import ThreadDisplay from "./components/ThreadDisplay";
+import ThreadDisplayPage from "./pages/ThreadDisplayPage";
 
 
 export const AppContext = createContext({});
@@ -34,8 +34,6 @@ function App() {
   const [user, setUser] = useState({});
   const [url] = useState("http://localhost:8080");
   const [token, setToken] = useState();
-
-  const navigate = useNavigate(); 
 
   useEffect(() => {
     const token = cookie.parse(document.cookie).access_token;
@@ -73,9 +71,7 @@ function App() {
       <AppContext.Provider value={{ user, setUser, url, token}}>
         <div className="App">
           <NavBar />
-          <div style={{height:'12vh'}}></div>
-        </div>
-        <Routes>
+          <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
@@ -95,9 +91,13 @@ function App() {
           <Route path="/chat" element={<Chat />}/>
           <Route path="/threads/new" element={<ThreadCreatePage />}/>
           <Route path="/threads/:id" element={<ThreadDisplay />}/>
+          <Route path='/forums/:type' element={<ThreadDisplayPage />}/>
           <Route path="/forums" element={<ForumSection />}/>
+          <Route path='/forums/:type' element={<ThreadDisplayPage />}/>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
+        </div>
+        
       </AppContext.Provider>
     </>
   );

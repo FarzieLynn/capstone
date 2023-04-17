@@ -60,6 +60,10 @@ const updateUser = async (username, data) => {
   return user;
 };
 
+const getProfessionals = () => {
+  return knex.select("id", "username", "email", "branch", "full_name", "age_group", "gender", "education_level", "phone_number", "about_you", "personal_goals", "is_professional", "is_anonymous", "anon_username").from("users").where({ is_professional: true });
+}
+
 module.exports = {
   postUser,
   verifySessionID,
@@ -68,5 +72,6 @@ module.exports = {
   getUserRoles,
   getUserPublicInformation,
   updateUser,
-  checkIfAnonUsernameExists
+  checkIfAnonUsernameExists,
+  getProfessionals,
 };
