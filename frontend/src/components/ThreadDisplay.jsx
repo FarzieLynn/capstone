@@ -63,12 +63,12 @@ function ThreadDisplay() {
   };
 
   return (
-    <Container fluid>
+    <Container fluid className="forums-main">
       <Row className="justify-content-center">
         <Col md={8}>
           <Container className="flex-column justify-content-center">
             <Button
-              className="m-2"
+              className="m-2 btn-chat"
               variant="primary"
               onClick={(e) => navigate("/forums")}
             >
@@ -92,12 +92,12 @@ function ThreadDisplay() {
           <MDEditor value={value} onChange={setValue} />
           <Button
             variant="primary"
-            className="m-2"
+            className="m-2 btn-chat"
             onClick={(e) => handleSubmit(e)}
           >
             Submit
           </Button>
-          <Button variant="primary" onClick={() => setValue("")}>
+          <Button variant="primary" className="btn-chat" onClick={() => setValue("")}>
             Cancel
           </Button>
         </Col>
@@ -153,59 +153,3 @@ const createCommentCard = (comment, user) => {
     </Card>
   );
 };
-
-const createBetterThreadCard = (thread, user) => {
-  return (
-    <Container fluid>
-      <Row>
-        <Col md={3}>
-          <Card>
-            <Card.Subtitle className="m-2 text-muted">
-              {thread?.is_anonymous ? "Anonymous" : thread?.username}
-            </Card.Subtitle>
-          </Card>
-        </Col>
-        <Col>
-          <Card>
-            <Card.Body data-color-mode="light">
-              <MDEditor.Markdown
-                source={thread?.thread_content}
-                style={{ whiteSpace: "pre-wrap" }}
-                preview="preview"
-              />
-            </Card.Body>
-            <Card.Footer>
-              <Card.Text className="text-muted">
-                Posted on: {new Date(thread?.thread_timestamp).toDateString()}
-              </Card.Text>
-            </Card.Footer>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
-  );
-};
-
-{
-  /* <CardGroup className="row">
-  <Card className="text-center col-md-2">
-    <Card.Subtitle className="m-2 text-muted">
-      {thread?.is_anonymous ? "Anonymous" : thread?.username}
-    </Card.Subtitle>
-  </Card>
-  <Card>
-    <Card.Body data-color-mode="light">
-      <MDEditor.Markdown
-        source={thread?.thread_content}
-        style={{ whiteSpace: "pre-wrap" }}
-        preview="preview"
-      />
-    </Card.Body>
-    <Card.Footer>
-      <Card.Text className="text-muted">
-        Posted on: {new Date(thread?.thread_timestamp).toDateString()}
-      </Card.Text>
-    </Card.Footer>
-  </Card>
-</CardGroup>; */
-}
