@@ -93,7 +93,6 @@ function App() {
           <Route path="/threads/:id" element={<ThreadDisplay />}/>
           <Route path='/forums/:type' element={<ThreadDisplayPage />}/>
           <Route path="/forums" element={<ForumSection />}/>
-          <Route path='/forums/:type' element={<ThreadDisplayPage />}/>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </div>
