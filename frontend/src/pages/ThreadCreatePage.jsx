@@ -122,12 +122,12 @@ function ThreadCreatePage() {
       ) : null}
       <Button
         variant="primary"
-        className="m-2"
+        className="m-2 btn-chat"
         onClick={(e) => handleSubmit(e)}
       >
         Submit
       </Button>
-      <Button variant="primary" onClick={(e) => navigate("/forums")}>
+      <Button className="btn-chat" variant="primary" onClick={(e) => navigate("/forums")}>
         Cancel
       </Button>
     </Container>
