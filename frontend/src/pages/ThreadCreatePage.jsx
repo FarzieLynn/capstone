@@ -67,6 +67,7 @@ function ThreadCreatePage() {
     <Container fluid className="forums-main">
       <Row className="justify-content-center">
         <Col md={6}>
+          <h1>New Post</h1>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Title</Form.Label>
             <Form.Control

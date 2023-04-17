@@ -25,7 +25,7 @@ function ThreadDisplay() {
     fetch(`${url}/comments/post/${id}`)
       .then((res) => res.json())
       .then((data) => setComments(data));
-  }, [url]);
+  }, [url, id]);
 
   const handleSubmit = (e) => {
     const obj = {
@@ -74,14 +74,15 @@ function ThreadDisplay() {
             >
               Back
             </Button>
-            {thread?.thread_author === user?.publicInfo?.username ||
+            {console.log(thread)}
+            {thread?.username === user?.publicInfo?.username ||
             user?.roles.includes("Admin") ? (
               <Button
                 className="m-2 btn-chat"
                 variant="primary"
                 onClick={(e) => navigate("/forums")}
               >
-                Edit
+                Edit Post
               </Button>
             ) : (
               <></>
