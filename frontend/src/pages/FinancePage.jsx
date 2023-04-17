@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './stylesheets/Finance.css'
 
+
 const FinancePage = () => {
     const navigate = useNavigate();
     var finalAnswer = 0;
@@ -247,7 +248,7 @@ const FinancePage = () => {
             navigate('/finance/advanced')
         }
     }
-
+   
     return (
         <div className='quiz'>
             <div className='text-center questions position-relative top-0 start-50 translate-middle-x'>

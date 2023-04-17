@@ -2,6 +2,8 @@ import { Container, Row, Col } from 'react-bootstrap'
 import './stylesheets/Finance.css'
 
 const FinanceBeginner = () => {
+
+    
     return (
         <Container>
             <br></br>
@@ -18,7 +20,7 @@ const FinanceBeginner = () => {
                 </Col>
             </Row>
             <br></br>
-            <Row>
+            <Row >
                 <Col className='col'>
                     <strong>Pay Attention to Interest Rates</strong> — Pay off high-interest loans first, so that
                     you’re not paying more than necessary in the long run. Also, open a savings account with the best
@@ -38,6 +40,8 @@ const FinanceBeginner = () => {
                     allocating 20% of your income towards savings. You can do this by following the famous 50/20/30 
                     rule of budgeting. If you can follow this rule, you’ll be able to build an emergency fund, pay
                      off your consumer debts, and kickstart a retirement savings.
+                </Col>
+                <Col>
                 </Col>
             </Row>
         </Container>
