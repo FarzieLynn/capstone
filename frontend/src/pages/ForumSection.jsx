@@ -27,7 +27,6 @@ function ForumSection({ type }) {
 
   return (
     <Container fluid className="forums-main">
-      <div style={{height:'17vh'}}></div>
       <Row className="justify-content-center">
         <Col md={8}>
           <Button onClick={() => navigate('/threads/new')} className="mt-3">New Thread</Button>

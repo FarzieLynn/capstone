@@ -73,6 +73,7 @@ function App() {
       <AppContext.Provider value={{ user, setUser, url, token}}>
         <div className="App">
           <NavBar />
+          <div style={{height:'12vh'}}></div>
         </div>
         <Routes>
           <Route path="/" element={<HomePage />} />
