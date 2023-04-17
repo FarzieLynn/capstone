@@ -1,18 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, Card, Button, CardGroup } from "react-bootstrap";
 import { AppContext } from "../App";
 import MDEditor from "@uiw/react-md-editor";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function ThreadDisplay() {
   const [comments, setComments] = useState([]);
   const [thread, setThread] = useState();
   const [value, setValue] = useState("");
 
-  const {id} = useParams();
-
+  const { id } = useParams();
 
   const { user, url, token } = useContext(AppContext);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     //fetch thread details
@@ -51,7 +52,9 @@ function ThreadDisplay() {
           {
             comment_content: data.comment_content,
             thread_id: data.thread_id,
-            username: user?.publicData.is_anonymous ? "Anonymous" : user?.publicData.username,
+            username: user?.publicData.is_anonymous
+              ? "Anonymous"
+              : user?.publicData.username,
             comment_timestamp: data.comment_timestamp,
           },
         ]);
@@ -60,9 +63,18 @@ function ThreadDisplay() {
   };
 
   return (
-    <Container fluid>
+    <Container fluid className="forums-main">
       <Row className="justify-content-center">
         <Col md={8}>
+          <Container className="flex-column justify-content-center">
+            <Button
+              className="m-2 btn-chat"
+              variant="primary"
+              onClick={(e) => navigate("/forums")}
+            >
+              Back
+            </Button>
+          </Container>
           {createThreadCard(thread, user)}
           {thread ? (
             comments.map((comment) => {
@@ -80,12 +92,12 @@ function ThreadDisplay() {
           <MDEditor value={value} onChange={setValue} />
           <Button
             variant="primary"
-            className="m-2"
+            className="m-2 btn-chat"
             onClick={(e) => handleSubmit(e)}
           >
             Submit
           </Button>
-          <Button variant="primary" onClick={() => setValue("")}>
+          <Button variant="primary" className="btn-chat" onClick={() => setValue("")}>
             Cancel
           </Button>
         </Col>
@@ -113,7 +125,9 @@ const createThreadCard = (thread, user) => {
         />
       </Card.Body>
       <Card.Footer>
-        <Card.Text className="text-muted">Posted on: {new Date(thread?.thread_timestamp).toDateString()}</Card.Text>
+        <Card.Text className="text-muted">
+          Posted on: {new Date(thread?.thread_timestamp).toDateString()}
+        </Card.Text>
       </Card.Footer>
     </Card>
   );
@@ -132,7 +146,9 @@ const createCommentCard = (comment, user) => {
         />
       </Card.Body>
       <Card.Footer>
-        <Card.Text className="text-muted">Posted on: {new Date(comment?.comment_timestamp).toDateString()}</Card.Text>
+        <Card.Text className="text-muted">
+          Posted on: {new Date(comment?.comment_timestamp).toDateString()}
+        </Card.Text>
       </Card.Footer>
     </Card>
   );

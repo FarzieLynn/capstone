@@ -15,13 +15,31 @@ router.post('/new', async (req, res) => {
 })
 
 router.get('/', async (req, res) => {
-  const threads = await getThreads();
+  let threads;
 
+  threads = await getThreads();
   return res.send(threads);
 })
 
 router.get('/type/:type', async (req, res) => {
-  const threads = await getThreadsByType(req.params.type);
+  let type;
+  switch (req.params.type) {
+    case 'finance':
+      type = 'Finance'
+      break;
+    case 'fitness':
+      type = 'Fitness'
+      break;
+    case 'mentalhealth':
+      type = 'Mental Health'
+      break;
+    case 'mentorship':
+      type = 'Mentorship'
+      break;
+    default:
+      res.status('400').send();
+  }
+  const threads = await getThreadsByType(type);
   return res.send(threads);
 })
 

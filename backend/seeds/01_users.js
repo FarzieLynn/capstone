@@ -30,7 +30,83 @@ exports.seed = async function (knex) {
     gender: "Male",
   };
 
-  for (let i = 2; i < usersToCreate; i++) {
+  const user1 = {
+    username: "user1",
+    password: bcrypt.hashSync("password", 12),
+    email: "user1@milanon.com",
+    branch: "USSF",
+    full_name: "User McUser",
+    age_group: "17-21",
+    gender: "Female",
+    is_professional: false,
+    is_verified: false,
+    is_anonymous: false,
+    anon_username: 'user12345678'
+  }
+  const user2 = {
+    username: "user2",
+    password: bcrypt.hashSync("password", 12),
+    email: "user2@milanon.com",
+    branch: "USSF",
+    full_name: "User McUser2",
+    age_group: "17-21",
+    gender: "Male",
+    is_professional: false,
+    is_verified: false,
+    is_anonymous: false,
+    anon_username: 'user87654321'
+  }
+  const chaplain = {
+    username: "chaplain",
+    password: bcrypt.hashSync("password", 12),
+    email: "chaplain@milanon.com",
+    branch: "USSF",
+    full_name: "Father Chaplain",
+    age_group: "17-21",
+    gender: "Male",
+    education_level: "Doctor of Divinity",
+    phone_number: "555-555-5555",
+    about_you: "I am a chaplain and I love to help people get through their struggles.",
+    is_professional: true,
+    is_verified: false,
+    is_anonymous: false,
+    anon_username: 'user123'
+  }
+  const fitness = {
+    username: "fitness",
+    password: bcrypt.hashSync("password", 12),
+    email: "fitness@milanon.com",
+    branch: "USSF",
+    full_name: "Fit Woman",
+    age_group: "17-21",
+    gender: "Female",
+    education_level: "Masters of Physical Fitness",
+    phone_number: "555-555-5555",
+    about_you: "I am a fitness professional and I love to help people get fit and stay fit.",
+    is_professional: true,
+    is_verified: false,
+    is_anonymous: false,
+    anon_username: 'user1234'
+  }
+
+  const finance = {
+    username: "finance",
+    password: bcrypt.hashSync("password", 12),
+    email: "finance@milanon.com",
+    branch: "USSF",
+    full_name: "Finance Wizard",
+    age_group: "17-21",
+    gender: "Male",
+    education_level: "Masters of Financial Planning",
+    phone_number: "555-555-5555",
+    about_you: "I am a financial professional and I love to help people get their finances in order.",
+    is_professional: true,
+    is_verified: false,
+    is_anonymous: false,
+    anon_username: 'user12345'
+  }
+
+  for (let i = 7; i < usersToCreate; i++) {
     let user = {
       username: faker.internet.userName().toLowerCase(),
       password: bcrypt.hashSync("password", 12),
@@ -45,5 +121,10 @@ exports.seed = async function (knex) {
 
   await knex("users").insert(adminUser);
   await knex("users").insert(adminUser2);
+  await knex("users").insert(user1);
+  await knex("users").insert(user2);
+  await knex("users").insert(chaplain);
+  await knex("users").insert(fitness);
+  await knex("users").insert(finance);
   await knex("users").insert(fakeUserArray);
 };

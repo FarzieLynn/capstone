@@ -1,12 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../App'
 import { ChatEngine, getOrCreateChat } from 'react-chat-engine'
+import '../stylesheets/ChatPage.css'
 
 const ChatPage = () => {
   const { user } = useContext(AppContext);
   const [username, setUsername] = useState('');
 
   const createDirectChat = (creds) => {
+    console.log(creds);
     getOrCreateChat(
       creds,
       { is_direct_chat: true, usernames: [username] },
@@ -26,12 +28,11 @@ const ChatPage = () => {
       </div>
     )
   }
-  console.log(user.publicData);
   if (user.publicData === undefined) return <h3>Loading</h3>
   if(user.publicData.is_anonymous){
     return (
       <ChatEngine
-        height='92vh'
+        height='86vh'
         userName={user.publicData.anon_username}
         userSecret={user.publicData.username}
         projectID='87c51be2-76f9-4924-96cf-845972cd42ce'
@@ -41,7 +42,7 @@ const ChatPage = () => {
   }
   return (
     <ChatEngine
-      height='92vh'
+      height='86vh'
       userName={user.publicData.username}
       userSecret={user.publicData.username}
       projectID='87c51be2-76f9-4924-96cf-845972cd42ce'

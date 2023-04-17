@@ -10,7 +10,7 @@ function PrivacyAct() {
 
   return (
     <div>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="primary" className='my-2' onClick={handleShow}>
         View Privacy Act
       </Button>
 
