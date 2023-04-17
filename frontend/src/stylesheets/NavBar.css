@@ -3,6 +3,9 @@
   color: white;
   height: 14vh;
 }
+.navbar-container{
+  height: 100%;
+}
 
 .btn-chat{
   background-color: #70bdad;
