@@ -28,6 +28,7 @@ import ThreadDisplay from "./components/ThreadDisplay";
 import ThreadDisplayPage from "./pages/ThreadDisplayPage";
 import BodyCompForm from "./pages/BodyCompForm";
 import BmiForm from "./pages/BmiForm";
+import ThreadEditPage from "./pages/ThreadEditPage";
 
 
 export const AppContext = createContext({});
@@ -94,6 +95,7 @@ function App() {
           <Route path="/chat" element={<Chat />}/>
           <Route path="/threads/new" element={<ThreadCreatePage />}/>
           <Route path="/threads/:id" element={<ThreadDisplay />}/>
+          <Route path="/threads/:id/edit" element={<ThreadEditPage />}/>
           <Route path='/forums/:type' element={<ThreadDisplayPage />}/>
           <Route path="/forums" element={<ForumSection />}/>
           <Route path="/BMICal" element={<BmiForm />}/>
