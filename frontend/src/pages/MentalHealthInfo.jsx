@@ -13,7 +13,7 @@ function MentalHealthInfo() {
 
   return (
     <>
-    <div className="mental vh-100%">
+    <div className="mental d-flex flex-column align-items-center">
       {mentalHealthVisited ?
         <>
           <div className="mentalTitles">
@@ -35,7 +35,7 @@ function MentalHealthInfo() {
               </strong>
             </h2>
           </span>
-          <div className="mentalBlurb">
+          <div className="mentalBlurb text-center">
 
             <p>
               Welcome to our Mental Health page. We are here to provide support for
