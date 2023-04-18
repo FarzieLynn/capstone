@@ -7,6 +7,7 @@ import RegisterPage from "./pages/RegisterPage";
 import FitnessPage from "./pages/FitnessPage";
 import FinanceInfo from "./pages/FinanceInfo";
 import FinancePage from "./pages/FinancePage";
+import FinanceCalculator from "./pages/FinanceCalculator";
 import Mentorship from "./pages/Mentorship";
 import NotFoundPage from "./pages/NotFoundPage";
 import ProfessionalRegisterPage from "./pages/ProfessionalRegisterPage";
@@ -14,7 +15,6 @@ import MentalHealth from "./pages/MentalHealth";
 import HomePage from "./pages/HomePage";
 import NavBar from "./components/NavBar";
 import cookie from "cookie";
-import MentorThreads from "./pages/MentorThreads";
 import FinanceAdvanced from "./pages/FinanceAdvanced";
 import FinanceBeginner from "./pages/FinanceBeginner";
 import FinanceIntermediate from "./pages/FinanceIntermediate";
@@ -23,8 +23,9 @@ import ProfilePage from "./pages/ProfilePage";
 import ThreadCreatePage from './pages/ThreadCreatePage';
 import Chat from "./pages/ChatPage";
 import ProfessionalPrivacyAgreementPage from "./pages/ProfessionalPrivacyAgreementPage";
-import ForumSection from "./components/forums/ForumSection";
+import ForumSection from "./pages/ForumSection";
 import ThreadDisplay from "./components/ThreadDisplay";
+import ThreadDisplayPage from "./pages/ThreadDisplayPage";
 
 
 export const AppContext = createContext({});
@@ -34,8 +35,6 @@ function App() {
   const [url] = useState("http://localhost:8080");
   const [token, setToken] = useState();
   const [mentalHealthVisited, setMentalHealthVisited] = useState(false);
-
-  const navigate = useNavigate(); 
 
   useEffect(() => {
     const token = cookie.parse(document.cookie).access_token;
@@ -73,8 +72,7 @@ function App() {
       <AppContext.Provider value={{ user, setUser, url, token, mentalHealthVisited, setMentalHealthVisited}}>
         <div className="App">
           <NavBar />
-        </div>
-        <Routes>
+          <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
@@ -84,6 +82,7 @@ function App() {
           <Route path="/finance/advanced" element={<FinanceAdvanced />} />
           <Route path="/finance/beginner" element={<FinanceBeginner />} />
           <Route path="/finance/intermediate" element={<FinanceIntermediate />} />
+          <Route path='/finance/calculator' element={<FinanceCalculator />} />
           <Route path="/finance" element={<FinancePage />} />
           <Route path="/mentalhealthinfo" element={<MentalHealthInfo />}/>
           <Route path="/registerpro" element={<ProfessionalRegisterPage />} />
@@ -93,9 +92,12 @@ function App() {
           <Route path="/chat" element={<Chat />}/>
           <Route path="/threads/new" element={<ThreadCreatePage />}/>
           <Route path="/threads/:id" element={<ThreadDisplay />}/>
+          <Route path='/forums/:type' element={<ThreadDisplayPage />}/>
           <Route path="/forums" element={<ForumSection />}/>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
+        </div>
+        
       </AppContext.Provider>
     </>
   );

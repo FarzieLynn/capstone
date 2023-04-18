@@ -4,12 +4,14 @@ import { useNavigate } from "react-router-dom";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import { AppContext } from '../App';
+import ProfessionalsTable from "../components/ProfessionalsTable";
 
 function MentalHealthInfo() {
   const navigate = useNavigate();
   const { mentalHealthVisited, setMentalHealthVisited } = useContext(AppContext);
 
   return (
+    <>
     <div className="mental vh-100%">
       {mentalHealthVisited ?
         <>
@@ -93,6 +95,7 @@ function MentalHealthInfo() {
               you, and we hope you find the resources on our page helpful.
             </p>
           </div>
+          <ProfessionalsTable type={'Chaplain'}/>
         </>
         :
         <div>
@@ -101,10 +104,9 @@ function MentalHealthInfo() {
             <Button onClick={() => setMentalHealthVisited(true)}>Close</Button>
           </Alert>
         </div>}
-
     </div>
-
-
+ 
+    </>
   );
 }
 

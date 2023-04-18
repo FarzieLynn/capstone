@@ -13,7 +13,9 @@ const postThread = ({thread_content, thread_type, thread_author, thread_title}) 
 }
 
 const getThreads = () => {
-  return knex.select('*').from('threads');
+  return knex.select('threads.id', 'threads.thread_title', 'threads.thread_type', 'threads.thread_content', 'users.username', 'users.is_anonymous','threads.thread_timestamp')
+  .from('threads')
+  .innerJoin('users', "users.id", "=", "threads.thread_author")
 }
 
 const getThreadsByType = (type) => {
@@ -40,6 +42,10 @@ const deleteThread = (id) => {
   return knex('threads').where('id', '=', id).del();
 }
 
+const editThreadText = (id, newText) => {
+  return knex('threads').where({id:id}).update({thread_content:newText}, ['*'])
+}
+
 module.exports = {
   postThread,
   getThread,
@@ -47,4 +53,5 @@ module.exports = {
   deleteThread,
   getThreadsByType,
   getThreads,
+  editThreadText,
 };
