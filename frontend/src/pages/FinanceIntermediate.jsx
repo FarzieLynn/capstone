@@ -2,6 +2,10 @@ import { Container, Row, Col } from 'react-bootstrap'
 import './stylesheets/Finance.css'
 
 const FinanceIntermediate = () => {
+    const exportPdf = () => {
+    
+        window.print()
+    }
     return (
         <Container>
             <br></br>
@@ -47,6 +51,7 @@ const FinanceIntermediate = () => {
                     think of.
                 </Col>
             </Row>
+            <button className='btn btn-dark pageBtn m-2' onClick={() => exportPdf()}>Print PDF</button>
             <br></br>
         </Container>
     );
