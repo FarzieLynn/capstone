@@ -25,7 +25,7 @@ function ThreadDisplay() {
     fetch(`${url}/comments/post/${id}`)
       .then((res) => res.json())
       .then((data) => setComments(data));
-  }, [url]);
+  }, [url, id]);
 
   const handleSubmit = (e) => {
     const obj = {
@@ -65,7 +65,7 @@ function ThreadDisplay() {
   return (
     <Container fluid className="forums-main">
       <Row className="justify-content-center">
-        <Col md={8}>
+        <Col md={6}>
           <Container className="flex-column justify-content-center">
             <Button
               className="m-2 btn-chat"
@@ -74,6 +74,19 @@ function ThreadDisplay() {
             >
               Back
             </Button>
+            {console.log(thread)}
+            {thread?.username === user?.publicInfo?.username ||
+            user?.roles.includes("Admin") ? (
+              <Button
+                className="m-2 btn-chat"
+                variant="primary"
+                onClick={(e) => navigate("/forums")}
+              >
+                Edit Post
+              </Button>
+            ) : (
+              <></>
+            )}
           </Container>
           {createThreadCard(thread, user)}
           {thread ? (
@@ -87,7 +100,7 @@ function ThreadDisplay() {
       </Row>
       <br />
       <Row className="justify-content-center">
-        <Col md={8} data-color-mode="light">
+        <Col md={6} data-color-mode="light">
           <span>Post a comment:</span>
           <MDEditor value={value} onChange={setValue} />
           <Button
@@ -97,7 +110,11 @@ function ThreadDisplay() {
           >
             Submit
           </Button>
-          <Button variant="primary" className="btn-chat" onClick={() => setValue("")}>
+          <Button
+            variant="primary"
+            className="btn-chat"
+            onClick={() => setValue("")}
+          >
             Cancel
           </Button>
         </Col>
