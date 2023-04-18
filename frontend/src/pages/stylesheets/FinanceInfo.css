@@ -1,5 +1,6 @@
 .finance{
     background-color: #ebf2fa;
+    min-height: 86vh;
 }
 
 .question{
@@ -20,14 +21,13 @@
 }
 
 .financeTitleLg{
-    position: absolute;
-    top: 20%;
+    margin-top: 4vh;
     font-size: 100px;
 }
 
 .financeImg{
     position: center;
-    margin-top: 20%;
+    margin-top: 3%;
 }
 
 .financeBlurb{

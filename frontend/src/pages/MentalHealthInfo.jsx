@@ -5,8 +5,10 @@ import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import { AppContext } from '../App';
 import ProfessionalsTable from "../components/ProfessionalsTable";
+import { AppContext } from "../App";
 
 function MentalHealthInfo() {
+  const { user } = useContext(AppContext);
   const navigate = useNavigate();
   const { mentalHealthVisited, setMentalHealthVisited } = useContext(AppContext);
 

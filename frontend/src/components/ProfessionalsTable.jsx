@@ -3,6 +3,7 @@ import { Table } from 'react-bootstrap'
 import { AppContext } from '../App'
 import cookie from 'cookie';
 import { useNavigate } from 'react-router-dom';
+import '../stylesheets/ProfessionalsTable.css'
 
 const ProfessionalsTable = ({type}) => {
   const { url } = useContext(AppContext);
@@ -26,8 +27,8 @@ const ProfessionalsTable = ({type}) => {
   }, [])
   return (
     professionals.length !== 0 ? 
-    <div>
-      <Table striped>
+    <div className="professionals-main">
+      <Table striped variant='light' className="text-center">
       <thead>
         <tr>
           <th>Name</th>
