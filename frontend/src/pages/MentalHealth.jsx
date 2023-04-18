@@ -2,7 +2,7 @@ import { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import MentalScore from './MentalScore'
 import './stylesheets/MentalHealth.css'
-import BasicDocument from './BasicDocument'
+
 
 
 const MentalHealth = () => {

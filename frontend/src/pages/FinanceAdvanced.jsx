@@ -1,7 +1,6 @@
 import { Container, Row, Col } from 'react-bootstrap'
 import './stylesheets/Finance.css'
-import jsPDF from 'jspdf'
-import html2canvas from 'html2canvas'
+
 
 const FinanceAdvanced = () => {
 

@@ -1,8 +1,21 @@
 @media print {
   .navbar * {
       visibility: hidden;
+      display: none;
+      position: absolute;
+      margin: 0;
   }
-
+  .filler * {
+    visibility: hidden;
+    display: none;
+    position: absolute;
+    margin: 0;
+}
+  #mental {
+    zoom: 65%;
+    position: absolute;
+    margin-top: 0; 
+  }
   #printBtn {
       visibility: hidden !important;
   }
