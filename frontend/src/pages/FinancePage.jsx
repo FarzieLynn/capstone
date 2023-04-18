@@ -248,7 +248,7 @@ const FinancePage = () => {
             navigate('/finance/advanced')
         }
     }
-
+   
     return (
         <div className='quiz'>
             <div className='text-center questions position-relative top-0 start-50 translate-middle-x'>

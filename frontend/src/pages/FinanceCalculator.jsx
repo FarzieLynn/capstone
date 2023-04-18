@@ -47,6 +47,11 @@ const FinanceCalculator = () => {
     const [pensionWithVA, setPensionWithVA] = useState();
     const [targetRetAmtWithVA, setTargetRetAmtWithVA] = useState();
     const [retDataWithVA, setRetDataWithVA] = useState();
+    const exportPdf = () => {
+
+        window.print()
+    }
+    
     const vaStatus =
     {
         vetWithOneChild:
