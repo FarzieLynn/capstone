@@ -1,11 +1,17 @@
 import { Container, Row, Col } from 'react-bootstrap'
 import './stylesheets/Finance.css'
+import jsPDF from 'jspdf'
+import html2canvas from 'html2canvas'
+import html2pdf from 'html2pdf.js'
 
 const FinanceBeginner = () => {
-
     
+    const exportPdf = () => {
+
+        window.print()
+    }
     return (
-        <Container>
+        <Container id="beginner">
             <br></br>
             <Row>
                 <Col className='col'>
@@ -43,8 +49,9 @@ const FinanceBeginner = () => {
                 </Col>
                 <Col>
                 </Col>
+                <button id="printBtn" className='btn btn-dark pageBtn m-2' onClick={() => exportPdf()}>Print PDF</button>
             </Row>
-        </Container>
+           </Container>
     );
 }
 

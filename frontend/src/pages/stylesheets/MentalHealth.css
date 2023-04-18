@@ -1,3 +1,22 @@
+@media print {
+  .navbar * {
+      visibility: hidden;
+      -webkit-print-color-adjust: exact !important;
+  }
+
+  #printBtn {
+      visibility: hidden !important;
+  }
+  #chatBtn {
+    visibility: hidden !important;
+  }
+  .mental * {
+      visibility: visible; 
+      text-align: left;
+      -webkit-print-color-adjust: exact !important;
+  }
+}
+
 .col {
   display: inline-block;
   justify-content: center;

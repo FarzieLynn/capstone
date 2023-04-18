@@ -1,9 +1,17 @@
 import { Container, Row, Col } from 'react-bootstrap'
 import './stylesheets/Finance.css'
+import jsPDF from 'jspdf'
+import html2canvas from 'html2canvas'
 
 const FinanceAdvanced = () => {
+
+    const exportPdf = () => {
+    
+        window.print()
+    }
+      
     return (
-        <Container>
+        <Container id='advanced'>
             <br></br>
             <Row>
                 <Col>
@@ -47,6 +55,7 @@ const FinanceAdvanced = () => {
                     have it generate even more money, while doing little to no work.  This is also known as passive income.
                 </Col>
             </Row>
+            <button className='btn btn-dark pageBtn m-2' onClick={() => exportPdf()}>Print PDF</button>
         </Container>
     );
 }

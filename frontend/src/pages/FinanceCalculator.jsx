@@ -47,6 +47,11 @@ const FinanceCalculator = () => {
     const [pensionWithVA, setPensionWithVA] = useState();
     const [targetRetAmtWithVA, setTargetRetAmtWithVA] = useState();
     const [retDataWithVA, setRetDataWithVA] = useState();
+    const exportPdf = () => {
+
+        window.print()
+    }
+    
     const vaStatus =
     {
         vetWithOneChild:
@@ -1270,6 +1275,7 @@ const FinanceCalculator = () => {
                         Your updated target retirement amount based on your pension: {targetRetAmtWithVA ? formatter.format(targetRetAmtWithVA) : 0}
                     </div>
                     <h2>You can retire at age {retAgeWithVA ? retAgeWithVA : null}</h2>
+                    <button id="printBtn" className='btn btn-dark pageBtn m-2' onClick={() => exportPdf()}>Print PDF</button>
                     <strong>Retirement Goal as a Retired Veteran:</strong>
                     <ResponsiveContainer width={"100%"} aspect={2} hidden={pension ? false : true}>
                         <AreaChart data={retDataWithVA} margin={{ top: 10, right: 0, left: 0, bottom: 10 }}>

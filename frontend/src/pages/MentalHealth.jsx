@@ -3,19 +3,15 @@ import { useNavigate } from 'react-router-dom'
 import MentalScore from './MentalScore'
 import './stylesheets/MentalHealth.css'
 import BasicDocument from './BasicDocument'
-import { Page, Text, Image, Document, Stylesheet, PDFDownloadLink } from '@react-pdf/renderer'
 
 
 const MentalHealth = () => {
-    const navigate = useNavigate();
+
     let mentalRef = useRef({})
     var finalAnswer = 0;
 
 
 
-    const handleGeneratePdf = () => {
-
-    }
     const questions = [
         {
             question: 'Little interest or pleasure in doing things',
@@ -206,47 +202,14 @@ const MentalHealth = () => {
         submit();
         setIsShown(true)
     }
-    const styles = StyleSheet.create({ body: {
-        paddingTop: 35,
-        paddingBottom: 65,
-        paddingHorizontal: 35,
-      },
-      title: {
-        fontSize: 24,
-        textAlign: "center",
-      },
-      text: {
-        margin: 12,
-        fontSize: 14,
-        textAlign: "justify",
-        fontFamily: "Times-Roman",
-      },
-      image: {
-        marginVertical: 15,
-        marginHorizontal: 100,
-      },
-      header: {
-        fontSize: 12,
-        marginBottom: 20,
-        textAlign: "center",
-        color: "grey",
-      },
-      pageNumber: {
-        position: "absolute",
-        fontSize: 12,
-        bottom: 30,
-        left: 0,
-        right: 0,
-        textAlign: "center",
-        color: "grey",
-      },})
+    
+
+
     return (
-        
-        <Document>
-            <Page>
-                <Text>
-                    <div ref={mentalRef} className='quiz'>
+
+                    <div ref={mentalRef} className='quiz'id="mental">
                         <div className='text-center questions position-relative top-0 start-50 translate-middle-x'>
+                        <div id="MentalHealth" className="MentalHealth-header">
                             <h2 className='heading'>Please answer the following regarding your mental well-being:</h2><br></br>
                             {questions.map((q, i) => (
                                 <div key={i} className='questions'>
@@ -263,21 +226,13 @@ const MentalHealth = () => {
                                     </div>
                                 </div>
                             ))}
+                            </div>
                             <div className='test-center position-relative quiz'>
                                 <button className='btn btn-dark pageBtn m-2' onClick={() => clickHandler()} disabled={!allQuestionsAnswered()}>Submit</button> {isShown && <MentalScore score={`${treatment}`}/>}
-                                <PDFDownloadLink document={<MentalHealth />} fileName="Form">
-                                {({loading}) => (loading ? <button>Loading Document...</button> : <button>Download</button> )}
-                                </PDFDownloadLink>
-                                
                             </div>
                         </div>
                     </div>
-                </Text>
-                <Text 
-                render={({pageNumber, totalPages}) => `${pageNumber} / ${totalPages}`}
-                fixed/> 
-            </Page>
-        </Document>
+              
     )
 }
 
