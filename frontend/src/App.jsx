@@ -26,6 +26,8 @@ import ProfessionalPrivacyAgreementPage from "./pages/ProfessionalPrivacyAgreeme
 import ForumSection from "./pages/ForumSection";
 import ThreadDisplay from "./components/ThreadDisplay";
 import ThreadDisplayPage from "./pages/ThreadDisplayPage";
+import BodyCompForm from "./pages/BodyCompForm";
+import BmiForm from "./pages/BmiForm";
 
 
 export const AppContext = createContext({});
@@ -94,6 +96,8 @@ function App() {
           <Route path="/threads/:id" element={<ThreadDisplay />}/>
           <Route path='/forums/:type' element={<ThreadDisplayPage />}/>
           <Route path="/forums" element={<ForumSection />}/>
+          <Route path="/BMICal" element={<BmiForm />}/>
+          <Route path="/BodyCompCal" element={<BodyCompForm />}/>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </div>
