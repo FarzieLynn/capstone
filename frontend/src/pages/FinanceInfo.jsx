@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./stylesheets/FinanceInfo.css";
 import { useNavigate } from "react-router-dom";
 import ProfessionalsTable from "../components/ProfessionalsTable";
+import { AppContext } from '../App'
 
 function FinanceInfo() {
   const navigate = useNavigate();
+  const { user } = useContext(AppContext)
 
   return (
-    <div className="finance vh-100%">
+    <div className="finance d-flex flex-column align-items-center">
       <div className="financeTitles">
         <span className="financeTitleLg">Financial Management</span>
 
@@ -30,7 +32,7 @@ function FinanceInfo() {
           </strong>
         </h2>
       </span>
-      <div className="financeBlurb">
+      <div className="financeBlurb text-center">
         <p>
           Welcome to our Financial Management page, dedicated to supporting
           active duty, reserve, and veteran service members with their financial
@@ -71,7 +73,8 @@ function FinanceInfo() {
           your financial journey.
         </p>
       </div>
-      <ProfessionalsTable type={'Financial Specialist'}/>
+      {user.publicData !== undefined ? <ProfessionalsTable type={'Financial Specialist'}/> : null}
+      
     </div>
   );
 }

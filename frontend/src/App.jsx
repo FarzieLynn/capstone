@@ -26,6 +26,9 @@ import ProfessionalPrivacyAgreementPage from "./pages/ProfessionalPrivacyAgreeme
 import ForumSection from "./pages/ForumSection";
 import ThreadDisplay from "./components/ThreadDisplay";
 import ThreadDisplayPage from "./pages/ThreadDisplayPage";
+import BodyCompForm from "./pages/BodyCompForm";
+import BmiForm from "./pages/BmiForm";
+import ThreadEditPage from "./pages/ThreadEditPage";
 
 
 export const AppContext = createContext({});
@@ -34,6 +37,7 @@ function App() {
   const [user, setUser] = useState({});
   const [url] = useState("http://localhost:8080");
   const [token, setToken] = useState();
+  const [mentalHealthVisited, setMentalHealthVisited] = useState(false);
 
   useEffect(() => {
     const token = cookie.parse(document.cookie).access_token;
@@ -68,7 +72,7 @@ function App() {
 
   return (
     <>
-      <AppContext.Provider value={{ user, setUser, url, token}}>
+      <AppContext.Provider value={{ user, setUser, url, token, mentalHealthVisited, setMentalHealthVisited}}>
         <div className="App">
           <NavBar />
           <Routes>
@@ -91,8 +95,11 @@ function App() {
           <Route path="/chat" element={<Chat />}/>
           <Route path="/threads/new" element={<ThreadCreatePage />}/>
           <Route path="/threads/:id" element={<ThreadDisplay />}/>
+          <Route path="/threads/:id/edit" element={<ThreadEditPage />}/>
           <Route path='/forums/:type' element={<ThreadDisplayPage />}/>
           <Route path="/forums" element={<ForumSection />}/>
+          <Route path="/BMICal" element={<BmiForm />}/>
+          <Route path="/BodyCompCal" element={<BodyCompForm />}/>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </div>

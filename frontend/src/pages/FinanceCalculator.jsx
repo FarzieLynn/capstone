@@ -580,86 +580,988 @@ const FinanceCalculator = () => {
                 }
             ]
     }
+    
     const payscale = [
         {
             rank: 'E-5',
-            pay: 3874.80
+            pay: [
+                {
+                    years: 20,
+                    amount: 3874.80
+                },
+                {
+                    years: 22,
+                    amount: 3874.80
+                },
+                {
+                    years: 24,
+                    amount: 3874.80
+                },
+                {
+                    years: 26,
+                    amount: 3874.80
+                },
+                {
+                    years: 28,
+                    amount: 3874.80
+                },
+                {
+                    years: 30,
+                    amount: 3874.80
+                },
+                {
+                    years: 32,
+                    amount: 3874.80
+                },
+                {
+                    years: 34,
+                    amount: 3874.80
+                },
+                {
+                    years: 36,
+                    amount: 3874.80
+                },
+                {
+                    years: 38,
+                    amount: 3874.80
+                },
+                {
+                    years: 40,
+                    amount: 3874.80
+                }
+            ]
         },
         {
             rank: 'E-6',
-            pay: 4616.40
+            pay: [
+                {
+                    years: 20,
+                    amount: 4616.40
+                },
+                {
+                    years: 22,
+                    amount: 4616.40
+                },
+                {
+                    years: 24,
+                    amount: 4616.40
+                },
+                {
+                    years: 26,
+                    amount: 4616.40
+                },
+                {
+                    years: 28,
+                    amount: 4616.40
+                },
+                {
+                    years: 30,
+                    amount: 4616.40
+                },
+                {
+                    years: 32,
+                    amount: 4616.40
+                },
+                {
+                    years: 34,
+                    amount: 4616.40
+                },
+                {
+                    years: 36,
+                    amount: 4616.40
+                },
+                {
+                    years: 38,
+                    amount: 4616.40
+                },
+                {
+                    years: 40,
+                    amount: 4616.40
+                },
+            ]
         },
         {
             rank: 'E-7',
-            pay: 5473.20
+            pay: [
+                {
+                    years: 20,
+                    amount: 5473.20
+                },
+                {
+                    years: 22,
+                    amount: 5674.50
+                },
+                {
+                    years: 24,
+                    amount: 5782.50
+                },
+                {
+                    years: 26,
+                    amount: 6193.50
+                },
+                {
+                    years: 28,
+                    amount: 6193.50
+                },
+                {
+                    years: 30,
+                    amount: 6193.50
+                },
+                {
+                    years: 32,
+                    amount: 6193.50
+                },
+                {
+                    years: 34,
+                    amount: 6193.50
+                },
+                {
+                    years: 36,
+                    amount: 6193.50
+                },
+                {
+                    years: 38,
+                    amount: 6193.50
+                },
+                {
+                    years: 40,
+                    amount: 6193.50
+                },
+            ]
         },
         {
             rank: 'E-8',
-            pay: 6130.20
+            pay: [
+                {
+                    years: 20,
+                    amount: 6130.20
+                },
+                {
+                    years: 22,
+                    amount: 6404.40
+                },
+                {
+                    years: 24,
+                    amount: 6556.50
+                },
+                {
+                    years: 26,
+                    amount: 6930.90
+                },
+                {
+                    years: 28,
+                    amount: 6930.90
+                },
+                {
+                    years: 30,
+                    amount: 7069.80
+                },
+                {
+                    years: 32,
+                    amount: 7069.80
+                },
+                {
+                    years: 34,
+                    amount: 7069.80
+                },
+                {
+                    years: 36,
+                    amount: 7069.80
+                },
+                {
+                    years: 38,
+                    amount: 7069.80
+                },
+                {
+                    years: 40,
+                    amount: 7069.80
+                },
+            ]
         },
         {
             rank: 'E-9',
-            pay: 7102.80
+            pay: [
+                {
+                    years: 20,
+                    amount: 7102.80
+                },
+                {
+                    years: 22,
+                    amount: 7381.50
+                },
+                {
+                    years: 24,
+                    amount: 7673.70
+                },
+                {
+                    years: 26,
+                    amount: 8121.60
+                },
+                {
+                    years: 28,
+                    amount: 8121.60
+                },
+                {
+                    years: 30,
+                    amount: 8526.90
+                },
+                {
+                    years: 32,
+                    amount: 8526.90
+                },
+                {
+                    years: 34,
+                    amount: 8953.90
+                },
+                {
+                    years: 36,
+                    amount: 8953.90
+                },
+                {
+                    years: 38,
+                    amount: 9402.30
+                },
+                {
+                    years: 40,
+                    amount: 9402.30
+                }
+            ]
         },
         {
             rank: 'O-1E',
-            pay: 5682.60
+            pay: [
+                {
+                    years: 20,
+                    amount: 5682.60
+                },
+                {
+                    years: 22,
+                    amount: 5682.60
+                },
+                {
+                    years: 24,
+                    amount: 5682.60
+                },
+                {
+                    years: 26,
+                    amount: 5682.60
+                },
+                {
+                    years: 28,
+                    amount: 5682.60
+                },
+                {
+                    years: 30,
+                    amount: 5682.60
+                },
+                {
+                    years: 32,
+                    amount: 5682.60
+                },
+                {
+                    years: 34,
+                    amount: 5682.60
+                },
+                {
+                    years: 36,
+                    amount: 5682.60
+                },
+                {
+                    years: 38,
+                    amount: 5682.60
+                },
+                {
+                    years: 40,
+                    amount: 5682.60
+                },
+            ]
         },
         {
             rank: 'O-2E',
-            pay: 6715.80
+            pay: [
+                {
+                    years: 20,
+                    amount: 6715.80
+                },
+                {
+                    years: 22,
+                    amount: 6715.80
+                },
+                {
+                    years: 24,
+                    amount: 6715.80
+                },
+                {
+                    years: 26,
+                    amount: 6715.80
+                },
+                {
+                    years: 28,
+                    amount: 6715.80
+                },
+                {
+                    years: 30,
+                    amount: 6715.80
+                },
+                {
+                    years: 32,
+                    amount: 6715.80
+                },
+                {
+                    years: 34,
+                    amount: 6715.80
+                },
+                {
+                    years: 36,
+                    amount: 6715.80
+                },
+                {
+                    years: 38,
+                    amount: 6715.80
+                },
+                {
+                    years: 40,
+                    amount: 6715.80
+                },
+            ]
         },
         {
             rank: 'O-3E',
-            pay: 8421.00
+            pay: [
+                {
+                    years: 20,
+                    amount: 8421.00
+                },
+                {
+                    years: 22,
+                    amount: 8421.00
+                },
+                {
+                    years: 24,
+                    amount: 8421.00
+                },
+                {
+                    years: 26,
+                    amount: 8421.00
+                },
+                {
+                    years: 28,
+                    amount: 8421.00
+                },
+                {
+                    years: 30,
+                    amount: 8421.00
+                },
+                {
+                    years: 32,
+                    amount: 8421.00
+                },
+                {
+                    years: 34,
+                    amount: 8421.00
+                },
+                {
+                    years: 36,
+                    amount: 8421.00
+                },
+                {
+                    years: 38,
+                    amount: 8421.00
+                },
+                {
+                    years: 40,
+                    amount: 8421.00
+                }
+            ]
         },
         {
             rank: 'O-4',
-            pay: 9210.30
+            pay: [
+                {
+                    years: 20,
+                    amount: 9210.30
+                },
+                {
+                    years: 22,
+                    amount: 9210.30
+                },
+                {
+                    years: 24,
+                    amount: 9210.30
+                },
+                {
+                    years: 26,
+                    amount: 9210.30
+                },
+                {
+                    years: 28,
+                    amount: 9210.30
+                },
+                {
+                    years: 30,
+                    amount: 9210.30
+                },
+                {
+                    years: 32,
+                    amount: 9210.30
+                },
+                {
+                    years: 34,
+                    amount: 9210.30
+                },
+                {
+                    years: 36,
+                    amount: 9210.30
+                },
+                {
+                    years: 38,
+                    amount: 9210.30
+                },
+                {
+                    years: 40,
+                    amount: 9210.30
+                }
+            ]
         },
         {
             rank: 'O-5',
-            pay: 10544.70
+            pay: [
+                {
+                    years: 20,
+                    amount: 10544.70
+                },
+                {
+                    years: 22,
+                    amount: 10861.80
+                },
+                {
+                    years: 24,
+                    amount: 10861.80
+                },
+                {
+                    years: 26,
+                    amount: 10861.80
+                },
+                {
+                    years: 28,
+                    amount: 10861.80
+                },
+                {
+                    years: 30,
+                    amount: 10861.80
+                },
+                {
+                    years: 32,
+                    amount: 10861.80
+                },
+                {
+                    years: 34,
+                    amount: 10861.80
+                },
+                {
+                    years: 36,
+                    amount: 10861.80
+                },
+                {
+                    years: 38,
+                    amount: 10861.80
+                },
+                {
+                    years: 40,
+                    amount: 10861.80
+                }
+            ]
         },
         {
             rank: 'O-6',
-            pay: 12050.40
+            pay: [
+                {
+                    years: 20,
+                    amount: 12050.40
+                },
+                {
+                    years: 22,
+                    amount: 12367.50
+                },
+                {
+                    years: 24,
+                    amount: 12688.80
+                },
+                {
+                    years: 26,
+                    amount: 13310.70
+                },
+                {
+                    years: 28,
+                    amount: 13310.70
+                },
+                {
+                    years: 30,
+                    amount: 13576.50
+                },
+                {
+                    years: 32,
+                    amount: 13576.50
+                },
+                {
+                    years: 34,
+                    amount: 13576.50
+                },
+                {
+                    years: 36,
+                    amount: 13576.50
+                },
+                {
+                    years: 38,
+                    amount: 13576.50
+                },
+                {
+                    years: 40,
+                    amount: 13576.50
+                }
+            ]
         },
         {
             rank: 'O-7',
-            pay: 14737.80
+            pay: [
+                {
+                    years: 20,
+                    amount: 14737.80
+                },
+                {
+                    years: 22,
+                    amount: 14737.80
+                },
+                {
+                    years: 24,
+                    amount: 14737.80
+                },
+                {
+                    years: 26,
+                    amount: 14813.70
+                },
+                {
+                    years: 28,
+                    amount: 14813.70
+                },
+                {
+                    years: 30,
+                    amount: 15110.10
+                },
+                {
+                    years: 32,
+                    amount: 15110.10
+                },
+                {
+                    years: 34,
+                    amount: 15110.10
+                },
+                {
+                    years: 36,
+                    amount: 15110.10
+                },
+                {
+                    years: 38,
+                    amount: 15110.10
+                },
+                {
+                    years: 40,
+                    amount: 15110.10
+                },
+            ]
         },
         {
             rank: 'O-8',
-            pay: 16298.10
+            pay: [
+                {
+                    years: 20,
+                    amount: 16298.10
+                },
+                {
+                    years: 22,
+                    amount: 16700.10
+                },
+                {
+                    years: 24,
+                    amount: 16700.10
+                },
+                {
+                    years: 26,
+                    amount: 16700.10
+                },
+                {
+                    years: 28,
+                    amount: 16700.10
+                },
+                {
+                    years: 30,
+                    amount: 17118.30
+                },
+                {
+                    years: 32,
+                    amount: 17118.30
+                },
+                {
+                    years: 34,
+                    amount: 17545.80
+                },
+                {
+                    years: 36,
+                    amount: 17545.80
+                },
+                {
+                    years: 38,
+                    amount: 17545.80
+                },
+                {
+                    years: 40,
+                    amount: 17545.80
+                }
+            ]
         },
         {
             rank: 'O-9',
-            pay: 17201.40
+            pay: [
+                {
+                    years: 20,
+                    amount: 17201.40
+                },
+                {
+                    years: 22,
+                    amount: 17449.80
+                },
+                {
+                    years: 24,
+                    amount: 17675.10
+                },
+                {
+                    years: 26,
+                    amount: 17675.10
+                },
+                {
+                    years: 28,
+                    amount: 17675.10
+                },
+                {
+                    years: 30,
+                    amount: 17675.10
+                },
+                {
+                    years: 32,
+                    amount: 17675.10
+                },
+                {
+                    years: 34,
+                    amount: 17675.10
+                },
+                {
+                    years: 36,
+                    amount: 17675.10
+                },
+                {
+                    years: 38,
+                    amount: 17675.10
+                },
+                {
+                    years: 40,
+                    amount: 17675.10
+                },
+            ]
         },
         {
             rank: 'O-10',
-            pay: 17675.10
+            pay: [
+                {
+                    years: 20,
+                    amount: 17675.10
+                },
+                {
+                    years: 22,
+                    amount: 17675.10
+                },
+                {
+                    years: 24,
+                    amount: 17675.10
+                },
+                {
+                    years: 26,
+                    amount: 17675.10
+                },
+                {
+                    years: 28,
+                    amount: 17675.10
+                },
+                {
+                    years: 30,
+                    amount: 17675.10
+                },
+                {
+                    years: 32,
+                    amount: 17675.10
+                },
+                {
+                    years: 34,
+                    amount: 17675.10
+                },
+                {
+                    years: 36,
+                    amount: 17675.10
+                },
+                {
+                    years: 38,
+                    amount: 17675.10
+                },
+                {
+                    years: 40,
+                    amount: 17675.10
+                },
+            ]
         },
         {
             rank: 'W-1',
-            pay: 6143.40
+            pay: [
+                {
+                    years: 20,
+                    amount: 6143.40
+                },
+                {
+                    years: 22,
+                    amount: 6143.40
+                },
+                {
+                    years: 24,
+                    amount: 6143.40
+                },
+                {
+                    years: 26,
+                    amount: 6143.40
+                },
+                {
+                    years: 28,
+                    amount: 6143.40
+                },
+                {
+                    years: 30,
+                    amount: 6143.40
+                },
+                {
+                    years: 32,
+                    amount: 6143.40
+                },
+                {
+                    years: 34,
+                    amount: 6143.40
+                },
+                {
+                    years: 36,
+                    amount: 6143.40
+                },
+                {
+                    years: 38,
+                    amount: 6143.40
+                },
+                {
+                    years: 40,
+                    amount: 6143.40
+                },
+            ]
         },
         {
             rank: 'W-2',
-            pay: 6517.20
+            pay: [
+                {
+                    years: 20,
+                    amount: 6517.20
+                },
+                {
+                    years: 22,
+                    amount: 6652.80
+                },
+                {
+                    years: 24,
+                    amount: 6760.20
+                },
+                {
+                    years: 26,
+                    amount: 6760.20
+                },
+                {
+                    years: 28,
+                    amount: 6760.20
+                },
+                {
+                    years: 30,
+                    amount: 6760.20
+                },
+                {
+                    years: 32,
+                    amount: 6760.20
+                },
+                {
+                    years: 34,
+                    amount: 6760.20
+                },
+                {
+                    years: 36,
+                    amount: 6760.20
+                },
+                {
+                    years: 38,
+                    amount: 6760.20
+                },
+                {
+                    years: 40,
+                    amount: 6760.20
+                },
+            ]
         },
         {
             rank: 'W-3',
-            pay: 7428.30
+            pay: [
+                {
+                    years: 20,
+                    amount: 7428.30
+                },
+                {
+                    years: 22,
+                    amount: 7599.60
+                },
+                {
+                    years: 24,
+                    amount: 7781.40
+                },
+                {
+                    years: 26,
+                    amount: 8029.50
+                },
+                {
+                    years: 28,
+                    amount: 8029.50
+                },
+                {
+                    years: 30,
+                    amount: 8029.50
+                },
+                {
+                    years: 32,
+                    amount: 8029.50
+                },
+                {
+                    years: 34,
+                    amount: 8029.50
+                },
+                {
+                    years: 36,
+                    amount: 8029.50
+                },
+                {
+                    years: 38,
+                    amount: 8029.50
+                },
+                {
+                    years: 40,
+                    amount: 8029.50
+                }
+            ]
         },
         {
             rank: 'W-4',
-            pay: 8087.70
+            pay: [
+                {
+                    years: 20,
+                    amount: 8087.70
+                },
+                {
+                    years: 22,
+                    amount: 8473.80
+                },
+                {
+                    years: 24,
+                    amount: 8791.50
+                },
+                {
+                    years: 26,
+                    amount: 9153.60
+                },
+                {
+                    years: 28,
+                    amount: 9153.60
+                },
+                {
+                    years: 30,
+                    amount: 9336.30
+                },
+                {
+                    years: 32,
+                    amount: 9336.30
+                },
+                {
+                    years: 34,
+                    amount: 9336.30
+                },
+                {
+                    years: 36,
+                    amount: 9336.30
+                },
+                {
+                    years: 38,
+                    amount: 9336.30
+                },
+                {
+                    years: 40,
+                    amount: 9336.30
+                }
+                
+            ]
         },
         {
             rank: 'W-5',
-            pay: 8912.10
+            pay: [
+                {
+                    years: 20,
+                    amount: 8912.10
+                },
+                {
+                    years: 22,
+                    amount: 9364.20
+                },
+                {
+                    years: 24,
+                    amount: 9701.10
+                },
+                {
+                    years: 26,
+                    amount: 10073.40
+                },
+                {
+                    years: 28,
+                    amount: 10073.40
+                },
+                {
+                    years: 30,
+                    amount: 10578.00
+                },
+                {
+                    years: 32,
+                    amount: 10578.00
+                },
+                {
+                    years: 34,
+                    amount: 11106.00
+                },
+                {
+                    years: 36,
+                    amount: 11106.00
+                },
+                {
+                    years: 38,
+                    amount: 11662.50
+                },
+                {
+                    years: 40,
+                    amount: 11662.50
+                }
+            ]
         }
     ]
 
@@ -898,11 +1800,16 @@ const FinanceCalculator = () => {
         let offsetPay = 0;
         for (let i = 0; i < payscale.length; i++) {
             if (retirementRank === payscale[i].rank) {
-                offsetPay = parseInt(payscale[i].pay)
+                for(let j = 0; j < payscale[i].pay.length; j++){
+                    if(parseInt(yearsInService) === payscale[i].pay[j].years){
+                        offsetPay = parseInt(payscale[i].pay[j].amount)
+                    }
+                }
             }
         }
-
-        offsetPay = Math.round(((offsetPay * (1.025 ** activeDutyAge)) * retirementPercentage * 100 * 12 * .82) / 100)
+        //removed (1.025 ** activeDutyAge) for bug testing.  This represents annual pay raises
+        //all calculationsa are in current dollars, and assuming future pay creates an inbalance
+        offsetPay = Math.round((offsetPay * retirementPercentage * 100 * 12 * .82) / 100)
         setPension(offsetPay)
         setNewRetirementExpense(annualRetExp - (offsetPay));
         let netPostRetROR = (postRetROR - inflation) / 100;
@@ -920,7 +1827,8 @@ const FinanceCalculator = () => {
         setRetirementAge(retAge);
         setNewRetAge(newRetAge);
         const disability = calcVADisability(VAPercentage, dependents, adtlChildren, schoolChildren, spouseAid, grown)
-        let vaCalc = Math.round((disability * (1.025 ** activeDutyAge) * 100) / 100)
+        //removed (1.025 ** activeDutyAge) for bug testing.  This represents annual pay raises
+        let vaCalc = Math.round((disability * 100) / 100)
         setNewRetirementExpenseWithVA(annualRetExp - offsetPay - vaCalc);
         setPensionWithVA(offsetPay + vaCalc);
         let RetAmtWithVAPension = newRetirementExpenseWithVA / netPostRetROR;
@@ -1032,6 +1940,7 @@ const FinanceCalculator = () => {
                                 />
                             </label>
                             <br></br>
+                            <h2>Military Career</h2>
                             <label>
                                 What is your projected retirement rank?
                                 <select
@@ -1093,7 +2002,7 @@ const FinanceCalculator = () => {
                                 </select>
                             </label>
                             <label>
-                                How many years total will you have served at retirement?
+                                What will be your final pay scale at retirement?
                                 <select
                                     value={yearsInService}
                                     onChange={(e) => {
@@ -1101,25 +2010,15 @@ const FinanceCalculator = () => {
                                     }}
                                 >
                                     <option value='20'>20</option>
-                                    <option value='21'>21</option>
                                     <option value='22'>22</option>
-                                    <option value='23'>23</option>
                                     <option value='24'>24</option>
-                                    <option value='25'>25</option>
                                     <option value='26'>26</option>
-                                    <option value='27'>27</option>
                                     <option value='28'>28</option>
-                                    <option value='29'>29</option>
                                     <option value='30'>30</option>
-                                    <option value='31'>31</option>
                                     <option value='32'>32</option>
-                                    <option value='33'>33</option>
                                     <option value='34'>34</option>
-                                    <option value='35'>35</option>
                                     <option value='36'>36</option>
-                                    <option value='37'>37</option>
                                     <option value='38'>38</option>
-                                    <option value='39'>39</option>
                                     <option value='40'>40</option>
                                 </select>
                             </label>
@@ -1275,8 +2174,7 @@ const FinanceCalculator = () => {
                         Your updated target retirement amount based on your pension: {targetRetAmtWithVA ? formatter.format(targetRetAmtWithVA) : 0}
                     </div>
                     <h2>You can retire at age {retAgeWithVA ? retAgeWithVA : null}</h2>
-                    <button id="printBtn" className='btn btn-dark pageBtn m-2' onClick={() => exportPdf()}>Print PDF</button>
-                    <strong>Retirement Goal as a Retired Veteran:</strong>
+                    <strong>Retirement Goal as a Retired Veteran with Disability:</strong>
                     <ResponsiveContainer width={"100%"} aspect={2} hidden={pension ? false : true}>
                         <AreaChart data={retDataWithVA} margin={{ top: 10, right: 0, left: 0, bottom: 10 }}>
                             <CartesianGrid strokeDasharray="3 3" />

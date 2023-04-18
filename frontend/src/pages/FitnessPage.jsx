@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./stylesheets/Fitness.css";
 import { useNavigate } from "react-router-dom";
 import ProfessionalsTable from "../components/ProfessionalsTable";
+import { AppContext } from "../App";
+
 
 /* change the onClick to a list of Fitness Coaches & Nutritiionists line 73*/
 
 function FitnessPage() {
   const navigate = useNavigate();
+  const { user } = useContext(AppContext);
 
   return (
-    <div className="fitness vh-100%">
+    <div className="fitness d-flex flex-column align-items-center">
       <div className="fitnessTitles">
         <span className="fitnessTitleLg">Fitness & Nutrition</span>
 
@@ -21,7 +24,8 @@ function FitnessPage() {
           alt=""
         />
       </div>
-      <div className="fitnessBlurb">
+      
+      <div className="fitnessBlurb text-center">
         <p>
           Military fitness and nutrition are critical components of the overall
           health and well-being of service members. Whether you are serving on
@@ -71,10 +75,10 @@ function FitnessPage() {
           resources available to help you get started.
         </p>
         <p className="fitnessAlert">
-      <strong>Click <span className="link" onClick={() => navigate('/register')}>here</span> to choose from our list of certified Fitness & Nutrition Coaches</strong>
+      <strong>Click <span className="link" onClick={() => navigate("/BMICal")}>here</span> to use the BMI Calculator</strong>
       </p>
       </div>
-      <ProfessionalsTable type={'Fitness Trainer'}/>
+      {user.publicData !== undefined ? <ProfessionalsTable type={'Fitness Trainer'}/> : null}
     </div>
   );
 }
