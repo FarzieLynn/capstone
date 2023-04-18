@@ -16,7 +16,6 @@ import HomePage from "./pages/HomePage";
 import NavBar from "./components/NavBar";
 import cookie from "cookie";
 import FinanceAdvanced from "./pages/FinanceAdvanced";
-import BasicDocument from "./pages/BasicDocument";
 import FinanceBeginner from "./pages/FinanceBeginner";
 import FinanceIntermediate from "./pages/FinanceIntermediate";
 import MentalHealthInfo from "./pages/MentalHealthInfo";
@@ -85,7 +84,6 @@ function App() {
           <Route path='/finance/calculator' element={<FinanceCalculator />} />
           <Route path="/finance" element={<FinancePage />} />
           <Route path="/mentalhealthinfo" element={<MentalHealthInfo />}/>
-          <Route path="/pdf" element={<BasicDocument />}/>
           <Route path="/registerpro" element={<ProfessionalRegisterPage />} />
           <Route path="/mentalhealth" element={<MentalHealth />}/>
           <Route path="/mentorship" element={<Mentorship />}/>
