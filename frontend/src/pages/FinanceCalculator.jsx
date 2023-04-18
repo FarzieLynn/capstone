@@ -25,9 +25,556 @@ const FinanceCalculator = () => {
     const [preRetROR, setPreRetROR] = useState(initialPreRetROR);
     const [postRetROR, setPostRetROR] = useState(initialPostRetROR);
     const [inflation, setInflation] = useState(initialInflation);
-    const [balArr, setBalArr] = useState([])
     const [data, setData] = useState([])
     const [retirementRank, setRetirementRank] = useState()
+    const [activeDutyAge, setActiveDutyAge] = useState();
+    const [yearsInService, setYearsInService] = useState();
+    const [pension, setPension] = useState();
+    const [retirementPercentage, setRetirementPercentage] = useState(0.5);
+    const [newRetirementExpense, setNewRetirementExpense] = useState();
+    const [newTargetRetAmt, setNewTargetRetAmt] = useState();
+    const [retData, setRetData] = useState();
+    const [newRetAge, setNewRetAge] = useState();
+    const [VA, setVA] = useState(false);
+    const [VAPercentage, setVAPercentage] = useState();
+    const [dependents, setDependents] = useState(1);
+    const [adtlChildren, setAdtlChildren] = useState(0);
+    const [schoolChildren, setSchoolChildren] = useState(0);
+    const [grown, setGrown] = useState(0);
+    const [spouseAid, setSpouseAid] = useState(false);
+    const [newRetirementExpenseWithVA, setNewRetirementExpenseWithVA] = useState(0);
+    const [retAgeWithVA, setRetAgeWithVA] = useState();
+    const [pensionWithVA, setPensionWithVA] = useState();
+    const [targetRetAmtWithVA, setTargetRetAmtWithVA] = useState();
+    const [retDataWithVA, setRetDataWithVA] = useState();
+    const vaStatus =
+    {
+        vetWithOneChild:
+            [
+                {
+                    rating: 30,
+                    amount: 548.05
+                },
+                {
+                    rating: 40,
+                    amount: 785.86
+                },
+                {
+                    rating: 50,
+                    amount: 1108.82
+                },
+                {
+                    rating: 60,
+                    amount: 1400.65
+                },
+                {
+                    rating: 70,
+                    amount: 1757.06
+                },
+                {
+                    rating: 80,
+                    amount: 2041.15
+                },
+                {
+                    rating: 90,
+                    amount: 2293.39
+                },
+                {
+                    rating: 100,
+                    amount: 3757.00
+                }
+            ],
+        vetWithOneChildAndSpouse:
+            [
+                {
+                    rating: 30,
+                    amount: 612.05
+                },
+                {
+                    rating: 40,
+                    amount: 870.86
+                },
+                {
+                    rating: 50,
+                    amount: 1215.82
+                },
+                {
+                    rating: 60,
+                    amount: 1528.65
+                },
+                {
+                    rating: 70,
+                    amount: 1907.06
+                },
+                {
+                    rating: 80,
+                    amount: 2212.15
+                },
+                {
+                    rating: 90,
+                    amount: 2486.39
+                },
+                {
+                    rating: 100,
+                    amount: 3971.78
+                }
+            ],
+        vetWithOneChildAndSpouseAndOneParent:
+            [
+                {
+                    rating: 30,
+                    amount: 660.05
+                },
+                {
+                    rating: 40,
+                    amount: 934.86
+                },
+                {
+                    rating: 50,
+                    amount: 1296.82
+                },
+                {
+                    rating: 60,
+                    amount: 1625.65
+                },
+                {
+                    rating: 70,
+                    amount: 2020.06
+                },
+                {
+                    rating: 80,
+                    amount: 2341.15
+                },
+                {
+                    rating: 90,
+                    amount: 2631.39
+                },
+                {
+                    rating: 100,
+                    amount: 4133.85
+                }
+            ],
+        vetWithOneChildAndSpouseTwoParents:
+            [
+                {
+                    rating: 30,
+                    amount: 708.05
+                },
+                {
+                    rating: 40,
+                    amount: 998.86
+                },
+                {
+                    rating: 50,
+                    amount: 1377.82
+                },
+                {
+                    rating: 60,
+                    amount: 1722.65
+                },
+                {
+                    rating: 70,
+                    amount: 2133.06
+                },
+                {
+                    rating: 80,
+                    amount: 2470.15
+                },
+                {
+                    rating: 90,
+                    amount: 2776.39
+                },
+                {
+                    rating: 100,
+                    amount: 4295.92
+                }
+            ],
+        vetWithOneChildOneParent:
+            [
+                {
+                    rating: 30,
+                    amount: 596.05
+                },
+                {
+                    rating: 40,
+                    amount: 849.86
+                },
+                {
+                    rating: 50,
+                    amount: 1189.82
+                },
+                {
+                    rating: 60,
+                    amount: 1497.65
+                },
+                {
+                    rating: 70,
+                    amount: 1870.06
+                },
+                {
+                    rating: 80,
+                    amount: 2170.15
+                },
+                {
+                    rating: 90,
+                    amount: 2438.39
+                },
+                {
+                    rating: 100,
+                    amount: 3919.07
+                }
+            ],
+        vetWithOneChildTwoParents:
+            [
+                {
+                    rating: 30,
+                    amount: 644.05
+                },
+                {
+                    rating: 40,
+                    amount: 913.86
+                },
+                {
+                    rating: 50,
+                    amount: 1270.82
+                },
+                {
+                    rating: 60,
+                    amount: 1594.65
+                },
+                {
+                    rating: 70,
+                    amount: 1983.06
+                },
+                {
+                    rating: 80,
+                    amount: 2299.15
+                },
+                {
+                    rating: 90,
+                    amount: 2583.39
+                },
+                {
+                    rating: 100,
+                    amount: 4081.14
+                }
+            ],
+        vetOnly:
+            [
+                {
+                    rating: 30,
+                    amount: 508.05
+                },
+                {
+                    rating: 40,
+                    amount: 731.86
+                },
+                {
+                    rating: 50,
+                    amount: 1041.82
+                },
+                {
+                    rating: 60,
+                    amount: 1319.65
+                },
+                {
+                    rating: 70,
+                    amount: 1663.06
+                },
+                {
+                    rating: 80,
+                    amount: 1933.15
+                },
+                {
+                    rating: 90,
+                    amount: 2172.39
+                },
+                {
+                    rating: 100,
+                    amount: 3621.95
+                }
+            ],
+        vetWithSpouse:
+            [
+                {
+                    rating: 30,
+                    amount: 568.05
+                },
+                {
+                    rating: 40,
+                    amount: 811.86
+                },
+                {
+                    rating: 50,
+                    amount: 1141.82
+                },
+                {
+                    rating: 60,
+                    amount: 1440.65
+                },
+                {
+                    rating: 70,
+                    amount: 1804.06
+                },
+                {
+                    rating: 80,
+                    amount: 2094.15
+                },
+                {
+                    rating: 90,
+                    amount: 2353.39
+                },
+                {
+                    rating: 100,
+                    amount: 3823.89
+                }
+            ],
+        vetWithSpouseAndOneParent:
+            [
+                {
+                    rating: 30,
+                    amount: 616.05
+                },
+                {
+                    rating: 40,
+                    amount: 875.86
+                },
+                {
+                    rating: 50,
+                    amount: 1222.82
+                },
+                {
+                    rating: 60,
+                    amount: 1537.65
+                },
+                {
+                    rating: 70,
+                    amount: 1917.06
+                },
+                {
+                    rating: 80,
+                    amount: 2223.15
+                },
+                {
+                    rating: 90,
+                    amount: 2498.39
+                },
+                {
+                    rating: 100,
+                    amount: 3985.96
+                }
+            ],
+        vetWithSpouseAndTwoParents:
+            [
+                {
+                    rating: 30,
+                    amount: 664.05
+                },
+                {
+                    rating: 40,
+                    amount: 939.86
+                },
+                {
+                    rating: 50,
+                    amount: 1303.82
+                },
+                {
+                    rating: 60,
+                    amount: 1634.65
+                },
+                {
+                    rating: 70,
+                    amount: 2030.06
+                },
+                {
+                    rating: 80,
+                    amount: 2353.15
+                },
+                {
+                    rating: 90,
+                    amount: 2643.39
+                },
+                {
+                    rating: 100,
+                    amount: 4148.03
+                }
+            ],
+        vetWithOneParent:
+            [
+                {
+                    rating: 30,
+                    amount: 556.05
+                },
+                {
+                    rating: 40,
+                    amount: 795.86
+                },
+                {
+                    rating: 50,
+                    amount: 1122.82
+                },
+                {
+                    rating: 60,
+                    amount: 1416.65
+                },
+                {
+                    rating: 70,
+                    amount: 1776.06
+                },
+                {
+                    rating: 80,
+                    amount: 2062.15
+                },
+                {
+                    rating: 90,
+                    amount: 2317.39
+                },
+                {
+                    rating: 100,
+                    amount: 3784.02
+                }
+            ],
+        vetWithTwoParents:
+            [
+                {
+                    rating: 30,
+                    amount: 604.05
+                },
+                {
+                    rating: 40,
+                    amount: 859.86
+                },
+                {
+                    rating: 50,
+                    amount: 1203.82
+                },
+                {
+                    rating: 60,
+                    amount: 1513.65
+                },
+                {
+                    rating: 70,
+                    amount: 1889.06
+                },
+                {
+                    rating: 80,
+                    amount: 2191.15
+                },
+                {
+                    rating: 90,
+                    amount: 2462.39
+                },
+                {
+                    rating: 100,
+                    amount: 3946.09
+                }
+            ],
+        adtlChildUnderAge:
+            [
+                {
+                    rating: 30,
+                    amount: 30
+                },
+                {
+                    rating: 40,
+                    amount: 40
+                },
+                {
+                    rating: 50,
+                    amount: 50
+                },
+                {
+                    rating: 60,
+                    amount: 60
+                },
+                {
+                    rating: 70,
+                    amount: 70
+                },
+                {
+                    rating: 80,
+                    amount: 80
+                },
+                {
+                    rating: 90,
+                    amount: 90
+                },
+                {
+                    rating: 100,
+                    amount: 100.34
+                }
+            ],
+        adtlChildrenAtSchool:
+            [
+                {
+                    rating: 30,
+                    amount: 97
+                },
+                {
+                    rating: 40,
+                    amount: 129
+                },
+                {
+                    rating: 50,
+                    amount: 162
+                },
+                {
+                    rating: 60,
+                    amount: 194
+                },
+                {
+                    rating: 70,
+                    amount: 226
+                },
+                {
+                    rating: 80,
+                    amount: 259
+                },
+                {
+                    rating: 90,
+                    amount: 291
+                },
+                {
+                    rating: 100,
+                    amount: 324.12
+                }
+            ],
+        spouseReceivingAid:
+            [
+                {
+                    rating: 30,
+                    amount: 56
+                },
+                {
+                    rating: 40,
+                    amount: 74
+                },
+                {
+                    rating: 50,
+                    amount: 93
+                },
+                {
+                    rating: 60,
+                    amount: 111
+                },
+                {
+                    rating: 70,
+                    amount: 130
+                },
+                {
+                    rating: 80,
+                    amount: 148
+                },
+                {
+                    rating: 90,
+                    amount: 167
+                },
+                {
+                    rating: 100,
+                    amount: 185.21
+                }
+            ]
+    }
     const payscale = [
         {
             rank: 'E-5',
@@ -109,7 +656,7 @@ const FinanceCalculator = () => {
             rank: 'W-5',
             pay: 8912.10
         }
-]
+    ]
 
     const formatter = new Intl.NumberFormat("en-US", {
         style: "currency",
@@ -118,17 +665,58 @@ const FinanceCalculator = () => {
     })
 
     const TooltipContent = (props) => {
-        if(!props.active || !props.payload){
+        if (!props.active || !props.payload) {
             return
         }
         const tip = props.payload[0].payload
         return (
-        <div style={{background: "black", padding: 5, color:"white"}}>
-            <div>Age: {tip.Year}</div>
-            <div>Balance: {tip.Balance}</div>
-        </div>
+            <div style={{ background: "black", padding: 5, color: "white" }}>
+                <div>Age: {tip.Year}</div>
+                <div>Balance: {tip.Balance}</div>
+            </div>
         )
     }
+
+    const calcNewRetirementAge = (updatedTargetRetAmt) => {
+        const netPreRetROR = (preRetROR - inflation) / 100;
+        let currBal = currentSavings;
+        let arr = [];
+        const annualCont = contributionFreq === "Annually" ? contributions : contributions * 12;
+        let newRetAge = currentAge;
+        while (currBal < newTargetRetAmt) {
+            currBal = annualCont + currBal * (1 + netPreRetROR);
+            let conversion = Math.round(currBal)
+            arr.push({
+                Year: newRetAge,
+                Balance: conversion
+            })
+            newRetAge += 1;
+            if (newRetAge > 200) break;
+        }
+        setRetData(arr)
+        return newRetAge;
+    }
+
+    const calcNewRetirementAgeWithVA = (updatedTargetRetAmt) => {
+        const netPreRetROR = (preRetROR - inflation) / 100;
+        let currBal = currentSavings;
+        let arr = [];
+        const annualCont = contributionFreq === "Annually" ? contributions : contributions * 12;
+        let newRetAge = currentAge;
+        while (currBal < updatedTargetRetAmt) {
+            currBal = annualCont + currBal * (1 + netPreRetROR);
+            let conversion = Math.round(currBal)
+            arr.push({
+                Year: newRetAge,
+                Balance: conversion
+            })
+            newRetAge += 1;
+            if (newRetAge > 200) break;
+        }
+        setRetDataWithVA(arr)
+        return newRetAge;
+    }
+
 
     const calcRetirementAge = (updatedTargetRetAmt) => {
         const netPreRetROR = (preRetROR - inflation) / 100;
@@ -136,7 +724,7 @@ const FinanceCalculator = () => {
         let arr = [];
         const annualCont = contributionFreq === "Annually" ? contributions : contributions * 12;
         let retAge = currentAge;
-        while (currBal < updatedTargetRetAmt) {
+        while (currBal < targetRetAmt) {
             currBal = annualCont + currBal * (1 + netPreRetROR);
             let conversion = Math.round(currBal)
             arr.push({
@@ -150,27 +738,146 @@ const FinanceCalculator = () => {
         return retAge;
     }
 
-    useEffect(() => {
-        console.log(retirementRank)
-        let offsetPay = 0;
-        for(let i = 0; i < payscale.length; i++){
-            if(retirementRank === payscale[i].rank){
-                offsetPay = payscale[i].pay
+    const calcRetirementPercentage = (years) => {
+        let increment = 0.5;
+        let adjusted = years - 20;
+        for (let i = 0; i < adjusted; i++) {
+            increment += 0.025
+        }
+        return increment
+    }
+
+    const calcVADisability = (vaPer, deps, adtlC, schoolC, spouse, yearsToEighteen) => {
+        let vaPercent = parseInt(vaPer)
+        let choices = [
+            'filler',
+            'vetOnly',
+            'vetWithSpouse',
+            'vetWithSpouseAndOneParent',
+            'vetWithSpouseAndTwoParents',
+            'vetWithOneParent',
+            'vetWithTwoParents',
+            'vetWithOneChild',
+            'vetWithOneChildAndSpouse',
+            'vetWithOneChildAndSpouseAndOneParent',
+            'vetWithOneChildAndSpouseTwoParents',
+            'vetWithOneChildOneParent',
+            'vetWithOneChildTwoParents'
+        ]
+        let final = 0;
+        if (deps === 0) {
+            return
+        } else if (deps === '1') {
+            let value = vaStatus[choices[1]]
+            for (let i = 0; i < value.length; i++) {
+                if (vaPercent === value[i].rating) {
+                    final = value[i].amount * 12;
+                }
+            }
+        } else if (deps === '2') {
+            let value = vaStatus[choices[2]]
+            for (let i = 0; i < value.length; i++) {
+                if (vaPercent === value[i].rating) {
+                    final = value[i].amount * 12;
+                }
+            }
+        } else if (deps === '3') {
+            let value = vaStatus[choices[3]]
+            for (let i = 0; i < value.length; i++) {
+                if (vaPercent === value[i].rating) {
+                    final = value[i].amount * 12;
+                }
+            }
+        } else if (deps === '4') {
+            let value = vaStatus[choices[4]]
+            for (let i = 0; i < value.length; i++) {
+                if (vaPercent === value[i].rating) {
+                    final = value[i].amount * 12;
+                }
+            }
+        } else if (deps === '5') {
+            let value = vaStatus[choices[5]]
+            for (let i = 0; i < value.length; i++) {
+                if (vaPercent === value[i].rating) {
+                    final = value[i].amount * 12;
+                }
+            }
+        } else if (deps === '6') {
+            let value = vaStatus[choices[6]]
+            for (let i = 0; i < value.length; i++) {
+                if (vaPercent === value[i].rating) {
+                    final = value[i].amount * 12;
+                }
+            }
+        } else if (deps === '7') {
+            let value = vaStatus[choices[7]]
+            for (let i = 0; i < value.length; i++) {
+                if (vaPercent === value[i].rating) {
+                    final = value[i].amount * 12;
+                }
+            }
+        } else if (deps === '8') {
+            let value = vaStatus[choices[8]]
+            for (let i = 0; i < value.length; i++) {
+                if (vaPercent === value[i].rating) {
+                    final = value[i].amount * 12;
+                }
+            }
+        } else if (deps === '9') {
+            let value = vaStatus[choices[9]]
+            for (let i = 0; i < value.length; i++) {
+                if (vaPercent === value[i].rating) {
+                    final = value[i].amount * 12;
+                }
+            }
+        } else if (deps === '10') {
+            let value = vaStatus[choices[10]]
+            for (let i = 0; i < value.length; i++) {
+                if (vaPercent === value[i].rating) {
+                    final = value[i].amount * 12;
+                }
+            }
+        } else if (deps === '11') {
+            let value = vaStatus[choices[11]]
+            for (let i = 0; i < value.length; i++) {
+                if (vaPercent === value[i].rating) {
+                    final = value[i].amount * 12;
+                }
+            }
+        } else if (deps === '12') {
+            let value = vaStatus[choices[12]]
+            for (let i = 0; i < value.length; i++) {
+                if (vaPercent === value[i].rating) {
+                    final = value[i].amount * 12;
+                }
             }
         }
-        console.log(offsetPay)
-    }, retirementRank)
-
-    // const offsetExpenses = () => {
-    //     console.log(retirementRank)
-    //     let offsetPay = 0;
-    //     for(let i = 0; i < payscale.length; i++){
-    //         if(retirementRank === payscale[i].rank){
-    //             offsetPay = payscale[i].pay
-    //         }
-    //     }
-    //     console.log(offsetPay)
-    // }
+        if (spouse === true) {
+            let value = vaStatus['spouseReceivingAid'];
+            for (let i = 0; i < value.length; i++) {
+                if (vaPercent === value[i].rating) {
+                    final += (12 * value[i].amount)
+                }
+            }
+        }
+        if (adtlC !== 0) {
+            let value = vaStatus['adtlChildUnderAge'];
+            for (let i = 0; i < value.length; i++) {
+                if (vaPercent === value[i].rating) {
+                    final += (12 * value[i].amount * adtlC)
+                }
+            }
+        }
+        if (schoolC !== 0) {
+            let value = vaStatus['adtlChildrenAtSchool'];
+            for (let i = 0; i < value.length; i++) {
+                if (vaPercent === value[i].rating) {
+                    final += (12 * value[i].amount * schoolC)
+                }
+            }
+        }
+        return final
+    }
 
     useEffect(() => {
         localStorage.setItem("retirementAge", retirementAge);
@@ -183,14 +890,38 @@ const FinanceCalculator = () => {
         localStorage.setItem("preRetROR", preRetROR);
         localStorage.setItem("postRetROR", postRetROR);
         localStorage.setItem("inflation", inflation)
+        let offsetPay = 0;
+        for (let i = 0; i < payscale.length; i++) {
+            if (retirementRank === payscale[i].rank) {
+                offsetPay = parseInt(payscale[i].pay)
+            }
+        }
+
+        offsetPay = Math.round(((offsetPay * (1.025 ** activeDutyAge)) * retirementPercentage * 100 * 12 * .82) / 100)
+        setPension(offsetPay)
+        setNewRetirementExpense(annualRetExp - (offsetPay));
         let netPostRetROR = (postRetROR - inflation) / 100;
         if (netPostRetROR === 0 || netPostRetROR < 0) {
             netPostRetROR = 0.0000000001;
         }
         let updatedTargetRetAmt = annualRetExp / netPostRetROR;
+        let RetAmtWithPension = newRetirementExpense / netPostRetROR;
+        setNewTargetRetAmt(RetAmtWithPension)
         setTargetRetAmt(updatedTargetRetAmt);
         const retAge = calcRetirementAge(updatedTargetRetAmt);
+        const newRetAge = calcNewRetirementAge(updatedTargetRetAmt);
+        const retPercent = calcRetirementPercentage(yearsInService);
+        setRetirementPercentage(retPercent);
         setRetirementAge(retAge);
+        setNewRetAge(newRetAge);
+        const disability = calcVADisability(VAPercentage, dependents, adtlChildren, schoolChildren, spouseAid, grown)
+        let vaCalc = Math.round((disability * (1.025 ** activeDutyAge) * 100) / 100)
+        setNewRetirementExpenseWithVA(annualRetExp - offsetPay - vaCalc);
+        setPensionWithVA(offsetPay + vaCalc);
+        let RetAmtWithVAPension = newRetirementExpenseWithVA / netPostRetROR;
+        const vaRetAge = calcNewRetirementAgeWithVA(RetAmtWithVAPension)
+        setRetAgeWithVA(vaRetAge);
+        setTargetRetAmtWithVA(RetAmtWithVAPension);
     }, [annualRetExp,
         currentAge,
         currentSavings,
@@ -200,7 +931,22 @@ const FinanceCalculator = () => {
         postRetROR,
         inflation,
         retirementAge,
-        targetRetAmt])
+        targetRetAmt,
+        retirementRank,
+        yearsInService,
+        activeDutyAge,
+        newRetirementExpense,
+        newTargetRetAmt,
+        VA,
+        VAPercentage,
+        dependents,
+        adtlChildren,
+        schoolChildren,
+        spouseAid,
+        grown,
+        retAgeWithVA,
+        pensionWithVA
+    ])
 
 
 
@@ -213,7 +959,7 @@ const FinanceCalculator = () => {
                     <h1>Financial Independence Calculator</h1>
                     <br></br>
                     <h2>You can retire at age {retirementAge}</h2>
-                    <div>Target retirement amount: {formatter.format(targetRetAmt)}</div>
+                    <div>Civilian target retirement amount: {targetRetAmt ? formatter.format(targetRetAmt) : 0}</div>
                     <form className='calc'>
                         <label>
                             Annual retirement expenses (today's dollars)
@@ -280,36 +1026,181 @@ const FinanceCalculator = () => {
                                     onChange={(e) => setInflation(parseInt(e.target.value) || 0)}
                                 />
                             </label>
+                            <br></br>
                             <label>
-                                Choose retirement rank
+                                What is your projected retirement rank?
+                                <select
+                                    value={retirementRank}
+                                    onChange={(e) => {
+                                        setRetirementRank(e.target.value)
+                                    }}
+                                >
+                                    <option type='string' value='E-5'>E-5</option>
+                                    <option type='string' value='E-6'>E-6</option>
+                                    <option type='string' value='E-7'>E-7</option>
+                                    <option type='string' value='E-8'>E-8</option>
+                                    <option type='string' value='E-9'>E-9</option>
+                                    <option type='string' value='O-1E'>O-1E</option>
+                                    <option type='string' value='O-2E'>O-2E</option>
+                                    <option type='string' value='O-3E'>O-3E</option>
+                                    <option type='string' value='O-4'>O-4</option>
+                                    <option type='string' value='O-5'>O-5</option>
+                                    <option type='string' value='O-6'>O-6</option>
+                                    <option type='string' value='O-7'>O-7</option>
+                                    <option type='string' value='O-8'>O-8</option>
+                                    <option type='string' value='O-9'>O-9</option>
+                                    <option type='string' value='O-10'>O-10</option>
+                                    <option type='string' value='W-1'>W-1</option>
+                                    <option type='string' value='W-2'>W-2</option>
+                                    <option type='string' value='W-3'>W-3</option>
+                                    <option type='string' value='W-4'>W-4</option>
+                                    <option type='string' value='W-5'>W-5</option>
+                                </select>
                             </label>
-                            <select
-                                value={retirementRank}
-                                onChange={(e) => {
-                                    setRetirementRank(e.target.value)
-                                }}
-                            >
-                                <option value='E-5'>E-5</option>
-                                <option value='E-6'>E-6</option>
-                                <option value='E-7'>E-7</option>
-                                <option value='E-8'>E-8</option>
-                                <option value='E-9'>E-9</option>
-                                <option value='O-1E'>O-1E</option>
-                                <option value='O-2E'>O-2E</option>
-                                <option value='O-3E'>O-3E</option>
-                                <option value='O-4'>O-4</option>
-                                <option value='O-5'>O-5</option>
-                                <option value='O-6'>O-6</option>
-                                <option value='O-7'>O-7</option>
-                                <option value='O-8'>O-8</option>
-                                <option value='O-9'>O-9</option>
-                                <option value='O-10'>O-10</option>
-                                <option value='W-1'>W-1</option>
-                                <option value='W-2'>W-2</option>
-                                <option value='W-3'>W-3</option>
-                                <option value='W-4'>W-4</option>
-                                <option value='W-5'>W-5</option>
-                            </select>
+                            <label>
+                                How many years until retirement?
+                                <select
+                                    value={activeDutyAge}
+                                    onChange={(e) => {
+                                        setActiveDutyAge(e.target.value)
+                                    }}
+                                >
+                                    <option value='1'>1</option>
+                                    <option value='2'>2</option>
+                                    <option value='3'>3</option>
+                                    <option value='4'>4</option>
+                                    <option value='5'>5</option>
+                                    <option value='6'>6</option>
+                                    <option value='7'>7</option>
+                                    <option value='8'>8</option>
+                                    <option value='9'>9</option>
+                                    <option value='10'>10</option>
+                                    <option value='11'>11</option>
+                                    <option value='12'>12</option>
+                                    <option value='13'>13</option>
+                                    <option value='14'>14</option>
+                                    <option value='15'>15</option>
+                                    <option value='16'>16</option>
+                                    <option value='17'>17</option>
+                                    <option value='18'>18</option>
+                                    <option value='19'>19</option>
+                                    <option value='20'>20</option>
+                                </select>
+                            </label>
+                            <label>
+                                How many years total will you have served at retirement?
+                                <select
+                                    value={yearsInService}
+                                    onChange={(e) => {
+                                        setYearsInService(e.target.value)
+                                    }}
+                                >
+                                    <option value='20'>20</option>
+                                    <option value='21'>21</option>
+                                    <option value='22'>22</option>
+                                    <option value='23'>23</option>
+                                    <option value='24'>24</option>
+                                    <option value='25'>25</option>
+                                    <option value='26'>26</option>
+                                    <option value='27'>27</option>
+                                    <option value='28'>28</option>
+                                    <option value='29'>29</option>
+                                    <option value='30'>30</option>
+                                    <option value='31'>31</option>
+                                    <option value='32'>32</option>
+                                    <option value='33'>33</option>
+                                    <option value='34'>34</option>
+                                    <option value='35'>35</option>
+                                    <option value='36'>36</option>
+                                    <option value='37'>37</option>
+                                    <option value='38'>38</option>
+                                    <option value='39'>39</option>
+                                    <option value='40'>40</option>
+                                </select>
+                            </label>
+                            <h2>VA Disability</h2>
+                            <label>
+                                Are you service connected?
+                                <input onChange={(() => VA === false ? setVA(true) : setVA(false))} type='checkbox'></input>
+                                <div hidden={VA === true ? false : true}>
+                                    Select your service connected disability percentage below.
+                                </div>
+                                <select hidden={VA === true ? false : true}
+                                    value={VAPercentage}
+                                    onChange={(e) => {
+                                        setVAPercentage(e.target.value)
+                                    }}
+                                >
+                                    <option value='0'>Choose</option>
+                                    <option value='30'>30%</option>
+                                    <option value='40'>40%</option>
+                                    <option value='50'>50%</option>
+                                    <option value='60'>60%</option>
+                                    <option value='70'>70%</option>
+                                    <option value='80'>80%</option>
+                                    <option value='90'>90%</option>
+                                    <option value='100'>100%</option>
+                                </select>
+                            </label>
+                            <label hidden={VA === true ? false : true}>
+                                <div>
+                                    Select your number of dependents
+                                </div>
+                                <select hidden={VA === true ? false : true}
+                                    value={dependents}
+                                    onChange={(e) => {
+                                        setDependents(e.target.value)
+                                    }}
+                                >
+                                    <option value='0'>Choose</option>
+                                    <option value='1'>Veteran Alone</option>
+                                    <option value='2'>With Spouse</option>
+                                    <option value='3'>With spouse and 1 parent</option>
+                                    <option value='4'>With spouse and 2 parents</option>
+                                    <option value='5'>With 1 parent</option>
+                                    <option value='6'>With 2 parents</option>
+                                    <option value='7'>Veteran with 1 child</option>
+                                    <option value='8'>With 1 child and spouse</option>
+                                    <option value='9'>With 1 child, spouse, and 1 parent</option>
+                                    <option value='10'>With 1 child, spouse, and 2 parents</option>
+                                    <option value='11'>With 1 child and 1 parent</option>
+                                    <option value='12'>With 1 child and 2 parents</option>
+                                </select>
+                            </label>
+                            <label hidden={VA === true ? false : true}>
+                                <div>
+                                    How many additional children under the age of 18?
+                                </div>
+                                <input
+                                    type='number'
+                                    value={adtlChildren}
+                                    onChange={(e) => setAdtlChildren(parseInt(e.target.value) || 0)}
+                                />
+                            </label>
+                            <label hidden={VA === true ? false : true}>
+                                <div>
+                                    How many children over age of 18 in a qualifying school program?
+                                </div>
+                                <input
+                                    type='number'
+                                    value={schoolChildren}
+                                    onChange={(e) => setSchoolChildren(parseInt(e.target.value) || 0)}
+                                />
+                            </label>
+                            <label hidden={VA === true ? false : true}>
+                                Is your spouse (if applicable) receiving aid and attendance?
+                                <input onChange={(() => spouseAid === false ? setSpouseAid(true) : setSpouseAid(false))} type='checkbox'></input>
+                            </label>
+                            <label hidden={VA === true ? false : true}>
+                                <div>
+                                    How many years (if applicable) until your youngest child reaches the age of 18?
+                                </div>
+                                <input
+                                    type='number'
+                                    value={grown}
+                                    onChange={(e) => setGrown(parseInt(e.target.value)) || 0}
+                                />
+                            </label>
                         </div>
                     </form>
                 </Col>
@@ -317,6 +1208,10 @@ const FinanceCalculator = () => {
                 </Col>
             </Row>
             <Row>
+                <br></br>
+                <div>
+                    <strong>Retirement Goal as a Civilian:</strong>
+                </div>
                 <ResponsiveContainer width={"100%"} aspect={2}>
                     <AreaChart data={data} margin={{ top: 10, right: 0, left: 0, bottom: 10 }}>
                         <CartesianGrid strokeDasharray="3 3" />
@@ -327,6 +1222,66 @@ const FinanceCalculator = () => {
                         <Area type="monotone" dataKey="Balance" stroke="#8884d8" fillOpacity={0.7} fill="green" />
                     </AreaChart>
                 </ResponsiveContainer>
+            </Row>
+            <Row>
+                <br></br>
+                <div hidden={pension ? false : true}>
+                    <div>
+                        Your annual military retirement pay, based on the time value of money, selected
+                        grade, and a retirement of {yearsInService ? yearsInService : 20} years, after tax: {pension ? formatter.format(pension) : 0}
+                    </div>
+                    <br></br>
+                    <div>
+                        The amount you need to make up in order to reach your annual retirement expenses:
+                        {newRetirementExpense ? formatter.format(newRetirementExpense) : 0}
+                    </div>
+                    <br></br>
+                    <div>
+                        Your updated target retirement amount based on your pension: {newTargetRetAmt ? formatter.format(newTargetRetAmt) : 0}
+                    </div>
+                    <h2>You can retire at age {newRetAge ? newRetAge : null}</h2>
+                    <strong>Retirement Goal as a Retired Veteran:</strong>
+                    <ResponsiveContainer width={"100%"} aspect={2} hidden={pension ? false : true}>
+                        <AreaChart data={retData} margin={{ top: 10, right: 0, left: 0, bottom: 10 }}>
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <Tooltip content={<TooltipContent />} />
+                            <Legend />
+                            <XAxis dataKey={"Year"} />
+                            <YAxis width={120} tickFormatter={(value) => formatter.format(value)} type={(value) => formatter.format(value)} />
+                            <Area type="monotone" dataKey="Balance" stroke="#8884d8" fillOpacity={0.7} fill="blue" />
+                        </AreaChart>
+                    </ResponsiveContainer>
+                </div>
+            </Row>
+            <Row>
+                <br></br>
+                <div hidden={VA ? false : true}>
+                    <div>
+                        Your annual military retirement pay + disability pay, based on the time value of money, selected
+                        grade, and a retirement of {yearsInService ? yearsInService : 20} years, after taxed base pay: {pensionWithVA ? formatter.format(pensionWithVA) : 0}
+                    </div>
+                    <br></br>
+                    <div>
+                        The amount you need to make up in order to reach your annual retirement expenses:
+                        {newRetirementExpenseWithVA ? formatter.format(newRetirementExpenseWithVA) : 0}
+                    </div>
+                    <br></br>
+                    <div>
+                        Your updated target retirement amount based on your pension: {targetRetAmtWithVA ? formatter.format(targetRetAmtWithVA) : 0}
+                    </div>
+                    <h2>You can retire at age {retAgeWithVA ? retAgeWithVA : null}</h2>
+                    <strong>Retirement Goal as a Retired Veteran:</strong>
+                    <ResponsiveContainer width={"100%"} aspect={2} hidden={pension ? false : true}>
+                        <AreaChart data={retDataWithVA} margin={{ top: 10, right: 0, left: 0, bottom: 10 }}>
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <Tooltip content={<TooltipContent />} />
+                            <Legend />
+                            <XAxis dataKey={"Year"} />
+                            <YAxis width={120} tickFormatter={(value) => formatter.format(value)} type={(value) => formatter.format(value)} />
+                            <Area type="monotone" dataKey="Balance" stroke="#8884d8" fillOpacity={0.7} fill="purple" />
+                        </AreaChart>
+                    </ResponsiveContainer>
+                </div>
             </Row>
         </Container>
     )
