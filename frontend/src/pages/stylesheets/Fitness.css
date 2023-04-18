@@ -1,6 +1,6 @@
 .fitness {
     background-color: #073b4c;
-    height: 265vh;
+    min-height: 86vh;
 }
 
 .fitnessTitles{
@@ -12,14 +12,13 @@
 }
 
 .fitnessTitleLg{
-    position: absolute;
-    top: 20%;
+    margin-top: 4vh;
     font-size: 100px;
 }
 
 .fitnessImg{
     position: center;
-    margin-top: 20%;
+    margin-top: 3%;
 }
 
 .fitnessBlurb{
