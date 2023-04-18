@@ -38,12 +38,14 @@ const getThreadsByUser = (userID) => {
   return knex.select('*').from('threads').where('thread_author', '=', userID);
 }
 
-const deleteThread = (id) => {
+const deleteThread = async (id) => {
+  await knex('thread_comments').where('thread_id', '=', id).del();
   return knex('threads').where('id', '=', id).del();
 }
 
-const editThreadText = (id, newText) => {
-  return knex('threads').where({id:id}).update({thread_content:newText}, ['*'])
+const editThreadText = (id, newText, newTitle) => {
+  console.log(id, newText, newTitle);
+  return knex('threads').where({id:id}).update({thread_content:newText, thread_title:newTitle}, ['*'])
 }
 
 module.exports = {

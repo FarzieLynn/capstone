@@ -55,18 +55,23 @@ router.get("/users/:username", async (req, res) => {
   return res.send(threads);
 });
 
-router.delete('/:id', async (req, res) => {
-  await deleteThread(req.params.id);
-  return res.send('Thread deleted!');
+router.delete('/id/:id', authenticateToken, async (req, res) => {
+  const thread = await getThread(req.params.id);
+  
+  if(thread.thread_author === req.username || req.roles.includes('Admin')){
+    await deleteThread(req.params.id);
+    return res.send('Thread and comments deleted!');
+  }
+
+  return res.status(401).send();
+
 })
 
 router.patch('/id/:id', authenticateToken,  async (req, res) => {
   const thread = await getThread(req.params.id);
 
-  console.log(req.username, req.roles);
-
   if(thread.thread_author === req.username || req.roles.includes('Admin')){
-    const updatedPost = await editThreadText(thread.id, req.thread_content);
+    const updatedPost = await editThreadText(req.params.id, req.body.thread_content, req.body.thread_title);
     return res.send(updatedPost);
   }
 

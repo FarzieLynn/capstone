@@ -8,7 +8,7 @@ import ProfessionalsTable from "../components/ProfessionalsTable";
 
 function MentalHealthInfo() {
   const navigate = useNavigate();
-  const { mentalHealthVisited, setMentalHealthVisited } = useContext(AppContext);
+  const { mentalHealthVisited, setMentalHealthVisited, user } = useContext(AppContext);
 
   return (
     <>

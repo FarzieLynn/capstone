@@ -15,7 +15,7 @@ function ForumSection({ type }) {
     fetch(`${url}/threads`)
       .then((res) => res.json())
       .then((data) => setThreads(data));
-  }, []);
+  }, [url]);
 
   return (
     <Container fluid className="forums-main">
@@ -86,7 +86,7 @@ const getTop3Posts = (type, threads, navigate) => {
   } else {
     return (
       <Card className="mt-2">
-        <Card.Text>No threads :(</Card.Text>
+        <Card.Title>No threads :(</Card.Title>
         <Card.Text>Try posting one!</Card.Text>
       </Card>
     );
