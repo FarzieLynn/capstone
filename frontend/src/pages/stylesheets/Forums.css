@@ -2,6 +2,7 @@
   background-color: #607b7d;
   min-height: 85vh;
   margin-top: 15px;
+  overflow:hidden;
 }
 
 .threads-main {

@@ -26,6 +26,7 @@ import ProfessionalPrivacyAgreementPage from "./pages/ProfessionalPrivacyAgreeme
 import ForumSection from "./pages/ForumSection";
 import ThreadDisplay from "./components/ThreadDisplay";
 import ThreadDisplayPage from "./pages/ThreadDisplayPage";
+import ThreadEditPage from "./pages/ThreadEditPage";
 
 
 export const AppContext = createContext({});
@@ -91,6 +92,7 @@ function App() {
           <Route path="/chat" element={<Chat />}/>
           <Route path="/threads/new" element={<ThreadCreatePage />}/>
           <Route path="/threads/:id" element={<ThreadDisplay />}/>
+          <Route path="/threads/:id/edit" element={<ThreadEditPage />}/>
           <Route path='/forums/:type' element={<ThreadDisplayPage />}/>
           <Route path="/forums" element={<ForumSection />}/>
           <Route path="*" element={<NotFoundPage />} />
