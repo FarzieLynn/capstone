@@ -575,6 +575,7 @@ const FinanceCalculator = () => {
                 }
             ]
     }
+    
     const payscale = [
         {
             rank: 'E-5',

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Container, Row, Col, Card, Button, CardGroup } from "react-bootstrap";
+import { Container, Row, Col, Card, Button, Modal } from "react-bootstrap";
 import { AppContext } from "../App";
 import MDEditor from "@uiw/react-md-editor";
 import { useNavigate, useParams } from "react-router-dom";
@@ -8,6 +8,7 @@ function ThreadDisplay() {
   const [comments, setComments] = useState([]);
   const [thread, setThread] = useState();
   const [value, setValue] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   const { id } = useParams();
 
@@ -25,7 +26,7 @@ function ThreadDisplay() {
     fetch(`${url}/comments/post/${id}`)
       .then((res) => res.json())
       .then((data) => setComments(data));
-  }, [url]);
+  }, [url, id]);
 
   const handleSubmit = (e) => {
     const obj = {
@@ -46,7 +47,6 @@ function ThreadDisplay() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setComments([
           ...comments,
           {
@@ -62,47 +62,105 @@ function ThreadDisplay() {
       });
   };
 
+  const handleDelete = () => {
+    console.log('deleting!')
+    fetch(`${url}/threads/id/${id}`, {
+      method: "DELETE",
+      "Access-Control-Allow-Origin": "*",
+      credentials: "include",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then(res => res.json())
+
+    setShowModal(false);
+    navigate('/forums');
+  };
+
   return (
-    <Container fluid className="forums-main">
-      <Row className="justify-content-center">
-        <Col md={8}>
-          <Container className="flex-column justify-content-center">
+    <>
+      <Container fluid className="forums-main">
+        <Row className="justify-content-center">
+          <Col md={6}>
+            <Container className="flex-column justify-content-center">
+              <Button
+                className="m-2 btn-chat"
+                variant="primary"
+                onClick={(e) => navigate("/forums")}
+              >
+                Back
+              </Button>
+              {thread?.username === user?.publicData?.username ||
+              user?.roles.includes("Admin") ? (
+                <>
+                  <Button
+                    className="m-2 btn-chat"
+                    variant="primary"
+                    onClick={(e) => navigate(`/threads/${thread.id}/edit`)}
+                  >
+                    Edit Post
+                  </Button>
+                  <Button
+                    className="m-2 btn-chat"
+                    variant="primary"
+                    onClick={(e) => setShowModal(true)}
+                  >
+                    Delete Post
+                  </Button>
+                </>
+              ) : (
+                <></>
+              )}
+            </Container>
+            {createThreadCard(thread, user)}
+            {thread ? (
+              comments.map((comment) => {
+                return createCommentCard(comment, user);
+              })
+            ) : (
+              <div>Loading...</div>
+            )}
+          </Col>
+        </Row>
+        <br />
+        <Row className="justify-content-center">
+          <Col md={6} data-color-mode="light">
+            <span>Post a comment:</span>
+            <MDEditor value={value} onChange={setValue} />
             <Button
-              className="m-2 btn-chat"
               variant="primary"
-              onClick={(e) => navigate("/forums")}
+              className="m-2 btn-chat"
+              onClick={(e) => handleSubmit(e)}
             >
-              Back
+              Submit
             </Button>
-          </Container>
-          {createThreadCard(thread, user)}
-          {thread ? (
-            comments.map((comment) => {
-              return createCommentCard(comment, user);
-            })
-          ) : (
-            <div>Loading...</div>
-          )}
-        </Col>
-      </Row>
-      <br />
-      <Row className="justify-content-center">
-        <Col md={8} data-color-mode="light">
-          <span>Post a comment:</span>
-          <MDEditor value={value} onChange={setValue} />
-          <Button
-            variant="primary"
-            className="m-2 btn-chat"
-            onClick={(e) => handleSubmit(e)}
-          >
-            Submit
+            <Button
+              variant="primary"
+              className="btn-chat"
+              onClick={() => setValue("")}
+            >
+              Cancel
+            </Button>
+          </Col>
+        </Row>
+      </Container>
+      <Modal show={showModal} onHide={() =>setShowModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Delete Post</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Are you sure you want to delete this post?</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={()=>setShowModal(false)}>
+            Close
           </Button>
-          <Button variant="primary" className="btn-chat" onClick={() => setValue("")}>
-            Cancel
+          <Button variant="primary" onClick={()=>handleDelete()}>
+            Confirm
           </Button>
-        </Col>
-      </Row>
-    </Container>
+        </Modal.Footer>
+      </Modal>
+    </>
   );
 }
 

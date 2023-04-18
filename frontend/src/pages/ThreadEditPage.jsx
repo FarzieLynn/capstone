@@ -1,35 +1,39 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Container, Button, Form, Row, Col } from "react-bootstrap";
 import MDEditor from "@uiw/react-md-editor";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { AppContext } from "../App";
 import { DismissableAlert } from "../components/DismissableAlert";
 
-function ThreadCreatePage() {
+function ThreadEditPage() {
   const [value, setValue] = React.useState("**Your Thread Here**");
+  const [originalThread, setOriginalThread] = useState();
   const [title, setTitle] = useState("");
-  const [threadType, setThreadType] = useState("");
   const [showAlert, setShowAlert] = useState(false);
   const [alert, setAlert] = useState();
 
   const { user, url, token } = useContext(AppContext);
 
+  const {id} = useParams();
+
   const navigate = useNavigate();
 
-  const handleSubmit = () => {
-    let userID = user.publicData.id;
-
-    if (threadType === "") {
-      setShowAlert(true);
-      setAlert({
-        message: "Please choose where to post your thread.",
-        error: true,
+  useEffect(()=>{
+    fetch(`${url}/threads/id/${id}`)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        setOriginalThread(data);
+        setTitle(data.thread_title);
+        setValue(data.thread_content);
       });
-      return;
-    } else if (value === "" || value === "**Your Thread Here**") {
+  }, [url, id])
+
+  const handleSubmit = () => {
+    if (value === "" || value === originalThread.thread_content) {
       setShowAlert(true);
       setAlert({
-        message: "Please write something before attempting to post.",
+        message: "Please change something before attempting to edit this post.",
         error: true,
       });
       return;
@@ -44,14 +48,12 @@ function ThreadCreatePage() {
 
     setShowAlert(false);
 
-    fetch(`${url}/threads/new`, {
-      method: "POST",
+    fetch(`${url}/threads/id/${id}`, {
+      method: "PATCH",
       "Access-Control-Allow-Origin": "*",
       credentials: "include",
       body: JSON.stringify({
         thread_title: title,
-        thread_type: threadType,
-        thread_author: userID,
         thread_content: value,
       }),
       headers: {
@@ -60,17 +62,18 @@ function ThreadCreatePage() {
       },
     })
       .then((res) => res.json())
-      .then((data) => navigate(`/threads/${data.id}`));
+      .then((data) => navigate(`/threads/${id}`));
   };
-
+  
   return (
     <Container fluid className="forums-main">
       <Row className="justify-content-center">
         <Col md={6}>
-          <h1>New Post</h1>
+          <h1>Edit Post</h1>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Title</Form.Label>
             <Form.Control
+              value={title}
               type="text"
               name="title"
               placeholder="Enter title"
@@ -83,43 +86,6 @@ function ThreadCreatePage() {
             className="mt-3"
             data-color-mode="light"
           />
-          <Form>
-            <Form.Group className="mb-3">
-              <Form.Label className="m-1">Post Thread to: </Form.Label>
-              <Form.Check
-                inline
-                type="radio"
-                value="Mental Health"
-                name="group1"
-                label="Mental Health"
-                onChange={(e) => setThreadType(e.target.value)}
-              />
-              <Form.Check
-                inline
-                type="radio"
-                value="Finance"
-                name="group1"
-                label="Finance"
-                onChange={(e) => setThreadType(e.target.value)}
-              />
-              <Form.Check
-                inline
-                type="radio"
-                value="Fitness"
-                name="group1"
-                label="Fitness"
-                onChange={(e) => setThreadType(e.target.value)}
-              />
-              <Form.Check
-                inline
-                type="radio"
-                value="Mentorship"
-                name="group1"
-                label="Mentorship"
-                onChange={(e) => setThreadType(e.target.value)}
-              />
-            </Form.Group>
-          </Form>
           {showAlert ? (
             <DismissableAlert alert={alert} setShowAlert={setShowAlert} />
           ) : null}
@@ -133,14 +99,14 @@ function ThreadCreatePage() {
           <Button
             className="btn-chat"
             variant="primary"
-            onClick={(e) => navigate("/forums")}
+            onClick={(e) => navigate(`/threads/${id}`)}
           >
             Cancel
           </Button>
         </Col>
       </Row>
     </Container>
-  );
+  )
 }
 
-export default ThreadCreatePage;
+export default ThreadEditPage
