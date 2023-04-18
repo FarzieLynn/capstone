@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./stylesheets/MentalHealthInfo.css";
 import { useNavigate } from "react-router-dom";
 import ProfessionalsTable from "../components/ProfessionalsTable";
+import { AppContext } from "../App";
 
 function MentalHealthInfo() {
+  const { user } = useContext(AppContext);
   const navigate = useNavigate();
 
   return (
     <>
-    <div className="mental vh-100%">
+    <div className="mental d-flex flex-column justify-content-center align-items-center">
       <div className="mentalTitles">
-        <span className="mentalTitleLg">Mental Health</span>
+        <h2 className="mentalTitleLg">Mental Health</h2>
 
         <img
           className="mentalImg"
@@ -28,7 +30,7 @@ function MentalHealthInfo() {
             </strong>
           </h2>
         </span>
-      <div className="mentalBlurb">
+      <div className="mentalBlurb text-center">
         <p>
           Welcome to our Mental Health page. We are here to provide support for
           individuals who may be struggling with mental health challenges,
@@ -88,7 +90,8 @@ function MentalHealthInfo() {
           you, and we hope you find the resources on our page helpful.
         </p>
       </div>
-      <ProfessionalsTable type={'Chaplain'}/>
+      {user.publicData !== undefined? <ProfessionalsTable type={'Chaplain'}/> : null}
+      
     </div>
  
     </>

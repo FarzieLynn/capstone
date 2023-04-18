@@ -1,6 +1,6 @@
 .mental {
     background: #fcdfa6;
-    height: 300vh;
+    min-height: 86vh;
 }
 
 .questions{
@@ -21,14 +21,14 @@
 }
 
 .mentalTitleLg{
-    position: absolute;
+    margin-top: 4vh;
     top: 20%;
     font-size: 100px;
 }
 
 .mentalImg{
     position: center;
-    margin-top: 20%;
+    margin-top: 3%;
 }
 
 .mentalBlurb{
