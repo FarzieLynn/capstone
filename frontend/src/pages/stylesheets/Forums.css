@@ -1,8 +1,13 @@
 .forums-main {
-  height: 92.8vh;
   background-color: #607b7d;
+  min-height: 85vh;
+  margin-top: 15px;
 }
 
 .threads-main {
   background-color: #08605F;
+}
+
+.extender-20 {
+  height: 20vh;
 }

@@ -30,16 +30,26 @@ const NavBar = () => {
     return <h1>Loading</h1>
   } else {
     return (
+      <>
+      <div className='filler'>
+      </div>
       <Navbar className="navbar-main text-light" fixed="top">
-        <Container className="flex-column justify-content-center">
+        <Container className="flex-column justify-content-around navbar-container">
           <Nav className="w-100 align-items-center">
             <h4 className="w-50" onClick={() => navigate("/")}>
               Military Anonymous
             </h4>
-            <Nav className="w-50 justify-content-end">
-              {user.publicData !== undefined ? <><span className="me-2 navbar-links">Welcome, {user.publicData.is_anonymous ? user.publicData.anon_username : user.publicData.username}</span>
+            <Nav className="w-75 justify-content-end">
+              {user.publicData !== undefined ? <><span className="me-1">Hello, <strong>{user.publicData.is_anonymous ? user.publicData.anon_username : user.publicData.username}</strong> |</span>
+                <span className="navbar-links me-2" onClick={() => navigate('/chat')}>
+                  Messages
+                </span>
+                <span className="navbar-links me-1" onClick={() => navigate('/forums')}>
+                  Forums
+                </span>
+                <span>|</span>
                 <span
-                  className="me-2 navbar-links"
+                  className="ms-1 me-2 navbar-links"
                   onClick={() => navigate(`/profile/${user?.publicData.username}`)}
                 >
                   Profile
@@ -54,8 +64,6 @@ const NavBar = () => {
               )}
             </Nav>
           </Nav>
-          <span><button className="btn-chat" onClick={() => navigate('/chat')}>Click to Chat!</button></span>
-          <span><button className="btn-chat" onClick={() => navigate('/forums')}>Click to visit the Forums!</button></span>
           <Nav className="w-100 justify-content-evenly align-items-center">
             <span
               className="navbar-links fs-5"
@@ -84,6 +92,7 @@ const NavBar = () => {
           </Nav>
         </Container>
       </Navbar>
+      </>
     )
   };
 };

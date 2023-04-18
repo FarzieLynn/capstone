@@ -15,7 +15,6 @@ import MentalHealth from "./pages/MentalHealth";
 import HomePage from "./pages/HomePage";
 import NavBar from "./components/NavBar";
 import cookie from "cookie";
-import MentorThreads from "./pages/MentorThreads";
 import FinanceAdvanced from "./pages/FinanceAdvanced";
 import BasicDocument from "./pages/BasicDocument";
 import FinanceBeginner from "./pages/FinanceBeginner";
@@ -27,6 +26,7 @@ import Chat from "./pages/ChatPage";
 import ProfessionalPrivacyAgreementPage from "./pages/ProfessionalPrivacyAgreementPage";
 import ForumSection from "./pages/ForumSection";
 import ThreadDisplay from "./components/ThreadDisplay";
+import ThreadDisplayPage from "./pages/ThreadDisplayPage";
 
 
 export const AppContext = createContext({});
@@ -35,8 +35,6 @@ function App() {
   const [user, setUser] = useState({});
   const [url] = useState("http://localhost:8080");
   const [token, setToken] = useState();
-
-  const navigate = useNavigate(); 
 
   useEffect(() => {
     const token = cookie.parse(document.cookie).access_token;
@@ -95,6 +93,7 @@ function App() {
           <Route path="/chat" element={<Chat />}/>
           <Route path="/threads/new" element={<ThreadCreatePage />}/>
           <Route path="/threads/:id" element={<ThreadDisplay />}/>
+          <Route path='/forums/:type' element={<ThreadDisplayPage />}/>
           <Route path="/forums" element={<ForumSection />}/>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

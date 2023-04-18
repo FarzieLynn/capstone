@@ -42,6 +42,10 @@ const deleteThread = (id) => {
   return knex('threads').where('id', '=', id).del();
 }
 
+const editThreadText = (id, newText) => {
+  return knex('threads').where({id:id}).update({thread_content:newText}, ['*'])
+}
+
 module.exports = {
   postThread,
   getThread,
@@ -49,4 +53,5 @@ module.exports = {
   deleteThread,
   getThreadsByType,
   getThreads,
+  editThreadText,
 };

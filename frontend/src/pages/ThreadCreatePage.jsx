@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Container, Button, Form } from "react-bootstrap";
+import { Container, Button, Form, Row, Col } from "react-bootstrap";
 import MDEditor from "@uiw/react-md-editor";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../App";
@@ -64,72 +64,81 @@ function ThreadCreatePage() {
   };
 
   return (
-    <Container>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Title</Form.Label>
-        <Form.Control
-          type="text"
-          name="title"
-          placeholder="Enter title"
-          onChange={(e) => setTitle(e.target.value)}
-        />
-      </Form.Group>
-      <MDEditor
-        value={value}
-        onChange={setValue}
-        className="mt-3"
-        data-color-mode="light"
-      />
-      <Form>
-        <Form.Group className="mb-3">
-          <Form.Label className="m-1">Post Thread to: </Form.Label>
-          <Form.Check
-            inline
-            type="radio"
-            value="Mental Health"
-            name="group1"
-            label="Mental Health"
-            onChange={(e) => setThreadType(e.target.value)}
+    <Container fluid className="forums-main">
+      <Row className="justify-content-center">
+        <Col md={6}>
+          <h1>New Post</h1>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Title</Form.Label>
+            <Form.Control
+              type="text"
+              name="title"
+              placeholder="Enter title"
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </Form.Group>
+          <MDEditor
+            value={value}
+            onChange={setValue}
+            className="mt-3"
+            data-color-mode="light"
           />
-          <Form.Check
-            inline
-            type="radio"
-            value="Finance"
-            name="group1"
-            label="Finance"
-            onChange={(e) => setThreadType(e.target.value)}
-          />
-          <Form.Check
-            inline
-            type="radio"
-            value="Fitness"
-            name="group1"
-            label="Fitness"
-            onChange={(e) => setThreadType(e.target.value)}
-          />
-          <Form.Check
-            inline
-            type="radio"
-            value="Mentorship"
-            name="group1"
-            label="Mentorship"
-            onChange={(e) => setThreadType(e.target.value)}
-          />
-        </Form.Group>
-      </Form>
-      {showAlert ? (
-        <DismissableAlert alert={alert} setShowAlert={setShowAlert} />
-      ) : null}
-      <Button
-        variant="primary"
-        className="m-2"
-        onClick={(e) => handleSubmit(e)}
-      >
-        Submit
-      </Button>
-      <Button variant="primary" onClick={(e) => navigate("/forums")}>
-        Cancel
-      </Button>
+          <Form>
+            <Form.Group className="mb-3">
+              <Form.Label className="m-1">Post Thread to: </Form.Label>
+              <Form.Check
+                inline
+                type="radio"
+                value="Mental Health"
+                name="group1"
+                label="Mental Health"
+                onChange={(e) => setThreadType(e.target.value)}
+              />
+              <Form.Check
+                inline
+                type="radio"
+                value="Finance"
+                name="group1"
+                label="Finance"
+                onChange={(e) => setThreadType(e.target.value)}
+              />
+              <Form.Check
+                inline
+                type="radio"
+                value="Fitness"
+                name="group1"
+                label="Fitness"
+                onChange={(e) => setThreadType(e.target.value)}
+              />
+              <Form.Check
+                inline
+                type="radio"
+                value="Mentorship"
+                name="group1"
+                label="Mentorship"
+                onChange={(e) => setThreadType(e.target.value)}
+              />
+            </Form.Group>
+          </Form>
+          {showAlert ? (
+            <DismissableAlert alert={alert} setShowAlert={setShowAlert} />
+          ) : null}
+          <Button
+            variant="primary"
+            className="m-2 btn-chat"
+            onClick={(e) => handleSubmit(e)}
+          >
+            Submit
+          </Button>
+          <Button
+            className="btn-chat"
+            variant="primary"
+            onClick={(e) => navigate("/forums")}
+          >
+            Cancel
+          </Button>
+        </Col>
+      </Row>
     </Container>
   );
 }

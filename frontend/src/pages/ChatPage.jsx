@@ -32,7 +32,7 @@ const ChatPage = () => {
   if(user.publicData.is_anonymous){
     return (
       <ChatEngine
-        height='92vh'
+        height='86vh'
         userName={user.publicData.anon_username}
         userSecret={user.publicData.username}
         projectID='87c51be2-76f9-4924-96cf-845972cd42ce'
@@ -42,7 +42,7 @@ const ChatPage = () => {
   }
   return (
     <ChatEngine
-      height='92vh'
+      height='86vh'
       userName={user.publicData.username}
       userSecret={user.publicData.username}
       projectID='87c51be2-76f9-4924-96cf-845972cd42ce'
