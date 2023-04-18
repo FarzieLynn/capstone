@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import { AppContext } from '../App';
 import ProfessionalsTable from "../components/ProfessionalsTable";
 
+
 function MentalHealthInfo() {
   const navigate = useNavigate();
   const { mentalHealthVisited, setMentalHealthVisited, user } = useContext(AppContext);
