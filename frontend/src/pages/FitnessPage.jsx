@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import ProfessionalsTable from "../components/ProfessionalsTable";
 import { AppContext } from "../App";
 
+
 /* change the onClick to a list of Fitness Coaches & Nutritiionists line 73*/
 
 function FitnessPage() {
@@ -23,6 +24,7 @@ function FitnessPage() {
           alt=""
         />
       </div>
+      
       <div className="fitnessBlurb text-center">
         <p>
           Military fitness and nutrition are critical components of the overall
@@ -73,7 +75,7 @@ function FitnessPage() {
           resources available to help you get started.
         </p>
         <p className="fitnessAlert">
-      <strong>Click <span className="link" onClick={() => navigate('/register')}>here</span> to choose from our list of certified Fitness & Nutrition Coaches</strong>
+      <strong>Click <span className="link" onClick={() => navigate("/BMICal")}>here</span> to use the BMI Calculator</strong>
       </p>
       </div>
       {user.publicData !== undefined ? <ProfessionalsTable type={'Fitness Trainer'}/> : null}
