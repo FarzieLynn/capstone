@@ -4,7 +4,7 @@
     padding: 0;
   }
    
-  .app-4 {
+  .bc {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,7 +13,7 @@
     height: 100vh;
   }
    
-  .container-3 {
+  .bc-cont {
     box-shadow: 0px 0px 12px #ccc;
     border-radius: 8px;
     padding: 3rem;
@@ -41,12 +41,12 @@
   }
   /* unvisited link */
    
-  .btn-outline {
+  .btn-3 {
     background-color: #fff;
     color: #A6BCDA;
   }
    
-  .center-6 {
+  .bc-2 {
     text-align: center;
     margin: 24px 0;
   }
