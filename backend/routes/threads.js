@@ -6,8 +6,10 @@ const {
   deleteThread,
   getThreadsByType,
   getThreads,
+  editThreadText,
 } = require("../db/threadControllers");
 let router = express.Router();
+const { authenticateToken } = require("../utilities/authorization");
 
 router.post('/new', async (req, res) => {
   const thread = await postThread(req.body);
@@ -56,6 +58,19 @@ router.get("/users/:username", async (req, res) => {
 router.delete('/:id', async (req, res) => {
   await deleteThread(req.params.id);
   return res.send('Thread deleted!');
+})
+
+router.patch('/id/:id', authenticateToken,  async (req, res) => {
+  const thread = await getThread(req.params.id);
+
+  console.log(req.username, req.roles);
+
+  if(thread.thread_author === req.username || req.roles.includes('Admin')){
+    const updatedPost = await editThreadText(thread.id, req.thread_content);
+    return res.send(updatedPost);
+  }
+
+  return res.status(401).send();
 })
 
 module.exports = router;
