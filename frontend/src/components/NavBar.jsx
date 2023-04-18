@@ -31,7 +31,7 @@ const NavBar = () => {
   } else {
     return (
       <>
-      <div className='filler'>
+      <div id="filler" className='filler'>
       </div>
       <Navbar className="navbar-main text-light" fixed="top">
         <Container className="flex-column justify-content-around navbar-container">
