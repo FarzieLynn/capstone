@@ -3,3 +3,23 @@
     justify-content: center;
     align-content: center;
 }
+
+@media print {
+    #beginner{
+        zoom: 90%;
+    }
+
+    #intermediate {
+        zoom: 80%;
+    }
+
+    #advanced {
+        zoom: 115%;
+    }
+
+    #printBtn {
+        visibility: hidden;
+    }
+
+    
+}

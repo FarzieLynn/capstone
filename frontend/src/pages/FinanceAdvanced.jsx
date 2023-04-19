@@ -25,6 +25,7 @@ const FinanceAdvanced = () => {
                 </Col>
             </Row>
             <br></br>
+
             <Row>
                 <Col>
                     <strong>Consider Buying and Selling Options Contracts</strong> - If you haven't ever looked into options
@@ -39,6 +40,9 @@ const FinanceAdvanced = () => {
                 </Col>
             </Row>
             <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             <Row>
                 <Col>
                     <img width='300px' src='https://images.ctfassets.net/dzdmblwsahji/3A4rsy1mxou837cpyLFTbK/c262265a59aed8ab645c82a1a3554aaf/Types-of-Microlenders_1.0.png?fl=progressive&fm=jpg' alt=''/>
@@ -46,6 +50,7 @@ const FinanceAdvanced = () => {
                     <img width='300px' src='https://www.lendee.com/wp-content/webp-express/webp-images/uploads/2022/10/Peer-to-peer-Microlending.jpg.webp' alt=''/>
                 </Col>
                 <Col>
+                <br></br>
                     <strong>Look into Microloans as a Lender</strong> - If you are generating excess cash flow and building
                     a portfolio of wealth, take a look into offering microloans and lending services to other people and/or
                     small businesses.  Microloan interest rates typically range between 5% and 20%, and the repayment terms
@@ -54,7 +59,7 @@ const FinanceAdvanced = () => {
                     have it generate even more money, while doing little to no work.  This is also known as passive income.
                 </Col>
             </Row>
-            <button className='btn btn-dark pageBtn m-2' onClick={() => exportPdf()}>Print PDF</button>
+            <button id="printBtn" className='btn btn-dark pageBtn m-2' onClick={() => exportPdf()}>Print Results</button>
         </Container>
     );
 }
