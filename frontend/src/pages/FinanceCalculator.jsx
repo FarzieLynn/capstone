@@ -50,6 +50,11 @@ const FinanceCalculator = () => {
     const [penaltySS, setPenaltySS] = useState();
     const [fullSS, setFullSS] = useState();
     const [bonusSS, setBonusSS] = useState();
+    const exportPdf = () => {
+
+        window.print()
+    }
+    
     const vaStatus =
     {
         vetWithOneChild:

@@ -22,11 +22,11 @@ function BmiForm() {
       // Logic for message
  
       if (bmi < 18.9) {
-        setMessage('You are considered to be underweight')
+        setMessage('You are underweight')
       } else if (bmi >= 18.9 && bmi < 24.9) {
-        setMessage('You are considered to be at a healthy weight')
+        setMessage('You are at a healthy weight')
       }  else if (bmi >= 25 && bmi < 29.9) {
-        setMessage('You are considered to be slightly overweight. Please check your Body Composition')
+        setMessage('Slightly overweight. Please check your Body Composition')
       } else {
         setMessage('Please check your Body Composition')
       }
@@ -40,34 +40,35 @@ function BmiForm() {
  
   return (
     <div className="bmi">
-    <div className='container-1'>
-      <h2 className='center'>BMI Calculator</h2>
+    <div className="bmi-cont">
+      <h2 className="center bmi-2">BMI Calculator</h2>
       <form onSubmit={calcBmi}>
  
         <div>
           <label>Weight (lbs)</label>
-          <input value={weight} onChange={(e) => setWeight(e.target.value)} />
+          <input className="bmi-in" value={weight} onChange={(e) => setWeight(e.target.value)} />
         </div>
  
         <div>
           <label>Height (in)</label>
-          <input value={height} onChange={(event) => setHeight(event.target.value)} />
+          <input className="bmi-in" value={height} onChange={(event) => setHeight(event.target.value)} />
         </div>
  
         <div>
-          <button className='btn' type='submit'>Submit</button>
-          <button className='btn btn-outline' onClick={reload} type='submit'>Reload</button>
+          <button className='btn-4' type='submit'>Submit</button>
+          <button className='btn-4 btn-outline btn-5' onClick={reload} type='submit'>Reload</button>
         </div>
       </form>
  
-      <div className='center'>
+      <div className='center bmi-2'>
         <h3>Your BMI is: {bmi}</h3>
         <p>{message}</p>
       </div>
-      <div>
-    <h3 className='bc'>Check Body Composition <strong onClick={() => navigate("/BodyCompCal")}>here</strong></h3>
      </div>
+      <div>
+    <h4 className='bodycomp'><span>Check Body Composition <strong onClick={() => navigate("/BodyCompCal")}>here</strong></span></h4>
     </div>
+    <button className='btn-back' onClick={() => navigate('/fitness')} type='submit'>Back</button>
   </div>
   );
 }

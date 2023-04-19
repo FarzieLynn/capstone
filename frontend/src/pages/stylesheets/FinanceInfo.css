@@ -36,6 +36,35 @@
     margin-left: 20%;
     margin-right: 20%;
     text-align: start;
+    font-size: 16px;
+    height: 100vh;
+}
+
+.finance-aside{
+    width: 40%;
+    padding-left: 15px;
+    margin-left: 15px;
+    border-radius: 8px;
+    color: white;
+    float: right;
+
+    background-color: #073b4c
+}
+
+.finance-aside:hover{
+    background-color: gray;
+    opacity: 1.0;
+    transition: 5ms;
+}
+
+.finq:hover{
+    cursor: pointer;
+    color: gold;
     font-style: italic;
-    font-size: 20px;
+}
+
+.fincal:hover{
+    cursor: pointer;
+    color: gold;
+    font-style: italic;
 }

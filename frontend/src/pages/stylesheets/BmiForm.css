@@ -13,13 +13,13 @@
   height: 100vh;
 }
  
-.container-1 {
+.bmi-cont {
   box-shadow: 0px 0px 12px #ccc;
   border-radius: 8px;
   padding: 3rem;
 }
  
-input {
+.bmi-in {
   width: 100%;
   font-size: 1.2rem;
   padding: 15px 4px;
@@ -27,7 +27,7 @@ input {
   border-radius: 8px;
 }
  
-.btn {
+.btn-4 {
   display: block;
   width: 100%;
   font-size: 1.2rem;
@@ -41,12 +41,24 @@ input {
 }
 /* unvisited link */
  
-.btn-outline {
+.btn-5 {
   background-color: #fff;
   color: #A6BCDA;
 }
+.btn-back{
+  display: block;
+  width: 10%;
+  font-size: 1.2rem;
+  margin: 8px 0;
+  padding: 15px 0;
+  background-color: #0077EE;
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 8px;
+  cursor: pointer;
+}
  
-.center {
+.bmi-2 {
   text-align: center;
   margin: 24px 0;
 }
@@ -54,11 +66,14 @@ input {
 p {
   margin: 10px 0;
 }
- 
 .img-container {
   text-align: center;
 }
  
 .img-container img {
   height: 200px;
+}
+
+.bodycomp {
+  margin-top: 10px;
 }

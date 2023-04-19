@@ -5,6 +5,7 @@ const router = express.Router();
 const { authenticateToken } = require("../utilities/authorization");
 const chat = require("../utilities/chat");
 const { faker } = require("@faker-js/faker");
+const { getAvgScores, addScore } = require("../db/Controllers");
 
 //Register endpoint
 router.post("/", async (req, res) => {
@@ -72,6 +73,16 @@ router.get('/professionals', authenticateToken, async (req, res) => {
   return res.json(users);
 })
 
+router.get('/scores/:userid', authenticateToken, async (req, res) => {
+  const data = await getScores(req.params.userid);
+  return res.json(data);
+})
+
+router.post('/scores/:userid/:score', authenticateToken, async (req, res) => {
+  const data = await addScore(req.params.userid, req.params.score);
+  return res.json(data);
+})
+
 router.get('/:username', authenticateToken, async (req, res) => {
   const data = await getUserPublicInformation(req.params.username);
   const roles = await getUserRoles(data[0].id);
@@ -83,6 +94,9 @@ router.patch('/:username/anonymous', authenticateToken, async (req, res) => {
   console.log(data);
   return res.json(data);
 })
+
+
+
 
 
 

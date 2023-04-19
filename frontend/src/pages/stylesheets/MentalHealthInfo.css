@@ -1,5 +1,5 @@
 .mental {
-    background: #fcdfa6;
+    background: #fcdfa6c5;
     min-height: 86vh;
 }
 
@@ -37,6 +37,6 @@
     margin-left: 20%;
     margin-right: 20%;
     text-align: start;
-    font-style: italic;
-    font-size: 20px;
+    font-size: 16px;
+    height: 100vh;
 }

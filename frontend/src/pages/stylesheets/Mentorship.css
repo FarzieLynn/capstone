@@ -1,5 +1,5 @@
 .mentorship {
-    background: #ae8ca3;
+    background: #dad7cd;
     height: 240vh;
 }
 
@@ -8,7 +8,7 @@
     flex-direction: column;
     align-items: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #20063b;
+    color: #344e41;
 }
 
 .mentorTitleLg{
@@ -23,16 +23,43 @@
 }
 
 .mentorBlurb{
-    color: #20063b;
+    color: #344e41;
     margin-top: 3%;
     margin-left: 20%;
     margin-right: 20%;
     text-align: start;
-    font-style: italic;
-    font-size: 20px;
+    font-size: 16px;
     height: 100vh;
 }
 
+.mentee{
+    width: 45%;
+    padding-left: 15px;
+    margin-left: 15px;
+    border-radius: 8px;
+    color: #344e41;
+    float: left;
+    background-color: #8f9779
+}
+
+.grow{
+    font-weight: bold;
+}
+
+.mentor{
+    width: 45%;
+    padding-left: 15px;
+    margin-left: 15px;
+    border-radius: 8px;
+    color: white;
+    float: right;
+    background-color: #9b870c
+}
+
+.lead{
+    font-weight: bold;
+    font-size: 34px;
+}
 .linky:hover{
     cursor: pointer;
 }

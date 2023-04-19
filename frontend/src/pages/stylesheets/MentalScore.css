@@ -1,0 +1,30 @@
+@media print{
+
+  .navbar * {
+      display: none !important;
+      height: 0 !important;
+  }
+  .filler * {
+    display: none !important;
+    height: 0 !important;
+}
+  #results {
+    border: 1px solid white;
+    height: 99%;
+    page-break-after: avoid;
+    page-break-before: avoid;
+    visibility:visible !important;
+    zoom: 140%;
+    position: absolute;
+  }
+  #printBtn {
+      visibility: hidden !important;
+  }
+  #chatBtn {
+    visibility: hidden !important;
+  }
+  #top {
+    display:none !important;
+    visibility: hidden !important;
+  }
+}

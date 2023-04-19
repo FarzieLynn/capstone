@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import "../pages/stylesheets/BodyCompForm.css";
+import { useNavigate } from "react-router-dom";
 
 function BodyCompForm() {
+  const navigate = useNavigate()
     const [heights, setHeights] = useState(0)
     const [waist, setWaist] = useState(0)
     const [bodyComp, setBodyComp] = useState('')
@@ -32,18 +34,18 @@ function BodyCompForm() {
   }
 
   return (
-    <div className='app-4'>
-        <div className='conatiner-3'>
-            <h2 className='center-6'>Body Composition Calculator</h2>
+    <div className='bc'>
+        <div className='bc-cont'>
+            <h2 className='center bc-2'>Body Composition Calculator</h2>
             <form onSubmit={calcBc}>
                 <div>
                     <label>Waist (in)</label>
-                    <input value={waist} onChange={(e) => setWaist(e.target.value)} />
+                    <input className="bc-in" value={waist} onChange={(e) => setWaist(e.target.value)} />
                 </div>
 
                 <div>
                     <label>Height (in)</label>
-                    <input
+                    <input className="bc-in"
                     value={heights}
                     onChange={(event) => setHeights(event.target.value)} />
                 </div>
@@ -51,17 +53,18 @@ function BodyCompForm() {
             <button className="btn-2" type="submit">
               Submit
             </button>
-            <button className="btn-2 btn-outline" onClick={reload} type="submit">
+            <button className="btn-2 btn-outline btn-3" onClick={reload} type="submit">
               Reload
             </button>
           </div>
             </form>
 
-            <div className='center-1'>
+            <div className='center bc-2'>
                 <h3>Your Body Composition is: {bodyComp}</h3>
                 <p>{message}</p>
             </div>
         </div>
+            <button className='btn-back' onClick={() => navigate('/fitness')} type='submit'>Back</button>
         </div>
   )
 }

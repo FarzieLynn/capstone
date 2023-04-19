@@ -22,49 +22,65 @@ function Mentorship() {
       </div>
       <div className="mentorBlurb">
         <p>
-          Mentorship is a valuable tool for personal and professional growth. At
-          its core, mentorship involves a relationship between a mentor - an
-          experienced and knowledgeable guide - and a mentee - someone who is
-          seeking guidance and support in their personal or professional life.
+          Mentorship is about building relationships and creating a supportive
+          community. At its core, mentorship involves a relationship between a
+          mentor - an experienced and knowledgeable guide - and a mentee -
+          someone who is seeking guidance and support in their personal or
+          professional life. Whether you are a mentee looking for guidance or a
+          mentor looking to give back, on Military Anonymous, below is a
+          networking forum to help you get started. From there, you will find
+          several opportunities to connect with others and build meaningful
+          relationships.
         </p>
-        <p>
-          Mentorship can take many forms, from informal relationships that
-          develop naturally over time to more formal programs that are
-          structured and organized. Regardless of the format, mentorship
-          provides a wealth of benefits for both the mentor and the mentee.
-        </p>
-        <p>
-          For the mentee, having a mentor can provide a source of inspiration
-          and motivation, as well as a sounding board for ideas and feedback. A
-          mentor can help to identify strengths and weaknesses, provide guidance
-          on career or personal decisions, and offer insights into industry
-          trends or best practices.
-        </p>
-        <p>
-          For the mentor, the opportunity to share knowledge and experience can
-          be incredibly rewarding. Mentoring allows for a deeper connection with
-          the mentee and provides an opportunity to give back to the community.
-          It can also help the mentor stay current in their field and learn from
-          the mentee's unique perspective.
-        </p>
-        <p>
-          At its core, mentorship is about building relationships and creating a
-          supportive community. Whether you are a mentee looking for guidance or
-          a mentor looking to give back, there are many resources available to
-          help you get started. From online mentorship programs to local
-          networking groups, there are many opportunities to connect with others
-          and build meaningful relationships.
-        </p>
-        <p>
-          In summary, mentorship is a powerful tool for personal and
-          professional growth. Whether you are a mentee seeking guidance or a
-          mentor looking to give back, mentorship provides a wealth of benefits
-          for all involved. If you are interested in pursuing mentorship, there
-          are many resources available to help you get started.
-        </p>
-        <p className="mentorAlert">
-      <strong>Click <span className="linky" onClick={() => navigate('/register')}>here</span> to choose from our list of certified Mentors</strong>
-      </p>
+
+        <aside className="mentee">
+          <h3 className="grow">G. R. O. W.</h3>
+          <h6>Tips for the Mentee</h6>
+          <p>
+            <strong>G - Goals: </strong>Set clear goals and expectations for
+            your mentoring relationship
+          </p>
+          <p>
+            <strong>R - Responsibility: </strong> Take responsibility for your
+            own progress and development. Follow through on commitments, and be
+            honest about any challenges or obstacles you encounter.
+          </p>
+          <p>
+            <strong>O - Open-mindedness: </strong>Be willing to listen and
+            consider your mentor's advice and feedback. Keep an open mind and be
+            willing to learn from their experience and expertise.
+          </p>
+          <p>
+            <strong>W - Be Willingness: </strong>Be willing to take action and
+            make changes to achieve your goals.
+          </p>
+        </aside>
+
+        <aside className="mentor">
+          <h3 className="lead">L. E. A. D.</h3>
+          <h6>Tips for the Mentor</h6>
+          <p>
+            <strong>L - Listen: </strong>Listen carefully to your mentee's
+            concerns, questions, and goals. Allow them to express themselves
+            freely without interrupting or judging.
+          </p>
+          <p>
+            <strong>E - Empower: </strong>Empower your mentee to take ownership
+            of their growth and development. Encourage your mentee to take
+            risks, learn from their mistakes, and grow in their personal and
+            professional lives. Help them set realistic goals, and celebrate
+            their successes along the way.
+          </p>
+          <p>
+            <strong>A - Advise: </strong>Offer guidance and advice based on your
+            own experiences and expertise. Help your mentee identify their
+            strengths, weaknesses, and opportunities for growth.
+          </p>
+          <p>
+            <strong>D - Develop: </strong>Help your mentee develop new skills,
+            knowledge, and perspectives.
+          </p>
+        </aside>
       </div>
     </div>
   );
