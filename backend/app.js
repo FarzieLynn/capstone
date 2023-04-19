@@ -51,14 +51,12 @@ const root = require("./routes/root");
 const login = require("./routes/login");
 const threads = require("./routes/threads");
 const comments = require("./routes/threadComments");
-const questionnaires = require('./routes/questionnaires')
 
 app.use("/users", users);
 app.use("/", root);
 app.use("/login", login);
 app.use("/threads", threads);
 app.use('/comments', comments);
-app.use('/questionnaires', questionnaires);
 
 app.get("/", async (req, res) => {
   //console.log(req.cookies.access_token);
