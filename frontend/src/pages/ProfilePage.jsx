@@ -23,7 +23,6 @@ const ProfilePage = () => {
   const [userScores, setUserScores] = useState([]);
   const [showAboutMeModal, setShowAboutMeModal] = useState(false);
   const [showInfoModal, setShowInfoModal] = useState(false);
-  const [infoUpdate, setInfoUpdate] = useState({});
   const [aboutMeUpdate, setAboutMeUpdate] = useState("");
 
   const getUserData = async () => {
@@ -124,7 +123,6 @@ const ProfilePage = () => {
     const { full_name, email, phone, branch, status, age_group } =
       document.forms[1];
 
-    console.log(full_name, email, phone, branch, status, age_group);
 
     await fetch(`${url}/users/${userData.publicData.username}`, {
       method: "PATCH",
