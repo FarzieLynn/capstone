@@ -79,24 +79,6 @@ router.get('/:username', authenticateToken, async (req, res) => {
   return res.send({ publicData: data[0], roles });
 })
 
-router.patch('/:username/anonymous', authenticateToken, async (req, res) => {
-  const data = await updateUser(req.params.username, req.body);
-  console.log(data);
-  return res.json(data);
-})
-
-
-router.post('/scores/:userid/:score', authenticateToken, async (req, res) => {
-  const data = await addScore(req.params.userid, req.params.score);
-  return res.json(data);
-})
-
-router.get('/:username', authenticateToken, async (req, res) => {
-  const data = await getUserPublicInformation(req.params.username);
-  const roles = await getUserRoles(data[0].id);
-  return res.send({ publicData: data[0], roles });
-})
-
 router.patch('/:username', authenticateToken, async (req, res) => {
   console.log(req.body);
   const data = await updateUser(req.params.username, req.body);
