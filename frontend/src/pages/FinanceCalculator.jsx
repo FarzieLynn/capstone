@@ -47,6 +47,9 @@ const FinanceCalculator = () => {
     const [pensionWithVA, setPensionWithVA] = useState();
     const [targetRetAmtWithVA, setTargetRetAmtWithVA] = useState();
     const [retDataWithVA, setRetDataWithVA] = useState();
+    const [penaltySS, setPenaltySS] = useState();
+    const [fullSS, setFullSS] = useState();
+    const [bonusSS, setBonusSS] = useState();
     const exportPdf = () => {
 
         window.print()
@@ -580,54 +583,87 @@ const FinanceCalculator = () => {
                 }
             ]
     }
-    
+
     const payscale = [
         {
             rank: 'E-5',
             pay: [
                 {
                     years: 20,
-                    amount: 3874.80
+                    amount: 3874.80,
+                    penaltyRate: 1084.00,
+                    fullRate: 1549.00,
+                    bonusRate: 1998.00
                 },
                 {
                     years: 22,
-                    amount: 3874.80
+                    amount: 3874.80,
+                    penaltyRate: 1084.00,
+                    fullRate: 1549.00,
+                    bonusRate: 1998.00
                 },
                 {
                     years: 24,
-                    amount: 3874.80
+                    amount: 3874.80,
+                    penaltyRate: 1084.00,
+                    fullRate: 1549.00,
+                    bonusRate: 1998.00
                 },
                 {
                     years: 26,
-                    amount: 3874.80
+                    amount: 3874.80,
+                    penaltyRate: 1084.00,
+                    fullRate: 1549.00,
+                    bonusRate: 1998.00
                 },
                 {
                     years: 28,
-                    amount: 3874.80
+                    amount: 3874.80,
+                    penaltyRate: 1084.00,
+                    fullRate: 1549.00,
+                    bonusRate: 1998.00
                 },
                 {
                     years: 30,
-                    amount: 3874.80
+                    amount: 3874.80,
+                    penaltyRate: 1084.00,
+                    fullRate: 1549.00,
+                    bonusRate: 1998.00
                 },
                 {
                     years: 32,
-                    amount: 3874.80
+                    amount: 3874.80,
+                    penaltyRate: 1084.00,
+                    fullRate: 1549.00,
+                    bonusRate: 1998.00
                 },
                 {
                     years: 34,
-                    amount: 3874.80
+                    amount: 3874.80,
+                    penaltyRate: 1084.00,
+                    fullRate: 1549.00,
+                    bonusRate: 1998.00
                 },
                 {
                     years: 36,
-                    amount: 3874.80
+                    amount: 3874.80,
+                    penaltyRate: 1084.00,
+                    fullRate: 1549.00,
+                    bonusRate: 1998.00
                 },
                 {
                     years: 38,
-                    amount: 3874.80
+                    amount: 3874.80,
+                    penaltyRate: 1084.00,
+                    fullRate: 1549.00,
+                    bonusRate: 1998.00
                 },
                 {
                     years: 40,
-                    amount: 3874.80
+                    amount: 3874.80,
+                    penaltyRate: 1084.00,
+                    fullRate: 1549.00,
+                    bonusRate: 1998.00
                 }
             ]
         },
@@ -636,47 +672,80 @@ const FinanceCalculator = () => {
             pay: [
                 {
                     years: 20,
-                    amount: 4616.40
+                    amount: 4616.40,
+                    penaltyRate: 1200.00,
+                    fullRate: 1722.00,
+                    bonusRate: 2227.00
                 },
                 {
                     years: 22,
-                    amount: 4616.40
+                    amount: 4616.40,
+                    penaltyRate: 1200.00,
+                    fullRate: 1722.00,
+                    bonusRate: 2227.00
                 },
                 {
                     years: 24,
-                    amount: 4616.40
+                    amount: 4616.40,
+                    penaltyRate: 1200.00,
+                    fullRate: 1722.00,
+                    bonusRate: 2227.00
                 },
                 {
                     years: 26,
-                    amount: 4616.40
+                    amount: 4616.40,
+                    penaltyRate: 1200.00,
+                    fullRate: 1722.00,
+                    bonusRate: 2227.00
                 },
                 {
                     years: 28,
-                    amount: 4616.40
+                    amount: 4616.40,
+                    penaltyRate: 1200.00,
+                    fullRate: 1722.00,
+                    bonusRate: 2227.00
                 },
                 {
                     years: 30,
-                    amount: 4616.40
+                    amount: 4616.40,
+                    penaltyRate: 1200.00,
+                    fullRate: 1722.00,
+                    bonusRate: 2227.00
                 },
                 {
                     years: 32,
-                    amount: 4616.40
+                    amount: 4616.40,
+                    penaltyRate: 1200.00,
+                    fullRate: 1722.00,
+                    bonusRate: 2227.00
                 },
                 {
                     years: 34,
-                    amount: 4616.40
+                    amount: 4616.40,
+                    penaltyRate: 1200.00,
+                    fullRate: 1722.00,
+                    bonusRate: 2227.00
                 },
                 {
                     years: 36,
-                    amount: 4616.40
+                    amount: 4616.40,
+                    penaltyRate: 1200.00,
+                    fullRate: 1722.00,
+                    bonusRate: 2227.00
                 },
                 {
                     years: 38,
-                    amount: 4616.40
+                    amount: 4616.40,
+                    penaltyRate: 1200.00,
+                    fullRate: 1722.00,
+                    bonusRate: 2227.00
                 },
                 {
                     years: 40,
-                    amount: 4616.40
+                    amount: 4616.40,
+                    penaltyRate: 1200.00,
+                    fullRate: 1722.00,
+                    bonusRate: 2227.00
                 },
             ]
         },
@@ -685,47 +754,80 @@ const FinanceCalculator = () => {
             pay: [
                 {
                     years: 20,
-                    amount: 5473.20
+                    amount: 5473.20,
+                    penaltyRate: 1334.00,
+                    fullRate: 1922.00,
+                    bonusRate: 2492.00
                 },
                 {
                     years: 22,
-                    amount: 5674.50
+                    amount: 5674.50,
+                    penaltyRate: 1366.00,
+                    fullRate: 1969.00,
+                    bonusRate: 2554.00
                 },
                 {
                     years: 24,
-                    amount: 5782.50
+                    amount: 5782.50,
+                    penaltyRate: 1382.00,
+                    fullRate: 1994.00,
+                    bonusRate: 2587.00
                 },
                 {
                     years: 26,
-                    amount: 6193.50
+                    amount: 6193.50,
+                    penaltyRate: 1466.00,
+                    fullRate: 2090.00,
+                    bonusRate: 2715.00
                 },
                 {
                     years: 28,
-                    amount: 6193.50
+                    amount: 6193.50,
+                    penaltyRate: 1466.00,
+                    fullRate: 2090.00,
+                    bonusRate: 2715.00
                 },
                 {
                     years: 30,
-                    amount: 6193.50
+                    amount: 6193.50,
+                    penaltyRate: 1466.00,
+                    fullRate: 2090.00,
+                    bonusRate: 2715.00
                 },
                 {
                     years: 32,
-                    amount: 6193.50
+                    amount: 6193.50,
+                    penaltyRate: 1466.00,
+                    fullRate: 2090.00,
+                    bonusRate: 2715.00
                 },
                 {
                     years: 34,
-                    amount: 6193.50
+                    amount: 6193.50,
+                    penaltyRate: 1466.00,
+                    fullRate: 2090.00,
+                    bonusRate: 2715.00
                 },
                 {
                     years: 36,
-                    amount: 6193.50
+                    amount: 6193.50,
+                    penaltyRate: 1466.00,
+                    fullRate: 2090.00,
+                    bonusRate: 2715.00
                 },
                 {
                     years: 38,
-                    amount: 6193.50
+                    amount: 6193.50,
+                    penaltyRate: 1466.00,
+                    fullRate: 2090.00,
+                    bonusRate: 2715.00
                 },
                 {
                     years: 40,
-                    amount: 6193.50
+                    amount: 6193.50,
+                    penaltyRate: 1466.00,
+                    fullRate: 2090.00,
+                    bonusRate: 2715.00
                 },
             ]
         },
@@ -734,48 +836,81 @@ const FinanceCalculator = () => {
             pay: [
                 {
                     years: 20,
-                    amount: 6130.20
+                    amount: 6130.20,
+                    penaltyRate: 1437.00,
+                    fullRate: 2076.00,
+                    bonusRate: 2695.00
                 },
                 {
                     years: 22,
-                    amount: 6404.40
+                    amount: 6404.40,
+                    penaltyRate: 1479.00,
+                    fullRate: 2139.00,
+                    bonusRate: 2779.00
                 },
                 {
                     years: 24,
-                    amount: 6556.50
+                    amount: 6556.50,
+                    penaltyRate: 1504.00,
+                    fullRate: 2175.00,
+                    bonusRate: 2827.00
                 },
                 {
                     years: 26,
-                    amount: 6930.90
+                    amount: 6930.90,
+                    penaltyRate: 1562.00,
+                    fullRate: 2262.00,
+                    bonusRate: 2942.00
                 },
                 {
                     years: 28,
-                    amount: 6930.90
+                    amount: 6930.90,
+                    penaltyRate: 1562.00,
+                    fullRate: 2262.00,
+                    bonusRate: 2942.00
                 },
                 {
                     years: 30,
-                    amount: 7069.80
+                    amount: 7069.80,
+                    penaltyRate: 1583.00,
+                    fullRate: 2295.00,
+                    bonusRate: 2985.00
                 },
                 {
                     years: 32,
-                    amount: 7069.80
+                    amount: 7069.80,
+                    penaltyRate: 1583.00,
+                    fullRate: 2295.00,
+                    bonusRate: 2985.00
                 },
                 {
                     years: 34,
-                    amount: 7069.80
+                    amount: 7069.80,
+                    penaltyRate: 1583.00,
+                    fullRate: 2295.00,
+                    bonusRate: 2985.00
                 },
                 {
                     years: 36,
-                    amount: 7069.80
+                    amount: 7069.80,
+                    penaltyRate: 1583.00,
+                    fullRate: 2295.00,
+                    bonusRate: 2985.00
                 },
                 {
                     years: 38,
-                    amount: 7069.80
+                    amount: 7069.80,
+                    penaltyRate: 1583.00,
+                    fullRate: 2295.00,
+                    bonusRate: 2985.00
                 },
                 {
                     years: 40,
-                    amount: 7069.80
-                },
+                    amount: 7069.80,
+                    penaltyRate: 1583.00,
+                    fullRate: 2295.00,
+                    bonusRate: 2985.00
+                }
             ]
         },
         {
@@ -783,47 +918,80 @@ const FinanceCalculator = () => {
             pay: [
                 {
                     years: 20,
-                    amount: 7102.80
+                    amount: 7102.80,
+                    penaltyRate: 1589.00,
+                    fullRate: 2303.00,
+                    bonusRate: 2996.00
                 },
                 {
                     years: 22,
-                    amount: 7381.50
+                    amount: 7381.50,
+                    penaltyRate: 1632.00,
+                    fullRate: 2367.00,
+                    bonusRate: 3082.00
                 },
                 {
                     years: 24,
-                    amount: 7673.70
+                    amount: 7673.70,
+                    penaltyRate: 1678.00,
+                    fullRate: 2435.00,
+                    bonusRate: 3172.00
                 },
                 {
                     years: 26,
-                    amount: 8121.60
+                    amount: 8121.60,
+                    penaltyRate: 1748.00,
+                    fullRate: 2540.00,
+                    bonusRate: 3311.00
                 },
                 {
                     years: 28,
-                    amount: 8121.60
+                    amount: 8121.60,
+                    penaltyRate: 1748.00,
+                    fullRate: 2540.00,
+                    bonusRate: 3311.00
                 },
                 {
                     years: 30,
-                    amount: 8526.90
+                    amount: 8526.90,
+                    penaltyRate: 1811.00,
+                    fullRate: 2635.00,
+                    bonusRate: 3436.00
                 },
                 {
                     years: 32,
-                    amount: 8526.90
+                    amount: 8526.90,
+                    penaltyRate: 1811.00,
+                    fullRate: 2635.00,
+                    bonusRate: 3436.00
                 },
                 {
                     years: 34,
-                    amount: 8953.90
+                    amount: 8953.90,
+                    penaltyRate: 1878.00,
+                    fullRate: 2734.00,
+                    bonusRate: 3512.00
                 },
                 {
                     years: 36,
-                    amount: 8953.90
+                    amount: 8953.90,
+                    penaltyRate: 1878.00,
+                    fullRate: 2734.00,
+                    bonusRate: 3512.00
                 },
                 {
                     years: 38,
-                    amount: 9402.30
+                    amount: 9402.30,
+                    penaltyRate: 1948.00,
+                    fullRate: 2814.00,
+                    bonusRate: 3576.00
                 },
                 {
                     years: 40,
-                    amount: 9402.30
+                    amount: 9402.30,
+                    penaltyRate: 1948.00,
+                    fullRate: 2814.00,
+                    bonusRate: 3576.00
                 }
             ]
         },
@@ -832,47 +1000,80 @@ const FinanceCalculator = () => {
             pay: [
                 {
                     years: 20,
-                    amount: 5682.60
+                    amount: 5682.60,
+                    penaltyRate: 1366.00,
+                    fullRate: 1971.00,
+                    bonusRate: 2556.00
                 },
                 {
                     years: 22,
-                    amount: 5682.60
+                    amount: 5682.60,
+                    penaltyRate: 1366.00,
+                    fullRate: 1971.00,
+                    bonusRate: 2556.00
                 },
                 {
                     years: 24,
-                    amount: 5682.60
+                    amount: 5682.60,
+                    penaltyRate: 1366.00,
+                    fullRate: 1971.00,
+                    bonusRate: 2556.00
                 },
                 {
                     years: 26,
-                    amount: 5682.60
+                    amount: 5682.60,
+                    penaltyRate: 1366.00,
+                    fullRate: 1971.00,
+                    bonusRate: 2556.00
                 },
                 {
                     years: 28,
-                    amount: 5682.60
+                    amount: 5682.60,
+                    penaltyRate: 1366.00,
+                    fullRate: 1971.00,
+                    bonusRate: 2556.00
                 },
                 {
                     years: 30,
-                    amount: 5682.60
+                    amount: 5682.60,
+                    penaltyRate: 1366.00,
+                    fullRate: 1971.00,
+                    bonusRate: 2556.00
                 },
                 {
                     years: 32,
-                    amount: 5682.60
+                    amount: 5682.60,
+                    penaltyRate: 1366.00,
+                    fullRate: 1971.00,
+                    bonusRate: 2556.00
                 },
                 {
                     years: 34,
-                    amount: 5682.60
+                    amount: 5682.60,
+                    penaltyRate: 1366.00,
+                    fullRate: 1971.00,
+                    bonusRate: 2556.00
                 },
                 {
                     years: 36,
-                    amount: 5682.60
+                    amount: 5682.60,
+                    penaltyRate: 1366.00,
+                    fullRate: 1971.00,
+                    bonusRate: 2556.00
                 },
                 {
                     years: 38,
-                    amount: 5682.60
+                    amount: 5682.60,
+                    penaltyRate: 1366.00,
+                    fullRate: 1971.00,
+                    bonusRate: 2556.00
                 },
                 {
                     years: 40,
-                    amount: 5682.60
+                    amount: 5682.60,
+                    penaltyRate: 1366.00,
+                    fullRate: 1971.00,
+                    bonusRate: 2556.00
                 },
             ]
         },
@@ -881,47 +1082,80 @@ const FinanceCalculator = () => {
             pay: [
                 {
                     years: 20,
-                    amount: 6715.80
+                    amount: 6715.80,
+                    penaltyRate: 1528.00,
+                    fullRate: 2212.00,
+                    bonusRate: 2875.00
                 },
                 {
                     years: 22,
-                    amount: 6715.80
+                    amount: 6715.80,
+                    penaltyRate: 1528.00,
+                    fullRate: 2212.00,
+                    bonusRate: 2875.00
                 },
                 {
                     years: 24,
-                    amount: 6715.80
+                    amount: 6715.80,
+                    penaltyRate: 1528.00,
+                    fullRate: 2212.00,
+                    bonusRate: 2875.00
                 },
                 {
                     years: 26,
-                    amount: 6715.80
+                    amount: 6715.80,
+                    penaltyRate: 1528.00,
+                    fullRate: 2212.00,
+                    bonusRate: 2875.00
                 },
                 {
                     years: 28,
-                    amount: 6715.80
+                    amount: 6715.80,
+                    penaltyRate: 1528.00,
+                    fullRate: 2212.00,
+                    bonusRate: 2875.00
                 },
                 {
                     years: 30,
-                    amount: 6715.80
+                    amount: 6715.80,
+                    penaltyRate: 1528.00,
+                    fullRate: 2212.00,
+                    bonusRate: 2875.00
                 },
                 {
                     years: 32,
-                    amount: 6715.80
+                    amount: 6715.80,
+                    penaltyRate: 1528.00,
+                    fullRate: 2212.00,
+                    bonusRate: 2875.00
                 },
                 {
                     years: 34,
-                    amount: 6715.80
+                    amount: 6715.80,
+                    penaltyRate: 1528.00,
+                    fullRate: 2212.00,
+                    bonusRate: 2875.00
                 },
                 {
                     years: 36,
-                    amount: 6715.80
+                    amount: 6715.80,
+                    penaltyRate: 1528.00,
+                    fullRate: 2212.00,
+                    bonusRate: 2875.00
                 },
                 {
                     years: 38,
-                    amount: 6715.80
+                    amount: 6715.80,
+                    penaltyRate: 1528.00,
+                    fullRate: 2212.00,
+                    bonusRate: 2875.00
                 },
                 {
                     years: 40,
-                    amount: 6715.80
+                    amount: 6715.80,
+                    penaltyRate: 1528.00,
+                    fullRate: 2212.00,
+                    bonusRate: 2875.00
                 },
             ]
         },
@@ -930,47 +1164,80 @@ const FinanceCalculator = () => {
             pay: [
                 {
                     years: 20,
-                    amount: 8421.00
+                    amount: 8421.00,
+                    penaltyRate: 1795.00,
+                    fullRate: 2610.00,
+                    bonusRate: 3403.00
                 },
                 {
                     years: 22,
-                    amount: 8421.00
+                    amount: 8421.00,
+                    penaltyRate: 1795.00,
+                    fullRate: 2610.00,
+                    bonusRate: 3403.00
                 },
                 {
                     years: 24,
-                    amount: 8421.00
+                    amount: 8421.00,
+                    penaltyRate: 1795.00,
+                    fullRate: 2610.00,
+                    bonusRate: 3403.00
                 },
                 {
                     years: 26,
-                    amount: 8421.00
+                    amount: 8421.00,
+                    penaltyRate: 1795.00,
+                    fullRate: 2610.00,
+                    bonusRate: 3403.00
                 },
                 {
                     years: 28,
-                    amount: 8421.00
+                    amount: 8421.00,
+                    penaltyRate: 1795.00,
+                    fullRate: 2610.00,
+                    bonusRate: 3403.00
                 },
                 {
                     years: 30,
-                    amount: 8421.00
+                    amount: 8421.00,
+                    penaltyRate: 1795.00,
+                    fullRate: 2610.00,
+                    bonusRate: 3403.00
                 },
                 {
                     years: 32,
-                    amount: 8421.00
+                    amount: 8421.00,
+                    penaltyRate: 1795.00,
+                    fullRate: 2610.00,
+                    bonusRate: 3403.00
                 },
                 {
                     years: 34,
-                    amount: 8421.00
+                    amount: 8421.00,
+                    penaltyRate: 1795.00,
+                    fullRate: 2610.00,
+                    bonusRate: 3403.00
                 },
                 {
                     years: 36,
-                    amount: 8421.00
+                    amount: 8421.00,
+                    penaltyRate: 1795.00,
+                    fullRate: 2610.00,
+                    bonusRate: 3403.00
                 },
                 {
                     years: 38,
-                    amount: 8421.00
+                    amount: 8421.00,
+                    penaltyRate: 1795.00,
+                    fullRate: 2610.00,
+                    bonusRate: 3403.00
                 },
                 {
                     years: 40,
-                    amount: 8421.00
+                    amount: 8421.00,
+                    penaltyRate: 1795.00,
+                    fullRate: 2610.00,
+                    bonusRate: 3403.00
                 }
             ]
         },
@@ -979,47 +1246,80 @@ const FinanceCalculator = () => {
             pay: [
                 {
                     years: 20,
-                    amount: 9210.30
+                    amount: 9210.30,
+                    penaltyRate: 1918.00,
+                    fullRate: 2793.00,
+                    bonusRate: 3549.00
                 },
                 {
                     years: 22,
-                    amount: 9210.30
+                    amount: 9210.30,
+                    penaltyRate: 1918.00,
+                    fullRate: 2793.00,
+                    bonusRate: 3549.00
                 },
                 {
                     years: 24,
-                    amount: 9210.30
+                    amount: 9210.30,
+                    penaltyRate: 1918.00,
+                    fullRate: 2793.00,
+                    bonusRate: 3549.00
                 },
                 {
                     years: 26,
-                    amount: 9210.30
+                    amount: 9210.30,
+                    penaltyRate: 1918.00,
+                    fullRate: 2793.00,
+                    bonusRate: 3549.00
                 },
                 {
                     years: 28,
-                    amount: 9210.30
+                    amount: 9210.30,
+                    penaltyRate: 1918.00,
+                    fullRate: 2793.00,
+                    bonusRate: 3549.00
                 },
                 {
                     years: 30,
-                    amount: 9210.30
+                    amount: 9210.30,
+                    penaltyRate: 1918.00,
+                    fullRate: 2793.00,
+                    bonusRate: 3549.00
                 },
                 {
                     years: 32,
-                    amount: 9210.30
+                    amount: 9210.30,
+                    penaltyRate: 1918.00,
+                    fullRate: 2793.00,
+                    bonusRate: 3549.00
                 },
                 {
                     years: 34,
-                    amount: 9210.30
+                    amount: 9210.30,
+                    penaltyRate: 1918.00,
+                    fullRate: 2793.00,
+                    bonusRate: 3549.00
                 },
                 {
                     years: 36,
-                    amount: 9210.30
+                    amount: 9210.30,
+                    penaltyRate: 1918.00,
+                    fullRate: 2793.00,
+                    bonusRate: 3549.00
                 },
                 {
                     years: 38,
-                    amount: 9210.30
+                    amount: 9210.30,
+                    penaltyRate: 1918.00,
+                    fullRate: 2793.00,
+                    bonusRate: 3549.00
                 },
                 {
                     years: 40,
-                    amount: 9210.30
+                    amount: 9210.30,
+                    penaltyRate: 1918.00,
+                    fullRate: 2793.00,
+                    bonusRate: 3549.00
                 }
             ]
         },
@@ -1028,47 +1328,80 @@ const FinanceCalculator = () => {
             pay: [
                 {
                     years: 20,
-                    amount: 10544.70
+                    amount: 10544.70,
+                    penaltyRate: 2097.00,
+                    fullRate: 2939.00,
+                    bonusRate: 3742.00
                 },
                 {
                     years: 22,
-                    amount: 10861.80
+                    amount: 10861.80,
+                    penaltyRate: 2120.00,
+                    fullRate: 2974.00,
+                    bonusRate: 3788.00
                 },
                 {
                     years: 24,
-                    amount: 10861.80
+                    amount: 10861.80,
+                    penaltyRate: 2120.00,
+                    fullRate: 2974.00,
+                    bonusRate: 3788.00
                 },
                 {
                     years: 26,
-                    amount: 10861.80
+                    amount: 10861.80,
+                    penaltyRate: 2120.00,
+                    fullRate: 2974.00,
+                    bonusRate: 3788.00
                 },
                 {
                     years: 28,
-                    amount: 10861.80
+                    amount: 10861.80,
+                    penaltyRate: 2120.00,
+                    fullRate: 2974.00,
+                    bonusRate: 3788.00
                 },
                 {
                     years: 30,
-                    amount: 10861.80
+                    amount: 10861.80,
+                    penaltyRate: 2120.00,
+                    fullRate: 2974.00,
+                    bonusRate: 3788.00
                 },
                 {
                     years: 32,
-                    amount: 10861.80
+                    amount: 10861.80,
+                    penaltyRate: 2120.00,
+                    fullRate: 2974.00,
+                    bonusRate: 3788.00
                 },
                 {
                     years: 34,
-                    amount: 10861.80
+                    amount: 10861.80,
+                    penaltyRate: 2120.00,
+                    fullRate: 2974.00,
+                    bonusRate: 3788.00
                 },
                 {
                     years: 36,
-                    amount: 10861.80
+                    amount: 10861.80,
+                    penaltyRate: 2120.00,
+                    fullRate: 2974.00,
+                    bonusRate: 3788.00
                 },
                 {
                     years: 38,
-                    amount: 10861.80
+                    amount: 10861.80,
+                    penaltyRate: 2120.00,
+                    fullRate: 2974.00,
+                    bonusRate: 3788.00
                 },
                 {
                     years: 40,
-                    amount: 10861.80
+                    amount: 10861.80,
+                    penaltyRate: 2120.00,
+                    fullRate: 2974.00,
+                    bonusRate: 3788.00
                 }
             ]
         },
@@ -1077,47 +1410,80 @@ const FinanceCalculator = () => {
             pay: [
                 {
                     years: 20,
-                    amount: 12050.40
+                    amount: 12050.40,
+                    penaltyRate: 2207.00,
+                    fullRate: 3103.00,
+                    bonusRate: 3960.00
                 },
                 {
                     years: 22,
-                    amount: 12367.50
+                    amount: 12367.50,
+                    penaltyRate: 2231.00,
+                    fullRate: 3138.00,
+                    bonusRate: 4006.00
                 },
                 {
                     years: 24,
-                    amount: 12688.80
+                    amount: 12688.80,
+                    penaltyRate: 2254.00,
+                    fullRate: 3173.00,
+                    bonusRate: 4053.00
                 },
                 {
                     years: 26,
-                    amount: 13310.70
+                    amount: 13310.70,
+                    penaltyRate: 2299.00,
+                    fullRate: 3240.00,
+                    bonusRate: 4141.00
                 },
                 {
                     years: 28,
-                    amount: 13310.70
+                    amount: 13310.70,
+                    penaltyRate: 2299.00,
+                    fullRate: 3240.00,
+                    bonusRate: 4141.00
                 },
                 {
                     years: 30,
-                    amount: 13576.50
+                    amount: 13576.50,
+                    penaltyRate: 2317.00,
+                    fullRate: 3264.00,
+                    bonusRate: 4169.00
                 },
                 {
                     years: 32,
-                    amount: 13576.50
+                    amount: 13576.50,
+                    penaltyRate: 2317.00,
+                    fullRate: 3264.00,
+                    bonusRate: 4169.00
                 },
                 {
                     years: 34,
-                    amount: 13576.50
+                    amount: 13576.50,
+                    penaltyRate: 2317.00,
+                    fullRate: 3264.00,
+                    bonusRate: 4169.00
                 },
                 {
                     years: 36,
-                    amount: 13576.50
+                    amount: 13576.50,
+                    penaltyRate: 2317.00,
+                    fullRate: 3264.00,
+                    bonusRate: 4169.00
                 },
                 {
                     years: 38,
-                    amount: 13576.50
+                    amount: 13576.50,
+                    penaltyRate: 2317.00,
+                    fullRate: 3264.00,
+                    bonusRate: 4169.00
                 },
                 {
                     years: 40,
-                    amount: 13576.50
+                    amount: 13576.50,
+                    penaltyRate: 2317.00,
+                    fullRate: 3264.00,
+                    bonusRate: 4169.00
                 }
             ]
         },
@@ -1126,47 +1492,80 @@ const FinanceCalculator = () => {
             pay: [
                 {
                     years: 20,
-                    amount: 14737.80
+                    amount: 14737.80,
+                    penaltyRate: 2394.00,
+                    fullRate: 3358.00,
+                    bonusRate: 4276.00
                 },
                 {
                     years: 22,
-                    amount: 14737.80
+                    amount: 14737.80,
+                    penaltyRate: 2394.00,
+                    fullRate: 3358.00,
+                    bonusRate: 4276.00
                 },
                 {
                     years: 24,
-                    amount: 14737.80
+                    amount: 14737.80,
+                    penaltyRate: 2394.00,
+                    fullRate: 3358.00,
+                    bonusRate: 4276.00
                 },
                 {
                     years: 26,
-                    amount: 14813.70
+                    amount: 14813.70,
+                    penaltyRate: 2399.00,
+                    fullRate: 3363.00,
+                    bonusRate: 4283.00
                 },
                 {
                     years: 28,
-                    amount: 14813.70
+                    amount: 14813.70,
+                    penaltyRate: 2399.00,
+                    fullRate: 3363.00,
+                    bonusRate: 4283.00
                 },
                 {
                     years: 30,
-                    amount: 15110.10
+                    amount: 15110.10,
+                    penaltyRate: 2417.00,
+                    fullRate: 3385.00,
+                    bonusRate: 4308.00
                 },
                 {
                     years: 32,
-                    amount: 15110.10
+                    amount: 15110.10,
+                    penaltyRate: 2417.00,
+                    fullRate: 3385.00,
+                    bonusRate: 4308.00
                 },
                 {
                     years: 34,
-                    amount: 15110.10
+                    amount: 15110.10,
+                    penaltyRate: 2417.00,
+                    fullRate: 3385.00,
+                    bonusRate: 4308.00
                 },
                 {
                     years: 36,
-                    amount: 15110.10
+                    amount: 15110.10,
+                    penaltyRate: 2417.00,
+                    fullRate: 3385.00,
+                    bonusRate: 4308.00
                 },
                 {
                     years: 38,
-                    amount: 15110.10
+                    amount: 15110.10,
+                    penaltyRate: 2417.00,
+                    fullRate: 3385.00,
+                    bonusRate: 4308.00
                 },
                 {
                     years: 40,
-                    amount: 15110.10
+                    amount: 15110.10,
+                    penaltyRate: 2417.00,
+                    fullRate: 3385.00,
+                    bonusRate: 4308.00
                 },
             ]
         },
@@ -1175,47 +1574,80 @@ const FinanceCalculator = () => {
             pay: [
                 {
                     years: 20,
-                    amount: 16298.10
+                    amount: 16298.10,
+                    penaltyRate: 2482.00,
+                    fullRate: 3464.00,
+                    bonusRate: 4396.00
                 },
                 {
                     years: 22,
-                    amount: 16700.10
+                    amount: 16700.10,
+                    penaltyRate: 2502.00,
+                    fullRate: 3488.00,
+                    bonusRate: 4422.00
                 },
                 {
                     years: 24,
-                    amount: 16700.10
+                    amount: 16700.10,
+                    penaltyRate: 2502.00,
+                    fullRate: 3488.00,
+                    bonusRate: 4422.00
                 },
                 {
                     years: 26,
-                    amount: 16700.10
+                    amount: 16700.10,
+                    penaltyRate: 2502.00,
+                    fullRate: 3488.00,
+                    bonusRate: 4422.00
                 },
                 {
                     years: 28,
-                    amount: 16700.10
+                    amount: 16700.10,
+                    penaltyRate: 2502.00,
+                    fullRate: 3488.00,
+                    bonusRate: 4422.00
                 },
                 {
                     years: 30,
-                    amount: 17118.30
+                    amount: 17118.30,
+                    penaltyRate: 2522.00,
+                    fullRate: 3511.00,
+                    bonusRate: 4448.00
                 },
                 {
                     years: 32,
-                    amount: 17118.30
+                    amount: 17118.30,
+                    penaltyRate: 2522.00,
+                    fullRate: 3511.00,
+                    bonusRate: 4448.00
                 },
                 {
                     years: 34,
-                    amount: 17545.80
+                    amount: 17545.80,
+                    penaltyRate: 2541.00,
+                    fullRate: 3533.00,
+                    bonusRate: 4471.00
                 },
                 {
                     years: 36,
-                    amount: 17545.80
+                    amount: 17545.80,
+                    penaltyRate: 2541.00,
+                    fullRate: 3533.00,
+                    bonusRate: 4471.00
                 },
                 {
                     years: 38,
-                    amount: 17545.80
+                    amount: 17545.80,
+                    penaltyRate: 2541.00,
+                    fullRate: 3533.00,
+                    bonusRate: 4471.00
                 },
                 {
                     years: 40,
-                    amount: 17545.80
+                    amount: 17545.80,
+                    penaltyRate: 2541.00,
+                    fullRate: 3533.00,
+                    bonusRate: 4471.00
                 }
             ]
         },
@@ -1224,47 +1656,80 @@ const FinanceCalculator = () => {
             pay: [
                 {
                     years: 20,
-                    amount: 17201.40
+                    amount: 17201.40,
+                    penaltyRate: 2526.00,
+                    fullRate: 3516.00,
+                    bonusRate: 4453.00
                 },
                 {
                     years: 22,
-                    amount: 17449.80
+                    amount: 17449.80,
+                    penaltyRate: 2537.00,
+                    fullRate: 3528.00,
+                    bonusRate: 4466.00
                 },
                 {
                     years: 24,
-                    amount: 17675.10
+                    amount: 17675.10,
+                    penaltyRate: 2546.00,
+                    fullRate: 3539.00,
+                    bonusRate: 4478.00
                 },
                 {
                     years: 26,
-                    amount: 17675.10
+                    amount: 17675.10,
+                    penaltyRate: 2546.00,
+                    fullRate: 3539.00,
+                    bonusRate: 4478.00
                 },
                 {
                     years: 28,
-                    amount: 17675.10
+                    amount: 17675.10,
+                    penaltyRate: 2546.00,
+                    fullRate: 3539.00,
+                    bonusRate: 4478.00
                 },
                 {
                     years: 30,
-                    amount: 17675.10
+                    amount: 17675.10,
+                    penaltyRate: 2546.00,
+                    fullRate: 3539.00,
+                    bonusRate: 4478.00
                 },
                 {
                     years: 32,
-                    amount: 17675.10
+                    amount: 17675.10,
+                    penaltyRate: 2546.00,
+                    fullRate: 3539.00,
+                    bonusRate: 4478.00
                 },
                 {
                     years: 34,
-                    amount: 17675.10
+                    amount: 17675.10,
+                    penaltyRate: 2546.00,
+                    fullRate: 3539.00,
+                    bonusRate: 4478.00
                 },
                 {
                     years: 36,
-                    amount: 17675.10
+                    amount: 17675.10,
+                    penaltyRate: 2546.00,
+                    fullRate: 3539.00,
+                    bonusRate: 4478.00
                 },
                 {
                     years: 38,
-                    amount: 17675.10
+                    amount: 17675.10,
+                    penaltyRate: 2546.00,
+                    fullRate: 3539.00,
+                    bonusRate: 4478.00
                 },
                 {
                     years: 40,
-                    amount: 17675.10
+                    amount: 17675.10,
+                    penaltyRate: 2546.00,
+                    fullRate: 3539.00,
+                    bonusRate: 4478.00
                 },
             ]
         },
@@ -1273,47 +1738,80 @@ const FinanceCalculator = () => {
             pay: [
                 {
                     years: 20,
-                    amount: 17675.10
+                    amount: 17675.10,
+                    penaltyRate: 2546.00,
+                    fullRate: 3539.00,
+                    bonusRate: 4478.00
                 },
                 {
                     years: 22,
-                    amount: 17675.10
+                    amount: 17675.10,
+                    penaltyRate: 2546.00,
+                    fullRate: 3539.00,
+                    bonusRate: 4478.00
                 },
                 {
                     years: 24,
-                    amount: 17675.10
+                    amount: 17675.10,
+                    penaltyRate: 2546.00,
+                    fullRate: 3539.00,
+                    bonusRate: 4478.00
                 },
                 {
                     years: 26,
-                    amount: 17675.10
+                    amount: 17675.10,
+                    penaltyRate: 2546.00,
+                    fullRate: 3539.00,
+                    bonusRate: 4478.00
                 },
                 {
                     years: 28,
-                    amount: 17675.10
+                    amount: 17675.10,
+                    penaltyRate: 2546.00,
+                    fullRate: 3539.00,
+                    bonusRate: 4478.00
                 },
                 {
                     years: 30,
-                    amount: 17675.10
+                    amount: 17675.10,
+                    penaltyRate: 2546.00,
+                    fullRate: 3539.00,
+                    bonusRate: 4478.00
                 },
                 {
                     years: 32,
-                    amount: 17675.10
+                    amount: 17675.10,
+                    penaltyRate: 2546.00,
+                    fullRate: 3539.00,
+                    bonusRate: 4478.00
                 },
                 {
                     years: 34,
-                    amount: 17675.10
+                    amount: 17675.10,
+                    penaltyRate: 2546.00,
+                    fullRate: 3539.00,
+                    bonusRate: 4478.00
                 },
                 {
                     years: 36,
-                    amount: 17675.10
+                    amount: 17675.10,
+                    penaltyRate: 2546.00,
+                    fullRate: 3539.00,
+                    bonusRate: 4478.00
                 },
                 {
                     years: 38,
-                    amount: 17675.10
+                    amount: 17675.10,
+                    penaltyRate: 2546.00,
+                    fullRate: 3539.00,
+                    bonusRate: 4478.00
                 },
                 {
                     years: 40,
-                    amount: 17675.10
+                    amount: 17675.10,
+                    penaltyRate: 2546.00,
+                    fullRate: 3539.00,
+                    bonusRate: 4478.00
                 },
             ]
         },
@@ -1322,47 +1820,80 @@ const FinanceCalculator = () => {
             pay: [
                 {
                     years: 20,
-                    amount: 6143.40
+                    amount: 6143.40,
+                    penaltyRate: 1438.00,
+                    fullRate: 2078.00,
+                    bonusRate: 2699.00
                 },
                 {
                     years: 22,
-                    amount: 6143.40
+                    amount: 6143.40,
+                    penaltyRate: 1438.00,
+                    fullRate: 2078.00,
+                    bonusRate: 2699.00
                 },
                 {
                     years: 24,
-                    amount: 6143.40
+                    amount: 6143.40,
+                    penaltyRate: 1438.00,
+                    fullRate: 2078.00,
+                    bonusRate: 2699.00
                 },
                 {
                     years: 26,
-                    amount: 6143.40
+                    amount: 6143.40,
+                    penaltyRate: 1438.00,
+                    fullRate: 2078.00,
+                    bonusRate: 2699.00
                 },
                 {
                     years: 28,
-                    amount: 6143.40
+                    amount: 6143.40,
+                    penaltyRate: 1438.00,
+                    fullRate: 2078.00,
+                    bonusRate: 2699.00
                 },
                 {
                     years: 30,
-                    amount: 6143.40
+                    amount: 6143.40,
+                    penaltyRate: 1438.00,
+                    fullRate: 2078.00,
+                    bonusRate: 2699.00
                 },
                 {
                     years: 32,
-                    amount: 6143.40
+                    amount: 6143.40,
+                    penaltyRate: 1438.00,
+                    fullRate: 2078.00,
+                    bonusRate: 2699.00
                 },
                 {
                     years: 34,
-                    amount: 6143.40
+                    amount: 6143.40,
+                    penaltyRate: 1438.00,
+                    fullRate: 2078.00,
+                    bonusRate: 2699.00
                 },
                 {
                     years: 36,
-                    amount: 6143.40
+                    amount: 6143.40,
+                    penaltyRate: 1438.00,
+                    fullRate: 2078.00,
+                    bonusRate: 2699.00
                 },
                 {
                     years: 38,
-                    amount: 6143.40
+                    amount: 6143.40,
+                    penaltyRate: 1438.00,
+                    fullRate: 2078.00,
+                    bonusRate: 2699.00
                 },
                 {
                     years: 40,
-                    amount: 6143.40
+                    amount: 6143.40,
+                    penaltyRate: 1438.00,
+                    fullRate: 2078.00,
+                    bonusRate: 2699.00
                 },
             ]
         },
@@ -1371,47 +1902,80 @@ const FinanceCalculator = () => {
             pay: [
                 {
                     years: 20,
-                    amount: 6517.20
+                    amount: 6517.20,
+                    penaltyRate: 1496.00,
+                    fullRate: 2165.00,
+                    bonusRate: 2813.00
                 },
                 {
                     years: 22,
-                    amount: 6652.80
+                    amount: 6652.80,
+                    penaltyRate: 1518.00,
+                    fullRate: 2197.00,
+                    bonusRate: 2856.00
                 },
                 {
                     years: 24,
-                    amount: 6760.20
+                    amount: 6760.20,
+                    penaltyRate: 1535.00,
+                    fullRate: 2222.00,
+                    bonusRate: 2889.00
                 },
                 {
                     years: 26,
-                    amount: 6760.20
+                    amount: 6760.20,
+                    penaltyRate: 1535.00,
+                    fullRate: 2222.00,
+                    bonusRate: 2889.00
                 },
                 {
                     years: 28,
-                    amount: 6760.20
+                    amount: 6760.20,
+                    penaltyRate: 1535.00,
+                    fullRate: 2222.00,
+                    bonusRate: 2889.00
                 },
                 {
                     years: 30,
-                    amount: 6760.20
+                    amount: 6760.20,
+                    penaltyRate: 1535.00,
+                    fullRate: 2222.00,
+                    bonusRate: 2889.00
                 },
                 {
                     years: 32,
-                    amount: 6760.20
+                    amount: 6760.20,
+                    penaltyRate: 1535.00,
+                    fullRate: 2222.00,
+                    bonusRate: 2889.00
                 },
                 {
                     years: 34,
-                    amount: 6760.20
+                    amount: 6760.20,
+                    penaltyRate: 1535.00,
+                    fullRate: 2222.00,
+                    bonusRate: 2889.00
                 },
                 {
                     years: 36,
-                    amount: 6760.20
+                    amount: 6760.20,
+                    penaltyRate: 1535.00,
+                    fullRate: 2222.00,
+                    bonusRate: 2889.00
                 },
                 {
                     years: 38,
-                    amount: 6760.20
+                    amount: 6760.20,
+                    penaltyRate: 1535.00,
+                    fullRate: 2222.00,
+                    bonusRate: 2889.00
                 },
                 {
                     years: 40,
-                    amount: 6760.20
+                    amount: 6760.20,
+                    penaltyRate: 1535.00,
+                    fullRate: 2222.00,
+                    bonusRate: 2889.00
                 },
             ]
         },
@@ -1420,47 +1984,80 @@ const FinanceCalculator = () => {
             pay: [
                 {
                     years: 20,
-                    amount: 7428.30
+                    amount: 7428.30,
+                    penaltyRate: 1639.00,
+                    fullRate: 2378.00,
+                    bonusRate: 3096.00
                 },
                 {
                     years: 22,
-                    amount: 7599.60
+                    amount: 7599.60,
+                    penaltyRate: 1666.00,
+                    fullRate: 2418.00,
+                    bonusRate: 3149.00
                 },
                 {
                     years: 24,
-                    amount: 7781.40
+                    amount: 7781.40,
+                    penaltyRate: 1695.00,
+                    fullRate: 2460.00,
+                    bonusRate: 3205.00
                 },
                 {
                     years: 26,
-                    amount: 8029.50
+                    amount: 8029.50,
+                    penaltyRate: 1734.00,
+                    fullRate: 2519.00,
+                    bonusRate: 3282.00
                 },
                 {
                     years: 28,
-                    amount: 8029.50
+                    amount: 8029.50,
+                    penaltyRate: 1734.00,
+                    fullRate: 2519.00,
+                    bonusRate: 3282.00
                 },
                 {
                     years: 30,
-                    amount: 8029.50
+                    amount: 8029.50,
+                    penaltyRate: 1734.00,
+                    fullRate: 2519.00,
+                    bonusRate: 3282.00
                 },
                 {
                     years: 32,
-                    amount: 8029.50
+                    amount: 8029.50,
+                    penaltyRate: 1734.00,
+                    fullRate: 2519.00,
+                    bonusRate: 3282.00
                 },
                 {
                     years: 34,
-                    amount: 8029.50
+                    amount: 8029.50,
+                    penaltyRate: 1734.00,
+                    fullRate: 2519.00,
+                    bonusRate: 3282.00
                 },
                 {
                     years: 36,
-                    amount: 8029.50
+                    amount: 8029.50,
+                    penaltyRate: 1734.00,
+                    fullRate: 2519.00,
+                    bonusRate: 3282.00
                 },
                 {
                     years: 38,
-                    amount: 8029.50
+                    amount: 8029.50,
+                    penaltyRate: 1734.00,
+                    fullRate: 2519.00,
+                    bonusRate: 3282.00
                 },
                 {
                     years: 40,
-                    amount: 8029.50
+                    amount: 8029.50,
+                    penaltyRate: 1734.00,
+                    fullRate: 2519.00,
+                    bonusRate: 3282.00
                 }
             ]
         },
@@ -1469,49 +2066,82 @@ const FinanceCalculator = () => {
             pay: [
                 {
                     years: 20,
-                    amount: 8087.70
+                    amount: 8087.70,
+                    penaltyRate: 1742.00,
+                    fullRate: 2532.00,
+                    bonusRate: 3300.00
                 },
                 {
                     years: 22,
-                    amount: 8473.80
+                    amount: 8473.80,
+                    penaltyRate: 1803.00,
+                    fullRate: 2621.00,
+                    bonusRate: 3418.00
                 },
                 {
                     years: 24,
-                    amount: 8791.50
+                    amount: 8791.50,
+                    penaltyRate: 1853.00,
+                    fullRate: 2696.00,
+                    bonusRate: 3488.00
                 },
                 {
                     years: 26,
-                    amount: 9153.60
+                    amount: 9153.60,
+                    penaltyRate: 1909.00,
+                    fullRate: 2781.00,
+                    bonusRate: 3540.00
                 },
                 {
                     years: 28,
-                    amount: 9153.60
+                    amount: 9153.60,
+                    penaltyRate: 1909.00,
+                    fullRate: 2781.00,
+                    bonusRate: 3540.00
                 },
                 {
                     years: 30,
-                    amount: 9336.30
+                    amount: 9336.30,
+                    penaltyRate: 1938.00,
+                    fullRate: 2807.00,
+                    bonusRate: 3567.00
                 },
                 {
                     years: 32,
-                    amount: 9336.30
+                    amount: 9336.30,
+                    penaltyRate: 1938.00,
+                    fullRate: 2807.00,
+                    bonusRate: 3567.00
                 },
                 {
                     years: 34,
-                    amount: 9336.30
+                    amount: 9336.30,
+                    penaltyRate: 1938.00,
+                    fullRate: 2807.00,
+                    bonusRate: 3567.00
                 },
                 {
                     years: 36,
-                    amount: 9336.30
+                    amount: 9336.30,
+                    penaltyRate: 1938.00,
+                    fullRate: 2807.00,
+                    bonusRate: 3567.00
                 },
                 {
                     years: 38,
-                    amount: 9336.30
+                    amount: 9336.30,
+                    penaltyRate: 1938.00,
+                    fullRate: 2807.00,
+                    bonusRate: 3567.00
                 },
                 {
                     years: 40,
-                    amount: 9336.30
+                    amount: 9336.30,
+                    penaltyRate: 1938.00,
+                    fullRate: 2807.00,
+                    bonusRate: 3567.00
                 }
-                
+
             ]
         },
         {
@@ -1519,47 +2149,80 @@ const FinanceCalculator = () => {
             pay: [
                 {
                     years: 20,
-                    amount: 8912.10
+                    amount: 8912.10,
+                    penaltyRate: 1871.00,
+                    fullRate: 2724.00,
+                    bonusRate: 3506.00
                 },
                 {
                     years: 22,
-                    amount: 9364.20
+                    amount: 9364.20,
+                    penaltyRate: 1942.00,
+                    fullRate: 2810.00,
+                    bonusRate: 3571.00
                 },
                 {
                     years: 24,
-                    amount: 9701.10
+                    amount: 9701.10,
+                    penaltyRate: 1995.00,
+                    fullRate: 2846.00,
+                    bonusRate: 3620.00
                 },
                 {
                     years: 26,
-                    amount: 10073.40
+                    amount: 10073.40,
+                    penaltyRate: 2053.00,
+                    fullRate: 2887.00,
+                    bonusRate: 3674.00
                 },
                 {
                     years: 28,
-                    amount: 10073.40
+                    amount: 10073.40,
+                    penaltyRate: 2053.00,
+                    fullRate: 2887.00,
+                    bonusRate: 3674.00
                 },
                 {
                     years: 30,
-                    amount: 10578.00
+                    amount: 10578.00,
+                    penaltyRate: 2099.00,
+                    fullRate: 2943.00,
+                    bonusRate: 3747.00
                 },
                 {
                     years: 32,
-                    amount: 10578.00
+                    amount: 10578.00,
+                    penaltyRate: 2099.00,
+                    fullRate: 2943.00,
+                    bonusRate: 3747.00
                 },
                 {
                     years: 34,
-                    amount: 11106.00
+                    amount: 11106.00,
+                    penaltyRate: 2138.00,
+                    fullRate: 3000.00,
+                    bonusRate: 3824.00
                 },
                 {
                     years: 36,
-                    amount: 11106.00
+                    amount: 11106.00,
+                    penaltyRate: 2138.00,
+                    fullRate: 3000.00,
+                    bonusRate: 3824.00
                 },
                 {
                     years: 38,
-                    amount: 11662.50
+                    amount: 11662.50,
+                    penaltyRate: 2179.00,
+                    fullRate: 3061.00,
+                    bonusRate: 3904.00
                 },
                 {
                     years: 40,
-                    amount: 11662.50
+                    amount: 11662.50,
+                    penaltyRate: 2179.00,
+                    fullRate: 3061.00,
+                    bonusRate: 3904.00
                 }
             ]
         }
@@ -1798,15 +2461,24 @@ const FinanceCalculator = () => {
         localStorage.setItem("postRetROR", postRetROR);
         localStorage.setItem("inflation", inflation)
         let offsetPay = 0;
+        let penalty = 0;
+        let full = 0;
+        let bonus = 0;
         for (let i = 0; i < payscale.length; i++) {
             if (retirementRank === payscale[i].rank) {
-                for(let j = 0; j < payscale[i].pay.length; j++){
-                    if(parseInt(yearsInService) === payscale[i].pay[j].years){
-                        offsetPay = parseInt(payscale[i].pay[j].amount)
+                for (let j = 0; j < payscale[i].pay.length; j++) {
+                    if (parseInt(yearsInService) === payscale[i].pay[j].years) {
+                        offsetPay = parseInt(payscale[i].pay[j].amount);
+                        penalty = Math.round((parseInt(payscale[i].pay[j].penaltyRate) * 12 * 100 * .8) / 100);
+                        full = Math.round((parseInt(payscale[i].pay[j].fullRate) * 12 * 100) / 100 * .8);
+                        bonus = Math.round((parseInt(payscale[i].pay[j].bonusRate) * 12 * 100) / 100 * .8);
                     }
                 }
             }
         }
+        setPenaltySS(penalty);
+        setFullSS(full);
+        setBonusSS(bonus)
         //removed (1.025 ** activeDutyAge) for bug testing.  This represents annual pay raises
         //all calculationsa are in current dollars, and assuming future pay creates an inbalance
         offsetPay = Math.round((offsetPay * retirementPercentage * 100 * 12 * .82) / 100)
@@ -2131,8 +2803,8 @@ const FinanceCalculator = () => {
                 <br></br>
                 <div hidden={pension ? false : true}>
                     <div>
-                        Your annual military retirement pay, based on the time value of money, selected
-                        grade, and a retirement of {yearsInService ? yearsInService : 20} years, after tax: {pension ? formatter.format(pension) : 0}
+                        Annual military retirement pay based on your selected
+                        grade and a retirement of {yearsInService ? yearsInService : 20} years after tax: {pension ? formatter.format(pension) : 0}
                     </div>
                     <br></br>
                     <div>
@@ -2161,8 +2833,8 @@ const FinanceCalculator = () => {
                 <br></br>
                 <div hidden={VA ? false : true}>
                     <div>
-                        Your annual military retirement pay + disability pay, based on the time value of money, selected
-                        grade, and a retirement of {yearsInService ? yearsInService : 20} years, after taxed base pay: {pensionWithVA ? formatter.format(pensionWithVA) : 0}
+                        Annual military retirement pay + disability pay based on your selected
+                        grade and a retirement of {yearsInService ? yearsInService : 20} years after tax: {pensionWithVA ? formatter.format(pensionWithVA) : 0}
                     </div>
                     <br></br>
                     <div>
@@ -2185,6 +2857,25 @@ const FinanceCalculator = () => {
                             <Area type="monotone" dataKey="Balance" stroke="#8884d8" fillOpacity={0.7} fill="purple" />
                         </AreaChart>
                     </ResponsiveContainer>
+                </div>
+                <div hidden={pension ? false : true} className='text-center'>
+                    <div hidden={VA ? true : false}>
+                        Final annual retirement pay with military pension and social security:<br></br>
+                        <div className='fw-bold'>
+                            Prior to Age 62: {formatter.format(pension)}<br></br>
+                            Age 62: {formatter.format(pension + penaltySS)}<br></br>
+                            Age 67: {formatter.format(pension + fullSS)}<br></br>
+                            Age 70: {formatter.format(pension + bonusSS)}<br></br>
+                        </div>
+                    </div>
+                </div>
+                <div hidden={VA ? false : true} className='text-center'>
+                    Final annual retirement pay with military pension, disability, and social security not counting
+                    annuity payouts for your investments:<br></br>
+                    <strong>Prior to Age 62: {formatter.format(pensionWithVA)}</strong><br></br>
+                    <strong>Age 62: {formatter.format(penaltySS + pensionWithVA)}</strong><br></br>
+                    <strong>Age 67: {formatter.format(fullSS + pensionWithVA)}</strong><br></br>
+                    <strong>Age 70: {formatter.format(bonusSS + pensionWithVA)}</strong><br></br>
                 </div>
             </Row>
         </Container>
