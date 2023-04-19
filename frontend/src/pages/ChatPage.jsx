@@ -35,7 +35,7 @@ const ChatPage = () => {
         height='86vh'
         userName={user.publicData.anon_username}
         userSecret={user.publicData.username}
-        projectID='87c51be2-76f9-4924-96cf-845972cd42ce'
+        projectID={process.env.REACT_APP_PROJ_KEY}
         renderNewChatForm={(creds) => renderChatForm(creds)}
       />
     )
@@ -45,7 +45,7 @@ const ChatPage = () => {
       height='86vh'
       userName={user.publicData.username}
       userSecret={user.publicData.username}
-      projectID='87c51be2-76f9-4924-96cf-845972cd42ce'
+      projectID={process.env.REACT_APP_PROJ_KEY}
       renderNewChatForm={(creds) => renderChatForm(creds)}
     />
   )

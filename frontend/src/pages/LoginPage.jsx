@@ -12,7 +12,7 @@ function LoginPage() {
 
   const navigate = useNavigate();
 
-  const { user, setUser } = useContext(AppContext);
+  const { user, setUser, url } = useContext(AppContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -26,7 +26,7 @@ function LoginPage() {
 
     if (username.value !== "" && password !== "") {
       setLoading(true);
-      fetch("http://localhost:8080/login", {
+      fetch(`${url}/login`, {
         method: "POST",
         credentials: "include",
         body: JSON.stringify({

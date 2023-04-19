@@ -19,7 +19,8 @@ function ProfessionalPrivacyAgreementPage() {
             return;
         }
         else {
-            setAlertBool(true);
+            //setAlertBool(true);
+            navigate("/login");
             return;
         }
     };
@@ -33,7 +34,7 @@ function ProfessionalPrivacyAgreementPage() {
         <div>
             <div className="login-page">
                 <div className="login-form" style={{ maxWidth: 600 }}>
-                    {alertBool
+                    {/* {alertBool
                         ?
                             <Alert variant="primary">Success! Your Professional Profile has been submitted for review. Once your review has been completed, you will be sent an email of confirmation or disapproval to the email provided. Please be sure to check your spam folder. Please allow 24 to 48 business hours for approval review.<Button onClick={closeAlert}>Close</Button> 
                             </Alert>
@@ -42,7 +43,11 @@ function ProfessionalPrivacyAgreementPage() {
                             <div className="title">Military Anonymous Professional Privacy Statement of Agreement & Understanding</div>
                             <ProfessionalPrivacyAgreement handleSubmit={handleSubmit} />
                         </>
-                    }
+                    } */}
+                    <>
+                        <div className="title">Military Anonymous Professional Privacy Statement of Agreement & Understanding</div>
+                        <ProfessionalPrivacyAgreement handleSubmit={handleSubmit}/>
+                    </>
                 </div>
 
             </div>

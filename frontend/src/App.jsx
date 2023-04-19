@@ -36,7 +36,7 @@ export const AppContext = createContext({});
 
 function App() {
   const [user, setUser] = useState({});
-  const [url] = useState("http://localhost:8080");
+  const [url] = useState(process.env.REACT_APP_API_URL);
   const [token, setToken] = useState();
 
   useEffect(() => {
