@@ -81,27 +81,29 @@ const ProfilePage = () => {
     if (userData.is_professional === false) {
       return (
         <div className='profilepage-main d-flex flex-column align-items-center'>
-          <div className='profilepage-container d-flex flex-column justify-content-center'>
+          <div className='profilepage-container d-flex flex-Column justify-content-start'>
             {userData !== undefined ?
               <>
                 <img className='profile-img' src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Windows_10_Default_Profile_Picture.svg/2048px-Windows_10_Default_Profile_Picture.svg.png" alt='Profile pic' />
-                <h1 className='text-center mb-4'>{userData.full_name}</h1>
-                {userData.username === user.publicData.username ?
-                  <Form>
-                    <Form.Check
-                      onChange={(event) => handleSwitch(event)}
-                      type="switch"
-                      id="custom-switch"
-                      label="Set anonymous"
-                      checked={userData.is_anonymous}
-                    />
-                  </Form>
-                  : null}
-                <h3>Username: {userData.username}</h3>
-                <h3>Branch: {userData.branch}</h3>
-                <h3>Age Bracket: {userData.age_group}</h3>
-                <h3>Gender: {userData.gender}</h3>
-                {username !== user.publicData.username ? <button onClick={() => handleNewChat()}>Start a Chat!</button> : null}
+                <div className='profile-info ms-4'>
+                  <h1 className='text-center mb-4'>{userData.full_name}</h1>
+                  {userData.username === user.publicData.username ?
+                    <Form>
+                      <Form.Check
+                        onChange={(event) => handleSwitch(event)}
+                        type="switch"
+                        id="custom-switch"
+                        label="Set anonymous"
+                        checked={userData.is_anonymous}
+                      />
+                    </Form>
+                    : null}
+                  <h3>Username: {userData.username}</h3>
+                  <h3>Branch: {userData.branch}</h3>
+                  <h3>Age Bracket: {userData.age_group}</h3>
+                  <h3>Gender: {userData.gender}</h3>
+                  {username !== user.publicData.username ? <button onClick={() => handleNewChat()}>Start a Chat!</button> : null}
+                </div>
               </>
               : null}
           </div>

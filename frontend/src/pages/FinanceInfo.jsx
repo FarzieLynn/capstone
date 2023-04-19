@@ -21,19 +21,14 @@ function FinanceInfo() {
           alt=""
         />
       </div>
-      <span>
-        <h2 className="question">
-          <strong>
-            Click{" "}
-            <span className="link-click" onClick={() => navigate("/finance")}>
-              here{" "}
-            </span>
-            to take the Financial Management Questionnaire
-          </strong>
-        </h2>
-      </span>
+      
       <div className="financeBlurb text-center">
         <p>
+        <aside className="finance-aside">
+          <h3 className="title-aside">Quick Links</h3>
+          <h4 className="finq" onClick={() => navigate("/finance")}>Financial Management Questionnaire</h4>
+          <h4 className="fincal" onClick={() => navigate("/finance/calculator")}>Retirement Calculator</h4>
+        </aside>
           Welcome to our Financial Management page, dedicated to supporting
           active duty, reserve, and veteran service members with their financial
           needs. We understand that managing your finances can be challenging,

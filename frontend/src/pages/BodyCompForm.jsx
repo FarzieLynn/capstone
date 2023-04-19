@@ -38,12 +38,12 @@ function BodyCompForm() {
             <form onSubmit={calcBc}>
                 <div>
                     <label>Waist (in)</label>
-                    <input value={waist} onChange={(e) => setWaist(e.target.value)} />
+                    <input className="bc-in" value={waist} onChange={(e) => setWaist(e.target.value)} />
                 </div>
 
                 <div>
                     <label>Height (in)</label>
-                    <input
+                    <input className="bc-in"
                     value={heights}
                     onChange={(event) => setHeights(event.target.value)} />
                 </div>

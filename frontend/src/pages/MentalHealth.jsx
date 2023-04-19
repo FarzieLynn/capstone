@@ -1,8 +1,10 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import MentalScore from './MentalScore'
 import MentalResults from './MentalResults'
 import './stylesheets/MentalHealth.css'
+import { AppContext } from '../App'
+import cookie from 'cookie';
 
 
 
@@ -10,6 +12,7 @@ const MentalHealth = () => {
 
     let mentalRef = useRef({})
     var finalAnswer = 0;
+    const { user, url } = useContext(AppContext);
 
 
 
@@ -180,30 +183,47 @@ const MentalHealth = () => {
     }
 
     const decide = () => {
-        finalAnswer = answers.reduce((a,b) => a+b, 0)
-        if(finalAnswer <= 4){
+        finalAnswer = answers.reduce((a, b) => a + b, 0)
+        if(user.publicData !== undefined) insertScore(finalAnswer);
+        if (finalAnswer <= 4) {
             setTreatment('Good')
-        } else if(finalAnswer >= 5 && finalAnswer <= 9) {
+        } else if (finalAnswer >= 5 && finalAnswer <= 9) {
             setTreatment('Mild')
-        } else if(finalAnswer >= 10 && finalAnswer <= 14) {
+        } else if (finalAnswer >= 10 && finalAnswer <= 14) {
             setTreatment('Moderate')
-        } else if(finalAnswer >= 15 && finalAnswer <= 19) {
+        } else if (finalAnswer >= 15 && finalAnswer <= 19) {
             setTreatment('Moderately Severe')
         } else {
             setTreatment('Severe')
         }
     }
+
+    const insertScore = (score) => {
+        const token = cookie.parse(document.cookie).access_token;
+        fetch(`${url}/users/scores/${user.publicData.id}/${score}`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+            },
+        })
+            .then((res) => res.json())
+            .then((data) => {})
+            .catch((err) => console.log(err));
+    }
+
     const [isShown, setIsShown] = useState(false);
     const [treatment, setTreatment] = useState('');
     const [isLoaded, setLoaded] = useState(false)
     const showScore = () => {
-        
+
     }
     const clickHandler = () => {
         submit();
         setIsShown(true)
     }
-    
+
 
 
     return (
