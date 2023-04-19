@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import MentalScore from './MentalScore'
+import MentalResults from './MentalResults'
 import './stylesheets/MentalHealth.css'
 
 
@@ -208,7 +209,7 @@ const MentalHealth = () => {
     return (
 
                     <div ref={mentalRef} className='quiz'id="mental">
-                        <div className='text-center questions position-relative top-0 start-50 translate-middle-x'>
+                        <div  id='top' className='text-center questions position-relative top-0 start-50 translate-middle-x'>
                         <div id="MentalHealth" className="MentalHealth-header">
                             <h2 className='heading'>Please answer the following regarding your mental well-being:</h2><br></br>
                             {questions.map((q, i) => (
@@ -227,10 +228,15 @@ const MentalHealth = () => {
                                 </div>
                             ))}
                             </div>
-                            <div className='test-center position-relative quiz'>
-                                <button className='btn btn-dark pageBtn m-2' onClick={() => clickHandler()} disabled={!allQuestionsAnswered()}>Submit</button> {isShown && <MentalScore score={`${treatment}`}/>}
+                            <button className='btn btn-dark pageBtn m-2' onClick={() => clickHandler()} disabled={!allQuestionsAnswered()}>Submit</button>
                             </div>
-                        </div>
+                            <div className='text-center questions position-relative top-0 start-50 translate-middle-x'>
+
+                        <div className='test-center position-relative quiz'>
+                         
+                        {isShown && <MentalScore score={`${treatment}`}/> && <MentalResults score={`${treatment}`}/>}
+                            </div>
+                    </div>
                     </div>
               
     )
