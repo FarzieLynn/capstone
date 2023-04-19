@@ -17,6 +17,14 @@
         zoom: 115%;
     }
 
+    #hide {
+        display:none;
+    }
+
+    #chart {
+        zoom: 115%;
+    }
+
     #printBtn {
         visibility: hidden;
     }
