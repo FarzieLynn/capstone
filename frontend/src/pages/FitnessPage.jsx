@@ -27,6 +27,11 @@ function FitnessPage() {
       
       <div className="fitnessBlurb text-center">
         <p>
+        <aside className="fitness-aside">
+          <h2>Quick Links</h2>
+          <h3 className="bmical" onClick={() => navigate("/BMICal")}>BMI Calculator</h3>
+          <h3 className="bccal" onClick={() => navigate("/BodyCompCal")}>Body Composition Calculator</h3>
+        </aside>
           Military fitness and nutrition are critical components of the overall
           health and well-being of service members. Whether you are serving on
           active duty or are a veteran, maintaining a healthy and active
@@ -43,6 +48,7 @@ function FitnessPage() {
           physical and mental toughness required to meet these demands.
         </p>
         <p>
+        <p>
         A well-rounded fitness program for military members includes strength
         training, cardiovascular exercise, and flexibility training. It's
         important to work with a certified fitness professional who understands
@@ -50,7 +56,6 @@ function FitnessPage() {
         help you develop a customized fitness plan that is tailored to your
         individual needs and goals.
         </p>
-        <p>
         In addition to regular exercise, nutrition plays a critical role in
         military fitness. A healthy and balanced diet can help you maintain a
         healthy weight, improve your energy levels, and reduce your risk of
