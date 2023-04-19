@@ -14,6 +14,7 @@ const FinanceCalculator = () => {
     const initialPreRetROR = Number(localStorage.getItem("preRetROR") || 7);
     const initialPostRetROR = Number(localStorage.getItem("postRetROR") || 7);
     const initialInflation = Number(localStorage.getItem("inflation") || 2.9);
+    const yearsServed = Number(localStorage.getItem("yearsInService") || 20)
 
     const [retirementAge, setRetirementAge] = useState(initialRetirementAge);
     const [targetRetAmt, setTargetRetAmt] = useState(initialTargetRetAmt);
@@ -28,7 +29,7 @@ const FinanceCalculator = () => {
     const [data, setData] = useState([])
     const [retirementRank, setRetirementRank] = useState()
     const [activeDutyAge, setActiveDutyAge] = useState();
-    const [yearsInService, setYearsInService] = useState();
+    const [yearsInService, setYearsInService] = useState(yearsServed);
     const [pension, setPension] = useState();
     const [retirementPercentage, setRetirementPercentage] = useState(0.5);
     const [newRetirementExpense, setNewRetirementExpense] = useState();
@@ -2544,7 +2545,7 @@ const FinanceCalculator = () => {
                     <h1>Financial Independence Calculator</h1>
                     <br></br>
                     <h2>You can retire at age {retirementAge}</h2>
-                    <div>Civilian target retirement amount: {targetRetAmt ? formatter.format(targetRetAmt) : 0}</div>
+                    <div>Civilian target retirement: {targetRetAmt ? formatter.format(targetRetAmt) : 0}</div>
                     <form className='calc'>
                         <label>
                             Annual retirement expenses (today's dollars)
@@ -2614,7 +2615,7 @@ const FinanceCalculator = () => {
                             <br></br>
                             <h2>Military Career</h2>
                             <label>
-                                What is your projected retirement rank?
+                                Projected retirement rank
                                 <select
                                     value={retirementRank}
                                     onChange={(e) => {
@@ -2644,7 +2645,7 @@ const FinanceCalculator = () => {
                                 </select>
                             </label>
                             <label>
-                                How many years until retirement?
+                                Years until retirement:
                                 <select
                                     value={activeDutyAge}
                                     onChange={(e) => {
@@ -2674,7 +2675,7 @@ const FinanceCalculator = () => {
                                 </select>
                             </label>
                             <label>
-                                What will be your final pay scale at retirement?
+                                Total years served:
                                 <select
                                     value={yearsInService}
                                     onChange={(e) => {
@@ -2699,7 +2700,7 @@ const FinanceCalculator = () => {
                                 Are you service connected?
                                 <input onChange={(() => VA === false ? setVA(true) : setVA(false))} type='checkbox'></input>
                                 <div hidden={VA === true ? false : true}>
-                                    Select your service connected disability percentage below.
+                                    Service connected disability %.
                                 </div>
                                 <select hidden={VA === true ? false : true}
                                     value={VAPercentage}
@@ -2720,7 +2721,7 @@ const FinanceCalculator = () => {
                             </label>
                             <label hidden={VA === true ? false : true}>
                                 <div>
-                                    Select your number of dependents
+                                    Number of dependents
                                 </div>
                                 <select hidden={VA === true ? false : true}
                                     value={dependents}
@@ -2745,7 +2746,7 @@ const FinanceCalculator = () => {
                             </label>
                             <label hidden={VA === true ? false : true}>
                                 <div>
-                                    How many additional children under the age of 18?
+                                    Children under 18:
                                 </div>
                                 <input
                                     type='number'
@@ -2755,7 +2756,7 @@ const FinanceCalculator = () => {
                             </label>
                             <label hidden={VA === true ? false : true}>
                                 <div>
-                                    How many children over age of 18 in a qualifying school program?
+                                    Children over 18 in school:
                                 </div>
                                 <input
                                     type='number'
@@ -2764,12 +2765,12 @@ const FinanceCalculator = () => {
                                 />
                             </label>
                             <label hidden={VA === true ? false : true}>
-                                Is your spouse (if applicable) receiving aid and attendance?
+                                Spouse (if applicable) receiving aid/attendance?
                                 <input onChange={(() => spouseAid === false ? setSpouseAid(true) : setSpouseAid(false))} type='checkbox'></input>
                             </label>
                             <label hidden={VA === true ? false : true}>
                                 <div>
-                                    How many years (if applicable) until your youngest child reaches the age of 18?
+                                    Years (if applicable) until youngest child turns 18?
                                 </div>
                                 <input
                                     type='number'
