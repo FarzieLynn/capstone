@@ -2,8 +2,13 @@ import { Container, Row, Col } from 'react-bootstrap'
 import './stylesheets/Finance.css'
 
 const FinanceBeginner = () => {
+    
+    const exportPdf = () => {
+
+        window.print()
+    }
     return (
-        <Container>
+        <Container id="beginner">
             <br></br>
             <Row>
                 <Col className='col'>
@@ -18,7 +23,7 @@ const FinanceBeginner = () => {
                 </Col>
             </Row>
             <br></br>
-            <Row>
+            <Row >
                 <Col className='col'>
                     <strong>Pay Attention to Interest Rates</strong> — Pay off high-interest loans first, so that
                     you’re not paying more than necessary in the long run. Also, open a savings account with the best
@@ -39,8 +44,11 @@ const FinanceBeginner = () => {
                     rule of budgeting. If you can follow this rule, you’ll be able to build an emergency fund, pay
                      off your consumer debts, and kickstart a retirement savings.
                 </Col>
+                <Col>
+                </Col>
+                <button id="printBtn" className='btn btn-dark pageBtn m-2' onClick={() => exportPdf()}>Print PDF</button>
             </Row>
-        </Container>
+           </Container>
     );
 }
 

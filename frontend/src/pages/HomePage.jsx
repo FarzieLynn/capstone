@@ -1,7 +1,11 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import '../stylesheets/HomePage.css'
+import {AppContext} from '../App'
+import { DismissableAlert } from '../components/DismissableAlert'
 
 const HomePage = () => {
+  const {user} = useContext(AppContext)
+  
   return (
     <div className='homepage d-flex flex-column justify-content-center align-items-center'>
       <img className='homepage-img' src='https://cache.desktopnexus.com/thumbseg/1489/1489087-bigthumbnail.jpg' alt='Two hands holding each other'></img>

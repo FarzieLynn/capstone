@@ -6,13 +6,14 @@ import Button from "react-bootstrap/Button";
 import { AppContext } from '../App';
 import ProfessionalsTable from "../components/ProfessionalsTable";
 
+
 function MentalHealthInfo() {
   const navigate = useNavigate();
   const { mentalHealthVisited, setMentalHealthVisited, user } = useContext(AppContext);
 
   return (
     <>
-    <div className="mental vh-100%">
+    <div className="mental d-flex flex-column align-items-center">
       {mentalHealthVisited ?
         <>
           <div className="mentalTitles">
@@ -34,7 +35,7 @@ function MentalHealthInfo() {
               </strong>
             </h2>
           </span>
-          <div className="mentalBlurb">
+          <div className="mentalBlurb text-center">
 
             <p>
               Welcome to our Mental Health page. We are here to provide support for

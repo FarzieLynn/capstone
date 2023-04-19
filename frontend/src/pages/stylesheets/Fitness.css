@@ -1,5 +1,5 @@
 .fitness {
-    background-color: #073b4c;
+    background-color: #beebfacc;
     min-height: 86vh;
 }
 
@@ -8,7 +8,7 @@
     flex-direction: column;
     align-items: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #ffd116;
+    color: #073b4c;
 }
 
 .fitnessTitleLg{
@@ -21,24 +21,45 @@
     margin-top: 3%;
 }
 
-.fitnessBlurb{
-    color: #ffd116;
+.fitness-aside{
+    width: 40%;
+    padding-left: 15px;
+    margin-left: 15px;
+    border-radius: 5%;
+    color: white;
+    float: right;
+    background-color: #073b4c
+}
+
+.title-aside {
+    text-decoration-line: underline;
+}
+.fitness-aside:hover{
+    background-color: gray;
+    opacity: 1.0;
+    transition: 5ms;
+}
+
+.bmical:hover{
+    cursor: pointer;
+    color: gold;
+    font-style: italic;
+
+}
+
+.bccal:hover{
+    cursor: pointer;
+    color: gold;
+    font-style: italic;
+
+}
+
+.fitnessBlurb {
+    color: #073b4c;
     margin-top: 3%;
-    margin-left: 20%;
+    margin-left: 10%;
     margin-right: 20%;
     text-align: start;
-    font-style: italic;
-    font-size: 20px;
-}
-
-.fitnessAlert{
-    margin-top: 5%;
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    color: #ef476f;
-}
-
-.link:hover{
-    cursor: pointer;
+    font-size: 16px;
+    height: 100vh;
 }
