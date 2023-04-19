@@ -16,4 +16,10 @@ const addScore = async (userID, score) => {
   return newScore;
 };
 
-module.exports = { getAvgScores, addScore };
+const getScores = async (userID) => {
+  const scores = await knex.select('*').from('test_scores').where('user_id', '=', userID);
+
+  return scores;
+}
+
+module.exports = { getAvgScores, addScore, getScores };

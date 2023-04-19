@@ -5,7 +5,7 @@ const router = express.Router();
 const { authenticateToken } = require("../utilities/authorization");
 const chat = require("../utilities/chat");
 const { faker } = require("@faker-js/faker");
-const { getAvgScores, addScore } = require("../db/Controllers");
+const { getAvgScores, addScore, getScores } = require("../db/Controllers");
 
 //Register endpoint
 router.post("/", async (req, res) => {
