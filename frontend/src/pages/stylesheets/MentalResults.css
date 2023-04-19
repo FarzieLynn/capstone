@@ -1,0 +1,14 @@
+@media print {
+  .results {
+    zoom: 400%;
+  }
+
+  .mental {
+    display: none !important;
+    visibility: hidden !important; 
+  }
+  .MentalHealth {
+    display: none !important;
+    visibility: hidden !important; 
+  }
+}

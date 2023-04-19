@@ -1,20 +1,21 @@
-@media print {
+@media print{
+
   .navbar * {
-      visibility: hidden;
-      display: none;
-      position: absolute;
-      margin: 0;
+      display: none !important;
+      height: 0 !important;
   }
   .filler * {
-    visibility: hidden;
-    display: none;
-    position: absolute;
-    margin: 0;
+    display: none !important;
+    height: 0 !important;
 }
-  #mental {
-    zoom: 65%;
+  #results {
+    border: 1px solid white;
+    height: 99%;
+    page-break-after: avoid;
+    page-break-before: avoid;
+    visibility:visible !important;
+    zoom: 140%;
     position: absolute;
-    margin-top: 0; 
   }
   #printBtn {
       visibility: hidden !important;
@@ -22,7 +23,8 @@
   #chatBtn {
     visibility: hidden !important;
   }
-  .mental * {
-      visibility: visible; 
+  #top {
+    display:none !important;
+    visibility: hidden !important;
   }
 }
