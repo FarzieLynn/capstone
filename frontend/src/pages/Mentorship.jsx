@@ -62,9 +62,6 @@ function Mentorship() {
           for all involved. If you are interested in pursuing mentorship, there
           are many resources available to help you get started.
         </p>
-        <p className="mentorAlert">
-      <strong>Click <span className="linky" onClick={() => navigate('/register')}>here</span> to choose from our list of certified Mentors</strong>
-      </p>
       </div>
     </div>
   );
