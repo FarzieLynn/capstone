@@ -28,9 +28,9 @@ function FitnessPage() {
       <div className="fitnessBlurb text-center">
         <p>
         <aside className="fitness-aside">
-          <h2>Quick Links</h2>
-          <h3 className="bmical" onClick={() => navigate("/BMICal")}>BMI Calculator</h3>
-          <h3 className="bccal" onClick={() => navigate("/BodyCompCal")}>Body Composition Calculator</h3>
+          <h3 className="title-aside">Quick Links</h3>
+          <h4 className="bmical" onClick={() => navigate("/BMICal")}>BMI Calculator</h4>
+          <h4 className="bccal" onClick={() => navigate("/BodyCompCal")}>Body Composition Calculator</h4>
         </aside>
           Military fitness and nutrition are critical components of the overall
           health and well-being of service members. Whether you are serving on
@@ -79,9 +79,6 @@ function FitnessPage() {
           member looking to improve your fitness and nutrition, there are many
           resources available to help you get started.
         </p>
-        <p className="fitnessAlert">
-      <strong>Click <span className="link" onClick={() => navigate("/BMICal")}>here</span> to use the BMI Calculator</strong>
-      </p>
       </div>
       {user.publicData !== undefined ? <ProfessionalsTable type={'Fitness Trainer'}/> : null}
     </div>

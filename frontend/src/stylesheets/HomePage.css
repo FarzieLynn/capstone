@@ -1,7 +1,7 @@
 .homepage {
-  background-color: #b2ddfd;
-  height: 92.8vh;
-  color: #333333;
+  background-color: #e6fac3;
+  height: 100vh;
+  color: white;
 }
 .homepage-img{
   width: 50%;
@@ -9,11 +9,17 @@
 }
 .homepage-intro{
   width: 50%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   text-align: center;
   font-style: italic;
   font-weight: bold;
+  font-size: 20px;
+  color: #2b2d31;
 }
 .homepage-p{
   width: 50%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   text-align: center;
+  font-size: 16px;
+  color: #2b2d31;
 }
