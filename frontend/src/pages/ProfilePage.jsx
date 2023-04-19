@@ -11,17 +11,19 @@ import {
   Col,
   Card,
   ListGroup,
+  Modal,
 } from "react-bootstrap";
 import { getOrCreateChat } from "react-chat-engine";
 
 const ProfilePage = () => {
   const navigate = useNavigate();
-  const { user, setUser, url } = useContext(AppContext);
+  const { user, setUser, url, token } = useContext(AppContext);
   const { username } = useParams();
   const [userData, setUserData] = useState({});
+  const [showModal, setShowModal] = useState(false);
+  const [aboutMeUpdate, setAboutMeUpdate] = useState("");
 
   const getUserData = () => {
-    const token = cookie.parse(document.cookie).access_token;
     return fetch(`${url}/users/${username}`, {
       method: "GET",
       credentials: "include",
@@ -39,9 +41,9 @@ const ProfilePage = () => {
   useEffect(() => {
     if (user !== undefined && Object.keys(user).length !== 0) {
       if (user.publicData.username === username) {
-        setUserData(user.publicData);
+        setUserData(user);
       } else {
-        getUserData().then((userData) => setUserData(userData.publicData));
+        getUserData().then((userData) => setUserData(userData));
       }
     }
   }, [user, username, url]);
@@ -49,8 +51,8 @@ const ProfilePage = () => {
   //Sets the is_anonymous value on the users profile in the database
   const handleSwitch = async (event) => {
     const token = cookie.parse(document.cookie).access_token;
-    const wait = await fetch(
-      `${url}/users/${user.publicData.username}/anonymous`,
+    await fetch(
+      `${url}/users/${user.publicData.username}`,
       {
         method: "PATCH",
         credentials: "include",
@@ -83,82 +85,63 @@ const ProfilePage = () => {
       },
       () => navigate("/chat")
     );
-
   };
-  return <>{createRegularProfilePage()}</>;
 
+  const handleAboutMeUpdate = async () => {
+    await fetch(`${url}/users/${userData.publicData.username}`, {
+      method: "PATCH",
+      credentials: "include",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        about_you:aboutMeUpdate
+      }),
+    });
+    const data = await getUserData();
+    setUser(data);
+    setShowModal(false);
+  };
 
-  // if (userData === undefined || user.publicData === undefined) {
-  //   return (
-  //     <h3>Loading</h3>
-  //   )
-  // } else {
-  //   if (userData.is_professional === false) {
-  //     return (
-  //       <div className='profilepage-main d-flex flex-column align-items-center'>
-  //         <div className='profilepage-container d-flex flex-column justify-content-center'>
-  //           {userData !== undefined ?
-  //             <>
-  //               <img className='profile-img' src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Windows_10_Default_Profile_Picture.svg/2048px-Windows_10_Default_Profile_Picture.svg.png" alt='Profile pic' />
-  //               <h1 className='text-center mb-4'>{userData.full_name}</h1>
-  //               {userData.username === user.publicData.username ?
-  //                 <Form>
-  //                   <Form.Check
-  //                     onChange={(event) => handleSwitch(event)}
-  //                     type="switch"
-  //                     id="custom-switch"
-  //                     label="Set anonymous"
-  //                     checked={userData.is_anonymous}
-  //                   />
-  //                 </Form>
-  //                 : null}
-  //               <h3>Username: {userData.username}</h3>
-  //               <h3>Branch: {userData.branch}</h3>
-  //               <h3>Age Bracket: {userData.age_group}</h3>
-  //               <h3>Gender: {userData.gender}</h3>
-  //               {username !== user.publicData.username ? <button onClick={() => handleNewChat()}>Start a Chat!</button> : null}
-  //             </>
-  //             : null}
-  //         </div>
-  //       </div>
-  //     )
-  //   } else {
-  //     return (
-  //       <div className='profilepage-main d-flex flex-column align-items-center'>
-  //         <div className='profilepage-container d-flex flex-column justify-content-center'>
-  //           {userData !== undefined ?
-  //             <>
-  //               <img className='profile-img' src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Windows_10_Default_Profile_Picture.svg/2048px-Windows_10_Default_Profile_Picture.svg.png" alt='Profile pic' />
-  //               <h1 className='text-center mb-4'>{userData.full_name}</h1>
-  //               {userData.username === user.publicData.username ?
-  //                 <Form>
-  //                   <Form.Check
-  //                     onChange={handleSwitch}
-  //                     type="switch"
-  //                     id="custom-switch"
-  //                     label="Set anonymous"
-  //                     checked={userData.is_anonymous}
-  //                   />
-  //                 </Form>
-  //                 : null}
-  //               <h3>Username: {userData.username}</h3>
-  //               <h3>Education: {userData.education_level}</h3>
-  //               <h3>Branch: {userData.branch}</h3>
-  //               <h3>Cell: {userData.phone_number}</h3>
-  //               {username !== user.publicData.username ? <button onClick={() => handleNewChat()}>Start a Chat!</button> : null}
-  //               <p>{userData.about_you}</p>
-  //             </>
-  //             : null}
-  //         </div>
-  //       </div>
-  //     )
-  //   }
-  // }
+  if (userData.publicData === undefined || user.publicData === undefined) {
+    return <h3>Loading</h3>;
+  } else {
+    return (
+      <>
+        {createRegularProfilePage(userData, user, handleSwitch, setShowModal)}
+        <Modal show={showModal} onHide={() => setShowModal(false)}>
+          <Modal.Header closeButton>
+            <Modal.Title>Modal heading</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form.Group className="mb-3">
+              <Form.Label>About You</Form.Label>
+              <Form.Control
+                as="textarea"
+                name="about_you"
+                rows={3}
+                onChange={(e) => setAboutMeUpdate(e.target.value)}
+              />
+            </Form.Group>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={() => setShowModal(false)}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={() => handleAboutMeUpdate()}>
+              Save Changes
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </>
+    );
+  }
 };
 
 export default ProfilePage;
 
-const createProfessionalProfilePage = () => {
+const createProfessionalProfilePage = (user) => {
   return (
     <section className="profilepage-main">
       <Container fluid className="m-3">
@@ -289,7 +272,14 @@ const createProfessionalProfilePage = () => {
   );
 };
 
-const createRegularProfilePage = () => {
+//userData is the user whos profile page it is
+//user is the user accessing that information
+const createRegularProfilePage = (
+  userData,
+  user,
+  handleSwitch,
+  setShowModal
+) => {
   return (
     <section className="profilepage-main">
       <Container fluid className="py-5">
@@ -302,14 +292,30 @@ const createRegularProfilePage = () => {
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Windows_10_Default_Profile_Picture.svg/2048px-Windows_10_Default_Profile_Picture.svg.png"
                   alt="Profile pic"
                 />
-                <Card.Title>Username</Card.Title>
+                <Card.Title>{userData.publicData.username}</Card.Title>
                 <Card.Text className="text-muted mb-1">
-                  Full Stack Developer
+                  Military Anonymous User
                 </Card.Text>
-                <Card.Text className="text-muted mb-4">Location here</Card.Text>
+                {userData.publicData.username === user.publicData.username ? (
+                  <Form>
+                    <Form.Check
+                      onChange={(event) => handleSwitch(event)}
+                      type="switch"
+                      id="custom-switch"
+                      label="Set anonymous"
+                      checked={userData.is_anonymous}
+                    />
+                  </Form>
+                ) : null}
                 <div className="d-flex justify-content-center mb-2">
-                  <Button className="m-1">Message Now!</Button>
-                  <Button className="m-1">Another thing</Button>
+                  {user.publicData.is_professional ||
+                  user.roles.includes("Admin") ? (
+                    <Button className="m-1 btn-chat">Message Now!</Button>
+                  ) : null}
+
+                  {user.roles.includes("Admin") ? (
+                    <Button className="m-1 btn-chat">Delete User</Button>
+                  ) : null}
                 </div>
               </Card.Body>
             </Card>
@@ -319,19 +325,7 @@ const createRegularProfilePage = () => {
                 <Card.Title>Questionnaire Results</Card.Title>
                 <ListGroup variant="flush">
                   <ListGroup.Item className="d-flex justify-content-between align-items-center p-3">
-                    <Card.Text>website here</Card.Text>
-                  </ListGroup.Item>
-                  <ListGroup.Item className="d-flex justify-content-between align-items-center p-3">
-                    <Card.Text>website here</Card.Text>
-                  </ListGroup.Item>
-                  <ListGroup.Item className="d-flex justify-content-between align-items-center p-3">
-                    <Card.Text>website here</Card.Text>
-                  </ListGroup.Item>
-                  <ListGroup.Item className="d-flex justify-content-between align-items-center p-3">
-                    <Card.Text>website here</Card.Text>
-                  </ListGroup.Item>
-                  <ListGroup.Item className="d-flex justify-content-between align-items-center p-3">
-                    <Card.Text>website here</Card.Text>
+                    <Card.Text>Results Go Here!</Card.Text>
                   </ListGroup.Item>
                 </ListGroup>
               </Card.Body>
@@ -346,7 +340,9 @@ const createRegularProfilePage = () => {
                   </Col>
                   <Col sm={9}>
                     <Card.Text className="text-muted">
-                      Tanner Anderson
+                      {userData.is_anonymous
+                        ? "Anonymous"
+                        : userData.publicData.full_name}
                     </Card.Text>
                   </Col>
                 </Row>
@@ -356,7 +352,13 @@ const createRegularProfilePage = () => {
                     <Card.Text>Email</Card.Text>
                   </Col>
                   <Col sm={9}>
-                    <Card.Text className="text-muted">tan@aol.com</Card.Text>
+                    <Card.Text className="text-muted">
+                      {userData.is_anonymous
+                        ? "Anonymous"
+                        : userData.publicData.email !== null
+                        ? userData.publicData.email
+                        : "Not listed"}
+                    </Card.Text>
                   </Col>
                 </Row>
                 <hr />
@@ -365,7 +367,13 @@ const createRegularProfilePage = () => {
                     <Card.Text>Phone</Card.Text>
                   </Col>
                   <Col sm={9}>
-                    <Card.Text className="text-muted">123-123-1234</Card.Text>
+                    <Card.Text className="text-muted">
+                      {userData.is_anonymous
+                        ? "Anonymous"
+                        : userData.publicData.phone_number !== null
+                        ? userData.publicData.phone_number
+                        : "None"}
+                    </Card.Text>
                   </Col>
                 </Row>
                 <hr />
@@ -374,17 +382,42 @@ const createRegularProfilePage = () => {
                     <Card.Text>Education Level</Card.Text>
                   </Col>
                   <Col sm={9}>
-                    <Card.Text className="text-muted">Bachelors</Card.Text>
+                    <Card.Text className="text-muted">
+                      {userData.is_anonymous
+                        ? "Anonymous"
+                        : userData.publicData.education_level !== null
+                        ? userData.publicData.education_level
+                        : "None"}
+                    </Card.Text>
                   </Col>
                 </Row>
                 <hr />
                 <Row>
                   <Col sm={3}>
-                    <Card.Text>Branch/Status</Card.Text>
+                    <Card.Text>Branch</Card.Text>
                   </Col>
                   <Col sm={9}>
                     <Card.Text className="text-muted">
-                      USSF/Active Duty
+                      {userData.is_anonymous
+                        ? "Anonymous"
+                        : userData.publicData.branch !== null
+                        ? userData.publicData.branch
+                        : "None"}
+                    </Card.Text>
+                  </Col>
+                </Row>
+                <hr />
+                <Row>
+                  <Col sm={3}>
+                    <Card.Text>Age Group</Card.Text>
+                  </Col>
+                  <Col sm={9}>
+                    <Card.Text className="text-muted">
+                      {userData.is_anonymous
+                        ? "Anonymous"
+                        : userData.publicData.age_group !== null
+                        ? userData.publicData.age_group
+                        : "None"}
                     </Card.Text>
                   </Col>
                 </Row>
@@ -394,13 +427,21 @@ const createRegularProfilePage = () => {
               <Col md={6}>
                 <Card className="m-4 mt-0">
                   <Card.Body>
-                    <Card.Title>About Me</Card.Title>
+                    <div className="d-flex justify-content-between mb-2">
+                      <Card.Title>About Me</Card.Title>
+                      <Card.Link
+                        className="clickable"
+                        onClick={() => setShowModal(true)}
+                      >
+                        Edit
+                      </Card.Link>
+                    </div>
                     <Card.Text>
-                      Hello, so I am a person who does things and is cool and
-                      all of that kind of stuff. Please let me know if you need
-                      any help with mental health issues because I am wildy
-                      unqualified to actually assist you, but I can show you
-                      funny cat videos I guess?
+                      {userData.is_anonymous
+                        ? "Anonymous"
+                        : userData.publicData.about_you !== null
+                        ? userData.publicData.about_you
+                        : "None"}
                     </Card.Text>
                   </Card.Body>
                 </Card>
@@ -408,9 +449,27 @@ const createRegularProfilePage = () => {
               <Col md={6}>
                 <Card className="m-4 mt-0">
                   <Card.Body>
-                    <Card.Title>Personal Goals</Card.Title>
-                    <Card.Text>To do things that are happy</Card.Text>
-                    <hr />
+                    <div className="d-flex justify-content-between mb-2">
+                      <Card.Title>Personal Goals</Card.Title>
+                      <Card.Link
+                        className="clickable"
+                        onClick={() => console.log("Editting")}
+                      >
+                        Edit
+                      </Card.Link>
+                    </div>
+                    <div>
+                      {userData.publicData.personal_goals?.personal_goals.map(
+                        (item) => {
+                          return (
+                            <>
+                              <Card.Text>{item}</Card.Text>
+                              <hr />
+                            </>
+                          );
+                        }
+                      )}
+                    </div>
                   </Card.Body>
                 </Card>
               </Col>

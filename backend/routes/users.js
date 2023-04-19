@@ -9,7 +9,7 @@ const { getAvgScores } = require("../db/Controllers");
 
 //Register endpoint
 router.post("/", async (req, res) => {
-  var { username, password, email, full_name, branch, current_status, age_group, gender, education_level, phone_number, about_you, personal_goals, is_professional, is_anonymous, roles } = req.body;
+  var { username, password, email, full_name, branch, current_status, age_group, gender, education_level, phone_number, about_you, personal_goals, is_professional, is_anonymous, roles, personal_goals } = req.body;
 
   if (roles === undefined) roles = [6];
 
@@ -17,17 +17,6 @@ router.post("/", async (req, res) => {
     res.send(400).json("Bad request");
 
   const userExists = await checkIfUsernameExists(username);
-  // const generateAnonUser = async () => {
-    
-  //   const exists = true;
-  //   while(exists){
-  //     let anonUser = `anon${faker.random.numeric(8)}`;
-  //     const exists = await checkIfAnonUsernameExists(anonUser);
-  //     console.log(anonUser);
-  //   }
-  //   return anonUser;
-
-  // }
 
   if (!userExists) {
     return bcrypt.hash(password, 12, (err, hash) => {
@@ -47,6 +36,7 @@ router.post("/", async (req, res) => {
         is_anonymous: is_anonymous ? is_anonymous : false,
         is_professional: is_professional ? is_professional : false,
         is_verified: false,
+        personal_goals: personal_goals ? {personal_goals} : [],
         anon_username: `anon${faker.random.numeric(8)}`
       };
 
@@ -79,9 +69,8 @@ router.get('/:username', authenticateToken, async (req, res) => {
   return res.send({ publicData: data[0], roles });
 })
 
-router.patch('/:username/anonymous', authenticateToken, async (req, res) => {
+router.patch('/:username', authenticateToken, async (req, res) => {
   const data = await updateUser(req.params.username, req.body);
-  console.log(data);
   return res.json(data);
 })
 
