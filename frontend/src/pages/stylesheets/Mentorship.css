@@ -32,6 +32,34 @@
     height: 100vh;
 }
 
+.mentee{
+    width: 45%;
+    padding-left: 15px;
+    margin-left: 15px;
+    border-radius: 8px;
+    color: #344e41;
+    float: left;
+    background-color: #8f9779
+}
+
+.grow{
+    font-weight: bold;
+}
+
+.mentor{
+    width: 45%;
+    padding-left: 15px;
+    margin-left: 15px;
+    border-radius: 8px;
+    color: white;
+    float: right;
+    background-color: #9b870c
+}
+
+.lead{
+    font-weight: bold;
+    font-size: 34px;
+}
 .linky:hover{
     cursor: pointer;
 }
