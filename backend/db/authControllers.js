@@ -56,7 +56,7 @@ const verifySessionID = async (sessionId) => {
 };
 
 const updateUser = async (username, data) => {
-  const user = await knex("users").where({ username: username }).update(data);
+  const user = await knex("users").where({ username: username }).update(data, ['*']);
   return user;
 };
 

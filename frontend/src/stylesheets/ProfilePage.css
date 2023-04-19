@@ -1,10 +1,10 @@
 .profilepage-main {
-  width: 100vw;
   min-height: 86vh;
   background-color: #607b7d;
+  max-width: 100%;
 }
 
 .profile-img {
-  width: 30vw;
-  height: 30vw;
+  width: 8vw;
+  height: 8vw;
 }
