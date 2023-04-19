@@ -45,6 +45,18 @@
   background-color: #fff;
   color: #A6BCDA;
 }
+.btn-back{
+  display: block;
+  width: 10%;
+  font-size: 1.2rem;
+  margin: 8px 0;
+  padding: 15px 0;
+  background-color: #0077EE;
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 8px;
+  cursor: pointer;
+}
  
 .bmi-2 {
   text-align: center;

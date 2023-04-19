@@ -1,6 +1,7 @@
 import { useState, useRef, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import MentalScore from './MentalScore'
+import MentalResults from './MentalResults'
 import './stylesheets/MentalHealth.css'
 import { AppContext } from '../App'
 import cookie from 'cookie';
@@ -227,32 +228,37 @@ const MentalHealth = () => {
 
     return (
 
-        <div ref={mentalRef} className='quiz' id="mental">
-            <div className='text-center questions position-relative top-0 start-50 translate-middle-x'>
-                <div id="MentalHealth" className="MentalHealth-header">
-                    <h2 className='heading'>Please answer the following regarding your mental well-being:</h2><br></br>
-                    {questions.map((q, i) => (
-                        <div key={i} className='questions'>
-                            <h5>{q.question}</h5>
-                            <div className='btn-group m-3' role="group">
-                                {q.answer.map((a, j) => (
-                                    <div key={j}>
-                                        <input className='btn-check' id={`${i}-${j}`} name={i} type='radio' value={a.value} onChange={(e) => setAnswers([...answers.slice(0, i), e.target.checked ? a.value : null, ...answers.slice(i + 1)])} />
-                                        <label className='inputBtn btn btn-outline-dark m-1' htmlFor={`${i}-${j}`} key={j}>
-                                            {a.label}
-                                        </label>
+                    <div ref={mentalRef} className='quiz'id="mental">
+                        <div  id='top' className='text-center questions position-relative top-0 start-50 translate-middle-x'>
+                        <div id="MentalHealth" className="MentalHealth-header">
+                            <h2 className='heading'>Please answer the following regarding your mental well-being:</h2><br></br>
+                            {questions.map((q, i) => (
+                                <div key={i} className='questions'>
+                                    <h5>{q.question}</h5>
+                                    <div className='btn-group m-3' role="group">
+                                        {q.answer.map((a, j) => (
+                                            <div key={j}>
+                                                <input className='btn-check' id={`${i}-${j}`} name={i} type='radio' value={a.value} onChange={(e) => setAnswers([...answers.slice(0, i), e.target.checked ? a.value : null, ...answers.slice(i+1)])} />
+                                                <label className='inputBtn btn btn-outline-dark m-1' htmlFor={`${i}-${j}`} key={j}>
+                                                    {a.label}
+                                                </label>
+                                            </div>
+                                        ))}
                                     </div>
-                                ))}
+                                </div>
+                            ))}
                             </div>
-                        </div>
-                    ))}
-                </div>
-                <div className='test-center position-relative quiz'>
-                    <button className='btn btn-dark pageBtn m-2' onClick={() => clickHandler()} disabled={!allQuestionsAnswered()}>Submit</button> {isShown && <MentalScore score={`${treatment}`} />}
-                </div>
-            </div>
-        </div>
+                            <button className='btn btn-dark pageBtn m-2' onClick={() => clickHandler()} disabled={!allQuestionsAnswered()}>Submit</button>
+                            </div>
+                            <div className='text-center questions position-relative top-0 start-50 translate-middle-x'>
 
+                        <div className='test-center position-relative quiz'>
+                         
+                        {isShown && <MentalScore score={`${treatment}`}/> && <MentalResults score={`${treatment}`}/>}
+                            </div>
+                    </div>
+                    </div>
+              
     )
 }
 

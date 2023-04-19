@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import "../pages/stylesheets/BodyCompForm.css";
+import { useNavigate } from "react-router-dom";
 
 function BodyCompForm() {
+  const navigate = useNavigate()
     const [heights, setHeights] = useState(0)
     const [waist, setWaist] = useState(0)
     const [bodyComp, setBodyComp] = useState('')
@@ -62,6 +64,7 @@ function BodyCompForm() {
                 <p>{message}</p>
             </div>
         </div>
+            <button className='btn-back' onClick={() => navigate('/fitness')} type='submit'>Back</button>
         </div>
   )
 }

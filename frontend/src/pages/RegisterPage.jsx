@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import RegisterForm from "../components/forms/RegisterForm";
 import { AppContext } from '../App';
 import { useNavigate } from 'react-router-dom'
+import { Button } from "react-bootstrap";
 
 
 function RegisterPage() {
@@ -15,7 +16,12 @@ function RegisterPage() {
     const { username, password, password_confirm, full_name, branch, status, age_group, gender, isAnon} =
       document.forms[0];
 
-      //console.log(full_name.value, password_confirm.value, branch.value, status.value, age_group.value, gender.value, isAnon.checked)
+      var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+      let outArr = [];
+
+      for(let i = 0; i < checkboxes.length; i++){
+        outArr.push(checkboxes[i].name);
+      }
 
     if (password.value === "" || username.value === "" || password_confirm.value === "" || full_name.value === "") {
       alert("Please fill out all form elements.");
@@ -35,7 +41,8 @@ function RegisterPage() {
         current_status:status.value,
         age_group:age_group.value,
         gender:gender.value,
-        is_anonymous:isAnon.checked
+        is_anonymous:isAnon.checked,
+        personal_goals: outArr
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -54,6 +61,7 @@ function RegisterPage() {
     <div>
     <div className="login-page">
       <div className="login-form">
+
         <div className="title">Military Anonymous Registration</div>
         {loginFailed ? (
           <div> is successfully logged in</div>
