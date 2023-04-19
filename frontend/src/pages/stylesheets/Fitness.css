@@ -21,7 +21,23 @@
     margin-top: 3%;
 }
 
-.fitnessBlurb{
+.fitness-aside{
+    width: 30%;
+    padding-left: 15px;
+    margin-left: 15px;
+    float: right;
+    font-style: italic;
+    background-color: transparent;
+}
+.bmical{
+
+}
+
+.bccal{
+
+}
+
+.fitnessBlurb {
     color: #ffd116;
     margin-top: 3%;
     margin-left: 20%;
