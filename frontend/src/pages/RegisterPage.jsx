@@ -1,11 +1,13 @@
 import React, { useContext, useState } from "react";
 import RegisterForm from "../components/forms/RegisterForm";
+import { AppContext } from '../App';
 import { useNavigate } from 'react-router-dom'
 
 
 function RegisterPage() {
   const [loginFailed, setLoginFailed] = useState(false);
   const navigate = useNavigate();
+  const { url } = useContext(AppContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -23,7 +25,7 @@ function RegisterPage() {
       return;
     }
 
-    fetch("http://localhost:8080/users", {
+    fetch(`${url}/users`, {
       method: "POST",
       body: JSON.stringify({
         username: username.value.toLowerCase(),

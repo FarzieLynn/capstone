@@ -1,9 +1,11 @@
 import React, { useContext, useState } from "react";
 import ProfessionalRegisterForm from "../components/forms/ProfessionalRegisterForm";
 import { useNavigate } from 'react-router-dom'
+import { AppContext } from '../App';
 
 function ProfessionalRegisterPage() {
   const [loginFailed, setLoginFailed] = useState(false);
+  const { url } = useContext(AppContext);
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -29,7 +31,7 @@ function ProfessionalRegisterPage() {
     if(chk_fitness.checked) roles.push(2);
     if(chk_mentor.checked) roles.push(5);
 
-    fetch("http://localhost:8080/users", {
+    fetch(`${url}/users`, {
       method: "POST",
       body: JSON.stringify({
         username: username.value.toLowerCase(),
