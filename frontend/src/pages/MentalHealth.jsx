@@ -183,6 +183,7 @@ const MentalHealth = () => {
 
     const decide = () => {
         finalAnswer = answers.reduce((a, b) => a + b, 0)
+        if(user.publicData !== undefined) insertScore(finalAnswer);
         if (finalAnswer <= 4) {
             setTreatment('Good')
         } else if (finalAnswer >= 5 && finalAnswer <= 9) {
@@ -198,7 +199,7 @@ const MentalHealth = () => {
 
     const insertScore = (score) => {
         const token = cookie.parse(document.cookie).access_token;
-        fetch(`${url}/users/${user.publicData.id}/${score}`, {
+        fetch(`${url}/users/scores/${user.publicData.id}/${score}`, {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -207,9 +208,7 @@ const MentalHealth = () => {
             },
         })
             .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
-            })
+            .then((data) => {})
             .catch((err) => console.log(err));
     }
 
