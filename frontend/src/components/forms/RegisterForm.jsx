@@ -100,21 +100,21 @@ function RegisterForm({ loginFailed, handleSubmit }) {
         <Form.Check type="checkbox" name="isAnon" label="Anonymous Account?" />
       </Form.Group>
 
-      <Form.Group className="mb-3">
+      <Form.Group className="mb-3" id="goalsGroup">
         <Form.Label>Personal Goals:</Form.Label>
-        <Form.Check type="checkbox" label="Create and practice positive affirmations." />
-        <Form.Check type="checkbox" label="Create a personal development plan." />
-        <Form.Check type="checkbox" label="Get rid of toxic habits." />
-        <Form.Check type="checkbox" label="Take more action." />
-        <Form.Check type="checkbox" label="Develop resilience." />
-        <Form.Check type="checkbox" label="Become the master of my financial situation." />
-        <Form.Check type="checkbox" label="Stop negative thoughts." />
-        <Form.Check type="checkbox" label="Develop self awareness." />
-        <Form.Check type="checkbox" label="Change my attitude and outlook on life." />
-        <Form.Check type="checkbox" label="Find a personal and professional mentor." />
-        <Form.Check type="checkbox" label="Become more dedicated to a healthy lifestyle." />
-        <Form.Check type="checkbox" label="Find a workout routine that works for me." />
-        <Form.Check type="checkbox" label="Embrace being a unique individual." />
+        <Form.Check type="checkbox" id="goals1" name="Create and practice positive affirmations." label="Create and practice positive affirmations." />
+        <Form.Check type="checkbox" id="goals2" name="Create a personal development plan." label="Create a personal development plan." />
+        <Form.Check type="checkbox" id="goals3" name="Get rid of toxic habits." label="Get rid of toxic habits." />
+        <Form.Check type="checkbox" id="goals4" name="Take more action." label="Take more action." />
+        <Form.Check type="checkbox" id="goals5" name="Develop resilience." label="Develop resilience." />
+        <Form.Check type="checkbox" id="goals6" name="Become the master of my financial situation." label="Become the master of my financial situation." />
+        <Form.Check type="checkbox" id="goals7" name="Stop negative thoughts." label="Stop negative thoughts." />
+        <Form.Check type="checkbox" id="goals8" name="Develop self awareness." label="Develop self awareness." />
+        <Form.Check type="checkbox" id="goals9" name="Change my attitude and outlook on life." label="Change my attitude and outlook on life." />
+        <Form.Check type="checkbox" id="goals10" name="Find a personal and professional mentor." label="Find a personal and professional mentor." />
+        <Form.Check type="checkbox" id="goals11" name="Become more dedicated to a healthy lifestyle." label="Become more dedicated to a healthy lifestyle." />
+        <Form.Check type="checkbox" id="goals12" name="Find a workout routine that works for me." label="Find a workout routine that works for me." />
+        <Form.Check type="checkbox" id="goals13" name="Embrace being a unique individual." label="Embrace being a unique individual." />
       </Form.Group>
 
       <Button

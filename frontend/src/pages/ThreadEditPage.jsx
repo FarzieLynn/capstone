@@ -104,6 +104,9 @@ function ThreadEditPage() {
             Cancel
           </Button>
         </Col>
+        <Col>
+
+        </Col>
       </Row>
     </Container>
   )
