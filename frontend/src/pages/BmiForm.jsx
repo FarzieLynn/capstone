@@ -46,12 +46,12 @@ function BmiForm() {
  
         <div>
           <label>Weight (lbs)</label>
-          <input value={weight} onChange={(e) => setWeight(e.target.value)} />
+          <input className="bmi-in" value={weight} onChange={(e) => setWeight(e.target.value)} />
         </div>
  
         <div>
           <label>Height (in)</label>
-          <input value={height} onChange={(event) => setHeight(event.target.value)} />
+          <input className="bmi-in" value={height} onChange={(event) => setHeight(event.target.value)} />
         </div>
  
         <div>
