@@ -29,6 +29,7 @@ import ThreadDisplayPage from "./pages/ThreadDisplayPage";
 import BodyCompForm from "./pages/BodyCompForm";
 import BmiForm from "./pages/BmiForm";
 import ThreadEditPage from "./pages/ThreadEditPage";
+import MentalResults from "./pages/MentalResults";
 
 
 export const AppContext = createContext({});
@@ -37,7 +38,6 @@ function App() {
   const [user, setUser] = useState({});
   const [url] = useState("http://localhost:8080");
   const [token, setToken] = useState();
-  const [mentalHealthVisited, setMentalHealthVisited] = useState(false);
 
   useEffect(() => {
     const token = cookie.parse(document.cookie).access_token;
@@ -72,7 +72,7 @@ function App() {
 
   return (
     <>
-      <AppContext.Provider value={{ user, setUser, url, token, mentalHealthVisited, setMentalHealthVisited}}>
+      <AppContext.Provider value={{ user, setUser, url, token }}>
         <div className="App">
           <NavBar />
           <Routes>
@@ -88,6 +88,7 @@ function App() {
           <Route path='/finance/calculator' element={<FinanceCalculator />} />
           <Route path="/finance" element={<FinancePage />} />
           <Route path="/mentalhealthinfo" element={<MentalHealthInfo />}/>
+          <Route path="/mentalResults" element={<MentalResults />}/>
           <Route path="/registerpro" element={<ProfessionalRegisterPage />} />
           <Route path="/mentalhealth" element={<MentalHealth />}/>
           <Route path="/mentorship" element={<Mentorship />}/>
