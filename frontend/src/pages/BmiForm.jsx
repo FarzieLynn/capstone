@@ -68,6 +68,7 @@ function BmiForm() {
       <div>
     <h4 className='bodycomp'><span>Check Body Composition <strong onClick={() => navigate("/BodyCompCal")}>here</strong></span></h4>
     </div>
+    <button className='btn-back' onClick={() => navigate('/fitness')} type='submit'>Back</button>
   </div>
   );
 }
