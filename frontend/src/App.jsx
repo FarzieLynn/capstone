@@ -29,6 +29,7 @@ import ThreadDisplayPage from "./pages/ThreadDisplayPage";
 import BodyCompForm from "./pages/BodyCompForm";
 import BmiForm from "./pages/BmiForm";
 import ThreadEditPage from "./pages/ThreadEditPage";
+import MentalResults from "./pages/MentalResults";
 
 
 export const AppContext = createContext({});
@@ -87,6 +88,7 @@ function App() {
           <Route path='/finance/calculator' element={<FinanceCalculator />} />
           <Route path="/finance" element={<FinancePage />} />
           <Route path="/mentalhealthinfo" element={<MentalHealthInfo />}/>
+          <Route path="/mentalResults" element={<MentalResults />}/>
           <Route path="/registerpro" element={<ProfessionalRegisterPage />} />
           <Route path="/mentalhealth" element={<MentalHealth />}/>
           <Route path="/mentorship" element={<Mentorship />}/>

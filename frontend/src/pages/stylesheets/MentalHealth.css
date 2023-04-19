@@ -11,15 +11,15 @@
     visibility: hidden !important;
   }
   .mental * {
-      visibility: visible; 
+      display: none !important;
+      visibility: hidden !important; 
       text-align: left;
       -webkit-print-color-adjust: exact !important;
   }
-}
+  .results {
+    display: grid !important;
+    justify-content: left !important;
+    align-items: left !important;
+  }
 
-.col {
-  display: inline-block;
-  justify-content: center;
-  align-content: center;
 }
-
