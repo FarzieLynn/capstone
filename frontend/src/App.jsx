@@ -37,7 +37,6 @@ function App() {
   const [user, setUser] = useState({});
   const [url] = useState("http://localhost:8080");
   const [token, setToken] = useState();
-  const [mentalHealthVisited, setMentalHealthVisited] = useState(false);
 
   useEffect(() => {
     const token = cookie.parse(document.cookie).access_token;
@@ -72,7 +71,7 @@ function App() {
 
   return (
     <>
-      <AppContext.Provider value={{ user, setUser, url, token, mentalHealthVisited, setMentalHealthVisited}}>
+      <AppContext.Provider value={{ user, setUser, url, token }}>
         <div className="App">
           <NavBar />
           <Routes>
