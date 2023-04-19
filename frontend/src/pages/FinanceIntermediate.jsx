@@ -7,7 +7,7 @@ const FinanceIntermediate = () => {
         window.print()
     }
     return (
-        <Container>
+        <Container id="intermediate">
             <br></br>
             <Row>
                 <Col>
@@ -51,7 +51,7 @@ const FinanceIntermediate = () => {
                     think of.
                 </Col>
             </Row>
-            <button className='btn btn-dark pageBtn m-2' onClick={() => exportPdf()}>Print PDF</button>
+            <button id="printBtn"  className='btn btn-dark pageBtn m-2' onClick={() => exportPdf()}>Print Results</button>
             <br></br>
         </Container>
     );
