@@ -101,7 +101,7 @@ const ProfilePage = () => {
     );
   };
 
-  console.log(userData)
+  console.log(userData);
 
   const handleAboutMeUpdate = async () => {
     await fetch(`${url}/users/${userData.publicData.username}`, {
@@ -125,12 +125,20 @@ const ProfilePage = () => {
   } else {
     return (
       <>
-        {createProfessionalProfilePage(
-          userData,
-          user,
-          handleSwitch,
-          setShowModal
-        )}
+        {userData.publicData.is_professional
+          ? createProfessionalProfilePage(
+              userData,
+              user,
+              handleSwitch,
+              setShowModal
+            )
+          : createRegularProfilePage(
+              userData,
+              user,
+              handleSwitch,
+              setShowModal,
+              userScores
+            )}
         <Modal show={showModal} onHide={() => setShowModal(false)}>
           <Modal.Header closeButton>
             <Modal.Title>Modal heading</Modal.Title>
@@ -336,10 +344,12 @@ const createProfessionalProfilePage = (
                   <Card.Body>
                     <Card.Title>Specialties</Card.Title>
                     {userData.roles.map((role) => {
-                      return (<>
-                        <Card.Text>{role}</Card.Text>
-                        <hr />
-                      </>);
+                      return (
+                        <>
+                          <Card.Text>{role}</Card.Text>
+                          <hr />
+                        </>
+                      );
                     })}
                   </Card.Body>
                 </Card>
