@@ -21,7 +21,9 @@ const ProfilePage = () => {
   const { username } = useParams();
   const [userData, setUserData] = useState({});
   const [userScores, setUserScores] = useState([]);
-  const [showModal, setShowModal] = useState(false);
+  const [showAboutMeModal, setShowAboutMeModal] = useState(false);
+  const [showInfoModal, setShowInfoModal] = useState(false);
+  const [infoUpdate, setInfoUpdate] = useState({});
   const [aboutMeUpdate, setAboutMeUpdate] = useState("");
 
   const getUserData = async () => {
@@ -101,8 +103,6 @@ const ProfilePage = () => {
     );
   };
 
-  console.log(userData);
-
   const handleAboutMeUpdate = async () => {
     await fetch(`${url}/users/${userData.publicData.username}`, {
       method: "PATCH",
@@ -117,7 +117,34 @@ const ProfilePage = () => {
     });
     const data = await getUserData();
     setUser(data);
-    setShowModal(false);
+    setShowAboutMeModal(false);
+  };
+
+  const handleUserInfoUpdate = async () => {
+    const { full_name, email, phone, branch, status, age_group } =
+      document.forms[1];
+
+    console.log(full_name, email, phone, branch, status, age_group);
+
+    await fetch(`${url}/users/${userData.publicData.username}`, {
+      method: "PATCH",
+      credentials: "include",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        full_name: full_name.value,
+        email: email.value,
+        phone_number: phone.value,
+        branch: branch.value,
+        current_status: status.value,
+        age_group:age_group.value,
+      }),
+    });
+    const data = await getUserData();
+    setUser(data);
+    setShowInfoModal(false);
   };
 
   if (userData.publicData === undefined || user.publicData === undefined) {
@@ -130,18 +157,25 @@ const ProfilePage = () => {
               userData,
               user,
               handleSwitch,
-              setShowModal
+              setShowAboutMeModal,
+              handleNewChat,
+              setShowInfoModal
             )
           : createRegularProfilePage(
               userData,
               user,
               handleSwitch,
-              setShowModal,
-              userScores
+              setShowAboutMeModal,
+              userScores,
+              handleNewChat,
+              setShowInfoModal
             )}
-        <Modal show={showModal} onHide={() => setShowModal(false)}>
+        <Modal
+          show={showAboutMeModal}
+          onHide={() => setShowAboutMeModal(false)}
+        >
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>About Me Update</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form.Group className="mb-3">
@@ -155,10 +189,110 @@ const ProfilePage = () => {
             </Form.Group>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={() => setShowModal(false)}>
+            <Button
+              variant="secondary"
+              onClick={() => setShowAboutMeModal(false)}
+            >
               Close
             </Button>
             <Button variant="primary" onClick={() => handleAboutMeUpdate()}>
+              Save Changes
+            </Button>
+          </Modal.Footer>
+        </Modal>
+
+        <Modal show={showInfoModal} onHide={() => setShowInfoModal()}>
+          <Modal.Header closeButton>
+            <Modal.Title>Edit Account Settings</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form>
+              <Form.Group className="mb-3">
+                <Form.Label>Full Name</Form.Label>
+                <Form.Control
+                  defaultValue={userData.publicData.full_name}
+                  type="text"
+                  name="full_name"
+                  placeholder="Enter first and last name"
+                />
+
+                <Form.Group className="mb-3">
+                  <Form.Label>.mil Email</Form.Label>
+                  <Form.Control
+                    defaultValue={userData.publicData.email}
+                    type="text"
+                    name="email"
+                    placeholder="Enter email"
+                  />
+                </Form.Group>
+
+                <Form.Group as={Col}>
+                  <Form.Label>Phone/DSN</Form.Label>
+                  <Form.Control
+                    defaultValue={userData.publicData.phone_number}
+                    type="text"
+                    name="phone"
+                    placeholder="Enter phone #"
+                  />
+                </Form.Group>
+
+                <Form.Group>
+                  <Form.Label>Military Branch</Form.Label>
+                  <Form.Select
+                    defaultValue={userData.publicData.branch}
+                    type="text"
+                    name="branch"
+                    placeholder="Military Branch"
+                  >
+                    <option>Space Force</option>
+                    <option>Air Force</option>
+                    <option>Army</option>
+                    <option>Navy</option>
+                    <option>Marines</option>
+                  </Form.Select>
+                </Form.Group>
+
+                <Form.Group>
+                  <Form.Label>Military Status</Form.Label>
+                  <Form.Select
+                    defaultValue={userData.publicData.current_status}
+                    type="text"
+                    name="status"
+                    placeholder="Military Status"
+                  >
+                    <option>Active Duty</option>
+                    <option>Reserves</option>
+                    <option>Veteren</option>
+                    <option>Civilian</option>
+                  </Form.Select>
+                </Form.Group>
+                <Form.Group as={Col}>
+                  <Form.Label>Age Group</Form.Label>
+                  <Form.Select
+                    defaultValue={userData.publicData.age_group}
+                    type="text"
+                    name="age_group"
+                    placeholder="Age Group"
+                  >
+                    <option>17-21</option>
+                    <option>22-26</option>
+                    <option>27-31</option>
+                    <option>32-36</option>
+                    <option>37-41</option>
+                    <option>42-46</option>
+                    <option>47-51</option>
+                    <option>52-56</option>
+                    <option>57+</option>
+                  </Form.Select>
+                </Form.Group>
+              </Form.Group>
+            </Form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={() => setShowInfoModal(false)}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={() => handleUserInfoUpdate()}>
               Save Changes
             </Button>
           </Modal.Footer>
@@ -175,7 +309,9 @@ const createProfessionalProfilePage = (
   user,
   handleSwitch,
   setShowModal,
-  userScores
+  userScores,
+  handleNewChat,
+  setShowInfoModal
 ) => {
   return (
     <section className="profilepage-main">
@@ -194,7 +330,12 @@ const createProfessionalProfilePage = (
                   Military Anonymous Professional
                 </Card.Text>
                 <div className="d-flex justify-content-center mb-2">
-                  <Button className="m-1 btn-chat">Message Now!</Button>
+                  <Button
+                    className="m-1 btn-chat"
+                    onClick={() => handleNewChat()}
+                  >
+                    Message Now!
+                  </Button>
                   {user.roles.includes("Admin") ? (
                     <Button className="m-1 btn-chat">Delete User</Button>
                   ) : null}
@@ -369,7 +510,9 @@ const createRegularProfilePage = (
   user,
   handleSwitch,
   setShowModal,
-  userScores
+  userScores,
+  handleNewChat,
+  setShowInfoModal
 ) => {
   return (
     <section className="profilepage-main">
@@ -399,7 +542,12 @@ const createRegularProfilePage = (
                   </Form>
                 ) : null}
                 <div className="d-flex justify-content-center mb-2">
-                  <Button className="m-1 btn-chat">Message Now!</Button>
+                  <Button
+                    className="m-1 btn-chat"
+                    onClick={() => handleNewChat()}
+                  >
+                    Message Now!
+                  </Button>
 
                   {user.roles.includes("Admin") ? (
                     <Button className="m-1 btn-chat">Delete User</Button>
@@ -436,10 +584,19 @@ const createRegularProfilePage = (
             <Card className="m-4">
               <Card.Body>
                 <Row>
+                  <div className="d-flex justify-content-between mb-2">
+                    <Card.Title>User Info</Card.Title>
+                    <Card.Link
+                      className="clickable"
+                      onClick={() => setShowInfoModal(true)}
+                    >
+                      Edit
+                    </Card.Link>
+                  </div>
                   <Col sm={3}>
                     <Card.Text>Full Name</Card.Text>
                   </Col>
-                  <Col sm={9}>
+                  <Col sm={8}>
                     <Card.Text className="text-muted">
                       {userData.is_anonymous
                         ? "Anonymous"
@@ -530,12 +687,15 @@ const createRegularProfilePage = (
                   <Card.Body>
                     <div className="d-flex justify-content-between mb-2">
                       <Card.Title>About Me</Card.Title>
-                      <Card.Link
-                        className="clickable"
-                        onClick={() => setShowModal(true)}
-                      >
-                        Edit
-                      </Card.Link>
+                      {userData.publicData.username ===
+                      user.publicData.username ? (
+                        <Card.Link
+                          className="clickable"
+                          onClick={() => setShowModal(true)}
+                        >
+                          Edit
+                        </Card.Link>
+                      ) : null}
                     </div>
                     <Card.Text>
                       {userData.is_anonymous
@@ -552,12 +712,15 @@ const createRegularProfilePage = (
                   <Card.Body>
                     <div className="d-flex justify-content-between mb-2">
                       <Card.Title>Personal Goals</Card.Title>
-                      <Card.Link
-                        className="clickable"
-                        onClick={() => console.log("Editting")}
-                      >
-                        Edit
-                      </Card.Link>
+                      {userData.publicData.username ===
+                      user.publicData.username ? (
+                        <Card.Link
+                          className="clickable"
+                          onClick={() => console.log("Editting")}
+                        >
+                          Edit
+                        </Card.Link>
+                      ) : null}
                     </div>
                     <div>
                       {userData.publicData.personal_goals?.personal_goals.map(

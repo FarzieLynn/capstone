@@ -80,6 +80,7 @@ router.get('/:username', authenticateToken, async (req, res) => {
 })
 
 router.patch('/:username', authenticateToken, async (req, res) => {
+  console.log(req.body);
   const data = await updateUser(req.params.username, req.body);
   return res.json(data);
 })
