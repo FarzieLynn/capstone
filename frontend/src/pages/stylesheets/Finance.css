@@ -4,6 +4,12 @@
     align-content: center;
 }
 
+.printBtn {
+    margin-top: 20%;
+}
+
+
+
 @media print {
     #beginner{
         zoom: 90%;
