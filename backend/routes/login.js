@@ -28,7 +28,7 @@ router.post("/", async (req, res) => {
         //Generates a user JWT based on their roles after successful authentication.
         const accessToken = jwt.sign(
           { username: username, roles: roles },
-          process.env.ACCESS_TOKEN_SECRET, {expiresIn:'12h', secure:true, httpOnly:true}
+          process.env.ACCESS_TOKEN_SECRET, {expiresIn:'12h'}
         );
         return res.status(200).cookie("access_token", accessToken, {maxAge:1000 * 60 * 60 * 12, sameSite: 'none', secure: true}).json({publicData:publicData[0], roles:
           roles});
