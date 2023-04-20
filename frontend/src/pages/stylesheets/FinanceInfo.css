@@ -33,22 +33,24 @@
 .financeBlurb{
     color: #0b132b;
     margin-top: 3%;
-    margin-left: 20%;
+    margin-left: 5%;
     margin-right: 20%;
-    text-align: start;
+    text-align: left;
     font-size: 16px;
     height: 100vh;
 }
 
 .finance-aside{
-    width: 40%;
+    width: 15%;
+    font-size: 14px;
     padding-left: 15px;
     margin-left: 15px;
+    margin-top: 25px;
     border-radius: 8px;
     color: white;
     float: right;
-
-    background-color: #073b4c
+    background-color: #073b4c;
+    z-index: -1;
 }
 
 .finance-aside:hover{
@@ -64,6 +66,28 @@
 }
 
 .fincal:hover{
+    cursor: pointer;
+    color: gold;
+    font-style: italic;
+}
+.bmical:hover{
+    cursor: pointer;
+    color: gold;
+    font-style: italic;
+
+}
+.bccal:hover{
+    cursor: pointer;
+    color: gold;
+    font-style: italic;
+
+}
+.mentque:hover{
+    cursor: pointer;
+    color: gold;
+    font-style: italic;
+}
+.homep:hover{
     cursor: pointer;
     color: gold;
     font-style: italic;

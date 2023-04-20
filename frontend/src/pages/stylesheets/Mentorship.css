@@ -8,7 +8,7 @@
     flex-direction: column;
     align-items: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #344e41;
+    color: #023047;
 }
 
 .mentorTitleLg{
@@ -23,12 +23,13 @@
 }
 
 .mentorBlurb{
-    color: #344e41;
+    color: #023047;
     margin-top: 3%;
     margin-left: 10%;
     margin-right: 10%;
     text-align: start;
-    font-size: 16px;
+    font-size: 18px;
+    font-style: italic;
     height: 100vh;
 }
 
@@ -36,10 +37,12 @@
     width: 45%;
     padding-left: 15px;
     margin-left: 15px;
+    padding-right: 15px;
+    margin-right: 15px;
     border-radius: 8px;
-    color: #344e41;
+    color: whitesmoke;
     float: left;
-    background-color: #8f9779
+    background-color: #4e8098
 }
 
 .grow{
@@ -50,10 +53,12 @@
     width: 45%;
     padding-left: 15px;
     margin-left: 15px;
+    padding-right: 15px;
+    margin-right: 15px;
     border-radius: 8px;
     color: white;
     float: right;
-    background-color: #9b870c
+    background-color: #0e73a1
 }
 
 .lead{

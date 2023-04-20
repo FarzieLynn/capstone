@@ -12,10 +12,18 @@ function FitnessPage() {
   const { user } = useContext(AppContext);
 
   return (
-    <div className="fitness d-flex flex-column align-items-center">
-      <div className="fitnessTitles">
+    <div className="fitness ">
+        <aside className="fitness-aside">
+          <h3 className="title-aside">Quick Links</h3>
+          <h5 className="bmical" onClick={() => navigate("/BMICal")}>BMI Calculator</h5>
+          <h5 className="bccal" onClick={() => navigate("/BodyCompCal")}>Body Composition Calculator</h5>
+          <h5 className="finq" onClick={() => navigate("/finance")}>Financial Management Questionnaire</h5>
+          <h5 className="fincal" onClick={() => navigate("/finance/calculator")}>Retirement Calculator</h5>
+          <h5 className="mentque" onClick={() => navigate("/mentalhealth")}>Mental Health Questionnaire</h5>
+          <h5 className="homep" onClick={() => navigate("/")}>Home Page</h5>
+        </aside>
+      <div className="fitnessTitles d-flex flex-column align-items-center">
         <span className="fitnessTitleLg">Fitness & Nutrition</span>
-
         <img
           className="fitnessImg"
           src="https://www.armytimes.com/resizer/jKQ6OZT1Ib5auM8cKjYO8K-a77k=/1200x0/filters:quality(100)/arc-anglerfish-arc2-prod-mco.s3.amazonaws.com/public/5DDCQX46TNCMND33WLPUDMOZ4E.jpg"
@@ -27,11 +35,6 @@ function FitnessPage() {
       
       <div className="fitnessBlurb text-center">
         <p>
-        <aside className="fitness-aside">
-          <h3 className="title-aside">Quick Links</h3>
-          <h4 className="bmical" onClick={() => navigate("/BMICal")}>BMI Calculator</h4>
-          <h4 className="bccal" onClick={() => navigate("/BodyCompCal")}>Body Composition Calculator</h4>
-        </aside>
           Military fitness and nutrition are critical components of the overall
           health and well-being of service members. Whether you are serving on
           active duty or are a veteran, maintaining a healthy and active
