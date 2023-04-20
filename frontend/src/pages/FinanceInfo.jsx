@@ -71,9 +71,9 @@ function FinanceInfo() {
           Thank you for your service, and we look forward to supporting you on
           your financial journey.
         </p>
+        <h3>Chat with a professional</h3>
+        {user.publicData !== undefined ? <ProfessionalsTable type={'Financial Specialist'}/> : null}
       </div>
-      {user.publicData !== undefined ? <ProfessionalsTable type={'Financial Specialist'}/> : null}
-      
     </div>
   );
 }

@@ -8,7 +8,7 @@ function Mentorship() {
  const navigate = useNavigate()
  
   return (
-    <div className="mentorship vh-100%">
+    <div className="mentorship">
       <aside className="finance-aside">
           <h3 className="title-aside">Quick Links</h3>
           <h5 className="finq" onClick={() => navigate("/finance")}>Financial Management Questionnaire</h5>
