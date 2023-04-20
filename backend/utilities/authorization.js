@@ -4,7 +4,6 @@ const cookieParser = require("cookie-parser");
 
 const authenticateToken = (req, res, next) => {
     const token = req.cookies.access_token
-    console.log(req.cookies);
     if(token == null) return res.sendStatus(401);
 
     console.log(token)
