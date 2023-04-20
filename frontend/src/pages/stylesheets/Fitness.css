@@ -1,5 +1,5 @@
 .fitness {
-    background-color: #beebfacc;
+    background-color: #c8f0fdfa;
     min-height: 86vh;
 }
 
@@ -64,7 +64,7 @@
     margin-right: 20%;
     text-align: start;
     font-size: 16px;
-    height: 100vh;
+    min-height: 50vh;
 }
 .finq:hover{
     cursor: pointer;

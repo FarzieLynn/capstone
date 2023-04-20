@@ -2,6 +2,18 @@
     background: #fcdfa6c5;
     min-height: 86vh;
 }
+.mental-aside{
+    width: 15%;
+    font-size: 14px;
+    padding-left: 15px;
+    margin-left: 15px;
+    margin-top: 25px;
+    border-radius: 8px;
+    color: white;
+    float: right;
+    background-color: #073b4c;
+    z-index: -1;
+}
 
 .questions{
     text-align: center;
@@ -34,9 +46,48 @@
 .mentalBlurb{
     color: #52443f;
     margin-top: 3%;
-    margin-left: 20%;
+    margin-left: 10%;
     margin-right: 20%;
     text-align: start;
     font-size: 16px;
-    height: 100vh;
+    min-height: 65vh;
+}
+.mental-aside:hover{
+    background-color: gray;
+    opacity: 1.0;
+    transition: 5ms;
+}
+
+.finq:hover{
+    cursor: pointer;
+    color: gold;
+    font-style: italic;
+}
+
+.fincal:hover{
+    cursor: pointer;
+    color: gold;
+    font-style: italic;
+}
+.bmical:hover{
+    cursor: pointer;
+    color: gold;
+    font-style: italic;
+
+}
+.bccal:hover{
+    cursor: pointer;
+    color: gold;
+    font-style: italic;
+
+}
+.mentque:hover{
+    cursor: pointer;
+    color: gold;
+    font-style: italic;
+}
+.homep:hover{
+    cursor: pointer;
+    color: gold;
+    font-style: italic;
 }
