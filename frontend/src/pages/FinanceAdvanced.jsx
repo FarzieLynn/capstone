@@ -12,6 +12,8 @@ const FinanceAdvanced = () => {
     return (
         <Container id='advanced'>
             <br></br>
+            <center><h2>Some Advanced Tips:</h2></center>
+            <br></br>
             <Row>
                 <Col>
                     <img width='300px' src='https://canadianmortgagepro.com/images/buying-a-rental-income-property.jpg' alt=''/>
