@@ -1,10 +1,6 @@
-import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './stylesheets/MentalHealth.css'
 import './stylesheets/MentalScore.css'
-import MentalResults from './MentalResults'
-import jsPDF from 'jspdf'
-import html2canvas from 'html2canvas'
 
 const MentalScore = ({score}) => {
   const navigate = useNavigate()

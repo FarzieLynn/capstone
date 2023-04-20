@@ -4,7 +4,6 @@ import {
   Row,
   Col,
   Container,
-  Accordion,
   Button,
   Pagination,
 } from "react-bootstrap";

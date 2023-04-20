@@ -1,6 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import { createContext, useState, useEffect } from "react";
 import RegisterPage from "./pages/RegisterPage";
@@ -68,7 +68,7 @@ function App() {
       })
       .catch(err => {
       });
-  }, []);
+  }, [url]);
 
   return (
     <>

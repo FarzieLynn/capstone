@@ -2,7 +2,7 @@ import { Form, Button, Row, Col } from "react-bootstrap";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function ProfessionalRegisterForm({ loginFailed, handleSubmit }) {
+function ProfessionalRegisterForm({ handleSubmit }) {
   const navigate = useNavigate();
 
   return (
