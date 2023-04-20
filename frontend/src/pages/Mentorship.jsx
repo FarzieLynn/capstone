@@ -1,12 +1,9 @@
 import React from "react";
 import "./stylesheets/Mentorship.css";
-import { useNavigate } from "react-router-dom";
 
 /* change the onClick to a list of Mentors line 64*/
 
 function Mentorship() {
-  const navigate = useNavigate();
-
   return (
     <div className="mentorship vh-100%">
       <div className="mentorTitles">
@@ -27,7 +24,7 @@ function Mentorship() {
           mentor - an experienced and knowledgeable guide - and a mentee -
           someone who is seeking guidance and support in their personal or
           professional life. Whether you are a mentee looking for guidance or a
-          mentor looking to give back, on Military Anonymous, below is a
+          mentor looking to give back, on Military Anonymous, we have provided a
           networking forum to help you get started. From there, you will find
           several opportunities to connect with others and build meaningful
           relationships.

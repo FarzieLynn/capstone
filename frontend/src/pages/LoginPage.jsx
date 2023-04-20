@@ -6,13 +6,13 @@ import { Spinner } from "../components/Spinner";
 import '../stylesheets/LoginPage.css'
 
 function LoginPage() {
-  const [loginFailed, setLoginFailed] = useState(false);
+  const [loginFailed] = useState(false);
   const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState({});
 
   const navigate = useNavigate();
 
-  const { user, setUser } = useContext(AppContext);
+  const {setUser, url } = useContext(AppContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -26,7 +26,7 @@ function LoginPage() {
 
     if (username.value !== "" && password !== "") {
       setLoading(true);
-      fetch("http://localhost:8080/login", {
+      fetch(`${url}/login`, {
         method: "POST",
         credentials: "include",
         body: JSON.stringify({
@@ -41,6 +41,7 @@ function LoginPage() {
           return data.json();
         })
         .then(data => {
+          console.log(data);
           if (data.error === undefined) {
             console.log('login successful. Setting user info.', data)
             setLoading(true);

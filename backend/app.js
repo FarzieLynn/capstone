@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 // Sets up CORS policy
 app.use(
   cors({
-    origin: "http://localhost:3001",
+    origin: process.env.ALLOWED_ORIGIN,
     methods: ["GET", "POST", "PUT", "PATCH", "OPTIONS", "HEAD", "DELETE"],
     credentials: true,
   })

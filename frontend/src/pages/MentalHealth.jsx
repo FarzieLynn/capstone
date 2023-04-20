@@ -1,5 +1,4 @@
 import { useState, useRef, useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
 import MentalScore from './MentalScore'
 import MentalResults from './MentalResults'
 import './stylesheets/MentalHealth.css'
@@ -215,10 +214,6 @@ const MentalHealth = () => {
 
     const [isShown, setIsShown] = useState(false);
     const [treatment, setTreatment] = useState('');
-    const [isLoaded, setLoaded] = useState(false)
-    const showScore = () => {
-
-    }
     const clickHandler = () => {
         submit();
         setIsShown(true)

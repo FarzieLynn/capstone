@@ -90,8 +90,8 @@ const ProfilePage = () => {
         ? user.publicData.anon_username
         : user.publicData.username,
       userSecret: user.publicData.username,
-      projectID: "87c51be2-76f9-4924-96cf-845972cd42ce",
-    };
+      projectID: process.env.REACT_APP_PROJ_KEY
+    }
     getOrCreateChat(
       userChat,
       {
