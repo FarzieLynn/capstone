@@ -36,8 +36,9 @@ module.exports = {
   },
 
   production: {
-    client: 'postgresql',
+    client: 'pg',
     connection: {
+      host: process.env.PG_HOST,
       user:process.env.DOCKER_USER,
       password: process.env.DOCKER_PASSWORD,
       port: process.env.DOCKER_PORT,

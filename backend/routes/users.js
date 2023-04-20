@@ -4,7 +4,6 @@ const bcrypt = require("bcrypt");
 const router = express.Router();
 const { authenticateToken } = require("../utilities/authorization");
 const chat = require("../utilities/chat");
-const { faker } = require("@faker-js/faker");
 const { getAvgScores, addScore, getScores } = require("../db/Controllers");
 
 //Register endpoint
@@ -37,7 +36,7 @@ router.post("/", async (req, res) => {
         is_professional: is_professional ? is_professional : false,
         is_verified: false,
         personal_goals: personal_goals ? {personal_goals} : [],
-        anon_username: `anon${faker.random.numeric(8)}`
+        anon_username: `anon${Math.floor(Math.random() * 1000000000)}`
       };
 
       postUser(user, roles)
