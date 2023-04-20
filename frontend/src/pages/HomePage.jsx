@@ -1,5 +1,6 @@
 import React from "react";
 import "../stylesheets/HomePage.css";
+import { AppContext } from "../App";
 import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
