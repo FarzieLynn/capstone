@@ -12,6 +12,7 @@ const ProfessionalsTable = ({type}) => {
 
   useEffect(() => {
     const token = cookie.parse(document.cookie).access_token;
+    console.log(token);
     fetch(`${url}/users/professionals`, {
       method: "GET",
       credentials: "include",
