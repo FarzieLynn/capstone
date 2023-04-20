@@ -44,10 +44,8 @@ const FinanceBeginner = () => {
                     rule of budgeting. If you can follow this rule, you’ll be able to build an emergency fund, pay
                      off your consumer debts, and kickstart a retirement savings.
                 </Col>
-                <Col>
-                </Col>
-                <button id="printBtn" className='btn btn-dark pageBtn m-2' onClick={() => exportPdf()}>Save Results</button>
             </Row>
+            <button id="printBtn" className='btn btn-dark pageBtn m-2' onClick={() => exportPdf()}>Save Results</button>
            </Container>
     );
 }

@@ -4,6 +4,12 @@
     align-content: center;
 }
 
+.printBtn {
+    margin-top: 20%;
+}
+
+
+
 @media print {
     #beginner{
         zoom: 90%;
@@ -26,7 +32,7 @@
         margin-bottom: 0;
     }
     #chart3 {
-        margin-top: 550px;
+        margin-top: 530px;
         margin-bottom: 0;
         zoom: 100%;
     }
