@@ -37,9 +37,9 @@ app.use(
     saveUninitialized: true,
     store: store,
     cookie: {
-      secure: false,
+      secure: true,
       httpOnly: true,
-      sameSite: "lax",
+      sameSite: "none",
       maxAge: 1000 * 60 * 60 * 12, // Expires after 12 hours
     },
   })
