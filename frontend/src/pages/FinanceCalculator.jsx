@@ -2564,6 +2564,7 @@ const FinanceCalculator = () => {
                                 Current Age
                             </label>
                             <input
+                                className='w-25'
                                 type='number'
                                 className='w-25'
                                 value={currentAge}
