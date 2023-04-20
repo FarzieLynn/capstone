@@ -3,12 +3,14 @@ import LoginForm from "../components/forms/LoginForm";
 import { AppContext } from '../App';
 import { useNavigate } from "react-router-dom";
 import { Spinner } from "../components/Spinner";
+import { DismissableAlert } from "../components/DismissableAlert";
 import '../stylesheets/LoginPage.css'
 
 function LoginPage() {
   const [loginFailed, setLoginFailed] = useState(false);
   const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState({});
+  const [showAlert, setShowAlert] = useState(false);
 
   const navigate = useNavigate();
 
@@ -41,6 +43,7 @@ function LoginPage() {
           return data.json();
         })
         .then(data => {
+          console.log(data);
           if (data.error === undefined) {
             console.log('login successful. Setting user info.', data)
             setLoading(true);

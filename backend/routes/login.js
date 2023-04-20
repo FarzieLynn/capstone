@@ -35,6 +35,8 @@ router.post("/", async (req, res) => {
       }
       return res.status(201).json({error: true ,message: "Incorrect username or password."});
     });
+  }else {
+    res.status(201).json({error: true ,message: "Incorrect username or password."});
   }
   res.status(500).send();
 });
