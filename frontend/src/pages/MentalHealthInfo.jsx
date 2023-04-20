@@ -12,28 +12,29 @@ function MentalHealthInfo() {
 
   return (
     <>
-    <div className="mental d-flex flex-column align-items-center">
+    <div className="mental">
       {mentalHealthVisited ?
         <>
-          <div className="mentalTitles">
+        <aside className="mental-aside">
+          <h3 className="title-aside">Quick Links</h3>
+          <h5 className="mentque" onClick={() => navigate("/mentalhealth")}>Mental Health Questionnaire</h5>
+          <h5 className="finq" onClick={() => navigate("/finance")}>Financial Management Questionnaire</h5>
+          <h5 className="fincal" onClick={() => navigate("/finance/calculator")}>Retirement Calculator</h5>
+          <h5 className="bmical" onClick={() => navigate("/BMICal")}>BMI Calculator</h5>
+          <h5 className="bccal" onClick={() => navigate("/BodyCompCal")}>Body Composition Calculator</h5>
+          <h5 className="homep" onClick={() => navigate("/")}>Home Page</h5>
+        </aside>
+          <div className="mentalTitles d-flex flex-column align-items-center">
             <span className="mentalTitleLg">Mental Health</span>
 
             <img
               className="mentalImg"
               src="https://givingmd.com/wp-content/uploads/2020/10/practice-head.png"
-              width={700}
-              height={700}
+              width={500}
+              height={500}
               alt=""
             />
           </div>
-          <span>
-            <h2 className="questions">
-              <strong>
-                Click <span className="link-click" onClick={() => navigate("/mentalhealth")}>here</span>{" "}
-                to take the Mental Health Questionnaire
-              </strong>
-            </h2>
-          </span>
           <div className="mentalBlurb text-center">
             <p>
               Welcome to our Mental Health page. We are here to provide support for
