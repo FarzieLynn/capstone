@@ -59,7 +59,7 @@ const FinanceAdvanced = () => {
                     have it generate even more money, while doing little to no work.  This is also known as passive income.
                 </Col>
             </Row>
-            <button id="printBtn" className='btn btn-dark pageBtn m-2' onClick={() => exportPdf()}>Print Results</button>
+            <button id="printBtn" className='btn btn-dark pageBtn m-2' onClick={() => exportPdf()}>Save Results</button>
         </Container>
     );
 }
