@@ -9,6 +9,8 @@ const FinanceIntermediate = () => {
     return (
         <Container id="intermediate">
             <br></br>
+            <center><h2>Some Intermediate Tips:</h2></center>
+            <br></br>
             <Row>
                 <Col>
                     <img width='300px' src='https://dividendsdiversify.com/wp-content/uploads/2019/09/debt.jpg' alt=''/>
