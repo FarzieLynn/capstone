@@ -56,7 +56,7 @@ const FinanceCalculator = () => {
 
         window.print()
     }
-    
+
     const vaStatus =
     {
         vetWithOneChild:
@@ -2548,7 +2548,7 @@ const FinanceCalculator = () => {
                     <br></br>
                     <h2>You can retire at age {retirementAge}</h2>
                     <div>Civilian target retirement: {targetRetAmt ? formatter.format(targetRetAmt) : 0}</div>
-                    <form className='calc'>
+                    <form className='text-start calc'>
                         <label>
                             Annual retirement expenses (today's dollars)
                             <input
@@ -2557,14 +2557,18 @@ const FinanceCalculator = () => {
                                 onChange={(e) => setAnnualRetExp(parseInt(e.target.value) || 0)}
                             />
                         </label>
-                        <label>
-                            Current Age
+                        <div className='d-flex flex-column w-100'>
+                            <label>
+                                Current Age
+                            </label>
                             <input
+                                className='w-25'
                                 type='number'
                                 value={currentAge}
                                 onChange={(e) => setCurrentAge(parseInt(e.target.value) || 0)}
                             />
-                        </label>
+                        </div>
+
                         <label>
                             Current savings balance
                             <input
@@ -2886,7 +2890,7 @@ const FinanceCalculator = () => {
                     <strong>Age 62: {formatter.format(penaltySS + pensionWithVA)}</strong><br></br>
                     <strong>Age 67: {formatter.format(fullSS + pensionWithVA)}</strong><br></br>
                     <strong>Age 70: {formatter.format(bonusSS + pensionWithVA)}</strong><br></br>
-                <button id="printBtn" className='btn btn-dark pageBtn m-2' onClick={() => exportPdf()}>Print Results</button>
+                    <button id="printBtn" className='btn btn-dark pageBtn m-2' onClick={() => exportPdf()}>Print Results</button>
                 </div>
             </Row>
         </Container>
