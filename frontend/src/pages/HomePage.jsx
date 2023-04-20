@@ -1,12 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import "../stylesheets/HomePage.css";
-import { AppContext } from "../App";
-import { DismissableAlert } from "../components/DismissableAlert";
 import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
   const navigate = useNavigate;
-  const { user } = useContext(AppContext);
 
   return (
     <div className="homepage d-flex flex-column justify-content-center align-items-center">
