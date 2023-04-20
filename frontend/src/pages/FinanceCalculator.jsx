@@ -2791,7 +2791,6 @@ const FinanceCalculator = () => {
                 </Col>
             </Row>
             <Row id="hide">
-                <br></br>
                 <div>
                     <strong>Retirement Goal as a Civilian:</strong>
                 </div>
@@ -2806,8 +2805,8 @@ const FinanceCalculator = () => {
                     </AreaChart>
                 </ResponsiveContainer>
             </Row>
-            <Row>
                 <br></br>
+            <Row>
                 <div id="chart" hidden={pension ? false : true}>
                     <div>
                         Annual military retirement pay based on your selected
@@ -2819,7 +2818,7 @@ const FinanceCalculator = () => {
                         {newRetirementExpense ? formatter.format(newRetirementExpense) : 0}
                     </div>
                     <br></br>
-                    <div id="chart">
+                    <div id="chart2">
                         Your updated target retirement amount based on your pension: {newTargetRetAmt ? formatter.format(newTargetRetAmt) : 0}
                     </div>
                     <h2>You can retire at age {newRetAge ? newRetAge : null}</h2>
@@ -2836,9 +2835,15 @@ const FinanceCalculator = () => {
                     </ResponsiveContainer>
                 </div>
             </Row>
+            
             <Row>
+               
+                <div id="chart3" hidden={VA ? false : true}>
                 <br></br>
-                <div id="chart" hidden={VA ? false : true}>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
                     <div>
                         Annual military retirement pay + disability pay based on your selected
                         grade and a retirement of {yearsInService ? yearsInService : 20} years after tax: {pensionWithVA ? formatter.format(pensionWithVA) : 0}
@@ -2867,7 +2872,6 @@ const FinanceCalculator = () => {
                 </div>
                 <br></br>
                 <br></br>
-                <br></br>
                 <div id="chart" hidden={pension ? false : true} className='text-center'>
                     <div hidden={VA ? true : false}>
                         Final annual retirement pay with military pension and social security:<br></br>
@@ -2877,12 +2881,9 @@ const FinanceCalculator = () => {
                             Age 67: {formatter.format(pension + fullSS)}<br></br>
                             Age 70: {formatter.format(pension + bonusSS)}<br></br>
                         </div>
-                        <button id="printBtn" className='btn btn-dark pageBtn m-2' onClick={() => exportPdf()}>Print Results</button>
+                        <button id="printBtn" className='btn btn-dark pageBtn m-2' onClick={() => exportPdf()}>Save Results</button>
                     </div>
                 </div>
-                <br></br>
-                <br></br>
-                <br></br>
                 <div id="chart" hidden={VA ? false : true} className='text-center'>
                     Final annual retirement pay with military pension, disability, and social security not counting
                     annuity payouts for your investments:<br></br>
@@ -2890,7 +2891,7 @@ const FinanceCalculator = () => {
                     <strong>Age 62: {formatter.format(penaltySS + pensionWithVA)}</strong><br></br>
                     <strong>Age 67: {formatter.format(fullSS + pensionWithVA)}</strong><br></br>
                     <strong>Age 70: {formatter.format(bonusSS + pensionWithVA)}</strong><br></br>
-                    <button id="printBtn" className='btn btn-dark pageBtn m-2' onClick={() => exportPdf()}>Print Results</button>
+                <button id="printBtn" className='btn btn-dark pageBtn m-2' onClick={() => exportPdf()}>Save Results</button>
                 </div>
             </Row>
         </Container>

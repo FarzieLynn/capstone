@@ -46,7 +46,7 @@ const FinanceBeginner = () => {
                 </Col>
                 <Col>
                 </Col>
-                <button id="printBtn" className='btn btn-dark pageBtn m-2' onClick={() => exportPdf()}>Print PDF</button>
+                <button id="printBtn" className='btn btn-dark pageBtn m-2' onClick={() => exportPdf()}>Save Results</button>
             </Row>
            </Container>
     );

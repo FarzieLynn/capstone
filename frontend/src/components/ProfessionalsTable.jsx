@@ -6,12 +6,11 @@ import { useNavigate } from 'react-router-dom';
 import '../stylesheets/ProfessionalsTable.css'
 
 const ProfessionalsTable = ({type}) => {
-  const { url } = useContext(AppContext);
+  const { url, token } = useContext(AppContext);
   const [professionals, setProfessionals] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = cookie.parse(document.cookie).access_token;
     fetch(`${url}/users/professionals`, {
       method: "GET",
       credentials: "include",
