@@ -10,6 +10,8 @@ const FinanceBeginner = () => {
     return (
         <Container id="beginner">
             <br></br>
+            <center><h2>Some Beginner Tips:</h2></center>
+            <br></br>
             <Row>
                 <Col className='col'>
                     <img width='300px' src='https://cdn.corporatefinanceinstitute.com/assets/finance-definition.jpg' alt='Finance' />
