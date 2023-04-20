@@ -3,7 +3,7 @@
  * @returns { Promise<void> }
  */
 
-const { faker } = require("@faker-js/faker");
+
 const bcrypt = require("bcrypt");
 
 exports.seed = async function (knex) {
@@ -105,20 +105,6 @@ exports.seed = async function (knex) {
     is_anonymous: false,
     anon_username: 'user12345'
   }
-
-  for (let i = 7; i < usersToCreate; i++) {
-    let user = {
-      username: faker.internet.userName().toLowerCase(),
-      password: bcrypt.hashSync("password", 12),
-      email: faker.internet.email(),
-      branch: "USSF",
-      full_name: faker.name.fullName(),
-      age_group: "17-21",
-      gender: faker.name.sex(),
-    };
-    fakeUserArray.push(user);
-  }
-
   await knex("users").insert(adminUser);
   await knex("users").insert(adminUser2);
   await knex("users").insert(user1);
@@ -126,5 +112,22 @@ exports.seed = async function (knex) {
   await knex("users").insert(chaplain);
   await knex("users").insert(fitness);
   await knex("users").insert(finance);
-  await knex("users").insert(fakeUserArray);
+  if(process.env.NODE_ENV === 'development') genFakerData();
+
+  const genFakerData = async () => {
+    const { faker } = require("@faker-js/faker");
+    for (let i = 7; i < usersToCreate; i++) {
+      let user = {
+        username: faker.internet.userName().toLowerCase(),
+        password: bcrypt.hashSync("password", 12),
+        email: faker.internet.email(),
+        branch: "USSF",
+        full_name: faker.name.fullName(),
+        age_group: "17-21",
+        gender: faker.name.sex(),
+      };
+      fakeUserArray.push(user);
+    }
+    await knex("users").insert(fakeUserArray);
+  }
 };
