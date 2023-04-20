@@ -12,7 +12,7 @@ function ThreadEditPage() {
   const [showAlert, setShowAlert] = useState(false);
   const [alert, setAlert] = useState();
 
-  const { user, url, token } = useContext(AppContext);
+  const { url, token } = useContext(AppContext);
 
   const {id} = useParams();
 
