@@ -3,7 +3,7 @@ import "../stylesheets/HomePage.css";
 import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   return (
     <div className="homepage d-flex flex-column justify-content-center align-items-center">
@@ -31,7 +31,7 @@ const HomePage = () => {
       </p>
       <p className="homepage-p">
         Here at Military Anonymous, we highly encourage every user, whether
-        confidential or anonymous, to <strong className="goregis" onClick={() => navigate('/register')}>create a profile</strong> to experience the full
+        confidential or anonymous, to <span className="goregis" onClick={() => navigate("/register")}>create a profile</span> to experience the full
         use of resources available to include the direct Chat with our certified
         professionals and access to our networking forums. Take this path to register and start your journey towards health, happiness, and success!
       </p>

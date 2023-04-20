@@ -177,7 +177,6 @@ const MentalHealth = () => {
     }
 
     const submit = () => {
-        alert('Your answers have been submitted.  Thank you!')
         decide();
     }
 
@@ -259,22 +258,3 @@ const MentalHealth = () => {
 
 export default MentalHealth;
 
-//const handleGeneratePdf = async () => {
-	// 	var doc = new jsPDF({
-    //         orientation: 'p',
-    //         unit: 'pt',
-    //         format: 'c3',
-    //         putOnlyUsedFonts:true,
-    //         compress:true,
-    //         precision: 1
-    //        });
-    //     await doc.setDisplayMode('original', 'single', 'FullScreen')
-	// 	// Adding the fonts.
-	// 	await doc.setFont('Inter-Regular', 'normal');
-
-	// 	await doc.html(mentalRef.current, {
-	// 		async callback(doc) {
-	// 			await doc.save('document');
-	// 		},
-	// 	});
-	// };
