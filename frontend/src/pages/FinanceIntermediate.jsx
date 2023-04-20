@@ -51,7 +51,7 @@ const FinanceIntermediate = () => {
                     think of.
                 </Col>
             </Row>
-            <button id="printBtn"  className='btn btn-dark pageBtn m-2' onClick={() => exportPdf()}>Print Results</button>
+            <button id="printBtn"  className='btn btn-dark pageBtn m-2' onClick={() => exportPdf()}>Save Results</button>
             <br></br>
         </Container>
     );
