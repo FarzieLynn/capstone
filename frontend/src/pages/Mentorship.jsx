@@ -46,12 +46,12 @@ function Mentorship() {
             honest about any challenges or obstacles you encounter.
           </p>
           <p>
-            <strong>O - Open-mindedness: </strong>Be willing to listen and
+            <strong>O - Open-mindedness: </strong>Listen and
             consider your mentor's advice and feedback. Keep an open mind and be
             willing to learn from their experience and expertise.
           </p>
           <p>
-            <strong>W - Be Willingness: </strong>Be willing to take action and
+            <strong>W - Willingness: </strong>Be willing to take action and
             make changes to achieve your goals.
           </p>
         </aside>

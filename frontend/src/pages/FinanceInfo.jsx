@@ -9,8 +9,17 @@ function FinanceInfo() {
   const { user } = useContext(AppContext)
 
   return (
-    <div className="finance d-flex flex-column align-items-center">
-      <div className="financeTitles">
+    <div className="finance ">
+        <aside className="finance-aside">
+          <h3 className="title-aside">Quick Links</h3>
+          <h5 className="finq" onClick={() => navigate("/finance")}>Financial Management Questionnaire</h5>
+          <h5 className="fincal" onClick={() => navigate("/finance/calculator")}>Retirement Calculator</h5>
+          <h5 className="bmical" onClick={() => navigate("/BMICal")}>BMI Calculator</h5>
+          <h5 className="bccal" onClick={() => navigate("/BodyCompCal")}>Body Composition Calculator</h5>
+          <h5 className="mentque" onClick={() => navigate("/mentalhealth")}>Mental Health Questionnaire</h5>
+          <h5 className="homep" onClick={() => navigate("/")}>Home Page</h5>
+        </aside>
+      <div className="financeTitles d-flex flex-column align-items-center">
         <span className="financeTitleLg">Financial Management</span>
 
         <img
@@ -24,11 +33,6 @@ function FinanceInfo() {
       
       <div className="financeBlurb text-center">
         <p>
-        <aside className="finance-aside">
-          <h3 className="title-aside">Quick Links</h3>
-          <h4 className="finq" onClick={() => navigate("/finance")}>Financial Management Questionnaire</h4>
-          <h4 className="fincal" onClick={() => navigate("/finance/calculator")}>Retirement Calculator</h4>
-        </aside>
           Welcome to our Financial Management page, dedicated to supporting
           active duty, reserve, and veteran service members with their financial
           needs. We understand that managing your finances can be challenging,
