@@ -59,6 +59,7 @@ router.get('/professionals', authenticateToken, async (req, res) => {
   const data = await getProfessionals();
   const promises = await data.map(user => getUserRoles(user.id).then(roles => ({publicData: user, roles})));
   const users = await Promise.all(promises);
+  console.log(users);
   return res.json(users);
 })
 
@@ -79,7 +80,6 @@ router.get('/:username', authenticateToken, async (req, res) => {
 })
 
 router.patch('/:username', authenticateToken, async (req, res) => {
-  console.log(req.body);
   const data = await updateUser(req.params.username, req.body);
   return res.json(data);
 })
