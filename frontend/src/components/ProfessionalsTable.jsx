@@ -25,8 +25,8 @@ const ProfessionalsTable = ({type}) => {
   }, [])
   return (
     professionals.length !== 0 ? 
-    <div className="professionals-main">
-      <Table striped variant='light' className="text-center">
+    <div className="professionals-main w-100">
+      <Table striped variant='light' className="text-center" hover>
       <thead>
         <tr>
           <th>Name</th>
