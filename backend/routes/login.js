@@ -30,7 +30,7 @@ router.post("/", async (req, res) => {
           { username: username, roles: roles },
           process.env.ACCESS_TOKEN_SECRET, {expiresIn:'12h'}
         );
-        return res.status(200).cookie("access_token", accessToken, {maxAge:1000 * 60 * 60 * 12}).json({publicData:publicData[0], roles:
+        return res.status(200).cookie("access_token", accessToken, {maxAge:1000 * 60 * 60 * 12, sameSite: 'none', secure: true}).json({publicData:publicData[0], roles:
           roles});
       }
       return res.status(201).json({error: true ,message: "Incorrect username or password."});
