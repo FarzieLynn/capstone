@@ -2543,6 +2543,7 @@ const FinanceCalculator = () => {
                 <Col>
                 </Col>
                 <Col xs={8}>
+                    <br></br>
                     <h1>Financial Independence Calculator</h1>
                     <br></br>
                     <h2>You can retire at age {retirementAge}</h2>

@@ -147,7 +147,7 @@ const FinancePage = () => {
             ]
         },
         {
-            question: 'I pay my bills on time',
+            question: 'I pay my bills on time.',
             answer: [
                 {
                     label: 'Rarely', value: 1
@@ -167,7 +167,7 @@ const FinancePage = () => {
             ]
         },
         {
-            question: 'I could tell you right now without looking how much I paid in credit card interest last month',
+            question: 'I could tell you right now without looking how much I paid in credit card interest last month.',
             answer: [
                 {
                     label: 'I do not know', value: 1
@@ -207,7 +207,7 @@ const FinancePage = () => {
             ]
         },
         {
-            question: 'In the past 12 months, in what ways have you been saving money?',
+            question: 'In the past 12 months, which answer MOST applies to your savings plan?',
             answer: [
                 {
                     label: 'Have not been actively saving', value: 1
