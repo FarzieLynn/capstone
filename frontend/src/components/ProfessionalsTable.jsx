@@ -1,7 +1,6 @@
 import React, { useEffect, useContext, useState } from 'react'
 import { Table } from 'react-bootstrap'
 import { AppContext } from '../App'
-import cookie from 'cookie';
 import { useNavigate } from 'react-router-dom';
 import '../stylesheets/ProfessionalsTable.css'
 
