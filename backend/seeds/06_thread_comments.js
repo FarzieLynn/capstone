@@ -6,7 +6,7 @@
 
 
 exports.seed = async function (knex) {
-  if (process.env.NODE_ENV !== 'production') genData();
+
 
   const genData = async () => {
     const { faker } = require("@faker-js/faker");
@@ -16,5 +16,5 @@ exports.seed = async function (knex) {
       { thread_id: 1, comment_author: 5, comment_content: faker.lorem.paragraph(), comment_timestamp: knex.fn.now() },
     ]);
   }
-
+  if (process.env.NODE_ENV !== 'production') await genData();
 };

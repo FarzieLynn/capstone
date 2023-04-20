@@ -7,7 +7,7 @@
 
 exports.seed = async function (knex) {
   // Deletes ALL existing entries
-  if (process.env.NODE_ENV !== 'production') genData();
+  
 
   const genData = async () => {
     const { faker } = require("@faker-js/faker");
@@ -17,4 +17,5 @@ exports.seed = async function (knex) {
       { id: 3, user_id_1: 3, user_id_2: 5, message_content: faker.lorem.paragraph(), message_timestamp: knex.fn.now() },
     ]);
   }
+  if (process.env.NODE_ENV !== 'production') await genData();
 };

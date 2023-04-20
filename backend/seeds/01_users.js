@@ -112,7 +112,7 @@ exports.seed = async function (knex) {
   await knex("users").insert(chaplain);
   await knex("users").insert(fitness);
   await knex("users").insert(finance);
-  if(process.env.NODE_ENV === 'development') genFakerData();
+
 
   const genFakerData = async () => {
     const { faker } = require("@faker-js/faker");
@@ -130,4 +130,6 @@ exports.seed = async function (knex) {
     }
     await knex("users").insert(fakeUserArray);
   }
+
+  if(process.env.NODE_ENV === 'development') await genFakerData();
 };
