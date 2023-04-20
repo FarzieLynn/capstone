@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 
 
+
+
 const NavBar = () => {
   const { user, setUser, url } = useContext(AppContext);
   const navigate = useNavigate();
@@ -38,7 +40,7 @@ const NavBar = () => {
       <Navbar className="navbar-main text-light" fixed="top">
         <Container className="flex-column justify-content-around navbar-container">
           <Nav className="w-100 align-items-center">
-            <h4 className="w-50 clickable" onClick={() => navigate("/")}>
+            <h4 className="w-50 clickable-nav" onClick={() => navigate("/")}>
            <img className="logo" src="/favicon.ico" alt="icon" />Military Anonymous
             </h4>
             <Nav className="w-75 justify-content-end">

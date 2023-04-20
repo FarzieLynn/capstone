@@ -1,7 +1,6 @@
 import React, { useEffect, useContext, useState } from 'react'
 import { Table } from 'react-bootstrap'
 import { AppContext } from '../App'
-import cookie from 'cookie';
 import { useNavigate } from 'react-router-dom';
 import '../stylesheets/ProfessionalsTable.css'
 
@@ -26,8 +25,8 @@ const ProfessionalsTable = ({type}) => {
   }, [])
   return (
     professionals.length !== 0 ? 
-    <div className="professionals-main">
-      <Table striped variant='light' className="text-center">
+    <div className="professionals-main w-100">
+      <Table striped variant='light' className="text-center" hover>
       <thead>
         <tr>
           <th>Name</th>

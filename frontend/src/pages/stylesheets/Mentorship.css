@@ -1,6 +1,6 @@
 .mentorship {
     background: #dad7cd;
-    height: 240vh;
+    min-height: 86vh;
 }
 
 .mentorTitles{
@@ -12,14 +12,13 @@
 }
 
 .mentorTitleLg{
-    position: absolute;
-    top: 20%;
+    margin-top: 4vh;
     font-size: 100px;
 }
 
 .mentorImg{
     position: center;
-    margin-top: 15%;
+    margin-top: 3%;
 }
 
 .mentorBlurb{
@@ -30,7 +29,7 @@
     text-align: start;
     font-size: 18px;
     font-style: italic;
-    height: 100vh;
+    min-height: 51vh;
 }
 
 .mentee{
