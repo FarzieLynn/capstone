@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Card, Row, Col, Container, Accordion, Button } from "react-bootstrap";
+import { Card, Row, Col, Container, Button } from "react-bootstrap";
 import "./stylesheets/Forums.css";
 import { AppContext } from "../App";
 import { useNavigate } from "react-router-dom";

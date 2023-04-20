@@ -1,12 +1,8 @@
-import React, { useContext, useState } from "react";
 import ProfessionalPrivacyAgreement from '../components/forms/ProfessionalPrivacyAgreement';
 import { useNavigate } from 'react-router-dom';
-import Button from "react-bootstrap/Button";
-import Alert from 'react-bootstrap/Alert';
 
 function ProfessionalPrivacyAgreementPage() {
     const navigate = useNavigate();
-    const [alertBool, setAlertBool] = useState(false);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -24,11 +20,6 @@ function ProfessionalPrivacyAgreementPage() {
             return;
         }
     };
-
-    const closeAlert = () => {
-        setAlertBool(false);
-        navigate("/login");
-    }
 
     return (
         <div>
