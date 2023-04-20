@@ -18,6 +18,7 @@ app.use(morgan("tiny"));
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
+app.set('trust proxy', 1)
 
 // Sets up CORS policy
 app.use(
@@ -37,9 +38,10 @@ app.use(
     saveUninitialized: true,
     store: store,
     cookie: {
-      secure: false,
-      httpOnly: true,
-      sameSite: "lax",
+      httpOnly:true,
+      secure: true,
+      sameSite: "none",
+      secure: true,
       maxAge: 1000 * 60 * 60 * 12, // Expires after 12 hours
     },
   })

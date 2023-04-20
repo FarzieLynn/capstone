@@ -1,11 +1,23 @@
 import React from "react";
 import "./stylesheets/Mentorship.css";
+import { useNavigate } from "react-router-dom";
 
 /* change the onClick to a list of Mentors line 64*/
 
 function Mentorship() {
+ const navigate = useNavigate()
+ 
   return (
     <div className="mentorship vh-100%">
+      <aside className="finance-aside">
+          <h3 className="title-aside">Quick Links</h3>
+          <h5 className="finq" onClick={() => navigate("/finance")}>Financial Management Questionnaire</h5>
+          <h5 className="fincal" onClick={() => navigate("/finance/calculator")}>Retirement Calculator</h5>
+          <h5 className="bmical" onClick={() => navigate("/BMICal")}>BMI Calculator</h5>
+          <h5 className="bccal" onClick={() => navigate("/BodyCompCal")}>Body Composition Calculator</h5>
+          <h5 className="mentque" onClick={() => navigate("/mentalhealth")}>Mental Health Questionnaire</h5>
+          <h5 className="homep" onClick={() => navigate("/")}>Home Page</h5>
+        </aside>
       <div className="mentorTitles">
         <span className="mentorTitleLg">Mentorship</span>
 
@@ -17,7 +29,7 @@ function Mentorship() {
           alt=""
         />
       </div>
-      <div className="mentorBlurb">
+      <div className="mentorBlurb text-center">
         <p>
           Mentorship is about building relationships and creating a supportive
           community. At its core, mentorship involves a relationship between a
@@ -43,12 +55,12 @@ function Mentorship() {
             honest about any challenges or obstacles you encounter.
           </p>
           <p>
-            <strong>O - Open-mindedness: </strong>Be willing to listen and
+            <strong>O - Open-mindedness: </strong>Listen and
             consider your mentor's advice and feedback. Keep an open mind and be
             willing to learn from their experience and expertise.
           </p>
           <p>
-            <strong>W - Be Willingness: </strong>Be willing to take action and
+            <strong>W - Willingness: </strong>Be willing to take action and
             make changes to achieve your goals.
           </p>
         </aside>

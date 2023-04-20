@@ -1,7 +1,18 @@
 .navbar-main {
-  background-color: #588157;
+  background-color: #63a1be;
   color: white;
   height: 16vh;
+}
+.clickable{
+  font-size: 40px;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+}
+.logo{
+  height: 30px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+
 }
 .navbar-container{
   height: 100%;
