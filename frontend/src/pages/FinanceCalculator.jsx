@@ -56,7 +56,7 @@ const FinanceCalculator = () => {
 
         window.print()
     }
-    
+
     const vaStatus =
     {
         vetWithOneChild:
@@ -2544,159 +2544,175 @@ const FinanceCalculator = () => {
                 </Col>
                 <Col xs={8}>
                     <br></br>
+                    <br></br>
                     <h1>Financial Independence Calculator</h1>
                     <br></br>
                     <h2>You can retire at age {retirementAge}</h2>
                     <div>Civilian target retirement: {targetRetAmt ? formatter.format(targetRetAmt) : 0}</div>
-                    <form className='calc'>
-                        <label>
-                            Annual retirement expenses (today's dollars)
+                    <form className='text-start'>
+                        <div className='d-flex flex-column w-100'>
+                            <label>
+                                Annual retirement expenses (today's dollars)
+                            </label>
                             <input
+                                className='w-25'
                                 type='number'
                                 value={annualRetExp}
                                 onChange={(e) => setAnnualRetExp(parseInt(e.target.value) || 0)}
                             />
-                        </label>
-                        <label>
-                            Current Age
+                            <label>
+                                Current Age
+                            </label>
                             <input
                                 type='number'
+                                className='w-25'
                                 value={currentAge}
                                 onChange={(e) => setCurrentAge(parseInt(e.target.value) || 0)}
                             />
-                        </label>
-                        <label>
-                            Current savings balance
+                            <label>
+                                Current savings balance
+                            </label>
                             <input
                                 type='number'
+                                className='w-25'
                                 value={currentSavings}
                                 onChange={(e) => setCurrentSavings(parseInt(e.target.value) || 0)}
                             />
-                        </label>
-                        <label>
-                            Regular contributions
+                            <label>
+                                Regular contributions
+                            </label>
                             <input
                                 type='number'
+                                className='w-25'
                                 value={contributions}
                                 onChange={(e) => setContributions(parseInt(e.target.value) || 0)}
                             />
-                        </label>
-                        <label>
-                            Contribution frequency
+                            <label>
+                                Contribution frequency
+                            </label>
                             <select
                                 value={contributionFreq}
+                                className='w-25'
                                 onChange={(e) => setContributionFreq(parseInt(e.target.value) || 0)}
                             >
                                 <option value='Monthly'>Monthly</option>
                                 <option value='Annually'>Annually</option>
                             </select>
-                        </label>
-                        <div>
                             <h2>Advanced</h2>
-                            <label>Pre-retirement rate of return
-                                <input
-                                    type='number'
-                                    value={preRetROR}
-                                    onChange={(e) => setPreRetROR(parseInt(e.target.value) || 0)}
-                                />
+                            <label>
+                                Pre-retirement rate of return
                             </label>
-                            <label>Post-retirement rate of return
-                                <input
-                                    type='number'
-                                    value={postRetROR}
-                                    onChange={(e) => setPostRetROR(parseInt(e.target.value) || 0)}
-                                />
+                            <input
+                                type='number'
+                                className='w-25'
+                                value={preRetROR}
+                                onChange={(e) => setPreRetROR(parseInt(e.target.value) || 0)}
+                            />
+                            <label>
+                                Post-retirement rate of return
                             </label>
-                            <label>Inflation
-                                <input
-                                    type='number'
-                                    value={inflation}
-                                    onChange={(e) => setInflation(parseInt(e.target.value) || 0)}
-                                />
+                            <input
+                                type='number'
+                                className='w-25'
+                                value={postRetROR}
+                                onChange={(e) => setPostRetROR(parseInt(e.target.value) || 0)}
+                            />
+                            <label>
+                                Inflation
                             </label>
+                            <input
+                                type='number'
+                                className='w-25'
+                                value={inflation}
+                                onChange={(e) => setInflation(parseInt(e.target.value) || 0)}
+                            />
                             <br></br>
                             <h2>Military Career</h2>
                             <label>
                                 Projected retirement rank
-                                <select
-                                    value={retirementRank}
-                                    onChange={(e) => {
-                                        setRetirementRank(e.target.value)
-                                    }}
-                                >
-                                    <option type='string' value='E-5'>E-5</option>
-                                    <option type='string' value='E-6'>E-6</option>
-                                    <option type='string' value='E-7'>E-7</option>
-                                    <option type='string' value='E-8'>E-8</option>
-                                    <option type='string' value='E-9'>E-9</option>
-                                    <option type='string' value='O-1E'>O-1E</option>
-                                    <option type='string' value='O-2E'>O-2E</option>
-                                    <option type='string' value='O-3E'>O-3E</option>
-                                    <option type='string' value='O-4'>O-4</option>
-                                    <option type='string' value='O-5'>O-5</option>
-                                    <option type='string' value='O-6'>O-6</option>
-                                    <option type='string' value='O-7'>O-7</option>
-                                    <option type='string' value='O-8'>O-8</option>
-                                    <option type='string' value='O-9'>O-9</option>
-                                    <option type='string' value='O-10'>O-10</option>
-                                    <option type='string' value='W-1'>W-1</option>
-                                    <option type='string' value='W-2'>W-2</option>
-                                    <option type='string' value='W-3'>W-3</option>
-                                    <option type='string' value='W-4'>W-4</option>
-                                    <option type='string' value='W-5'>W-5</option>
-                                </select>
                             </label>
+                            <select
+                                value={retirementRank}
+                                className='w-25'
+                                onChange={(e) => {
+                                    setRetirementRank(e.target.value)
+                                }}
+                            >
+                                <option type='string' value='E-5'>E-5</option>
+                                <option type='string' value='E-6'>E-6</option>
+                                <option type='string' value='E-7'>E-7</option>
+                                <option type='string' value='E-8'>E-8</option>
+                                <option type='string' value='E-9'>E-9</option>
+                                <option type='string' value='O-1E'>O-1E</option>
+                                <option type='string' value='O-2E'>O-2E</option>
+                                <option type='string' value='O-3E'>O-3E</option>
+                                <option type='string' value='O-4'>O-4</option>
+                                <option type='string' value='O-5'>O-5</option>
+                                <option type='string' value='O-6'>O-6</option>
+                                <option type='string' value='O-7'>O-7</option>
+                                <option type='string' value='O-8'>O-8</option>
+                                <option type='string' value='O-9'>O-9</option>
+                                <option type='string' value='O-10'>O-10</option>
+                                <option type='string' value='W-1'>W-1</option>
+                                <option type='string' value='W-2'>W-2</option>
+                                <option type='string' value='W-3'>W-3</option>
+                                <option type='string' value='W-4'>W-4</option>
+                                <option type='string' value='W-5'>W-5</option>
+                            </select>
                             <label>
                                 Years until retirement:
-                                <select
-                                    value={activeDutyAge}
-                                    onChange={(e) => {
-                                        setActiveDutyAge(e.target.value)
-                                    }}
-                                >
-                                    <option value='1'>1</option>
-                                    <option value='2'>2</option>
-                                    <option value='3'>3</option>
-                                    <option value='4'>4</option>
-                                    <option value='5'>5</option>
-                                    <option value='6'>6</option>
-                                    <option value='7'>7</option>
-                                    <option value='8'>8</option>
-                                    <option value='9'>9</option>
-                                    <option value='10'>10</option>
-                                    <option value='11'>11</option>
-                                    <option value='12'>12</option>
-                                    <option value='13'>13</option>
-                                    <option value='14'>14</option>
-                                    <option value='15'>15</option>
-                                    <option value='16'>16</option>
-                                    <option value='17'>17</option>
-                                    <option value='18'>18</option>
-                                    <option value='19'>19</option>
-                                    <option value='20'>20</option>
-                                </select>
                             </label>
+                            <select
+                                value={activeDutyAge}
+                                className='w-25'
+                                onChange={(e) => {
+                                    setActiveDutyAge(e.target.value)
+                                }}
+                            >
+                                <option value='1'>1</option>
+                                <option value='2'>2</option>
+                                <option value='3'>3</option>
+                                <option value='4'>4</option>
+                                <option value='5'>5</option>
+                                <option value='6'>6</option>
+                                <option value='7'>7</option>
+                                <option value='8'>8</option>
+                                <option value='9'>9</option>
+                                <option value='10'>10</option>
+                                <option value='11'>11</option>
+                                <option value='12'>12</option>
+                                <option value='13'>13</option>
+                                <option value='14'>14</option>
+                                <option value='15'>15</option>
+                                <option value='16'>16</option>
+                                <option value='17'>17</option>
+                                <option value='18'>18</option>
+                                <option value='19'>19</option>
+                                <option value='20'>20</option>
+                            </select>
                             <label>
                                 Total years served:
-                                <select
-                                    value={yearsInService}
-                                    onChange={(e) => {
-                                        setYearsInService(e.target.value)
-                                    }}
-                                >
-                                    <option value='20'>20</option>
-                                    <option value='22'>22</option>
-                                    <option value='24'>24</option>
-                                    <option value='26'>26</option>
-                                    <option value='28'>28</option>
-                                    <option value='30'>30</option>
-                                    <option value='32'>32</option>
-                                    <option value='34'>34</option>
-                                    <option value='36'>36</option>
-                                    <option value='38'>38</option>
-                                    <option value='40'>40</option>
-                                </select>
                             </label>
+                            <select
+                                value={yearsInService}
+                                className='w-25'
+                                onChange={(e) => {
+                                    setYearsInService(e.target.value)
+                                }}
+                            >
+                                <option value='20'>20</option>
+                                <option value='22'>22</option>
+                                <option value='24'>24</option>
+                                <option value='26'>26</option>
+                                <option value='28'>28</option>
+                                <option value='30'>30</option>
+                                <option value='32'>32</option>
+                                <option value='34'>34</option>
+                                <option value='36'>36</option>
+                                <option value='38'>38</option>
+                                <option value='40'>40</option>
+                            </select>
+                            <br></br>
                             <h2>VA Disability</h2>
                             <label>
                                 Are you service connected?
@@ -2705,6 +2721,7 @@ const FinanceCalculator = () => {
                                     Service connected disability %.
                                 </div>
                                 <select hidden={VA === true ? false : true}
+                                    className='w-25'
                                     value={VAPercentage}
                                     onChange={(e) => {
                                         setVAPercentage(e.target.value)
@@ -2726,6 +2743,7 @@ const FinanceCalculator = () => {
                                     Number of dependents
                                 </div>
                                 <select hidden={VA === true ? false : true}
+                                    className='w-25'
                                     value={dependents}
                                     onChange={(e) => {
                                         setDependents(e.target.value)
@@ -2752,6 +2770,7 @@ const FinanceCalculator = () => {
                                 </div>
                                 <input
                                     type='number'
+                                    className='w-25'
                                     value={adtlChildren}
                                     onChange={(e) => setAdtlChildren(parseInt(e.target.value) || 0)}
                                 />
@@ -2762,6 +2781,7 @@ const FinanceCalculator = () => {
                                 </div>
                                 <input
                                     type='number'
+                                    className='w-25'
                                     value={schoolChildren}
                                     onChange={(e) => setSchoolChildren(parseInt(e.target.value) || 0)}
                                 />
@@ -2776,6 +2796,7 @@ const FinanceCalculator = () => {
                                 </div>
                                 <input
                                     type='number'
+                                    className='w-25'
                                     value={grown}
                                     onChange={(e) => setGrown(parseInt(e.target.value)) || 0}
                                 />
@@ -2787,11 +2808,12 @@ const FinanceCalculator = () => {
                 </Col>
             </Row>
             <Row id="hide">
+                <br></br>
                 <div>
-                    <strong>Retirement Goal as a Civilian:</strong>
+                    <center><strong>Retirement Goal as a Civilian:</strong></center>
                 </div>
                 <ResponsiveContainer width={"100%"} aspect={2}>
-                    <AreaChart data={data} margin={{ top: 10, right: 0, left: 0, bottom: 10 }}>
+                    <AreaChart data={data} margin={{ top: 10, right: 5, left: 5, bottom: 10 }}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <Tooltip content={<TooltipContent />} />
                         <Legend />
@@ -2805,20 +2827,22 @@ const FinanceCalculator = () => {
             <Row>
                 <div id="chart" hidden={pension ? false : true}>
                     <div>
-                        Annual military retirement pay based on your selected
-                        grade and a retirement of {yearsInService ? yearsInService : 20} years after tax: {pension ? formatter.format(pension) : 0}
+                        Annual military retirement pay based on your
+                        grade and {yearsInService ? yearsInService : 20} years served after tax: 
+                        <strong> {pension ? formatter.format(pension) : 0}</strong>
                     </div>
                     <br></br>
                     <div>
                         The amount you need to make up in order to reach your annual retirement expenses:
-                        {newRetirementExpense ? formatter.format(newRetirementExpense) : 0}
+                        <strong> {newRetirementExpense ? formatter.format(newRetirementExpense) : 0}</strong>
                     </div>
                     <br></br>
                     <div id="chart2">
                         Your updated target retirement amount based on your pension: {newTargetRetAmt ? formatter.format(newTargetRetAmt) : 0}
                     </div>
-                    <h2>You can retire at age {newRetAge ? newRetAge : null}</h2>
-                    <strong>Retirement Goal as a Retired Veteran:</strong>
+                    <center><h2>New retirement age: {newRetAge ? newRetAge : null}</h2></center>
+                    <br></br>
+                    <center><strong>Retirement Goal as a Retired Veteran:</strong></center>
                     <ResponsiveContainer width={"100%"} aspect={2} hidden={pension ? false : true}>
                         <AreaChart data={retData} margin={{ top: 10, right: 0, left: 0, bottom: 10 }}>
                             <CartesianGrid strokeDasharray="3 3" />
@@ -2841,20 +2865,21 @@ const FinanceCalculator = () => {
                 <br></br>
                 <br></br>
                     <div>
-                        Annual military retirement pay + disability pay based on your selected
-                        grade and a retirement of {yearsInService ? yearsInService : 20} years after tax: {pensionWithVA ? formatter.format(pensionWithVA) : 0}
+                        Annual military retirement pay + disability based on your
+                        grade and {yearsInService ? yearsInService : 20} years served after tax: <strong> {pensionWithVA ? formatter.format(pensionWithVA) : 0}</strong>
                     </div>
                     <br></br>
                     <div>
                         The amount you need to make up in order to reach your annual retirement expenses:
-                        {newRetirementExpenseWithVA ? formatter.format(newRetirementExpenseWithVA) : 0}
+                        <strong> {newRetirementExpenseWithVA ? formatter.format(newRetirementExpenseWithVA) : 0}</strong>
                     </div>
                     <br></br>
                     <div id="chart">
-                        Your updated target retirement amount based on your pension: {targetRetAmtWithVA ? formatter.format(targetRetAmtWithVA) : 0}
+                        Your updated target retirement amount based on your pension: <strong> {targetRetAmtWithVA ? formatter.format(targetRetAmtWithVA) : 0}</strong>
                     </div>
-                    <h2>You can retire at age {retAgeWithVA ? retAgeWithVA : null}</h2>
-                    <strong>Retirement Goal as a Retired Veteran with Disability:</strong>
+                    <center><h2>New retirement age {retAgeWithVA ? retAgeWithVA : null}</h2></center>
+                    <br></br>
+                    <center><strong>Retirement Goal as a Retired Veteran with Disability:</strong></center>
                     <ResponsiveContainer width={"100%"} aspect={2} hidden={pension ? false : true}>
                         <AreaChart data={retDataWithVA} margin={{ top: 10, right: 0, left: 0, bottom: 10 }}>
                             <CartesianGrid strokeDasharray="3 3" />
@@ -2872,7 +2897,7 @@ const FinanceCalculator = () => {
                     <div hidden={VA ? true : false}>
                         Final annual retirement pay with military pension and social security:<br></br>
                         <div className='fw-bold'>
-                            Prior to Age 62: {formatter.format(pension)}<br></br>
+                            Ages {parseInt(currentAge)+parseInt(activeDutyAge)} to 62: {formatter.format(pension)}<br></br>
                             Age 62: {formatter.format(pension + penaltySS)}<br></br>
                             Age 67: {formatter.format(pension + fullSS)}<br></br>
                             Age 70: {formatter.format(pension + bonusSS)}<br></br>
@@ -2883,7 +2908,7 @@ const FinanceCalculator = () => {
                 <div id="chart" hidden={VA ? false : true} className='text-center'>
                     Final annual retirement pay with military pension, disability, and social security not counting
                     annuity payouts for your investments:<br></br>
-                    <strong>Prior to Age 62: {formatter.format(pensionWithVA)}</strong><br></br>
+                    <strong>Ages {parseInt(currentAge)+parseInt(activeDutyAge)} to 62: {formatter.format(pensionWithVA)}</strong><br></br>
                     <strong>Age 62: {formatter.format(penaltySS + pensionWithVA)}</strong><br></br>
                     <strong>Age 67: {formatter.format(fullSS + pensionWithVA)}</strong><br></br>
                     <strong>Age 70: {formatter.format(bonusSS + pensionWithVA)}</strong><br></br>

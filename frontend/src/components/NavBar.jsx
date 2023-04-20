@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 
 
+
+
 const NavBar = () => {
   const { user, setUser, url } = useContext(AppContext);
   const navigate = useNavigate();
