@@ -62,7 +62,7 @@ function RegisterForm({ loginFailed, handleSubmit }) {
         <Form.Select type="text" name="status" placeholder="Military Status">
           <option>Active Duty</option>
           <option>Reserves</option>
-          <option>Veteren</option>
+          <option>Veteran</option>
           <option>Civilian</option>
         </Form.Select>
       </Form.Group>
