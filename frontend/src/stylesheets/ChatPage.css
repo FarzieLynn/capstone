@@ -19,7 +19,7 @@
 
 .ce-chat-card {
   margin: 0px 6px !important;
-  background-color: #049466 !important;
+  background-color: #7fc9ec !important;
   border-radius: 10px !important;
 }
 
@@ -28,11 +28,12 @@
 }
 
 .ce-active-chat-card {
-  background-color: #027d56 !important;
+  background-color: #63a1be !important;
 }
 
 .ce-chat-title-text {
   color: black !important;
+  font-weight: bold !important;
 }
 
 .ce-chat-subtitle-text {
@@ -55,7 +56,7 @@
 }
 
 .ce-primary-button {
-  background-color: #027d56 !important;
+  background-color: #63a1be !important;
 }
 
 .ce-message-date-text {
@@ -63,15 +64,15 @@
 }
 
 .ce-my-message-bubble {
-  background-color: #027d56 !important;
+  background-color: #63a1be !important;
 }
 
 .ce-my-message-sinding-bubble {
-  background-color: #049466 !important;
+  background-color: #63a1be !important;
 }
 
 .ce-my-message-timestamp {
-  color: #027d56 !important;
+  color: #63a1be !important;
 }
 
 .ce-their-message-timestamp {
@@ -79,7 +80,7 @@
 }
 
 #ce-send-message-button {
-  background-color: #027d56 !important;
+  background-color: #63a1be !important;
 }
 
 #ce-ice-breaker-gif {
@@ -156,11 +157,16 @@
 
 .ce-danger-button {
   background-color: white !important;
-  border: 1px solid #027d56 !important;
-  color: #027d56 !important;
+  border: 1px solid #63a1be !important;
+  color: #63a1be !important;
 }
 
 .ce-autocomplete-close {
   background-color: black !important;
   border-radius: 0px !important;
+}
+.create-chat{
+  margin-left: 2.5%;
+  width: 95%;
+
 }

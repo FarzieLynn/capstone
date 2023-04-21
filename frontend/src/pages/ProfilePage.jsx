@@ -28,7 +28,7 @@ const ProfilePage = () => {
   const { username } = useParams();
 
   const getUserData = async () => {
-    return fetch(`${url}/users/${username}`, {
+    return await fetch(`${url}/users/${username}`, {
       method: "GET",
       credentials: "include",
       headers: {
@@ -38,6 +38,7 @@ const ProfilePage = () => {
     })
       .then((response) => response.json())
       .then((userData) => {
+        setUserData(userData);
         return userData;
       });
   };
@@ -58,12 +59,11 @@ const ProfilePage = () => {
           .then((data) => setUserScores(data));
       } else {
         getUserData()
-          .then((userData) => setUserData(userData))
-          .then((data) => {
-            fetch(`${url}/users/scores/${userData.publicData.id}`)
-              .then((data) => data.json())
-              .then((data) => setUserScores(data));
-          });
+          // .then((data) => {
+          //   fetch(`${url}/users/scores/${userData.publicData.id}`)
+          //     .then((data) => data.json())
+          //     .then((data) => setUserScores(data));
+          // });
       }
     }
   }, [user, username, url]);
@@ -555,12 +555,12 @@ const createRegularProfilePage = (
                   </Form>
                 ) : null}
                 <div className="d-flex justify-content-center mb-2">
-                  <Button
+                  <button
                     className="m-1 btn-chat"
-                    onClick={() => handleNewChat()}
+                    onClick={() => handleNewChat(userData)}
                   >
                     Message Now!
-                  </Button>
+                  </button>
 
                   {user.roles.includes("Admin") ? (
                     <Button className="m-1 btn-chat">Delete User</Button>
@@ -732,7 +732,7 @@ const createRegularProfilePage = (
                       user.publicData.username ? (
                         <Card.Link
                           className="clickable"
-                          onClick={() => console.log("Editting")}
+                          onClick={() => console.log("Editing")}
                         >
                           Edit
                         </Card.Link>
