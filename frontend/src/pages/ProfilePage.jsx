@@ -28,7 +28,7 @@ const ProfilePage = () => {
   const { username } = useParams();
 
   const getUserData = async () => {
-    return await fetch(`${url}/users/${username}`, {
+    return fetch(`${url}/users/${username}`, {
       method: "GET",
       credentials: "include",
       headers: {
@@ -38,7 +38,6 @@ const ProfilePage = () => {
     })
       .then((response) => response.json())
       .then((userData) => {
-        setUserData(userData);
         return userData;
       });
   };
@@ -59,11 +58,12 @@ const ProfilePage = () => {
           .then((data) => setUserScores(data));
       } else {
         getUserData()
-          // .then((data) => {
-          //   fetch(`${url}/users/scores/${userData.publicData.id}`)
-          //     .then((data) => data.json())
-          //     .then((data) => setUserScores(data));
-          // });
+          .then((userData) => setUserData(userData))
+          .then((data) => {
+            fetch(`${url}/users/scores/${userData.publicData.id}`)
+              .then((data) => data.json())
+              .then((data) => setUserScores(data));
+          });
       }
     }
   }, [user, username, url]);
@@ -112,10 +112,10 @@ const ProfilePage = () => {
         "Content-type": "application/json; charset=UTF-8",
         Authorization: `Bearer ${token}`,
       },
-    })
+    });
 
-    navigate('/');
-  }
+    navigate("/");
+  };
 
   const handleAboutMeUpdate = async () => {
     await fetch(`${url}/users/${userData.publicData.username}`, {
@@ -344,14 +344,21 @@ const createProfessionalProfilePage = (
                   Military Anonymous Professional
                 </Card.Text>
                 <div className="d-flex justify-content-center mb-2">
-                  <Button
-                    className="m-1 btn-chat"
-                    onClick={() => handleNewChat()}
-                  >
-                    Message Now!
-                  </Button>
+                  {user.publicData.username !== userData.publicData.username ? (
+                    <Button
+                      className="m-1 btn-chat"
+                      onClick={() => handleNewChat()}
+                    >
+                      Message Now!
+                    </Button>
+                  ) : null}
                   {user.roles.includes("Admin") ? (
-                    <Button className="m-1 btn-chat" onClick={()=>handleDeleteUser()}>Delete User</Button>
+                    <Button
+                      className="m-1 btn-chat"
+                      onClick={() => handleDeleteUser()}
+                    >
+                      Delete User
+                    </Button>
                   ) : null}
                 </div>
               </Card.Body>
@@ -386,14 +393,14 @@ const createProfessionalProfilePage = (
                   <div className="d-flex justify-content-between mb-2">
                     <Card.Title>User Info</Card.Title>
                     {userData.publicData.username ===
-                      user.publicData.username ? (
-                        <Card.Link
-                          className="clickable"
-                          onClick={() => setShowInfoModal(true)}
-                        >
-                          Edit
-                        </Card.Link>
-                      ) : null}
+                    user.publicData.username ? (
+                      <Card.Link
+                        className="clickable"
+                        onClick={() => setShowInfoModal(true)}
+                      >
+                        Edit
+                      </Card.Link>
+                    ) : null}
                   </div>
                   <Col sm={3}>
                     <Card.Text>Full Name</Card.Text>
@@ -572,15 +579,22 @@ const createRegularProfilePage = (
                   </Form>
                 ) : null}
                 <div className="d-flex justify-content-center mb-2">
-                  <button
-                    className="m-1 btn-chat"
-                    onClick={() => handleNewChat(userData)}
-                  >
-                    Message Now!
-                  </button>
+                  {user.publicData.username !== userData.publicData.username ? (
+                    <Button
+                      className="m-1 btn-chat"
+                      onClick={() => handleNewChat()}
+                    >
+                      Message Now!
+                    </Button>
+                  ) : null}
 
                   {user.roles.includes("Admin") ? (
-                    <Button className="m-1 btn-chat" onClick={()=>handleDeleteUser()}>Delete User</Button>
+                    <Button
+                      className="m-1 btn-chat"
+                      onClick={() => handleDeleteUser()}
+                    >
+                      Delete User
+                    </Button>
                   ) : null}
                 </div>
               </Card.Body>
@@ -617,14 +631,14 @@ const createRegularProfilePage = (
                   <div className="d-flex justify-content-between mb-2">
                     <Card.Title>User Info</Card.Title>
                     {userData.publicData.username ===
-                      user.publicData.username ? (
-                        <Card.Link
-                          className="clickable"
-                          onClick={() => setShowInfoModal(true)}
-                        >
-                          Edit
-                        </Card.Link>
-                      ) : null}
+                    user.publicData.username ? (
+                      <Card.Link
+                        className="clickable"
+                        onClick={() => setShowInfoModal(true)}
+                      >
+                        Edit
+                      </Card.Link>
+                    ) : null}
                   </div>
                   <Col sm={3}>
                     <Card.Text>Full Name</Card.Text>
