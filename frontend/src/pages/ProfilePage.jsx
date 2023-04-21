@@ -344,12 +344,16 @@ const createProfessionalProfilePage = (
                   Military Anonymous Professional
                 </Card.Text>
                 <div className="d-flex justify-content-center mb-2">
+                  {user.publicData.username !== userData.publicData.username ? (
                   <Button
-                    className="m-1 btn-chat"
-                    onClick={() => handleNewChat()}
-                  >
-                    Message Now!
-                  </Button>
+                  className="m-1 btn-chat"
+                  onClick={() => handleNewChat()}
+                >
+                  Message Now!
+                </Button>
+                  ):(
+                    null
+                  )}
                   {user.roles.includes("Admin") ? (
                     <Button className="m-1 btn-chat" onClick={()=>handleDeleteUser()}>Delete User</Button>
                   ) : null}
@@ -572,12 +576,16 @@ const createRegularProfilePage = (
                   </Form>
                 ) : null}
                 <div className="d-flex justify-content-center mb-2">
+                {user.publicData.username !== userData.publicData.username ? (
                   <Button
-                    className="m-1 btn-chat"
-                    onClick={() => handleNewChat()}
-                  >
-                    Message Now!
-                  </Button>
+                  className="m-1 btn-chat"
+                  onClick={() => handleNewChat()}
+                >
+                  Message Now!
+                </Button>
+                  ):(
+                    null
+                  )}
 
                   {user.roles.includes("Admin") ? (
                     <Button className="m-1 btn-chat" onClick={()=>handleDeleteUser()}>Delete User</Button>
