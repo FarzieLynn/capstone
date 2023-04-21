@@ -64,6 +64,10 @@ const getProfessionals = () => {
   return knex.select("id", "username", "email", "branch", "full_name", "age_group", "gender", "education_level", "phone_number", "about_you", "personal_goals", "is_professional", "is_anonymous", "anon_username").from("users").where({ is_professional: true });
 }
 
+const deleteUser = (userID) => {
+  return knex('users').where('id', '=', userID).del();
+}
+
 module.exports = {
   postUser,
   verifySessionID,
@@ -74,4 +78,5 @@ module.exports = {
   updateUser,
   checkIfAnonUsernameExists,
   getProfessionals,
+  deleteUser,
 };

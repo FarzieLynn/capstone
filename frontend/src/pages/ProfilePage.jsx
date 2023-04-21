@@ -104,6 +104,19 @@ const ProfilePage = () => {
     );
   };
 
+  const handleDeleteUser = async () => {
+    await fetch(`${url}/users/${userData.publicData.id}`, {
+      method: "DELETE",
+      credentials: "include",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+
+    navigate('/');
+  }
+
   const handleAboutMeUpdate = async () => {
     await fetch(`${url}/users/${userData.publicData.username}`, {
       method: "PATCH",
@@ -158,7 +171,8 @@ const ProfilePage = () => {
               handleSwitch,
               setShowAboutMeModal,
               handleNewChat,
-              setShowInfoModal
+              setShowInfoModal,
+              handleDeleteUser
             )
           : createRegularProfilePage(
               userData,
@@ -167,7 +181,8 @@ const ProfilePage = () => {
               setShowAboutMeModal,
               userScores,
               handleNewChat,
-              setShowInfoModal
+              setShowInfoModal,
+              handleDeleteUser
             )}
         <Modal
           show={showAboutMeModal}
@@ -309,7 +324,8 @@ const createProfessionalProfilePage = (
   handleSwitch,
   setShowModal,
   handleNewChat,
-  setShowInfoModal
+  setShowInfoModal,
+  handleDeleteUser
 ) => {
   return (
     <section className="profilepage-main">
@@ -335,7 +351,7 @@ const createProfessionalProfilePage = (
                     Message Now!
                   </Button>
                   {user.roles.includes("Admin") ? (
-                    <Button className="m-1 btn-chat">Delete User</Button>
+                    <Button className="m-1 btn-chat" onClick={()=>handleDeleteUser()}>Delete User</Button>
                   ) : null}
                 </div>
               </Card.Body>
@@ -525,7 +541,8 @@ const createRegularProfilePage = (
   setShowModal,
   userScores,
   handleNewChat,
-  setShowInfoModal
+  setShowInfoModal,
+  handleDeleteUser
 ) => {
   return (
     <section className="profilepage-main">
@@ -563,7 +580,7 @@ const createRegularProfilePage = (
                   </button>
 
                   {user.roles.includes("Admin") ? (
-                    <Button className="m-1 btn-chat">Delete User</Button>
+                    <Button className="m-1 btn-chat" onClick={()=>handleDeleteUser()}>Delete User</Button>
                   ) : null}
                 </div>
               </Card.Body>
@@ -571,7 +588,7 @@ const createRegularProfilePage = (
 
             <Card className="m-4">
               <Card.Body>
-                <Card.Title>Questionnaire Results</Card.Title>
+                <Card.Title>Mental Health Questionnaire Results</Card.Title>
                 <Row>
                   <Col>Date Taken</Col>
                   <Col>Score</Col>
@@ -728,15 +745,6 @@ const createRegularProfilePage = (
                   <Card.Body>
                     <div className="d-flex justify-content-between mb-2">
                       <Card.Title>Personal Goals</Card.Title>
-                      {userData.publicData.username ===
-                      user.publicData.username ? (
-                        <Card.Link
-                          className="clickable"
-                          onClick={() => console.log("Editing")}
-                        >
-                          Edit
-                        </Card.Link>
-                      ) : null}
                     </div>
                     <div>
                       {userData.publicData.personal_goals?.personal_goals.map(
