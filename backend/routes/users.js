@@ -1,5 +1,5 @@
 const express = require("express");
-const { checkIfUsernameExists, postUser, getUserPublicInformation, getUserRoles, updateUser, checkIfAnonUsernameExists, getProfessionals } = require("../db/authControllers");
+const { checkIfUsernameExists, postUser, getUserPublicInformation, getUserRoles, updateUser, checkIfAnonUsernameExists, getProfessionals, deleteUser } = require("../db/authControllers");
 const bcrypt = require("bcrypt");
 const router = express.Router();
 const { authenticateToken } = require("../utilities/authorization");
@@ -85,8 +85,9 @@ router.patch('/:username', authenticateToken, async (req, res) => {
 })
 
 
-
-
-
+router.delete('/:userID', authenticateToken, async (req, res) => {
+  await deleteUser(req.params.userID);
+  return res.status(201).send('User deleted!');
+})
 
 module.exports = router;
