@@ -112,10 +112,10 @@ const ProfilePage = () => {
         "Content-type": "application/json; charset=UTF-8",
         Authorization: `Bearer ${token}`,
       },
-    })
+    });
 
-    navigate('/');
-  }
+    navigate("/");
+  };
 
   const handleAboutMeUpdate = async () => {
     await fetch(`${url}/users/${userData.publicData.username}`, {
@@ -345,17 +345,20 @@ const createProfessionalProfilePage = (
                 </Card.Text>
                 <div className="d-flex justify-content-center mb-2">
                   {user.publicData.username !== userData.publicData.username ? (
-                  <Button
-                  className="m-1 btn-chat"
-                  onClick={() => handleNewChat()}
-                >
-                  Message Now!
-                </Button>
-                  ):(
-                    null
-                  )}
+                    <Button
+                      className="m-1 btn-chat"
+                      onClick={() => handleNewChat()}
+                    >
+                      Message Now!
+                    </Button>
+                  ) : null}
                   {user.roles.includes("Admin") ? (
-                    <Button className="m-1 btn-chat" onClick={()=>handleDeleteUser()}>Delete User</Button>
+                    <Button
+                      className="m-1 btn-chat"
+                      onClick={() => handleDeleteUser()}
+                    >
+                      Delete User
+                    </Button>
                   ) : null}
                 </div>
               </Card.Body>
@@ -390,14 +393,14 @@ const createProfessionalProfilePage = (
                   <div className="d-flex justify-content-between mb-2">
                     <Card.Title>User Info</Card.Title>
                     {userData.publicData.username ===
-                      user.publicData.username ? (
-                        <Card.Link
-                          className="clickable"
-                          onClick={() => setShowInfoModal(true)}
-                        >
-                          Edit
-                        </Card.Link>
-                      ) : null}
+                    user.publicData.username ? (
+                      <Card.Link
+                        className="clickable"
+                        onClick={() => setShowInfoModal(true)}
+                      >
+                        Edit
+                      </Card.Link>
+                    ) : null}
                   </div>
                   <Col sm={3}>
                     <Card.Text>Full Name</Card.Text>
@@ -576,19 +579,22 @@ const createRegularProfilePage = (
                   </Form>
                 ) : null}
                 <div className="d-flex justify-content-center mb-2">
-                {user.publicData.username !== userData.publicData.username ? (
-                  <Button
-                  className="m-1 btn-chat"
-                  onClick={() => handleNewChat()}
-                >
-                  Message Now!
-                </Button>
-                  ):(
-                    null
-                  )}
+                  {user.publicData.username !== userData.publicData.username ? (
+                    <Button
+                      className="m-1 btn-chat"
+                      onClick={() => handleNewChat()}
+                    >
+                      Message Now!
+                    </Button>
+                  ) : null}
 
                   {user.roles.includes("Admin") ? (
-                    <Button className="m-1 btn-chat" onClick={()=>handleDeleteUser()}>Delete User</Button>
+                    <Button
+                      className="m-1 btn-chat"
+                      onClick={() => handleDeleteUser()}
+                    >
+                      Delete User
+                    </Button>
                   ) : null}
                 </div>
               </Card.Body>
@@ -625,14 +631,14 @@ const createRegularProfilePage = (
                   <div className="d-flex justify-content-between mb-2">
                     <Card.Title>User Info</Card.Title>
                     {userData.publicData.username ===
-                      user.publicData.username ? (
-                        <Card.Link
-                          className="clickable"
-                          onClick={() => setShowInfoModal(true)}
-                        >
-                          Edit
-                        </Card.Link>
-                      ) : null}
+                    user.publicData.username ? (
+                      <Card.Link
+                        className="clickable"
+                        onClick={() => setShowInfoModal(true)}
+                      >
+                        Edit
+                      </Card.Link>
+                    ) : null}
                   </div>
                   <Col sm={3}>
                     <Card.Text>Full Name</Card.Text>

@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./stylesheets/Mentorship.css";
 import { useNavigate } from "react-router-dom";
+import { AppContext } from "../App";
+import ProfessionalsTable from "../components/ProfessionalsTable";
+
 
 /* change the onClick to a list of Mentors line 64*/
 
 function Mentorship() {
  const navigate = useNavigate()
+ const { user } = useContext(AppContext);
  
   return (
     <div className="mentorship">
@@ -90,6 +94,10 @@ function Mentorship() {
             knowledge, and perspectives.
           </p>
         </aside>
+      </div>
+      <div className="d-flex flex-column align-items-center proftable">
+        {user.publicData !== undefined ? <h3>Chat with a professional</h3> : null}
+        {user.publicData !== undefined ? <ProfessionalsTable type={'Mentor'}/> : null}
       </div>
     </div>
   );
