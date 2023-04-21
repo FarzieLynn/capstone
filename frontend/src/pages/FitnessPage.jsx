@@ -82,7 +82,7 @@ function FitnessPage() {
           member looking to improve your fitness and nutrition, there are many
           resources available to help you get started.
         </p>
-        <h3>Chat with a professional</h3>
+        {user.publicData !== undefined ? <h3>Chat with a professional</h3> : null}
         {user.publicData !== undefined ? <ProfessionalsTable type={'Fitness Trainer'}/> : null}
       </div>
 

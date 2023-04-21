@@ -66,21 +66,21 @@ Serving in the military can be a challenging and complex experience, and there a
 
 * **Register:** As a user, you can register on our website to gain access to all of our features. You have the option to register confidentially or anonymously. Just click on the "Register" button on the Login page and follow the prompts.
 
-* Once you have completed the registration, you will receive an alert stating `Profile page created!`
+	* Once you have completed the registration, you will receive an alert stating `Profile page created!`
 
-* Click the `Login` link at the top right corner to be redirected to the Login Page
+	* Click the `Login` link at the top right corner to be redirected to the Login Page
 
-* From here, you will be able to login on your newly created username
+	* From here, you will be able to login on your newly created username
 
 * **Profile Page:** Your profile page is where you can update your personal information, add a profile picture, and view your activity on the website.
 
 * **Finance Page:** We have a dedicated Finance Page where you can access financial resources and information. You can also use our retirement calculator to help plan for your future.
 
-* **Fitness Page:** Our Fitness Page has tools like BMI and Body Composition Calculators to help you track your fitness progress. You can also find workout plans and nutrition tips to help you stay healthy.
+* **Fitness Page:** Our Fitness Page has tools like BMI and Body Composition Calculators to help you track your fitness progress. You can also consult with a Fitness & Nutrition Professional to go over workout plans and nutrition tips to help you stay healthy.
 
 * **Mental Health Page:** Our Mental Health Page is a great resource for anyone who needs support or guidance. You can take our mental health questionnaire to assess your mental health status and find resources to help you cope.
 
-* **Mentorship Page:** Our Mentorship Page connects you with experienced military personnel who can offer guidance and support. You can also find Quick Links to resources and tools that will help you succeed in your career and personal life.
+* **Mentorship Page:** Our Mentorship Page connects you with experienced military personnel who can offer guidance and support. You can also click on the `Forums` link to help you connect with others that could help you succeed in your career and personal life.
 
 
 ### **Military Anonymous Features**
