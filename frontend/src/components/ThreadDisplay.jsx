@@ -114,10 +114,10 @@ function ThreadDisplay() {
                 <></>
               )}
             </Container>
-            {createThreadCard(thread, user)}
+            {createThreadCard(thread, user, navigate)}
             {thread ? (
               comments.map((comment) => {
-                return createCommentCard(comment, user);
+                return createCommentCard(comment, user, navigate);
               })
             ) : (
               <div>Loading...</div>
@@ -166,13 +166,13 @@ function ThreadDisplay() {
 
 export default ThreadDisplay;
 
-const createThreadCard = (thread, user) => {
+const createThreadCard = (thread, user, navigate) => {
   return (
     <Card className="m-1" key={thread?.thread_id}>
       <Card.Header>
         <Card.Title className="m-2">{thread?.thread_title}</Card.Title>
       </Card.Header>
-      <Card.Subtitle className="m-2 text-muted">
+      <Card.Subtitle className="m-2 text-muted clickable" onClick={()=> navigate(`/profile/${thread?.username}`)}>
         {thread?.is_anonymous ? "Anonymous" : thread?.username}
       </Card.Subtitle>
       <Card.Body data-color-mode="light">
@@ -191,10 +191,10 @@ const createThreadCard = (thread, user) => {
   );
 };
 
-const createCommentCard = (comment, user) => {
+const createCommentCard = (comment, user, navigate) => {
   return (
-    <Card className="m-1" key={comment?.comment_id}>
-      <Card.Subtitle className="m-2 text-muted">
+    <Card className="m-1" key={comment?.comment_id} onClick={()=> navigate(`/profile/${comment?.username}`)}>
+      <Card.Subtitle className="m-2 text-muted clickable">
         {comment?.is_anonymous ? "Anonymous" : comment?.username}
       </Card.Subtitle>
       <Card.Body data-color-mode="light">
