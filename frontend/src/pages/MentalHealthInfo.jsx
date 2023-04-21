@@ -100,7 +100,7 @@ function MentalHealthInfo() {
               taking care of your mental health is crucial. We're here to support
               you, and we hope you find the resources on our page helpful.
             </p>
-            <h3>Chat with a professional</h3>
+            {user.publicData !== undefined ? <h3>Chat with a professional</h3> : null}
             {user.publicData !== undefined ? <ProfessionalsTable type={'Chaplain'}/> : null}
           </div>
         </div>

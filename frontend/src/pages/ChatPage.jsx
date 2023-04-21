@@ -18,13 +18,15 @@ const ChatPage = () => {
 
   const renderChatForm = (creds) => {
     return (
-      <div>
+      <div className='mt-4 mb-2 create-chat input-group'>
         <input
+          type='text'
+          className='form-control'
           placeholder='Username'
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <button onClick={() => createDirectChat(creds)}> Create </button>
+        <button onClick={() => createDirectChat(creds)} className='btn btn-secondary'> Create </button>
       </div>
     )
   }

@@ -25,7 +25,7 @@
     color: #023047;
     margin-top: 3%;
     margin-left: 3%;
-    margin-right: 10%;
+    margin-right: 14%;
     text-align: start;
     font-size: 18px;
     font-style: italic;
@@ -66,4 +66,8 @@
 }
 .linky:hover{
     cursor: pointer;
+}
+
+.proftable{
+    margin-right: 14%;
 }
