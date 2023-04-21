@@ -16,14 +16,16 @@ import {
 import { getOrCreateChat } from "react-chat-engine";
 
 const ProfilePage = () => {
-  const navigate = useNavigate();
-  const { user, setUser, url, token } = useContext(AppContext);
-  const { username } = useParams();
   const [userData, setUserData] = useState({});
   const [userScores, setUserScores] = useState([]);
   const [showAboutMeModal, setShowAboutMeModal] = useState(false);
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [aboutMeUpdate, setAboutMeUpdate] = useState("");
+
+  const navigate = useNavigate();
+
+  const { user, setUser, url, token } = useContext(AppContext);
+  const { username } = useParams();
 
   const getUserData = async () => {
     return fetch(`${url}/users/${username}`, {
@@ -307,7 +309,6 @@ const createProfessionalProfilePage = (
   user,
   handleSwitch,
   setShowModal,
-  userScores,
   handleNewChat,
   setShowInfoModal
 ) => {
@@ -328,7 +329,7 @@ const createProfessionalProfilePage = (
                   Military Anonymous Professional
                 </Card.Text>
                 <div className="d-flex justify-content-center mb-2">
-                  <Button
+                <Button
                     className="m-1 btn-chat"
                     onClick={() => handleNewChat()}
                   >
