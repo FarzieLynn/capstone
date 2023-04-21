@@ -68,6 +68,7 @@ const NavBar = () => {
               )}
             </Nav>
           </Nav>
+              <h6 className="slogan w-75">Connect Anonymously. Thrive Openly.</h6>
           <Nav className="w-100 justify-content-evenly align-items-center">
             <span
               className="navbar-links fs-5"

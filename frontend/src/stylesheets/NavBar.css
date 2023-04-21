@@ -12,7 +12,13 @@
   height: 30px;
   margin-right: 5px;
   margin-bottom: 10px;
-
+}
+.slogan{
+  font-size: 15px;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  margin-bottom: 10px;
+  z-index: -1;
 }
 .navbar-container{
   height: 100%;
