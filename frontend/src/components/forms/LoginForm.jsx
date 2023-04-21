@@ -28,9 +28,9 @@ function LoginForm({ handleSubmit, alert }) {
         <Form.Control type="password" name='password' placeholder="Password" />
       </Form.Group>
       {showAlert ? <DismissableAlert alert={alert} setShowAlert={setShowAlert} /> : null}
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
+      {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Link to="/forgotpassword">Forgot Password?</Link>
-      </Form.Group>
+      </Form.Group> */}
       <Button variant="primary" className="my-2 me-2" onClick={(e)=> {handleSubmit(e)}} >
         Submit
       </Button>
