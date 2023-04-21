@@ -87,7 +87,6 @@ const ProfilePage = () => {
   };
 
   const handleNewChat = () => {
-    console.log('messaging!')
     const userChat = {
       userName: user.publicData.is_anonymous
         ? user.publicData.anon_username
@@ -104,10 +103,6 @@ const ProfilePage = () => {
       () => navigate("/chat")
     );
   };
-
-  const testFunc = () => {
-    console.log('testing!')
-  }
 
   const handleAboutMeUpdate = async () => {
     await fetch(`${url}/users/${userData.publicData.username}`, {
