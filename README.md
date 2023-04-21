@@ -13,8 +13,7 @@ Serving in the military can be a challenging and complex experience, and there a
 
 * Fork this repository in GitHub and clone it locally onto your machine.
 	* https://github.com/FarzieLynn/capstone.git
-	* Once cloned:
-			* open the repo with VSCode
+	* Once cloned, open the repo with VSCode
 
 **2. Setup your .env files**
 
@@ -29,13 +28,15 @@ Serving in the military can be a challenging and complex experience, and there a
 
 * Go to your VSCode and open your terminal
 
-* From the root project directory, run the command *docker-compose up* **This should create your docker container, run it, and create a database named capstone_db.
+* From the root project directory, run the command `docker-compose up` 
+
+***This should create your docker container, run it, and create a database named capstone_db.***
 
 * To verify it is up and running, open Docker Desktop and open the terminal for your postgres instance
 
 * Run the following command `psql -U postgres`
 
-* When you type in `\l` it will populate a list of databases. You should see capstone_db in the list.
+* When you type in `\l` it will populate a list of databases. You should see **capstone_db** in the list.
 
 **3. Back-end**
 
@@ -61,63 +62,44 @@ Serving in the military can be a challenging and complex experience, and there a
 
 ### **User Functionality**
 
-* As a user, you will be able to register from the login page under `Register`
+* Upon opening the *Military Anonymous* application, you will be greeted by the homescreen. From there you will have the option to create a profile via the `create a profile` link or by clicking the `Login` link in the top right corner
 
-* On the registration page, you will be able to choose to create a confidential or an anonymous profile
+* **Register:** As a user, you can register on our website to gain access to all of our features. You have the option to register confidentially or anonymously. Just click on the "Register" button on the Login page and follow the prompts.
 
-* Once you have completed the registration, you will receive an alert stating `Profile page created!`
+	* Once you have completed the registration, you will receive an alert stating `Profile page created!`
 
-* Click the `Login` link at the top right corner to be redirected to the Login Page
+	* Click the `Login` link at the top right corner to be redirected to the Login Page
 
-* From here, you will be able to login on your newly created username
+	* From here, you will be able to login on your newly created username
 
-* Once logged in, you will see a navigation bar at the top with the 4 pillars of health: 
+* **Profile Page:** Your profile page is where you can update your personal information, add a profile picture, and view your activity on the website.
 
-	* ***Finance***
-	
-	* ***Fitness***
-	
-	* ***Mental Health***
-	
-	* ***Mentorship***
-	
-* Also in the navigation bar, you will see a `Click to Chat!` button as well as an Alert for the Suicide Safe Helpline.
+* **Finance Page:** We have a dedicated Finance Page where you can access financial resources and information. You can also use our retirement calculator to help plan for your future.
 
-* When you click on Finance you will be directed to its information page where you can read about what most struggle with and why they come to Military Anonymous for guidance.
+* **Fitness Page:** Our Fitness Page has tools like BMI and Body Composition Calculators to help you track your fitness progress. You can also consult with a Fitness & Nutrition Professional to go over workout plans and nutrition tips to help you stay healthy.
 
-	* There is a `Click here` option to take you to the Finance questionnaire
-	
-	* **Finance Questionnaire**
-		
-		* The purpose of the Finance Questionnaire is to gauge how well you are doing with your finances and what Military 			Anonymous can do to help you reach your financial goals.
-		
-		* After the completion of your Finance Questionnaire you will be redirected to either a Beginner, Intermediate, or Advanced information page based on your score from the questionnaire.
-		
-		* Also within the Finance hub you will be able to use a retirement calculator.
-		
-* When you click on Fitness you will be directed to its information page where you can read about the importance of Fitness & Nutrition while serving active duty, reserve or as a veteran.
+* **Mental Health Page:** Our Mental Health Page is a great resource for anyone who needs support or guidance. You can take our mental health questionnaire to assess your mental health status and find resources to help you cope.
 
-	* There is a `Click here` option to redirect you to a BMI calculator.
-	
-	* list of Fitness & Nutrition Coaches who will be availble to chat with you and provide information to any of the questions that you may have.
+* **Mentorship Page:** Our Mentorship Page connects you with experienced military personnel who can offer guidance and support. You can also click on the `Forums` link to help you connect with others that could help you succeed in your career and personal life.
 
-* When you click
 
-### **Professional User Functionality**
+### **Military Anonymous Features**
+#### ***Note: these features are only available to those who register/create a profile.***
 
-* As a professional, you will be able to register from the login page under `Register as Professional`
+* **Save and Print Information:** You have the ability to save and/or print your information from the Mental Health and Financial Management Questionnaire, as well as the information populated after completing the Retirement Calculator.
 
-* On the registration page, you will be able to fill out all informtaion pertaining to your area of expertise and write a short "About Me" paragraph
+* **Quick Links:** each quick link can take you directly to either the Mental Health Questionnaire, Financial Management Questionnaire, Retirement Calculator, BMI & Body Composition Calculators, and the Home Page conveniently available on each of our informational pages.
 
-* After you fill out the form, the `Professional Statement of Understanding` will pop-up
+* **Chat:** Once you've registered, you can join our chat feature to connect with other members of the Military Anonymous community. This is a great way to meet people who share similar experiences and interests.
 
-* After reading through the SOU, you will click the `X` at the top right corner and submit your registration form. Once your registration form is submitted, you will receive an alert stating `Profile page created!`
+* **Forums:** You'll see a list of forum topics on the main page. You can browse the forums by clicking on the topic that interests you. You will also be able to:
 
-* Once your registration is complete, you will be able to log in
+	- *Create a New Topic:* If you want to start a new discussion, click on the "New" button. You'll be asked to enter a title and description for your topic. Make sure your topic is clear and concise.
 
-### **Admin Functionality**
+	- *Participate in a Discussion:* To join an existing discussion, click on the topic that interests you. You can read the initial post and the replies from other users. To reply to a post, click on the "Reply" button.
 
-* 
+	- *Follow Forum Rules:* It's important to follow the forum rules to ensure a positive and respectful environment. Make sure your posts are relevant and respectful, and that you're not posting any personal information or spam.
+
 
 ## Contributions
 * Tanner Anderson - https://github.com/tanderson539

@@ -16,14 +16,16 @@ import {
 import { getOrCreateChat } from "react-chat-engine";
 
 const ProfilePage = () => {
-  const navigate = useNavigate();
-  const { user, setUser, url, token } = useContext(AppContext);
-  const { username } = useParams();
   const [userData, setUserData] = useState({});
   const [userScores, setUserScores] = useState([]);
   const [showAboutMeModal, setShowAboutMeModal] = useState(false);
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [aboutMeUpdate, setAboutMeUpdate] = useState("");
+
+  const navigate = useNavigate();
+
+  const { user, setUser, url, token } = useContext(AppContext);
+  const { username } = useParams();
 
   const getUserData = async () => {
     return await fetch(`${url}/users/${username}`, {
@@ -90,8 +92,8 @@ const ProfilePage = () => {
         ? user.publicData.anon_username
         : user.publicData.username,
       userSecret: user.publicData.username,
-      projectID: process.env.REACT_APP_PROJ_KEY
-    }
+      projectID: process.env.REACT_APP_PROJ_KEY,
+    };
     getOrCreateChat(
       userChat,
       {
@@ -123,7 +125,6 @@ const ProfilePage = () => {
     const { full_name, email, phone, branch, status, age_group } =
       document.forms[1];
 
-
     await fetch(`${url}/users/${userData.publicData.username}`, {
       method: "PATCH",
       credentials: "include",
@@ -137,7 +138,7 @@ const ProfilePage = () => {
         phone_number: phone.value,
         branch: branch.value,
         current_status: status.value,
-        age_group:age_group.value,
+        age_group: age_group.value,
       }),
     });
     const data = await getUserData();
@@ -307,7 +308,6 @@ const createProfessionalProfilePage = (
   user,
   handleSwitch,
   setShowModal,
-  userScores,
   handleNewChat,
   setShowInfoModal
 ) => {
@@ -367,6 +367,18 @@ const createProfessionalProfilePage = (
             <Card className="m-4">
               <Card.Body>
                 <Row>
+                  <div className="d-flex justify-content-between mb-2">
+                    <Card.Title>User Info</Card.Title>
+                    {userData.publicData.username ===
+                      user.publicData.username ? (
+                        <Card.Link
+                          className="clickable"
+                          onClick={() => setShowInfoModal(true)}
+                        >
+                          Edit
+                        </Card.Link>
+                      ) : null}
+                  </div>
                   <Col sm={3}>
                     <Card.Text>Full Name</Card.Text>
                   </Col>
@@ -461,12 +473,15 @@ const createProfessionalProfilePage = (
                   <Card.Body>
                     <div className="d-flex justify-content-between mb-2">
                       <Card.Title>About Me</Card.Title>
-                      <Card.Link
-                        className="clickable"
-                        onClick={() => setShowModal(true)}
-                      >
-                        Edit
-                      </Card.Link>
+                      {userData.publicData.username ===
+                      user.publicData.username ? (
+                        <Card.Link
+                          className="clickable"
+                          onClick={() => setShowModal(true)}
+                        >
+                          Edit
+                        </Card.Link>
+                      ) : null}
                     </div>
                     <Card.Text>
                       {userData.is_anonymous
@@ -584,12 +599,15 @@ const createRegularProfilePage = (
                 <Row>
                   <div className="d-flex justify-content-between mb-2">
                     <Card.Title>User Info</Card.Title>
-                    <Card.Link
-                      className="clickable"
-                      onClick={() => setShowInfoModal(true)}
-                    >
-                      Edit
-                    </Card.Link>
+                    {userData.publicData.username ===
+                      user.publicData.username ? (
+                        <Card.Link
+                          className="clickable"
+                          onClick={() => setShowInfoModal(true)}
+                        >
+                          Edit
+                        </Card.Link>
+                      ) : null}
                   </div>
                   <Col sm={3}>
                     <Card.Text>Full Name</Card.Text>

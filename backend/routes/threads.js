@@ -70,7 +70,7 @@ router.delete('/id/:id', authenticateToken, async (req, res) => {
 router.patch('/id/:id', authenticateToken,  async (req, res) => {
   const thread = await getThread(req.params.id);
 
-  if(thread.thread_author === req.username || req.roles.includes('Admin')){
+  if(thread[0].username === req.username || req.roles.includes('Admin')){
     const updatedPost = await editThreadText(req.params.id, req.body.thread_content, req.body.thread_title);
     return res.send(updatedPost);
   }
